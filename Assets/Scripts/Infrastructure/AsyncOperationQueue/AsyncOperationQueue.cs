@@ -7,10 +7,11 @@ namespace Infrastructure
 {
     public class AsyncOperationQueue: IDisposable
     {
-        private readonly Queue<IAsyncOperation> _operations = new Queue<IAsyncOperation>();
-        public ReactiveProperty<float> Progress { get; } = new(0);
+        public IReactiveProperty<float> Progress => _progress;
+        private ReactiveProperty<float> _progress { get; } = new(0f);
 
-        private float _operationsCount;
+        private readonly Queue<IAsyncOperation> _operations = new();
+        private float _allOperationsCount;
         private bool _isProcessing;
 
         public void Add (IAsyncOperation operation)
@@ -29,8 +30,8 @@ namespace Infrastructure
                 throw new InvalidOperationException("AsyncOperationQueue is already processing.");
             }
             _isProcessing = true;
-            _operationsCount = _operations.Count;
-            Progress.SetValueAndForceNotify(0f);
+            _allOperationsCount = _operations.Count;
+            _progress.SetValueAndForceNotify(0f);
             while (_operations.Count > 0)
             {
                 var operation = _operations.Dequeue();
@@ -42,7 +43,8 @@ namespace Infrastructure
                 {
                     throw new Exception($"AsyncOperationQueue [{operation.GetType().Name}]: {ex}");
                 }
-                Progress.SetValueAndForceNotify(1f - _operations.Count / _operationsCount);
+                var progressValue = 1f - _operations.Count / _allOperationsCount;
+                _progress.SetValueAndForceNotify(progressValue);
             }
             _isProcessing = false;
         }
@@ -50,7 +52,7 @@ namespace Infrastructure
         public void Dispose()
         {
             _operations.Clear();
-            Progress.Dispose();
+            _progress.Dispose();
         }
     }
 }
