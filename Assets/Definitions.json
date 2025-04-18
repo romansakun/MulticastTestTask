@@ -1,0 +1,174 @@
+{
+  "Localizations": {
+    "Russian": {
+      "Levels": {
+        "1": "Ru_Level_1",
+        "2": "Ru_Level_2",
+        "3": "Ru_Level_3",
+        "4": "Ru_Level_4"
+      },
+      "LocalizationText": {
+        "START": "Старт!"
+      },
+      "Description": "Russian",
+      "Id": "Russian"
+    },
+    "English": {
+      "Levels": {},
+      "LocalizationText": {
+        "START": "Start!"
+      },
+      "Description": "English",
+      "Id": "English"
+    }
+  },
+  "Clusters": {
+    "Ru_VER": {
+      "Value": "ВЕР",
+      "Id": "Ru_VER"
+    },
+    "Ru_VA": {
+      "Value": "ВА",
+      "Id": "Ru_VA"
+    },
+    "Ru_KO": {
+      "Value": "КО",
+      "Id": "Ru_KO"
+    },
+    "Ru_KA": {
+      "Value": "КА",
+      "Id": "Ru_KA"
+    },
+    "Ru_SHOK": {
+      "Value": "ШОК",
+      "Id": "Ru_SHOK"
+    },
+    "Ru_RO": {
+      "Value": "РО",
+      "Id": "Ru_RO"
+    },
+    "Ru_RAN": {
+      "Value": "РАН",
+      "Id": "Ru_RAN"
+    },
+    "Ru_TYE": {
+      "Value": "ТЬЕ",
+      "Id": "Ru_TYE"
+    },
+    "Ru_ZU": {
+      "Value": "ЗУ",
+      "Id": "Ru_ZU"
+    },
+    "Ru_POR": {
+      "Value": "ПОР",
+      "Id": "Ru_POR"
+    },
+    "Ru_PLA": {
+      "Value": "ПЛА",
+      "Id": "Ru_PLA"
+    },
+    "Ru_SO": {
+      "Value": "СО",
+      "Id": "Ru_SO"
+    },
+    "Ru_BA": {
+      "Value": "БА",
+      "Id": "Ru_BA"
+    }
+  },
+  "Levels": {
+    "Ru_Level_3": {
+      "WordsAndClusters": {
+        "ВЕРШОК": [
+          "Ru_VER",
+          "Ru_SHOK"
+        ],
+        "ПЛАТЬЕ": [
+          "Ru_PLA",
+          "Ru_TYE"
+        ],
+        "БАЗУКА": [
+          "Ru_BA",
+          "Ru_ZU",
+          "Ru_KA"
+        ],
+        "КОРОВА": [
+          "Ru_KO",
+          "Ru_RO",
+          "Ru_VA"
+        ]
+      },
+      "Id": "Ru_Level_3"
+    },
+    "Ru_Level_1": {
+      "WordsAndClusters": {
+        "СОБАКА": [
+          "Ru_SO",
+          "Ru_BA",
+          "Ru_KA"
+        ],
+        "ПЛАТЬЕ": [
+          "Ru_PLA",
+          "Ru_TYE"
+        ],
+        "БАЗУКА": [
+          "Ru_BA",
+          "Ru_ZU",
+          "Ru_KA"
+        ],
+        "КОРОВА": [
+          "Ru_KO",
+          "Ru_RO",
+          "Ru_VA"
+        ]
+      },
+      "Id": "Ru_Level_1"
+    },
+    "Ru_Level_4": {
+      "WordsAndClusters": {
+        "ВЕРШОК": [
+          "Ru_VER",
+          "Ru_SHOK"
+        ],
+        "ПЛАТЬЕ": [
+          "Ru_PLA",
+          "Ru_TYE"
+        ],
+        "БАЗУКА": [
+          "Ru_BA",
+          "Ru_ZU",
+          "Ru_KA"
+        ],
+        "КОРОВА": [
+          "Ru_KO",
+          "Ru_RO",
+          "Ru_VA"
+        ]
+      },
+      "Id": "Ru_Level_4"
+    },
+    "Ru_Level_2": {
+      "WordsAndClusters": {
+        "ВЕРШОК": [
+          "Ru_VER",
+          "Ru_SHOK"
+        ],
+        "ПЛАТЬЕ": [
+          "Ru_PLA",
+          "Ru_TYE"
+        ],
+        "БАЗУКА": [
+          "Ru_BA",
+          "Ru_ZU",
+          "Ru_KA"
+        ],
+        "КОРОВА": [
+          "Ru_KO",
+          "Ru_RO",
+          "Ru_VA"
+        ]
+      },
+      "Id": "Ru_Level_2"
+    }
+  }
+}

@@ -22,6 +22,7 @@ namespace GameLogic.UI.GameAppLoader
         public override void Initialize()
         {
             AddToLoadingQueue<UnityRemoteConfigLoader>();
+            AddToLoadingQueue<BindingClusterPoolLoader>();
             AddToLoadingQueue<LastLoader>();
 
             ProcessLoadingQueue();

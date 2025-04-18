@@ -1,0 +1,14 @@
+{
+    "Description": "Russian",
+    "Levels": 
+    {
+        "1": "Ru_Level_1",
+        "2": "Ru_Level_2",
+        "3": "Ru_Level_3",
+        "4": "Ru_Level_4"
+    },
+    "LocalizationText": 
+    {
+        "START": "Старт!"
+    }
+}

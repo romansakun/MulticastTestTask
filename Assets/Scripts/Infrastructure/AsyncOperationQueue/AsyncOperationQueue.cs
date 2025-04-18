@@ -41,7 +41,7 @@ namespace Infrastructure
                 }
                 catch (Exception ex) 
                 {
-                    throw new Exception($"AsyncOperationQueue [{operation.GetType().Name}]: {ex}");
+                    throw new Exception($"AsyncOperationQueue [{operation.GetType().Name}]:\n{ex}");
                 }
                 var progressValue = 1f - _operations.Count / _allOperationsCount;
                 _progress.SetValueAndForceNotify(progressValue);

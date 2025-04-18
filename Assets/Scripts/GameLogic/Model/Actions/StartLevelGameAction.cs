@@ -7,7 +7,8 @@ namespace GameLogic.Model.Actions
     {
         public UniTask ExecuteAsync()
         {
-            throw new System.NotImplementedException("FUCK OFF");
+            //throw new System.NotImplementedException("FUCK OFF");
+            return UniTask.CompletedTask;
         }
 
         public IValidator GetValidator()
@@ -21,7 +22,7 @@ namespace GameLogic.Model.Actions
             {
                 
             }
-            
+
             public bool Check()
             {
                 return true;

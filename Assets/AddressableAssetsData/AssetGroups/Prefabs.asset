@@ -10,13 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: ViewPrefabs
+  m_Name: Prefabs
   m_EditorClassIdentifier: 
-  m_GroupName: ViewPrefabs
+  m_GroupName: Prefabs
   m_Data:
     m_SerializedData: []
   m_GUID: 7dc8e4808f707a144b59c223e262a34b
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: ac91777b07ad98a499e1d73e75054479
+    m_Address: Cluster
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20fdb325f065fc9468a537d0def07e69
+    m_Address: GameplayView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e31acbd790e5f0047b619e21668e0e15, type: 2}
   m_SchemaSet:

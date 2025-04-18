@@ -35,10 +35,7 @@ namespace Infrastructure
         public async UniTask<T> LoadPrefabAsync<T> (string name = null) where T : MonoBehaviour
         {
             var prefabName = name ?? typeof(T).Name;
-            var gameObject = await GetOrLoadAsync<T>(prefabName);
-            if (typeof(T) == typeof(GameObject))
-                return gameObject;
-
+            var gameObject = await GetOrLoadAsync<GameObject>(prefabName);
             var component = gameObject.GetComponent<T>();
             if (component == null)
                 throw new ArgumentException($"Unable to load prefab from {prefabName}. It don't contains {typeof(T)}");

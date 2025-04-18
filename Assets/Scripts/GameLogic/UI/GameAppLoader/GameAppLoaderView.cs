@@ -25,10 +25,16 @@ namespace GameLogic.UI.GameAppLoader
         public override UniTask Initialize(ViewModel viewModel)
         {
             UpdateViewModel(ref _viewModel, viewModel);
-
-            _viewModel.ProgressText.SubscribeToText(_loadingText);
-
             return UniTask.CompletedTask;
+        }
+
+        protected override void Subscribes()
+        {
+            _viewModel.ProgressText.SubscribeToText(_loadingText);
+        }
+
+        protected override void Unsubscribes()
+        {
         }
     }
 }

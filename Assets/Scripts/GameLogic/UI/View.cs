@@ -25,7 +25,12 @@ namespace GameLogic.UI
             oldViewModel?.Dispose();
             oldViewModel = (T) newViewModel;
             _viewModelInternal = newViewModel;
+
+            Subscribes();
         }
+
+        protected abstract void Subscribes();
+        protected abstract void Unsubscribes();
 
         [ContextMenu("Close")]
         public void Close()
@@ -33,8 +38,10 @@ namespace GameLogic.UI
             _viewManager.Close(this);
         }
 
-        protected virtual void OnDestroy()
+        private void OnDestroy()
         {
+            Unsubscribes();
+
             _viewModelInternal?.Dispose();
         }
     }

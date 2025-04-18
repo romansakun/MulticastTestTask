@@ -7,7 +7,7 @@ namespace GameLogic.Model.Definitions
     public class LocalizationDef : BaseDef 
     {
         public string Description { get; set; }
-        public Dictionary<int, string> Levels { get; set; }
-        public Dictionary<string, string> LocalizationText { get; set; } = new Dictionary<string, string>();
+        public Dictionary<int, string> Levels = new(); 
+        public Dictionary<string, string> LocalizationText = new();
     }
 }
