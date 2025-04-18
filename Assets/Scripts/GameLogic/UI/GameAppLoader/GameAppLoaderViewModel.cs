@@ -14,7 +14,7 @@ namespace GameLogic.UI.GameAppLoader
 
         private readonly AsyncOperationQueue _loadingQueue = new();
         public IReactiveProperty<string> ProgressText => _progressText;
-        private ReactiveProperty<string> _progressText = new ReactiveProperty<string>();
+        private ReactiveProperty<string> _progressText = new();
 
         private float _showingProgress;
         private Tween _animation;
@@ -22,6 +22,8 @@ namespace GameLogic.UI.GameAppLoader
         public override void Initialize()
         {
             AddToLoadingQueue<UnityRemoteConfigLoader>();
+            AddToLoadingQueue<LastLoader>();
+
             ProcessLoadingQueue();
         }
 
@@ -40,6 +42,8 @@ namespace GameLogic.UI.GameAppLoader
                 await UniTask.Yield();
             }
             _viewManager.Close<GameAppLoaderView>();
+            
+            
         }
 
         private void OnProgressChanged(float progressValue)

@@ -1,10 +1,14 @@
 {
-    "name": "Zenject-TestFramework",
+    "name": "GameLogicTests",
     "rootNamespace": "",
     "references": [
-        "Zenject",
         "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner"
+        "UnityEditor.TestRunner",
+        "GameLogic",
+        "Infrastructure",
+        "Zenject",
+        "Zenject-TestFramework",
+        "UniRx"
     ],
     "includePlatforms": [
         "Editor"
