@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,11 @@ namespace GameLogic.UI.Gameplay
         public void SetPosition(Vector2 position)
         {
             _rectTransform.anchoredPosition = position;
+        }
+
+        public void SetParent(Transform parent)
+        {
+            _rectTransform.SetParent(parent, false);
         }
 
         public void OnSpawned(IMemoryPool memoryPool)

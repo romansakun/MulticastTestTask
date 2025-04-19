@@ -1,9 +1,0 @@
-{
-    "WordsAndClusters":
-    {
-        "ВЕРШОК" : ["Ru_VER", "Ru_SHOK"],
-        "ПЛАТЬЕ" : ["Ru_PLA", "Ru_TYE"],
-        "БАЗУКА" : ["Ru_BA", "Ru_ZU", "Ru_KA"],
-        "КОРОВА" : ["Ru_KO", "Ru_RO", "Ru_VA"]
-    }
-}

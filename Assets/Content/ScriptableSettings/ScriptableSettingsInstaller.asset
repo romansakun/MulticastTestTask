@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6b49df7d9c4ec780189c90e9ba1f89, type: 3}
+  m_Name: ScriptableSettingsInstaller
+  m_EditorClassIdentifier: 
+  _localGameDefsTextAsset: {fileID: 4900000, guid: 51e17174235aac24592df49227a823f8, type: 3}
+  _soundsSettings:
+    DropClusterSound: {fileID: 0}
+    SelectClusterSound: {fileID: 0}
+    WrongAnswerSound: {fileID: 0}
+    SuccessSound: {fileID: 0}
+    BackgroundMusic: {fileID: 0}
+  _colorsSettings:
+    DefaultClusterTextColor: {r: 0, g: 0, b: 0, a: 0}
+    DefaultClusterBackColor: {r: 0, g: 0, b: 0, a: 0}
+    SelectedClusterTextColor: {r: 0, g: 0, b: 0, a: 0}
+    SelectedClusterBackColor: {r: 0, g: 0, b: 0, a: 0}
+    GhostClusterTextColor: {r: 0, g: 0, b: 0, a: 0}
+    GhostClusterBackColor: {r: 0, g: 0, b: 0, a: 0}

@@ -1,14 +1,20 @@
 using Cysharp.Threading.Tasks;
+using GameLogic.Model.Definitions;
+using GameLogic.Model.Proxy;
 using Infrastructure;
+using Newtonsoft.Json.Linq;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.RemoteConfig;
 using UnityEngine;
+using Zenject;
 
 namespace GameLogic.Bootstrapper
 {
-    public class UnityRemoteConfigLoader : IAsyncOperation 
+    public class UnityRemoteConfigLoader : IAsyncOperation
     {
+        [Inject] private GameDefsProxy _gameDefs;
+
         private struct UserAttributes {}
         private struct AppAttributes {}
 
@@ -19,35 +25,33 @@ namespace GameLogic.Bootstrapper
             {
                 await InitializeRemoteConfigAsync();
             }
-            //RemoteConfigService.Instance.FetchCompleted += ApplyRemoteSettings;
             var runtimeConfig = await RemoteConfigService.Instance.FetchConfigsAsync(new UserAttributes(), new AppAttributes());
-            ApplyRemoteSettings(runtimeConfig);
+            if (runtimeConfig.config.TryGetValue(nameof(GameDefs), out var gameDefs) && TryApplyRemoteSettings(gameDefs))
+            {
+                Debug.Log("Remote config loaded successfully");
+            }
         }
 
         private async UniTask InitializeRemoteConfigAsync()
         {
-            // initialize handlers for unity game services
             await UnityServices.InitializeAsync();
-
-            // remote config requires authentication for managing environment information
             if (!AuthenticationService.Instance.IsSignedIn)
             {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
             }
         }
 
-        void ApplyRemoteSettings(RuntimeConfig runtimeConfig)
+        private bool TryApplyRemoteSettings(JToken gameDefsToken)
         {
-            runtimeConfig.config.TryGetValue("Definitions", out var definintions);
-            if (definintions == null)
+            var gameDefs = Newtonsoft.Json.JsonConvert.DeserializeObject<GameDefs>(gameDefsToken.ToString());
+            if (gameDefs == null)
             {
-                Debug.Log("Definitions not found in remote config");
-                return;
+                Debug.LogError("Failed to deserialize remote config");
+                return false;
             }
-            
-            Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
-            Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + runtimeConfig.config.ToString());
+
+            _gameDefs.SetGameDefs(gameDefs);
+            return true;
         }
     }
-
 }

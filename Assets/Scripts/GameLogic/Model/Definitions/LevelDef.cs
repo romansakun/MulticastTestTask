@@ -6,6 +6,6 @@ namespace GameLogic.Model.Definitions
     [Serializable]
     public class LevelDef: BaseDef
     {
-        public Dictionary<string, List<string>> WordsAndClusters = new();
+        public Dictionary<string, List<int>> Words = new();
     }
 }

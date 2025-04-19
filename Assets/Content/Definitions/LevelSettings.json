@@ -1,0 +1,5 @@
+{
+    "WordsRange" : { "Min" : 4, "Max" : 4 },
+    "WordLengthsRange" : { "Min" : 6, "Max" : 6 },
+    "ClusterLengthsRange" : { "Min" : 2, "Max" : 4 }
+}

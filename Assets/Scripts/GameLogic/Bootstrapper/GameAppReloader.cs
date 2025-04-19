@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 using GameLogic.UI;
-using Infrastructure;
+using Infrastructure.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;

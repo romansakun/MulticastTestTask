@@ -1,7 +1,6 @@
 using Factories;
-using GameLogic.Model.Repositories;
+using GameLogic.Model.Proxy;
 using GameLogic.UI;
-using Infrastructure;
 using Infrastructure.GameActions;
 using Infrastructure.Services;
 using Zenject;
@@ -22,7 +21,8 @@ namespace GameLogic.Bootstrapper
             Container.Bind<GameActionFactory>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<ViewManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<UserContextRepository>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LocalizationProxy>().AsSingle();
+            Container.BindInterfacesAndSelfTo<UserContextProxy>().AsSingle();
         }
     }
 }

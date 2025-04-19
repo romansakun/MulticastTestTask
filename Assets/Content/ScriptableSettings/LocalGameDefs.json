@@ -1,0 +1,61 @@
+{
+  "Localizations": {
+    "Russian": {
+      "Levels": {
+        "1": "Ru_1"
+      },
+      "LocalizationText": {
+        "START": "Старт!"
+      },
+      "Description": "Russian",
+      "Id": "Russian"
+    },
+    "English": {
+      "Levels": {},
+      "LocalizationText": {
+        "START": "Start!"
+      },
+      "Description": "English",
+      "Id": "English"
+    }
+  },
+  "Levels": {
+    "Ru_1": {
+      "Words": {
+        "СОБАКА": [
+          2,
+          2,
+          2
+        ],
+        "ПЛАТЬЕ": [
+          3,
+          3
+        ],
+        "БАЗУКА": [
+          4,
+          2
+        ],
+        "КОРОВА": [
+          2,
+          4
+        ]
+      },
+      "Id": "Ru_1"
+    }
+  },
+  "LevelSettings": {
+    "WordsRange": {
+      "Min": 4,
+      "Max": 4
+    },
+    "WordLengthsRange": {
+      "Min": 6,
+      "Max": 6
+    },
+    "ClusterLengthsRange": {
+      "Min": 2,
+      "Max": 4
+    },
+    "Id": "LevelSettings"
+  }
+}

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Infrastructure;
+using Infrastructure.Services;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;

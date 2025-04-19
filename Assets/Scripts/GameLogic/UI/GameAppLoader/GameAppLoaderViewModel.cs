@@ -1,8 +1,10 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using GameLogic.Bootstrapper;
+using GameLogic.Model.Proxy;
 using Infrastructure;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace GameLogic.UI.GameAppLoader
@@ -43,8 +45,6 @@ namespace GameLogic.UI.GameAppLoader
                 await UniTask.Yield();
             }
             _viewManager.Close<GameAppLoaderView>();
-            
-            
         }
 
         private void OnProgressChanged(float progressValue)
