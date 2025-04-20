@@ -1,4 +1,3 @@
-using System;
 using GameLogic.UI;
 using Zenject;
 
@@ -8,9 +7,9 @@ namespace Factories
     {
         [Inject] private DiContainer _diContainer;
 
-        public T Create<T>() where T : ViewModel
+        public T Create<T>(params object[] extraArgs) where T : ViewModel
         {
-            var viewModel = _diContainer.Instantiate<T>(Array.Empty<object>());
+            var viewModel = _diContainer.Instantiate<T>(extraArgs);
             viewModel.Initialize();
             return viewModel;
         }

@@ -1,5 +1,4 @@
 using Factories;
-using GameLogic.Model.Proxy;
 using GameLogic.UI;
 using Infrastructure.GameActions;
 using Infrastructure.Services;
@@ -11,18 +10,17 @@ namespace GameLogic.Bootstrapper
     {
         public override void InstallBindings()
         {
-            Container.Bind<IFileService>().FromInstance(new FileService()).AsSingle();
+            Container.Bind<IFileService>().To<FileService>().AsSingle();
             Container.Bind<GameAppReloader>().AsSingle();
-            Container.Bind<GameActionExecutor>().AsSingle();
-            Container.Bind<AssetLoader>().AsSingle();
 
             Container.Bind<LogicBuilderFactory>().AsSingle();
-            Container.Bind<ViewModelFactory>().AsSingle();
             Container.Bind<GameActionFactory>().AsSingle();
+            Container.Bind<ViewModelFactory>().AsSingle();
 
+            Container.BindInterfacesAndSelfTo<AssetLoader>().AsSingle();
             Container.BindInterfacesAndSelfTo<ViewManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<LocalizationProxy>().AsSingle();
-            Container.BindInterfacesAndSelfTo<UserContextProxy>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameActionExecutor>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameAppLoader>().AsSingle();
         }
     }
 }

@@ -12,25 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"d54924a0-3fa9-457c-a237-3756f493e4d0\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"30ee2732-3dfc-4f49-8983-a355e83db007\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
-    \"Ru_Level_1\",\r\n              \"2\": \"Ru_Level_2\"\r\n            },\r\n           
-    \"LocalizationText\": {\r\n              \"START\": \"\u0421\u0442\u0430\u0440\u0442!\"\r\n           
-    },\r\n            \"Description\": \"Russian\",\r\n            \"Id\": \"Russian\"\r\n         
+    \"Ru_1\",\r\n              \"2\": \"Ru_2\",\r\n              \"3\": \"Ru_3\",\r\n             
+    \"4\": \"Ru_4\"\r\n            },\r\n            \"LocalizationText\": {\r\n             
+    \"START\": \"\u0421\u0442\u0430\u0440\u0442!\"\r\n            },\r\n           
+    \"Description\": \"Russian\",\r\n            \"Id\": \"Russian\"\r\n         
     },\r\n          \"English\": {\r\n            \"Levels\": {},\r\n           
     \"LocalizationText\": {\r\n              \"START\": \"Start!\"\r\n           
     },\r\n            \"Description\": \"English\",\r\n            \"Id\": \"English\"\r\n         
-    }\r\n        },\r\n        \"Levels\": {\r\n          \"Ru_Level_1\": {\r\n           
-    \"WordsClusters\": {\r\n              \"\u0421\u041E\u0411\u0410\u041A\u0410\":
+    }\r\n        },\r\n        \"Levels\": {\r\n          \"Ru_3\": {\r\n           
+    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
+    3,\r\n                3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\": [\r\n               
-    3,\r\n                3\r\n              ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\":
-    [\r\n                4,\r\n                2\r\n              ],\r\n             
+    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
     \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
-    4\r\n              ]\r\n            },\r\n            \"Id\": \"Ru_Level_1\"\r\n         
-    },\r\n          \"Ru_Level_2\": {\r\n            \"WordsClusters\": {\r\n             
+    2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
+    \"Ru_3\"\r\n          },\r\n          \"Ru_1\": {\r\n            \"Words\": {\r\n             
+    \"\u0421\u041E\u0411\u0410\u041A\u0410\": [\r\n                2,\r\n               
+    2,\r\n                2\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    [\r\n                3,\r\n                3\r\n              ],\r\n             
+    \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n                4,\r\n               
+    2\r\n              ],\r\n              \"\u041A\u041E\u0420\u041E\u0412\u0410\":
+    [\r\n                2,\r\n                4\r\n              ]\r\n           
+    },\r\n            \"Id\": \"Ru_1\"\r\n          },\r\n          \"Ru_2\": {\r\n           
+    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
+    3,\r\n                3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
+    2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
+    \"Ru_2\"\r\n          },\r\n          \"Ru_4\": {\r\n            \"Words\": {\r\n             
     \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n                3,\r\n               
     3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
@@ -38,31 +54,49 @@ MonoBehaviour:
     2,\r\n                2,\r\n                2\r\n              ],\r\n             
     \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
     2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
-    \"Ru_Level_2\"\r\n          }\r\n        },\r\n        \"LevelSettings\": {\r\n         
-    \"WordsRange\": {\r\n            \"Min\": 4,\r\n            \"Max\": 4\r\n         
-    },\r\n          \"WordLengthsRange\": {\r\n            \"Min\": 6,\r\n           
-    \"Max\": 6\r\n          },\r\n          \"ClusterLengthsRange\": {\r\n           
-    \"Min\": 2,\r\n            \"Max\": 4\r\n          },\r\n          \"Id\": \"LevelSettings\"\r\n       
-    }\r\n      }\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"d54924a0-3fa9-457c-a237-3756f493e4d0\"\r\n   
+    \"Ru_4\"\r\n          }\r\n        },\r\n        \"DefaultSettings\": {\r\n         
+    \"LocalizationDefId\": \"Russian\",\r\n          \"Id\": \"DefaultSettings\"\r\n       
+    },\r\n        \"LevelSettings\": {\r\n          \"WordsRange\": {\r\n           
+    \"Min\": 4,\r\n            \"Max\": 4\r\n          },\r\n          \"WordLengthsRange\":
+    {\r\n            \"Min\": 6,\r\n            \"Max\": 6\r\n          },\r\n         
+    \"ClusterLengthsRange\": {\r\n            \"Min\": 2,\r\n            \"Max\":
+    4\r\n          },\r\n          \"Id\": \"LevelSettings\"\r\n        }\r\n     
+    }\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"30ee2732-3dfc-4f49-8983-a355e83db007\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
-    \"Ru_Level_1\",\r\n              \"2\": \"Ru_Level_2\"\r\n            },\r\n           
-    \"LocalizationText\": {\r\n              \"START\": \"\u0421\u0442\u0430\u0440\u0442!\"\r\n           
-    },\r\n            \"Description\": \"Russian\",\r\n            \"Id\": \"Russian\"\r\n         
+    \"Ru_1\",\r\n              \"2\": \"Ru_2\",\r\n              \"3\": \"Ru_3\",\r\n             
+    \"4\": \"Ru_4\"\r\n            },\r\n            \"LocalizationText\": {\r\n             
+    \"START\": \"\u0421\u0442\u0430\u0440\u0442!\"\r\n            },\r\n           
+    \"Description\": \"Russian\",\r\n            \"Id\": \"Russian\"\r\n         
     },\r\n          \"English\": {\r\n            \"Levels\": {},\r\n           
     \"LocalizationText\": {\r\n              \"START\": \"Start!\"\r\n           
     },\r\n            \"Description\": \"English\",\r\n            \"Id\": \"English\"\r\n         
-    }\r\n        },\r\n        \"Levels\": {\r\n          \"Ru_Level_1\": {\r\n           
-    \"WordsClusters\": {\r\n              \"\u0421\u041E\u0411\u0410\u041A\u0410\":
+    }\r\n        },\r\n        \"Levels\": {\r\n          \"Ru_3\": {\r\n           
+    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
+    3,\r\n                3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\": [\r\n               
-    3,\r\n                3\r\n              ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\":
-    [\r\n                4,\r\n                2\r\n              ],\r\n             
+    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
     \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
-    4\r\n              ]\r\n            },\r\n            \"Id\": \"Ru_Level_1\"\r\n         
-    },\r\n          \"Ru_Level_2\": {\r\n            \"WordsClusters\": {\r\n             
+    2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
+    \"Ru_3\"\r\n          },\r\n          \"Ru_1\": {\r\n            \"Words\": {\r\n             
+    \"\u0421\u041E\u0411\u0410\u041A\u0410\": [\r\n                2,\r\n               
+    2,\r\n                2\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    [\r\n                3,\r\n                3\r\n              ],\r\n             
+    \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n                4,\r\n               
+    2\r\n              ],\r\n              \"\u041A\u041E\u0420\u041E\u0412\u0410\":
+    [\r\n                2,\r\n                4\r\n              ]\r\n           
+    },\r\n            \"Id\": \"Ru_1\"\r\n          },\r\n          \"Ru_2\": {\r\n           
+    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
+    3,\r\n                3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
+    2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
+    \"Ru_2\"\r\n          },\r\n          \"Ru_4\": {\r\n            \"Words\": {\r\n             
     \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n                3,\r\n               
     3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
@@ -70,12 +104,14 @@ MonoBehaviour:
     2,\r\n                2,\r\n                2\r\n              ],\r\n             
     \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
     2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
-    \"Ru_Level_2\"\r\n          }\r\n        },\r\n        \"LevelSettings\": {\r\n         
-    \"WordsRange\": {\r\n            \"Min\": 4,\r\n            \"Max\": 4\r\n         
-    },\r\n          \"WordLengthsRange\": {\r\n            \"Min\": 6,\r\n           
-    \"Max\": 6\r\n          },\r\n          \"ClusterLengthsRange\": {\r\n           
-    \"Min\": 2,\r\n            \"Max\": 4\r\n          },\r\n          \"Id\": \"LevelSettings\"\r\n       
-    }\r\n      }\r\n    }\r\n  }\r\n]"
+    \"Ru_4\"\r\n          }\r\n        },\r\n        \"DefaultSettings\": {\r\n         
+    \"LocalizationDefId\": \"Russian\",\r\n          \"Id\": \"DefaultSettings\"\r\n       
+    },\r\n        \"LevelSettings\": {\r\n          \"WordsRange\": {\r\n           
+    \"Min\": 4,\r\n            \"Max\": 4\r\n          },\r\n          \"WordLengthsRange\":
+    {\r\n            \"Min\": 6,\r\n            \"Max\": 6\r\n          },\r\n         
+    \"ClusterLengthsRange\": {\r\n            \"Min\": 2,\r\n            \"Max\":
+    4\r\n          },\r\n          \"Id\": \"LevelSettings\"\r\n        }\r\n     
+    }\r\n    }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"aa7f0d69-59a9-454e-bd36-7b619964c4a3\",\r\n   
     \"name\": \"production\",\r\n    \"id\": \"7a820b21-b71e-41e8-b6a7-444bb639c6db\",\r\n   
     \"isDefault\": true,\r\n    \"createdAt\": \"2025-04-16T15:41:49Z\",\r\n    \"updatedAt\":

@@ -1,6 +1,6 @@
 using System;
+using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
-using GameLogic.Model.Proxy;
 using UnityEngine;
 using Zenject;
 
@@ -16,8 +16,8 @@ namespace GameLogic.Bootstrapper
         public override void InstallBindings()
         {
             var localGameDefs = Newtonsoft.Json.JsonConvert.DeserializeObject<GameDefs>(_localGameDefsTextAsset.text);
-            var gameDefsProxy = new GameDefsProxy().SetGameDefs(localGameDefs);
-            Container.Bind<GameDefsProxy>().FromInstance(gameDefsProxy).AsSingle();
+            var gameDefsProxy = new GameDefsDataProvider().SetGameDefs(localGameDefs);
+            Container.Bind<GameDefsDataProvider>().FromInstance(gameDefsProxy).AsSingle();
             Container.Bind<SoundsSettings>().FromInstance(_soundsSettings).AsSingle();
             Container.Bind<ColorsSettings>().FromInstance(_colorsSettings).AsSingle();
         }

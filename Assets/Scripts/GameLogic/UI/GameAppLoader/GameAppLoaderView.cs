@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Factories;
 using TMPro;
-using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -18,8 +17,7 @@ namespace GameLogic.UI.GameAppLoader
 
         public async void Start()
         {
-            var viewModel = _viewModelFactory.Create<GameAppLoaderViewModel>();
-            await _viewManager.AddView(this, viewModel);
+            await _viewManager.AddView(this, (GameAppLoaderViewModel)null);
         }
 
         public override UniTask Initialize(ViewModel viewModel)
@@ -30,11 +28,17 @@ namespace GameLogic.UI.GameAppLoader
 
         protected override void Subscribes()
         {
-            _viewModel.ProgressText.SubscribeToText(_loadingText);
+            _viewModel.ProgressText.Subscribe(OnLoadingTextChanged);
         }
 
         protected override void Unsubscribes()
         {
+            _viewModel.ProgressText.Unsubscribe(OnLoadingTextChanged);
+        }
+
+        private void OnLoadingTextChanged(string text)
+        {
+            _loadingText.text = text;
         }
     }
 }

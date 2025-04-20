@@ -1,3 +1,4 @@
+using GameLogic.Model.DataProviders;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
@@ -7,10 +8,13 @@ namespace GameLogic.UI.Gameplay
     public class GameplayViewModel : ViewModel 
     {
         [Inject] private Cluster.Pool _clusterPool;
+        [Inject] private GuessWord.Pool _guessWordPool;
+        [Inject] private UserContextDataProvider _userContext;
+
+        private RectTransform _distributedClustersHolder;
+        private RectTransform _guessWordsHolder;
         
-        
-        
-        
+
         public override void Initialize()
         {
             var cluster = _clusterPool.Spawn(_clusterPool);
@@ -22,9 +26,10 @@ namespace GameLogic.UI.Gameplay
             base.Dispose();
         }
 
-        public void LoadClusters(RectTransform undistributedClustersHolder, RectTransform wordsHolder)
+        public void SetHolders(RectTransform undistributedClustersHolder, RectTransform wordsHolder)
         {
-            //throw new System.NotImplementedException();
+            _distributedClustersHolder = undistributedClustersHolder;
+            _guessWordsHolder = wordsHolder;
         }
         
         
@@ -76,5 +81,13 @@ namespace GameLogic.UI.Gameplay
         //     return false;
         // }
 
+        public void OnCheckWordsButtonClicked()
+        {
+            var guessWord = _guessWordPool.Spawn(_guessWordPool);
+            guessWord.SetParent(_guessWordsHolder);
+            guessWord.AddDummyToSuitablePosition(Vector2.zero);
+            guessWord.AddDummyToSuitablePosition(Vector2.zero);
+            guessWord.AddDummyToSuitablePosition(Vector2.zero);
+        }
     }
 }

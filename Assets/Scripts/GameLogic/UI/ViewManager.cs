@@ -18,6 +18,9 @@ namespace GameLogic.UI
         private List<View> _instancedViews;
         private RectTransform _canvasRectTransform;
 
+        public IReactiveProperty<View> CurrentView => _currentView;
+        private readonly ReactiveProperty<View> _currentView = new(null);
+
         public void Initialize()
         {
             _instancedViews = new List<View>();
@@ -26,8 +29,12 @@ namespace GameLogic.UI
 
         public async UniTask AddView<V, VM>(V view, VM viewModel) where V : View where VM : ViewModel
         {
-            await view.Initialize(viewModel);
+            if (viewModel != null)
+            {
+                await view.Initialize(viewModel);
+            }
             _instancedViews.Add(view);
+            _currentView.SetValueAndForceNotify(view);
         }
 
         public async UniTask<V> ShowAsync<V, VM> (VM viewModel) where V : View where VM : ViewModel
@@ -38,6 +45,7 @@ namespace GameLogic.UI
             PrepareToShow(view);
             await view.Initialize(viewModel);
             _instancedViews.Add(view);
+            _currentView.SetValueAndForceNotify(view);
             return view;
         }
 
@@ -128,6 +136,7 @@ namespace GameLogic.UI
         public void Dispose()
         {
             CloseAll();
+            _currentView.Dispose();
         }
 
     }

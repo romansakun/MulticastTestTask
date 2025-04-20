@@ -1,14 +1,13 @@
 using System;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
-using UniRx;
 
 namespace Infrastructure 
 {
     public class AsyncOperationQueue: IDisposable
     {
         public IReactiveProperty<float> Progress => _progress;
-        private ReactiveProperty<float> _progress { get; } = new(0f);
+        private readonly ReactiveProperty<float> _progress = new(0f);
 
         private readonly Queue<IAsyncOperation> _operations = new();
         private float _allOperationsCount;

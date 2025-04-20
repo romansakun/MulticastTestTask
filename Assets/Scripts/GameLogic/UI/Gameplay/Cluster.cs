@@ -1,5 +1,4 @@
 using System;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,8 +11,6 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private Image _backImage;
         [SerializeField] private TextMeshProUGUI _valueText;
         [SerializeField] private RectTransform _rectTransform;
-        [SerializeField] private RectTransform _leftPointTransform;
-        [SerializeField] private RectTransform _rightPointTransform;
 
         private IMemoryPool _memoryPool;
 

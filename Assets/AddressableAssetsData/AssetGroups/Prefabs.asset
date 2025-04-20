@@ -27,6 +27,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f268bdbc3a44294484cb8eb0826c73d
+    m_Address: GuessWord
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd6a162ebcccf644b866f426cc115b0a
+    m_Address: DummyCluster
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e31acbd790e5f0047b619e21668e0e15, type: 2}
   m_SchemaSet:

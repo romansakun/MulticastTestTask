@@ -7,7 +7,6 @@ namespace GameLogic.Model.Contexts
     public class UserContext 
     {
         public string LocalizationDefId { get; set; }
-        public Dictionary<string, int> LocalizationsCurrentLevels { get; set; } = new();
         public Dictionary<string, LevelProgressContext> LevelsProgress { get; set; } = new();
     }
 }

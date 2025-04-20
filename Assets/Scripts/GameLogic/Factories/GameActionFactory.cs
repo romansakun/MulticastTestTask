@@ -1,4 +1,3 @@
-using System;
 using Infrastructure.GameActions;
 using Zenject;
 
@@ -8,9 +7,9 @@ namespace Factories
     {
         [Inject] private DiContainer _diContainer;
 
-        public T Create<T>() where T : IGameAction
+        public T Create<T>(params object[] extraArgs) where T : IGameAction
         {
-            var gameAction = _diContainer.Instantiate<T>(Array.Empty<object>());
+            var gameAction = _diContainer.Instantiate<T>(extraArgs);
             return gameAction;
         }
     }

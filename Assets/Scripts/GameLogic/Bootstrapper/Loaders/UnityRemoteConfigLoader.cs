@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
+using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
-using GameLogic.Model.Proxy;
 using Infrastructure;
 using Newtonsoft.Json.Linq;
 using Unity.Services.Authentication;
@@ -13,7 +13,7 @@ namespace GameLogic.Bootstrapper
 {
     public class UnityRemoteConfigLoader : IAsyncOperation
     {
-        [Inject] private GameDefsProxy _gameDefs;
+        [Inject] private GameDefsDataProvider _gameDefs;
 
         private struct UserAttributes {}
         private struct AppAttributes {}
@@ -26,9 +26,9 @@ namespace GameLogic.Bootstrapper
                 await InitializeRemoteConfigAsync();
             }
             var runtimeConfig = await RemoteConfigService.Instance.FetchConfigsAsync(new UserAttributes(), new AppAttributes());
-            if (runtimeConfig.config.TryGetValue(nameof(GameDefs), out var gameDefs) && TryApplyRemoteSettings(gameDefs))
-            {
-                Debug.Log("Remote config loaded successfully");
+            if (runtimeConfig.config.TryGetValue(nameof(GameDefs), out var gameDefs))
+            { 
+                TryApplyRemoteSettings(gameDefs);
             }
         }
 
@@ -41,17 +41,18 @@ namespace GameLogic.Bootstrapper
             }
         }
 
-        private bool TryApplyRemoteSettings(JToken gameDefsToken)
+        private void TryApplyRemoteSettings(JToken gameDefsToken)
         {
             var gameDefs = Newtonsoft.Json.JsonConvert.DeserializeObject<GameDefs>(gameDefsToken.ToString());
             if (gameDefs == null)
             {
                 Debug.LogError("Failed to deserialize remote config");
-                return false;
+                return;
             }
 
             _gameDefs.SetGameDefs(gameDefs);
-            return true;
+            Debug.Log("Remote config loaded successfully");
         }
+
     }
 }

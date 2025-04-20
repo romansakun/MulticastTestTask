@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183ff9616fe74c19a50ff588584869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overrideSortingOrder: 999
+  _overrideSortingOrder: -1
   _loadingText: {fileID: 1421302560}
 --- !u!114 &1944762287
 MonoBehaviour:
@@ -775,14 +775,14 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

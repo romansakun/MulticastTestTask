@@ -6,8 +6,10 @@ namespace Infrastructure.GameActions
 {
     public class GameActionExecutor : IDisposable
     {
-        private readonly Queue<IGameAction> _gameActions = new();
+        public IReactiveProperty<IGameAction> JustPerformedGameAction => _justPerformedGameAction;
+        private readonly ReactiveProperty<IGameAction> _justPerformedGameAction = new();
 
+        private readonly Queue<IGameAction> _gameActions = new();
         private bool _isExecuting;
 
 
@@ -30,6 +32,7 @@ namespace Infrastructure.GameActions
                 {
                     _isExecuting = true;
                     await gameAction.ExecuteAsync();
+                    _justPerformedGameAction.SetValueAndForceNotify(gameAction);
                     _isExecuting = false;
                 }
             }
