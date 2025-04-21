@@ -12,6 +12,7 @@ namespace GameLogic.Bootstrapper
         [SerializeField] private TextAsset _localGameDefsTextAsset;
         [SerializeField] private SoundsSettings _soundsSettings;
         [SerializeField] private ColorsSettings _colorsSettings;
+        [SerializeField] private TimeIntervals _timeIntervals;
 
         public override void InstallBindings()
         {
@@ -20,6 +21,7 @@ namespace GameLogic.Bootstrapper
             Container.Bind<GameDefsDataProvider>().FromInstance(gameDefsProxy).AsSingle();
             Container.Bind<SoundsSettings>().FromInstance(_soundsSettings).AsSingle();
             Container.Bind<ColorsSettings>().FromInstance(_colorsSettings).AsSingle();
+            Container.Bind<TimeIntervals>().FromInstance(_timeIntervals).AsSingle();
         }
     }
 
@@ -44,5 +46,11 @@ namespace GameLogic.Bootstrapper
 
         public Color GhostClusterTextColor;
         public Color GhostClusterBackColor;
+    }
+    
+    [Serializable]
+    public class TimeIntervals
+    {
+        public float StickingClustersTimeAfterSpawn = 0.3f;
     }
 }

@@ -45,9 +45,14 @@ namespace GameLogic.Model.DataProviders
             return _userContextRepository.IsLevelProgressExist(needLevelDefId);
         }
 
-        public bool TryGetLevelProgress(string needLevelDefId, out LevelProgressContext levelProgress)
+        public bool TryGetLevelProgress(string needLevelDefId, out LevelProgressContextDataProvider levelProgressDataProvider)
         {
-            return _userContextRepository.TryGetLevelProgress(needLevelDefId, out levelProgress);
+            levelProgressDataProvider = null;
+            if (_userContextRepository.TryGetLevelProgress(needLevelDefId, out var levelProgress) == false)
+                return false;
+
+            levelProgressDataProvider = new LevelProgressContextDataProvider(levelProgress);
+            return true;
         }
 
         public bool IsLevelCompleted(string levelDefId)
@@ -55,13 +60,39 @@ namespace GameLogic.Model.DataProviders
             return _userContextRepository.IsLevelCompleted(levelDefId);
         }
 
-        public bool TryGetLastLevelDefId(out string lastLevelDefId)
+        // public bool TryGetLastUncompletedLevelDefId(out string lastLevelDefId)
+        // {
+        //     return TryGetLastUncompletedLevelDefId(LocalizationDefId.Value, out lastLevelDefId);
+        // }
+
+        // public bool TryGetLastUncompletedLevelDefId(string localizationDefId, out string lastLevelDefId)
+        // {
+        //     var levels = _gameDefs.Localizations[localizationDefId].Levels;
+        //     for (var index = 1; index <= levels.Count; index++)
+        //     {
+        //         var levelDefId = levels[index];
+        //         if (IsLevelCompleted(levelDefId))
+        //             continue;
+        //
+        //         if (TryGetLevelProgress(levelDefId, out _) == false)
+        //             continue;
+        //
+        //         lastLevelDefId = levelDefId;
+        //         return true;
+        //     }
+        //
+        //     lastLevelDefId = null;
+        //     return false;
+        // }
+
+        public bool TryGetLastUncompletedLevelProgress(out LevelProgressContextDataProvider levelProgress)
         {
-            return TryGetLastLevelDefId(LocalizationDefId.Value, out lastLevelDefId);
+            return TryGetLastUncompletedLevelProgress(LocalizationDefId.Value, out levelProgress);
         }
 
-        public bool TryGetLastLevelDefId(string localizationDefId, out string lastLevelDefId)
+        public bool TryGetLastUncompletedLevelProgress(string localizationDefId, out LevelProgressContextDataProvider levelProgress)
         {
+            levelProgress = null;
             var levels = _gameDefs.Localizations[localizationDefId].Levels;
             for (var index = 1; index <= levels.Count; index++)
             {
@@ -69,11 +100,9 @@ namespace GameLogic.Model.DataProviders
                 if (IsLevelCompleted(levelDefId))
                     continue;
 
-                lastLevelDefId = levelDefId;
-                return true;
+                if (TryGetLevelProgress(levelDefId, out levelProgress))
+                    return true;
             }
-
-            lastLevelDefId = null;
             return false;
         }
 

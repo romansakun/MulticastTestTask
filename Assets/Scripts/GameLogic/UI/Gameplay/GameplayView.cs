@@ -16,22 +16,35 @@ namespace GameLogic.UI.Gameplay
         private bool _isScrollRectDragging;
         private GameplayViewModel _viewModel;
 
-        public override UniTask Initialize(ViewModel viewModel)
+        public override async UniTask Initialize(ViewModel viewModel)
         {
             UpdateViewModel(ref _viewModel, viewModel);
 
-            _viewModel.SetHolders(_undistributedClustersHolder, _wordsHolder);
-            return UniTask.CompletedTask;
+            await _viewModel.StartLevelLoading(_wordsHolder, _undistributedClustersHolder);
         }
 
         protected override void Subscribes()
         {
             _checkWordsButton.onClick.AddListener(() => _viewModel.OnCheckWordsButtonClicked());
+            _viewModel.IsUndistributedClustersScrollRectActive.Subscribe(OnUndistributedClustersScrollRectActiveChanged);
+            _viewModel.IsHintClusterInUndistributedClusters.Subscribe(OnHintClusterInUndistributedClustersChanged);
         }
 
         protected override void Unsubscribes()
         {
             _checkWordsButton.onClick.RemoveAllListeners();
+            _viewModel.IsUndistributedClustersScrollRectActive.Unsubscribe(OnUndistributedClustersScrollRectActiveChanged);
+            _viewModel.IsHintClusterInUndistributedClusters.Unsubscribe(OnHintClusterInUndistributedClustersChanged);
+        }
+
+        private void OnUndistributedClustersScrollRectActiveChanged(bool state)
+        {
+            _undistributedClustersScrollRect.enabled = state;
+        }
+
+        private void OnHintClusterInUndistributedClustersChanged(bool state)
+        {
+            if (state) _undistributedClustersScrollRect.horizontalNormalizedPosition = 0f;
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -46,7 +59,7 @@ namespace GameLogic.UI.Gameplay
                 _isScrollRectDragging = true;
                 _undistributedClustersScrollRect.OnBeginDrag(eventData);
             }
-            _viewModel.OnPointerBeginDrag(eventData);
+            _viewModel.OnBeginDrag(eventData);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -55,7 +68,7 @@ namespace GameLogic.UI.Gameplay
             {
                 _undistributedClustersScrollRect.OnDrag(eventData);
             }
-            _viewModel.OnPointerDrag(eventData);
+            _viewModel.OnDrag(eventData);
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -65,7 +78,7 @@ namespace GameLogic.UI.Gameplay
                 _undistributedClustersScrollRect.OnEndDrag(eventData);
                 _isScrollRectDragging = false;
             }
-            _viewModel.OnPointerEndDrag(eventData);
+            _viewModel.OnEndDrag(eventData);
         }
 
     }

@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using Factories;
+using GameLogic.Factories;
 using GameLogic.UI;
 using GameLogic.UI.Gameplay;
 using Infrastructure;

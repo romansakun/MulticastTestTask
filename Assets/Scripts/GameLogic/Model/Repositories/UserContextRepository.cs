@@ -55,7 +55,10 @@ namespace GameLogic.Model.Repositories
         {
             if (_userContext.LevelsProgress.TryGetValue(needLevelDefId, out var needLevel) == false)
             {
-                needLevel = new LevelProgressContext();
+                needLevel = new LevelProgressContext
+                {
+                    LevelDefId = needLevelDefId
+                };
                 _userContext.LevelsProgress.Add(needLevelDefId, needLevel);
             }
             needLevel.UndistributedClusters = undistributedClusters;

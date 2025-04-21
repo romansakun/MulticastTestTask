@@ -2,7 +2,7 @@ using System;
 using Infrastructure.LogicUtility;
 using Zenject;
 
-namespace Factories
+namespace GameLogic.Factories
 {
     public class LogicBuilderFactory
     {

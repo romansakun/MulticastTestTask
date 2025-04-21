@@ -1,7 +1,7 @@
 using GameLogic.UI;
 using Zenject;
 
-namespace Factories
+namespace GameLogic.Factories
 {
     public class ViewModelFactory
     {

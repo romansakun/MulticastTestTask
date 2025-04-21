@@ -1,6 +1,12 @@
 {
     "Description": "English",
-    "Levels": { },
+    "Levels":
+    {
+        "1": "En_1",
+        "2": "En_2",
+        "3": "En_3",
+        "4": "En_4"
+    },
     "LocalizationText": 
     {
         "START": "Start!"

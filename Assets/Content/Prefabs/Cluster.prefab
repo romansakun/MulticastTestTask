@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64477451dd214142a36b85424aa7b762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 8282324339905613791}
   _target: {fileID: 8677274248639628344}
 --- !u!114 &1452400383772102434
 MonoBehaviour:

@@ -19,6 +19,7 @@ namespace GameLogic.UI.GameAppLoader
 
         public override void Initialize()
         {
+
         }
 
         public void AddToLoadingQueue<T>() where T : IAsyncOperation, new()
@@ -44,7 +45,7 @@ namespace GameLogic.UI.GameAppLoader
             _animation = DOTween.To(() => _showingProgress, showingValue =>
             {
                 _showingProgress = showingValue;
-                _progressText.SetValueAndForceNotify($"Loading {showingValue:P0}");
+                _progressText.SetValueAndForceNotify($"Loading: {showingValue:P0}");
             }, progressValue, 1f);
         }
 

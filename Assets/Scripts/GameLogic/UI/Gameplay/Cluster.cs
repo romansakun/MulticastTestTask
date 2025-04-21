@@ -13,10 +13,18 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private RectTransform _rectTransform;
 
         private IMemoryPool _memoryPool;
+        private string _value;
+
 
         public void SetText(string text)
         {
+            _value = text;
             _valueText.text = text;
+        }
+
+        public string GetText()
+        {
+            return _value;
         }
 
         public void SetBackgroundColor(Color color)
@@ -29,24 +37,57 @@ namespace GameLogic.UI.Gameplay
             _valueText.color = color;
         }
 
-        public void SetPosition(Vector2 position)
+        public Vector3 GetPosition()
         {
-            _rectTransform.anchoredPosition = position;
+            return _rectTransform.position;
+        }
+
+        public void SetPosition(Vector3 position)
+        {
+            _rectTransform.position = position;
         }
 
         public void SetParent(Transform parent)
         {
             _rectTransform.SetParent(parent, false);
+        }       
+
+        public int GetSiblingIndex()
+        {
+            return _rectTransform.GetSiblingIndex();
+        }       
+
+        public void SetSiblingIndex(int siblingIndex)
+        {
+            _rectTransform.SetSiblingIndex(siblingIndex);
         }
 
         public void OnSpawned(IMemoryPool memoryPool)
         {
+            SetActive(true);
             _memoryPool = memoryPool;
         }
 
         public void OnDespawned()
         {
+            SetActive(false);
             _memoryPool = null;
+        }
+
+        public bool IsCloserToRightEdge(Vector2 point)
+        {
+            return _rectTransform.position.x < point.x; 
+        }
+
+        public void SetActive(bool state)
+        {
+            if (gameObject.activeSelf != state)
+                gameObject.SetActive(state);
+        }
+
+        public bool IsContainsPoint(Vector2 position)
+        {
+            return _rectTransform.IsContainsPoint( position);
         }
 
         public void Dispose()
@@ -54,7 +95,7 @@ namespace GameLogic.UI.Gameplay
             if (this) _memoryPool?.Despawn(this);
         }
 
-        public class Pool : MonoPoolableMemoryPool<IMemoryPool, Cluster>
+        public class Factory : PlaceholderFactory<Cluster>
         {
         }
     }

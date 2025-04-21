@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Extensions;
+using GameLogic.Extensions;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
 using GameLogic.Model.Operators;

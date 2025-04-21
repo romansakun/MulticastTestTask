@@ -6,6 +6,7 @@ namespace GameLogic.UI.Components
 {
     public class ResizeTargetAsMine : UIBehaviour
     {
+        [SerializeField] private RectTransform _rectTransform;
         [SerializeField] private RectTransform _target;
 
         private Vector2 _lastSizeDelta;
@@ -14,8 +15,7 @@ namespace GameLogic.UI.Components
         {
             base.OnRectTransformDimensionsChange();
 
-            var rectTransform = (RectTransform) transform;
-            var newSizeDelta = rectTransform.sizeDelta;
+            var newSizeDelta = _rectTransform.sizeDelta;
             if (newSizeDelta != _lastSizeDelta)
             {
                 _lastSizeDelta = newSizeDelta;

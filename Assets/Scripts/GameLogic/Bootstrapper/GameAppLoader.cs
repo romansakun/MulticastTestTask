@@ -1,5 +1,5 @@
 using System;
-using Factories;
+using GameLogic.Factories;
 using GameLogic.UI;
 using GameLogic.UI.GameAppLoader;
 using Zenject;
@@ -26,7 +26,7 @@ namespace GameLogic.Bootstrapper
 
             viewModel.AddToLoadingQueue<UnityRemoteConfigLoader>();
             viewModel.AddToLoadingQueue<UserContextLoader>();
-            viewModel.AddToLoadingQueue<BindingGameplayPoolsLoader>();
+            viewModel.AddToLoadingQueue<BindingGameplayFactoriesLoader>();
             viewModel.AddToLoadingQueue<TestLastLoader>();
 
             viewModel.ProcessLoadingQueue();

@@ -12,47 +12,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"30ee2732-3dfc-4f49-8983-a355e83db007\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ef6a789e-8e23-46ba-90ab-8ed5b6e8a34a\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
     \"Ru_1\",\r\n              \"2\": \"Ru_2\",\r\n              \"3\": \"Ru_3\",\r\n             
     \"4\": \"Ru_4\"\r\n            },\r\n            \"LocalizationText\": {\r\n             
     \"START\": \"\u0421\u0442\u0430\u0440\u0442!\"\r\n            },\r\n           
-    \"Description\": \"Russian\",\r\n            \"Id\": \"Russian\"\r\n         
-    },\r\n          \"English\": {\r\n            \"Levels\": {},\r\n           
+    \"Id\": \"Russian\"\r\n          },\r\n          \"English\": {\r\n           
+    \"Levels\": {\r\n              \"1\": \"En_1\",\r\n              \"2\": \"En_2\",\r\n             
+    \"3\": \"En_3\",\r\n              \"4\": \"En_4\"\r\n            },\r\n           
     \"LocalizationText\": {\r\n              \"START\": \"Start!\"\r\n           
-    },\r\n            \"Description\": \"English\",\r\n            \"Id\": \"English\"\r\n         
-    }\r\n        },\r\n        \"Levels\": {\r\n          \"Ru_3\": {\r\n           
-    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
-    3,\r\n                3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    },\r\n            \"Id\": \"English\"\r\n          }\r\n        },\r\n       
+    \"Levels\": {\r\n          \"Ru_3\": {\r\n            \"Words\": {\r\n             
+    \"\u0421\u0415\u0420\u0412\u0415\u0420\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"\u0423\u0411\u0418\u0419\u0426\u0410\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
+    ],\r\n              \"\u041C\u0415\u041B\u041E\u0427\u042C\": [\r\n               
     2,\r\n                2,\r\n                2\r\n              ],\r\n             
-    \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
+    \"\u0428\u041F\u0410\u0413\u0410\u0422\": [\r\n                2,\r\n               
     2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
-    \"Ru_3\"\r\n          },\r\n          \"Ru_1\": {\r\n            \"Words\": {\r\n             
-    \"\u0421\u041E\u0411\u0410\u041A\u0410\": [\r\n                2,\r\n               
-    2,\r\n                2\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
-    [\r\n                3,\r\n                3\r\n              ],\r\n             
-    \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n                4,\r\n               
-    2\r\n              ],\r\n              \"\u041A\u041E\u0420\u041E\u0412\u0410\":
-    [\r\n                2,\r\n                4\r\n              ]\r\n           
-    },\r\n            \"Id\": \"Ru_1\"\r\n          },\r\n          \"Ru_2\": {\r\n           
-    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
-    3,\r\n                3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    \"Ru_3\"\r\n          },\r\n          \"En_4\": {\r\n            \"Words\": {\r\n             
+    \"FLOWER\": [\r\n                2,\r\n                2,\r\n               
+    2\r\n              ],\r\n              \"NOODLE\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"WALLET\": [\r\n                4,\r\n               
+    2\r\n              ],\r\n              \"PILLOW\": [\r\n                2,\r\n               
+    4\r\n              ]\r\n            },\r\n            \"Id\": \"En_4\"\r\n         
+    },\r\n          \"En_1\": {\r\n            \"Words\": {\r\n              \"ANCHOR\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
-    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    ],\r\n              \"BOTTLE\": [\r\n                3,\r\n                3\r\n             
+    ],\r\n              \"DANCER\": [\r\n                4,\r\n                2\r\n             
+    ],\r\n              \"ENGINE\": [\r\n                2,\r\n                4\r\n             
+    ]\r\n            },\r\n            \"Id\": \"En_1\"\r\n          },\r\n         
+    \"Ru_1\": {\r\n            \"Words\": {\r\n              \"\u0421\u041E\u0411\u0410\u041A\u0410\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\": [\r\n               
+    3,\r\n                3\r\n              ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\":
+    [\r\n                4,\r\n                2\r\n              ],\r\n             
     \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
+    4\r\n              ]\r\n            },\r\n            \"Id\": \"Ru_1\"\r\n         
+    },\r\n          \"En_3\": {\r\n            \"Words\": {\r\n              \"JACKET\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"KITTEN\": [\r\n                3,\r\n                3\r\n             
+    ],\r\n              \"LADDER\": [\r\n                4,\r\n                2\r\n             
+    ],\r\n              \"MAGNET\": [\r\n                2,\r\n                4\r\n             
+    ]\r\n            },\r\n            \"Id\": \"En_3\"\r\n          },\r\n         
+    \"En_2\": {\r\n            \"Words\": {\r\n              \"FRIDGE\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    \"GUITAR\": [\r\n                3,\r\n                3\r\n              ],\r\n             
+    \"HELMET\": [\r\n                4,\r\n                2\r\n              ],\r\n             
+    \"INSECT\": [\r\n                2,\r\n                4\r\n              ]\r\n           
+    },\r\n            \"Id\": \"En_2\"\r\n          },\r\n          \"Ru_2\": {\r\n           
+    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
+    3,\r\n                3\r\n              ],\r\n              \"\u041A\u041B\u0410\u0414\u041A\u0410\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"\u0421\u0423\u0422\u0410\u041D\u0410\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    \"\u041A\u0410\u0420\u041B\u0418\u041A\": [\r\n                2,\r\n               
     2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
     \"Ru_2\"\r\n          },\r\n          \"Ru_4\": {\r\n            \"Words\": {\r\n             
-    \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n                3,\r\n               
-    3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    \"\u041F\u0420\u041E\u0422\u0415\u0417\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"\u0414\u0418\u0410\u041B\u041E\u0413\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
+    ],\r\n              \"\u0414\u0423\u0411\u041B\u0415\u0420\": [\r\n               
     2,\r\n                2,\r\n                2\r\n              ],\r\n             
-    \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
+    \"\u041F\u041E\u0414\u0416\u041E\u0413\": [\r\n                2,\r\n               
     2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
     \"Ru_4\"\r\n          }\r\n        },\r\n        \"DefaultSettings\": {\r\n         
     \"LocalizationDefId\": \"Russian\",\r\n          \"Id\": \"DefaultSettings\"\r\n       
@@ -62,47 +86,71 @@ MonoBehaviour:
     \"ClusterLengthsRange\": {\r\n            \"Min\": 2,\r\n            \"Max\":
     4\r\n          },\r\n          \"Id\": \"LevelSettings\"\r\n        }\r\n     
     }\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"30ee2732-3dfc-4f49-8983-a355e83db007\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ef6a789e-8e23-46ba-90ab-8ed5b6e8a34a\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
     \"Ru_1\",\r\n              \"2\": \"Ru_2\",\r\n              \"3\": \"Ru_3\",\r\n             
     \"4\": \"Ru_4\"\r\n            },\r\n            \"LocalizationText\": {\r\n             
     \"START\": \"\u0421\u0442\u0430\u0440\u0442!\"\r\n            },\r\n           
-    \"Description\": \"Russian\",\r\n            \"Id\": \"Russian\"\r\n         
-    },\r\n          \"English\": {\r\n            \"Levels\": {},\r\n           
+    \"Id\": \"Russian\"\r\n          },\r\n          \"English\": {\r\n           
+    \"Levels\": {\r\n              \"1\": \"En_1\",\r\n              \"2\": \"En_2\",\r\n             
+    \"3\": \"En_3\",\r\n              \"4\": \"En_4\"\r\n            },\r\n           
     \"LocalizationText\": {\r\n              \"START\": \"Start!\"\r\n           
-    },\r\n            \"Description\": \"English\",\r\n            \"Id\": \"English\"\r\n         
-    }\r\n        },\r\n        \"Levels\": {\r\n          \"Ru_3\": {\r\n           
-    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
-    3,\r\n                3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    },\r\n            \"Id\": \"English\"\r\n          }\r\n        },\r\n       
+    \"Levels\": {\r\n          \"Ru_3\": {\r\n            \"Words\": {\r\n             
+    \"\u0421\u0415\u0420\u0412\u0415\u0420\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"\u0423\u0411\u0418\u0419\u0426\u0410\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
+    ],\r\n              \"\u041C\u0415\u041B\u041E\u0427\u042C\": [\r\n               
     2,\r\n                2,\r\n                2\r\n              ],\r\n             
-    \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
+    \"\u0428\u041F\u0410\u0413\u0410\u0422\": [\r\n                2,\r\n               
     2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
-    \"Ru_3\"\r\n          },\r\n          \"Ru_1\": {\r\n            \"Words\": {\r\n             
-    \"\u0421\u041E\u0411\u0410\u041A\u0410\": [\r\n                2,\r\n               
-    2,\r\n                2\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
-    [\r\n                3,\r\n                3\r\n              ],\r\n             
-    \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n                4,\r\n               
-    2\r\n              ],\r\n              \"\u041A\u041E\u0420\u041E\u0412\u0410\":
-    [\r\n                2,\r\n                4\r\n              ]\r\n           
-    },\r\n            \"Id\": \"Ru_1\"\r\n          },\r\n          \"Ru_2\": {\r\n           
-    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
-    3,\r\n                3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    \"Ru_3\"\r\n          },\r\n          \"En_4\": {\r\n            \"Words\": {\r\n             
+    \"FLOWER\": [\r\n                2,\r\n                2,\r\n               
+    2\r\n              ],\r\n              \"NOODLE\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"WALLET\": [\r\n                4,\r\n               
+    2\r\n              ],\r\n              \"PILLOW\": [\r\n                2,\r\n               
+    4\r\n              ]\r\n            },\r\n            \"Id\": \"En_4\"\r\n         
+    },\r\n          \"En_1\": {\r\n            \"Words\": {\r\n              \"ANCHOR\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
-    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    ],\r\n              \"BOTTLE\": [\r\n                3,\r\n                3\r\n             
+    ],\r\n              \"DANCER\": [\r\n                4,\r\n                2\r\n             
+    ],\r\n              \"ENGINE\": [\r\n                2,\r\n                4\r\n             
+    ]\r\n            },\r\n            \"Id\": \"En_1\"\r\n          },\r\n         
+    \"Ru_1\": {\r\n            \"Words\": {\r\n              \"\u0421\u041E\u0411\u0410\u041A\u0410\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\": [\r\n               
+    3,\r\n                3\r\n              ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\":
+    [\r\n                4,\r\n                2\r\n              ],\r\n             
     \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
+    4\r\n              ]\r\n            },\r\n            \"Id\": \"Ru_1\"\r\n         
+    },\r\n          \"En_3\": {\r\n            \"Words\": {\r\n              \"JACKET\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"KITTEN\": [\r\n                3,\r\n                3\r\n             
+    ],\r\n              \"LADDER\": [\r\n                4,\r\n                2\r\n             
+    ],\r\n              \"MAGNET\": [\r\n                2,\r\n                4\r\n             
+    ]\r\n            },\r\n            \"Id\": \"En_3\"\r\n          },\r\n         
+    \"En_2\": {\r\n            \"Words\": {\r\n              \"FRIDGE\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    \"GUITAR\": [\r\n                3,\r\n                3\r\n              ],\r\n             
+    \"HELMET\": [\r\n                4,\r\n                2\r\n              ],\r\n             
+    \"INSECT\": [\r\n                2,\r\n                4\r\n              ]\r\n           
+    },\r\n            \"Id\": \"En_2\"\r\n          },\r\n          \"Ru_2\": {\r\n           
+    \"Words\": {\r\n              \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n               
+    3,\r\n                3\r\n              ],\r\n              \"\u041A\u041B\u0410\u0414\u041A\u0410\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"\u0421\u0423\u0422\u0410\u041D\u0410\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    \"\u041A\u0410\u0420\u041B\u0418\u041A\": [\r\n                2,\r\n               
     2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
     \"Ru_2\"\r\n          },\r\n          \"Ru_4\": {\r\n            \"Words\": {\r\n             
-    \"\u0412\u0415\u0420\u0428\u041E\u041A\": [\r\n                3,\r\n               
-    3\r\n              ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\":
+    \"\u041F\u0420\u041E\u0422\u0415\u0417\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"\u0414\u0418\u0410\u041B\u041E\u0413\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\": [\r\n               
+    ],\r\n              \"\u0414\u0423\u0411\u041B\u0415\u0420\": [\r\n               
     2,\r\n                2,\r\n                2\r\n              ],\r\n             
-    \"\u041A\u041E\u0420\u041E\u0412\u0410\": [\r\n                2,\r\n               
+    \"\u041F\u041E\u0414\u0416\u041E\u0413\": [\r\n                2,\r\n               
     2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
     \"Ru_4\"\r\n          }\r\n        },\r\n        \"DefaultSettings\": {\r\n         
     \"LocalizationDefId\": \"Russian\",\r\n          \"Id\": \"DefaultSettings\"\r\n       

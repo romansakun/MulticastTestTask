@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Infrastructure.GameActions
@@ -10,16 +11,21 @@ namespace Infrastructure.GameActions
         private readonly ReactiveProperty<IGameAction> _justPerformedGameAction = new();
 
         private readonly Queue<IGameAction> _gameActions = new();
+        private readonly List<IGameAction> _executedGameActions = new();
         private bool _isExecuting;
 
-
-        public void Execute(IGameAction gameAction)
+        public async UniTask ExecuteAsync(IGameAction gameAction)
         {
             _gameActions.Enqueue(gameAction);
             if (_isExecuting == false)
             {
                 ExecuteNext();
             }
+            while (_executedGameActions.Contains(gameAction) == false)
+            {
+                await UniTask.Yield();
+            }
+            _executedGameActions.Remove(gameAction);
         }
 
         private async void ExecuteNext()
@@ -32,7 +38,6 @@ namespace Infrastructure.GameActions
                 {
                     _isExecuting = true;
                     await gameAction.ExecuteAsync();
-                    _justPerformedGameAction.SetValueAndForceNotify(gameAction);
                     _isExecuting = false;
                 }
             }
@@ -43,6 +48,8 @@ namespace Infrastructure.GameActions
             finally
             {
                 _isExecuting = false;
+                _executedGameActions.Add(gameAction);
+                _justPerformedGameAction.SetValueAndForceNotify(gameAction);
             }
 
             if (_gameActions.Count > 0)
@@ -54,6 +61,7 @@ namespace Infrastructure.GameActions
         public void Dispose()
         {
             _gameActions.Clear();
+            _executedGameActions.Clear();
         }
 
     }

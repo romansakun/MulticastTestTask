@@ -1,4 +1,4 @@
-using Factories;
+using GameLogic.Factories;
 using GameLogic.UI;
 using Infrastructure.GameActions;
 using Infrastructure.Services;

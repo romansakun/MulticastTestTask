@@ -1,7 +1,7 @@
 using Infrastructure.GameActions;
 using Zenject;
 
-namespace Factories
+namespace GameLogic.Factories
 {
     public class GameActionFactory
     {

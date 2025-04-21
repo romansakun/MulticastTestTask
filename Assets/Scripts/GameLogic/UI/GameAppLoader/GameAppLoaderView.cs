@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using Factories;
+using GameLogic.Factories;
 using TMPro;
 using UnityEngine;
 using Zenject;

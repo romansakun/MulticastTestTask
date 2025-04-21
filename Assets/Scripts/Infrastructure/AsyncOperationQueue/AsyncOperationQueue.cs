@@ -30,10 +30,11 @@ namespace Infrastructure
             }
             _isProcessing = true;
             _allOperationsCount = _operations.Count;
-            _progress.SetValueAndForceNotify(0f);
             while (_operations.Count > 0)
             {
                 var operation = _operations.Dequeue();
+                var progressValue = 1f - _operations.Count / _allOperationsCount;
+                _progress.SetValueAndForceNotify(progressValue);
                 try
                 {
                     await operation.ProcessAsync();
@@ -42,9 +43,8 @@ namespace Infrastructure
                 {
                     throw new Exception($"AsyncOperationQueue [{operation.GetType().Name}]:\n{ex}");
                 }
-                var progressValue = 1f - _operations.Count / _allOperationsCount;
-                _progress.SetValueAndForceNotify(progressValue);
             }
+            _progress.SetValueAndForceNotify(1f);
             _isProcessing = false;
         }
 
