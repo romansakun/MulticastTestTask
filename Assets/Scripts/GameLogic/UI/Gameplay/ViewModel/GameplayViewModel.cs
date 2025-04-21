@@ -20,18 +20,25 @@ namespace GameLogic.UI.Gameplay
         public override void Initialize()
         {
             var logicBuilder = _logicBuilderFactory.Create<GameplayViewModelContext>();
-            
+
             var loadLevelAction = logicBuilder
                 .AddAction<GetOrAddLevelProgress>()
                 .JoinAction<LoadWordRows>()
                 .JoinAction<LoadWordDistributedClusters>()
                 .JoinAction<LoadUndistributedClusters>();
+
+            var trySaveLevelProgressAction = logicBuilder.AddAction<TrySaveLevelProgress>();
+            //var tryCompleteLevelAction = logicBuilder.AddAction<TryCompleteLevel>();
+
             var prepareDragUndistributedClusterAction = logicBuilder.AddAction<PrepareDragUndistributedCluster>();
             var prepareDragDistributedClusterAction = logicBuilder.AddAction<PrepareDragDistributedCluster>();
             var dragUndistributedClusterAction = logicBuilder.AddAction<DragUndistributedCluster>();
             var dragDistributedClusterAction = logicBuilder.AddAction<DragDistributedCluster>();
             var endDragUndistributedClusterAction = logicBuilder.AddAction<EndDragUndistributedCluster>();
             var endDragDistributedClusterAction = logicBuilder.AddAction<EndDragDistributedCluster>();
+ 
+            endDragUndistributedClusterAction.DirectTo(trySaveLevelProgressAction);
+            endDragDistributedClusterAction.DirectTo(trySaveLevelProgressAction);
 
             var swipeInputSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
                 .AddQualifier<OnBeginDragUndistributedCluster>(prepareDragUndistributedClusterAction)
@@ -44,6 +51,7 @@ namespace GameLogic.UI.Gameplay
             var rootSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
                 .AddQualifier<IsLevelNotLoaded>(loadLevelAction)
                 .AddQualifier<IsSwipeInput>(swipeInputSelector)
+                //.AddQualifier<IsUserCheckCompleteLevel>(tryCompleteLevelAction)
                 .SetAsRoot();
 
             _logicAgent = logicBuilder.Build();
@@ -52,7 +60,7 @@ namespace GameLogic.UI.Gameplay
 
         private void OnLogicFinished(GameplayViewModelContext context)
         {
-            Debug.Log(_logicAgent.GetLog());
+            //Debug.Log(_logicAgent.GetLog());
         }
 
         public async UniTask StartLevelLoading(RectTransform wordsHolder, RectTransform undistributedClustersHolder)
@@ -92,7 +100,9 @@ namespace GameLogic.UI.Gameplay
 
         public void OnCheckWordsButtonClicked()
         {
-            
+            if (_logicAgent.IsExecuting) return;
+            _logicAgent.Context.CheckCompleteLevel = true;
+            _logicAgent.Execute(true);
         }
 
         public override void Dispose()

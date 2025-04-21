@@ -30,6 +30,7 @@ namespace GameLogic.UI.Gameplay
         public Cluster OriginDraggedCluster { get; set; }
         public WordRow OriginDraggedClusterWordRow { get; set; }
         public RectTransform OriginDraggedClusterHolder { get; set; }
+        public bool CheckCompleteLevel { get; set; }
 
 
         public bool IsDisposed { get; private set; }
