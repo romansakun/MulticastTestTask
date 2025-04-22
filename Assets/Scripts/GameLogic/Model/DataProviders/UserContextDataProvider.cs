@@ -60,31 +60,6 @@ namespace GameLogic.Model.DataProviders
             return _userContextRepository.IsLevelCompleted(levelDefId);
         }
 
-        // public bool TryGetLastUncompletedLevelDefId(out string lastLevelDefId)
-        // {
-        //     return TryGetLastUncompletedLevelDefId(LocalizationDefId.Value, out lastLevelDefId);
-        // }
-
-        // public bool TryGetLastUncompletedLevelDefId(string localizationDefId, out string lastLevelDefId)
-        // {
-        //     var levels = _gameDefs.Localizations[localizationDefId].Levels;
-        //     for (var index = 1; index <= levels.Count; index++)
-        //     {
-        //         var levelDefId = levels[index];
-        //         if (IsLevelCompleted(levelDefId))
-        //             continue;
-        //
-        //         if (TryGetLevelProgress(levelDefId, out _) == false)
-        //             continue;
-        //
-        //         lastLevelDefId = levelDefId;
-        //         return true;
-        //     }
-        //
-        //     lastLevelDefId = null;
-        //     return false;
-        // }
-
         public bool TryGetLastUncompletedLevelProgress(out LevelProgressContextDataProvider levelProgress)
         {
             return TryGetLastUncompletedLevelProgress(LocalizationDefId.Value, out levelProgress);
@@ -102,6 +77,25 @@ namespace GameLogic.Model.DataProviders
 
                 if (TryGetLevelProgress(levelDefId, out levelProgress))
                     return true;
+            }
+            return false;
+        }
+
+        public bool TryGetNewNextLevelDefId(out string nextLevelDefId)
+        {
+            nextLevelDefId = null;
+            var levels = _gameDefs.Localizations[LocalizationDefId.Value].Levels;
+            for (var index = 1; index <= levels.Count; index++)
+            {
+                var levelDefId = levels[index];
+                if (IsLevelCompleted(levelDefId))
+                    continue;
+
+                if (TryGetLevelProgress(levelDefId, out _))
+                    return false;
+
+                nextLevelDefId = levelDefId;
+                return true;
             }
             return false;
         }

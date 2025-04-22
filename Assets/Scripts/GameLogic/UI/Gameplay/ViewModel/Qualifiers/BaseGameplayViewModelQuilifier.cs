@@ -20,5 +20,4 @@ namespace GameLogic.UI.Gameplay
         }
 
     }
-    
 }

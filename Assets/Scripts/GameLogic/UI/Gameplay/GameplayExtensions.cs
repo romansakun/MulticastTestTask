@@ -19,7 +19,13 @@ namespace GameLogic.UI.Gameplay
             return _stringBuilder.ToString();
         }
 
-        public static bool IsContainsPoint(this RectTransform rt, Vector2 point)
+        public static Vector2 GetScreenPoint(this RectTransform rt)
+        {
+            var point = rt.TransformPoint(rt.rect.center);
+            return RectTransformUtility.WorldToScreenPoint(null, point);
+        }
+
+        public static bool IsContainsScreenPoint(this RectTransform rt, Vector2 point)
         {
             return RectTransformUtility.RectangleContainsScreenPoint(rt, point, null, Vector4.zero);
         }
@@ -37,14 +43,14 @@ namespace GameLogic.UI.Gameplay
             return sublimeIndex;
         }
 
-        public static Cluster GetClosest (this List<Cluster> clusters, Vector3 point)
+        public static Cluster GetClosest (this List<Cluster> clusters, Vector2 point)
         {
             var minSqrDistance = float.MaxValue;
             Cluster closest = null;
             for (var i = 0; i < clusters.Count; i++)
             {
                 var cluster = clusters[i];
-                var distance = cluster.GetPosition() - point;
+                var distance = cluster.GetScreenPoint() - point;
                 if (distance.sqrMagnitude < minSqrDistance)
                 {
                     minSqrDistance = distance.sqrMagnitude;

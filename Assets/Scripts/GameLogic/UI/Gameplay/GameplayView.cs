@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,8 +13,10 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private RectTransform _undistributedClustersHolder;
         [SerializeField] private RectTransform _wordsHolder;
         [SerializeField] private Button _checkWordsButton;
+        [SerializeField] private Image _checkWordsButtonImage;
 
         private bool _isScrollRectDragging;
+        private Tween _failButtonAnimation;
         private GameplayViewModel _viewModel;
 
         public override async UniTask Initialize(ViewModel viewModel)
@@ -28,6 +31,7 @@ namespace GameLogic.UI.Gameplay
             _checkWordsButton.onClick.AddListener(() => _viewModel.OnCheckWordsButtonClicked());
             _viewModel.IsUndistributedClustersScrollRectActive.Subscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Subscribe(OnHintClusterInUndistributedClustersChanged);
+            _viewModel.IsFailedCompleteLevel.Subscribe(OnFailedCompleteLevelChanged);
         }
 
         protected override void Unsubscribes()
@@ -35,6 +39,9 @@ namespace GameLogic.UI.Gameplay
             _checkWordsButton.onClick.RemoveAllListeners();
             _viewModel.IsUndistributedClustersScrollRectActive.Unsubscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Unsubscribe(OnHintClusterInUndistributedClustersChanged);
+            _viewModel.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
+
+            _failButtonAnimation?.Kill();
         }
 
         private void OnUndistributedClustersScrollRectActiveChanged(bool state)
@@ -47,6 +54,18 @@ namespace GameLogic.UI.Gameplay
             if (state) _undistributedClustersScrollRect.horizontalNormalizedPosition = 0f;
         }
 
+        private void OnFailedCompleteLevelChanged(bool state)
+        {
+            if (!state) return;
+            _failButtonAnimation?.Kill();
+            _checkWordsButton.interactable = false;
+            _failButtonAnimation = _checkWordsButton.transform.DOShakePosition(.75f, new Vector2(25, 0));
+            _failButtonAnimation.OnComplete(() =>
+            {
+                _checkWordsButton.interactable = true;
+            });
+        }
+
         public void OnPointerClick(PointerEventData eventData)
         {
             _viewModel.OnPointerClick(eventData);
@@ -54,7 +73,7 @@ namespace GameLogic.UI.Gameplay
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (_scrollRectSwipeArea.IsContainsPoint(eventData.position))
+            if (_scrollRectSwipeArea.IsContainsScreenPoint(eventData.position))
             {
                 _isScrollRectDragging = true;
                 _undistributedClustersScrollRect.OnBeginDrag(eventData);

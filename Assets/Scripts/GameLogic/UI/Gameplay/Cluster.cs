@@ -37,25 +37,25 @@ namespace GameLogic.UI.Gameplay
             _valueText.color = color;
         }
 
-        public Vector3 GetPosition()
-        {
-            return _rectTransform.position;
-        }
-
         public void SetPosition(Vector3 position)
         {
             _rectTransform.position = position;
         }
 
+        public void SetRotation(Vector3 rotation)
+        {
+            _rectTransform.localEulerAngles = rotation;
+        }
+
         public void SetParent(Transform parent)
         {
             _rectTransform.SetParent(parent, false);
-        }       
+        }
 
         public int GetSiblingIndex()
         {
             return _rectTransform.GetSiblingIndex();
-        }       
+        }
 
         public void SetSiblingIndex(int siblingIndex)
         {
@@ -70,13 +70,15 @@ namespace GameLogic.UI.Gameplay
 
         public void OnDespawned()
         {
+            SetRotation(Vector3.zero);
             SetActive(false);
             _memoryPool = null;
         }
 
         public bool IsCloserToRightEdge(Vector2 point)
         {
-            return _rectTransform.position.x < point.x; 
+            var screenPoint = _rectTransform.GetScreenPoint();
+            return screenPoint.x < point.x; 
         }
 
         public void SetActive(bool state)
@@ -85,9 +87,14 @@ namespace GameLogic.UI.Gameplay
                 gameObject.SetActive(state);
         }
 
-        public bool IsContainsPoint(Vector2 position)
+        public Vector2 GetScreenPoint()
         {
-            return _rectTransform.IsContainsPoint( position);
+            return _rectTransform.GetScreenPoint();
+        }
+
+        public bool IsContainsScreenPoint(Vector2 position)
+        {
+            return _rectTransform.IsContainsScreenPoint( position);
         }
 
         public void Dispose()

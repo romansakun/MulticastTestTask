@@ -1,7 +1,12 @@
+using GameLogic.Bootstrapper;
+using Zenject;
+
 namespace GameLogic.UI.Gameplay
 {
     public class OnDragUndistributedCluster : BaseGameplayViewModelQualifier
     {
+        [Inject] private GameplaySettings _gameplaySettings;
+
         public override float Score(GameplayViewModelContext context)
         {
             if (context.Input.Type != UserInputType.OnDrag)
@@ -13,7 +18,9 @@ namespace GameLogic.UI.Gameplay
             if (context.UndistributedClusters.Contains(context.OriginDraggedCluster) == false)
                 return 0;
 
-            context.DraggedCluster.SetPosition(context.Input.Data.position);
+            var swipePosition = context.Input.Data.position + _gameplaySettings.DraggedClusterOffsetPosition;
+            context.DraggedCluster.SetPosition(swipePosition);
+            context.Input = default;
 
             return 1;
         }

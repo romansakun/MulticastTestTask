@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using GameLogic.Bootstrapper;
 using GameLogic.Model.DataProviders;
+using UnityEngine;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay
@@ -12,13 +13,16 @@ namespace GameLogic.UI.Gameplay
         [Inject] private ColorsSettings _colorsSettings;
 
         private readonly List<Cluster> _bufferClusters = new();
+        private Vector2 _draggedClusterScreenPoint;
         private bool _isWordRowContainsOriginCluster;
 
         public override void Execute(GameplayViewModelContext context)
         {
+            _draggedClusterScreenPoint = context.DraggedCluster.GetScreenPoint();
+
             foreach (var wordRow in context.WordRows)
             {
-                if (wordRow.IsContainsPoint(context.Input.Data.position) == false)
+                if (wordRow.IsContainsScreenPoint(_draggedClusterScreenPoint) == false)
                     continue;
 
                 var clusterTextLength = context.OriginDraggedCluster.GetText().Length;
@@ -55,10 +59,10 @@ namespace GameLogic.UI.Gameplay
             _bufferClusters.Clear();
             _bufferClusters.Add(context.HintCluster);
             _bufferClusters.AddRange(context.WordRowsClusters[wordRow]);
-            var closest = _bufferClusters.GetClosest(context.Input.Data.position);
+            var closest = _bufferClusters.GetClosest(_draggedClusterScreenPoint);
             if (closest != context.HintCluster)
             {
-                var siblingIndex = context.WordRowsClusters.GetSiblingIndex(wordRow, context.Input.Data.position);
+                var siblingIndex = context.WordRowsClusters.GetSiblingIndex(wordRow, _draggedClusterScreenPoint);
                 context.HintCluster.SetSiblingIndex(siblingIndex);
             }
         }

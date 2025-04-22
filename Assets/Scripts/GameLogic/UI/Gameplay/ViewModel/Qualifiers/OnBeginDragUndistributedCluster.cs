@@ -11,14 +11,14 @@ namespace GameLogic.UI.Gameplay
 
             var swipeDirection = context.Input.Data.delta;
             var isNotVerticalSwipe = Mathf.Abs(swipeDirection.y) < Mathf.Abs(swipeDirection.x);
-            var isNotLastCluster = context.UndistributedClusters.Count > 1;
-            if (isNotLastCluster &&  isNotVerticalSwipe)
+            var isNotLastClusters = context.UndistributedClusters.Count > 3;
+            if (isNotLastClusters && isNotVerticalSwipe)
                 return 0;
 
-            if (context.UndistributedClustersHolder.IsContainsPoint(context.Input.Data.position) == false)
+            if (context.UndistributedClustersHolder.IsContainsScreenPoint(context.Input.Data.position) == false)
                 return 0;
 
-            var cluster = context.UndistributedClusters.Find(c => c.IsContainsPoint(context.Input.Data.position));
+            var cluster = context.UndistributedClusters.Find(c => c.IsContainsScreenPoint(context.Input.Data.position));
             if (cluster == null)
                 return 0;
 

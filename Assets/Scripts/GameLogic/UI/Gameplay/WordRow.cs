@@ -20,17 +20,11 @@ namespace GameLogic.UI.Gameplay
         public void SetBackgroundColor(Color color)
         {
             _backImage.color = color;
-        }        
-
-        public void SetEnabledBlinking(bool isEnabled)
-        {
-            _blinkAnimator.enabled = isEnabled;
-            _backImage.color = _backImage.color.WithAlpha(1f);
         }
 
-        public bool IsContainsPoint(Vector2 position)
+        public bool IsContainsScreenPoint(Vector2 position)
         {
-            return _rectTransform.IsContainsPoint( position);
+            return _rectTransform.IsContainsScreenPoint( position);
         }
 
         public void SetParent(Transform parent)
@@ -43,6 +37,13 @@ namespace GameLogic.UI.Gameplay
             _memoryPool = memoryPool;
             gameObject.SetActive(true);
             SetEnabledBlinking(false);
+        }
+
+        public void SetEnabledBlinking(bool isEnabled)
+        {
+            _backImage.color = _backImage.color.WithAlpha(1f);
+            _blinkAnimator.Rebind();
+            _blinkAnimator.enabled = isEnabled;
         }
 
         public void OnDespawned()

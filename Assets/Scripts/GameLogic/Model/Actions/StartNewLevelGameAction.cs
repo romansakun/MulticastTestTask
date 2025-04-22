@@ -12,28 +12,24 @@ namespace GameLogic.Model.Actions
 {
     public class StartNewLevelGameAction : IGameAction  
     {
-        [Inject] private UserContextDataProvider _userContextProvider;
         [Inject] private UserContextOperator _userContextOperator;
         [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private DiContainer _diContainer;
 
-        private readonly int _levelId;
+        private readonly string _levelDefId;
 
-        public StartNewLevelGameAction(int levelId)
+        public StartNewLevelGameAction(string levelDefId)
         {
-            _levelId = levelId;
+            _levelDefId = levelDefId;
         }
 
         public UniTask ExecuteAsync()
         {
-             var currentLocalizationDefId = _userContextProvider.LocalizationDefId.Value;
-             var currentLocalizationDef = _gameDefs.Localizations[currentLocalizationDefId];
-             var needLevelDefId = currentLocalizationDef.Levels[_levelId];
-             var needLevelDef = _gameDefs.Levels[needLevelDefId];
+             var needLevelDef = _gameDefs.Levels[_levelDefId];
 
              var undistributedClusters = CreateUndistributedClusters(needLevelDef);
              var distributedClusters = CreateDistributedClusters(needLevelDef);
-             _userContextOperator.AddOrUpdateLevelProgress(needLevelDefId, undistributedClusters, distributedClusters);
+             _userContextOperator.AddOrUpdateLevelProgress(_levelDefId, undistributedClusters, distributedClusters);
 
             return UniTask.CompletedTask;
         }
@@ -71,7 +67,7 @@ namespace GameLogic.Model.Actions
 
         public IValidator GetValidator()
         {
-            return _diContainer.Instantiate<Validator>(new object[] { _levelId });
+            return _diContainer.Instantiate<Validator>(new object[] { _levelDefId });
         }
 
         private class Validator : IValidator
@@ -79,31 +75,24 @@ namespace GameLogic.Model.Actions
             [Inject] private UserContextDataProvider _userContext;
             [Inject] private GameDefsDataProvider _gameDefs;
 
-            private readonly int _levelId;
+            private readonly string _levelDefId;
 
-            public Validator(int levelId)
+            public Validator(string levelDefId)
             {
-                _levelId = levelId;
+                _levelDefId = levelDefId;
             }
 
             public bool Check()
             {
                 var localizationDefId = _userContext.LocalizationDefId.Value;
-                if (string.IsNullOrEmpty(localizationDefId))
-                    throw new Exception($"[{nameof(StartNewLevelGameAction)}] UserContext.LocalizationDefId is null or empty!");
-                
-                var currentLocalizationDef = _gameDefs.Localizations[localizationDefId];
-                if (currentLocalizationDef.Levels.TryGetValue(_levelId, out var levelDefId) == false)
-                    throw new Exception($"[{nameof(StartNewLevelGameAction)}] {localizationDefId} doesn't contain level key: {_levelId}!");
-
-                if (_gameDefs.TryGetPreviousLevelDef(levelDefId, localizationDefId, out var prevLevelDef))
+                if (_gameDefs.TryGetPreviousLevelDef(_levelDefId, localizationDefId, out var prevLevelDef))
                 {
                     if (_userContext.IsLevelCompleted(prevLevelDef.Id) == false)
                         throw new Exception($"[{nameof(StartNewLevelGameAction)}] previous level '{prevLevelDef.Id}' is not completed!");
                 }
-                
-                if (_userContext.IsLevelProgressExist(levelDefId))
-                    throw new Exception($"[{nameof(StartNewLevelGameAction)}] level '{levelDefId}' is already started!");
+
+                if (_userContext.IsLevelProgressExist(_levelDefId))
+                    throw new Exception($"[{nameof(StartNewLevelGameAction)}] level '{_levelDefId}' is already started!");
 
                 return true;
             }

@@ -18,15 +18,16 @@ namespace GameLogic.UI.Gameplay
             if (_userContext.TryGetLastUncompletedLevelProgress(out var levelProgress))
             {
                 context.LevelProgress = levelProgress;
-                return;
             }
+            else if (_userContext.TryGetNewNextLevelDefId(out var levelDefId))
+            {
+                var gameAction = _gameActionFactory.Create<StartNewLevelGameAction>(levelDefId);
+                await _gameActionExecutor.ExecuteAsync(gameAction);
+                if (context.IsDisposed) return;
 
-            var gameAction = _gameActionFactory.Create<StartNewLevelGameAction>(1);
-            await _gameActionExecutor.ExecuteAsync(gameAction);
-
-            if (context.IsDisposed) return;
-            if (_userContext.TryGetLastUncompletedLevelProgress(out levelProgress))
-                context.LevelProgress = levelProgress;
+                if (_userContext.TryGetLastUncompletedLevelProgress(out levelProgress))
+                    context.LevelProgress = levelProgress;
+            }
         }
 
     }

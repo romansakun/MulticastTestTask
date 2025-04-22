@@ -8,6 +8,7 @@ namespace GameLogic.UI.Gameplay
     {
         [Inject] private Cluster.Factory _clusterFactory;
         [Inject] private ColorsSettings _colorsSettings;
+        [Inject] private GameplaySettings _gameplaySettings;
         [Inject] private ViewManager _viewManager;
         [Inject] private GameDefsDataProvider _gameDefs;
 
@@ -23,6 +24,7 @@ namespace GameLogic.UI.Gameplay
             swipingCluster.SetText(originalCluster.GetText());
             swipingCluster.SetBackgroundColor(_colorsSettings.SelectedClusterBackColor);
             swipingCluster.SetTextColor(_colorsSettings.SelectedClusterTextColor);
+            swipingCluster.SetRotation(_gameplaySettings.DraggedClusterRotation);
             context.DraggedCluster = swipingCluster;
 
             BlinkSuitableWordRows(context);
@@ -37,8 +39,9 @@ namespace GameLogic.UI.Gameplay
                     wordRow.SetEnabledBlinking(true);
                     continue;
                 }
-                var word = context.WordRowsClusters.GetWord(wordRow);
-                if (_gameDefs.LevelSettings.WordsRange.Max < word.Length)
+                var clusterTextLength = context.OriginDraggedCluster.GetText().Length;
+                var wordLength = context.WordRowsClusters.GetWord(wordRow).Length;
+                if (clusterTextLength + wordLength > _gameDefs.LevelSettings.WordLengthsRange.Max)
                     continue;
 
                 wordRow.SetEnabledBlinking(true);

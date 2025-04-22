@@ -11,6 +11,7 @@ namespace GameLogic.UI.Gameplay
     {
         public readonly ReactiveProperty<bool> IsUndistributedClustersScrollRectActive = new(true);
         public readonly ReactiveProperty<bool> IsHintClusterInUndistributedClusters = new(false);
+        public readonly ReactiveProperty<bool> IsFailedCompleteLevel = new(false);
 
         public LevelProgressContextDataProvider LevelProgress { get; set; }
         public RectTransform WordRowsHolder { get; set; }
@@ -39,6 +40,7 @@ namespace GameLogic.UI.Gameplay
         {
             IsUndistributedClustersScrollRectActive.Dispose();
             IsHintClusterInUndistributedClusters.Dispose();
+            IsFailedCompleteLevel.Dispose();
             AllClusters.ForEach(c => c.Dispose());
             WordRows.ForEach(w => w.Dispose());
 

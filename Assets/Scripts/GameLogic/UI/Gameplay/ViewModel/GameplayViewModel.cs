@@ -14,6 +14,7 @@ namespace GameLogic.UI.Gameplay
 
         public IReactiveProperty<bool> IsUndistributedClustersScrollRectActive => _logicAgent.Context.IsUndistributedClustersScrollRectActive;
         public IReactiveProperty<bool> IsHintClusterInUndistributedClusters => _logicAgent.Context.IsHintClusterInUndistributedClusters;
+        public IReactiveProperty<bool> IsFailedCompleteLevel => _logicAgent.Context.IsFailedCompleteLevel;
 
         private LogicAgent<GameplayViewModelContext> _logicAgent;
 
@@ -27,19 +28,18 @@ namespace GameLogic.UI.Gameplay
                 .JoinAction<LoadWordDistributedClusters>()
                 .JoinAction<LoadUndistributedClusters>();
 
-            var trySaveLevelProgressAction = logicBuilder.AddAction<TrySaveLevelProgress>();
-            //var tryCompleteLevelAction = logicBuilder.AddAction<TryCompleteLevel>();
-
             var prepareDragUndistributedClusterAction = logicBuilder.AddAction<PrepareDragUndistributedCluster>();
             var prepareDragDistributedClusterAction = logicBuilder.AddAction<PrepareDragDistributedCluster>();
             var dragUndistributedClusterAction = logicBuilder.AddAction<DragUndistributedCluster>();
             var dragDistributedClusterAction = logicBuilder.AddAction<DragDistributedCluster>();
             var endDragUndistributedClusterAction = logicBuilder.AddAction<EndDragUndistributedCluster>();
             var endDragDistributedClusterAction = logicBuilder.AddAction<EndDragDistributedCluster>();
+
+            var trySaveLevelProgressAction = logicBuilder.AddAction<TrySaveLevelProgress>();
+            var tryCompleteLevelAction = logicBuilder.AddAction<TryCompleteLevel>();
  
             endDragUndistributedClusterAction.DirectTo(trySaveLevelProgressAction);
             endDragDistributedClusterAction.DirectTo(trySaveLevelProgressAction);
-
             var swipeInputSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
                 .AddQualifier<OnBeginDragUndistributedCluster>(prepareDragUndistributedClusterAction)
                 .AddQualifier<OnBeginDragDistributedCluster>(prepareDragDistributedClusterAction)
@@ -50,17 +50,11 @@ namespace GameLogic.UI.Gameplay
 
             var rootSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
                 .AddQualifier<IsLevelNotLoaded>(loadLevelAction)
+                .AddQualifier<IsUserCheckCompleteLevel>(tryCompleteLevelAction)
                 .AddQualifier<IsSwipeInput>(swipeInputSelector)
-                //.AddQualifier<IsUserCheckCompleteLevel>(tryCompleteLevelAction)
                 .SetAsRoot();
 
             _logicAgent = logicBuilder.Build();
-            _logicAgent.OnFinished += OnLogicFinished;
-        }
-
-        private void OnLogicFinished(GameplayViewModelContext context)
-        {
-            //Debug.Log(_logicAgent.GetLog());
         }
 
         public async UniTask StartLevelLoading(RectTransform wordsHolder, RectTransform undistributedClustersHolder)
@@ -107,7 +101,6 @@ namespace GameLogic.UI.Gameplay
 
         public override void Dispose()
         {
-            _logicAgent.OnFinished -= OnLogicFinished;
             _logicAgent.Dispose();
 
             base.Dispose();

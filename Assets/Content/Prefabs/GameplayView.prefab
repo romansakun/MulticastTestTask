@@ -171,7 +171,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 780, y: 0}
+  m_SizeDelta: {x: 600, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4207352791708384453
 MonoBehaviour:
@@ -1112,6 +1112,7 @@ MonoBehaviour:
   _undistributedClustersHolder: {fileID: 5601462434429586525}
   _wordsHolder: {fileID: 5951714708637962556}
   _checkWordsButton: {fileID: 2066271738529980961}
+  _checkWordsButtonImage: {fileID: 0}
 --- !u!1 &6825414779464567742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1149,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 240}
-  m_SizeDelta: {x: 0, y: 120}
+  m_SizeDelta: {x: -120, y: 120}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &8887660809090299240
 GameObject:
