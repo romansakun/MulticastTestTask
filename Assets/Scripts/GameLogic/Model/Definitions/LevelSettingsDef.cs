@@ -9,5 +9,6 @@ namespace GameLogic.Model.Definitions
         public Range WordLengthsRange;
         public Range ClusterLengthsRange;
         public string RulesDescriptionLocalizationKey;
+        public string LevelNumberLocalizationKey;
     }
 }

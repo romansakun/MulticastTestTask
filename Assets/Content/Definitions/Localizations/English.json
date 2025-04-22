@@ -12,5 +12,10 @@
         "START": "Start!",
         "GENERAL_LEVEL_RULES" : "Drag the letters to form words.\n - length of words {0} letters\n - total words {1}\n...\n\tGood luck!",
         "CHECK_WORDS_BUTTONS" : "Check words",
+        "VICTORY_VIEW_TITLE" : "Victory!",
+        "VICTORY_VIEW_DESC" : "Congratulations!\nYou won this level!",
+        "TO_MAIN_MENU_BUTTON" : "To main menu",
+        "NEXT_LEVEL_BUTTON" : "Next level",
+        "LEVEL_NUMBER" : "Level {0}"
     }
 }

@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using GameLogic.UI.Components;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -37,6 +36,7 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsHintClusterInUndistributedClusters.Subscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Subscribe(OnFailedCompleteLevelChanged);
             _viewModel.DescriptionLevelText.Subscribe(OnDescriptionLevelTextChanged);
+            _viewModel.LevelNameText.Subscribe(OnLevelNameTextChanged);
         }
 
         protected override void Unsubscribes()
@@ -46,8 +46,14 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsHintClusterInUndistributedClusters.Unsubscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
             _viewModel.DescriptionLevelText.Unsubscribe(OnDescriptionLevelTextChanged);
+            _viewModel.LevelNameText.Unsubscribe(OnLevelNameTextChanged);
 
             _failButtonAnimation?.Kill();
+        }
+
+        private void OnLevelNameTextChanged(string levelName)
+        {
+            _levelName.text = levelName;
         }
 
         private void OnDescriptionLevelTextChanged(string rules)

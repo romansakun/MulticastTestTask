@@ -7,9 +7,6 @@ namespace Infrastructure.GameActions
 {
     public class GameActionExecutor : IDisposable
     {
-        public IReactiveProperty<IGameAction> JustPerformedGameAction => _justPerformedGameAction;
-        private readonly ReactiveProperty<IGameAction> _justPerformedGameAction = new();
-
         private readonly Queue<IGameAction> _gameActions = new();
         private readonly List<IGameAction> _executedGameActions = new();
         private bool _isExecuting;
@@ -50,7 +47,6 @@ namespace Infrastructure.GameActions
             {
                 _isExecuting = false;
                 _executedGameActions.Add(gameAction);
-                _justPerformedGameAction.SetValueAndForceNotify(gameAction);
                 Debug.Log($"GameAction[{gameAction.GetType().Name}] executed");
             }
 

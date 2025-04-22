@@ -13,9 +13,9 @@ namespace GameLogic.UI.Gameplay
     public class GameplayViewModel : ViewModel 
     {
         [Inject] private LogicBuilderFactory _logicBuilderFactory;
-        [Inject] private GameAppReloader _reloader;
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private GameDefsDataProvider _gameDefs;
+        [Inject] private GameAppReloader _reloader;
 
         public IReactiveProperty<bool> IsUndistributedClustersScrollRectActive => _logicAgent.Context.IsUndistributedClustersScrollRectActive;
         public IReactiveProperty<bool> IsHintClusterInUndistributedClusters => _logicAgent.Context.IsHintClusterInUndistributedClusters;
@@ -71,9 +71,9 @@ namespace GameLogic.UI.Gameplay
         private void OnLogicFailed(string errorMessage)
         {
             Debug.Log(errorMessage);
-            _reloader.ReloadGame();
-            
+
             //todo dialog view with reload button
+            _reloader.ReloadGame();
         }
 
         public async UniTask StartLevelLoading(RectTransform wordsHolder, RectTransform undistributedClustersHolder)
@@ -84,12 +84,15 @@ namespace GameLogic.UI.Gameplay
 
             var wordLength = _gameDefs.LevelSettings.WordLengthsRange.Max;
             var wordCount = _gameDefs.LevelSettings.WordsRange.Max;
-            var localizedText= _userContext.GetLocalizedText(_gameDefs.LevelSettings.RulesDescriptionLocalizationKey);
+            var rulesDescKey = _gameDefs.LevelSettings.RulesDescriptionLocalizationKey;
+            var localizedText= _userContext.GetLocalizedText(rulesDescKey);
             _descriptionLevelText.Value = string.Format(localizedText, wordLength, wordCount);
 
             var levelDefId = _logicAgent.Context.LevelProgress.LevelDefId;
-            var levelDef = _gameDefs.Levels[levelDefId];
-            _levelNameText.Value = _userContext.GetLocalizedText(levelDef.Name);
+            var levelNumber = _gameDefs.GetLevelNumber(levelDefId, _userContext.LocalizationDefId.Value);
+            var levelNumberKey = _gameDefs.LevelSettings.LevelNumberLocalizationKey;
+            var localizedLevelName = _userContext.GetLocalizedText(levelNumberKey);
+            _levelNameText.Value = string.Format(localizedLevelName, levelNumber);
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -104,7 +107,6 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.Input = (UserInputType.OnBeginDrag, eventData);
             _logicAgent.Execute();
-            Debug.Log(_logicAgent.GetLog());
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -112,7 +114,6 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.Input = (UserInputType.OnDrag, eventData);
             _logicAgent.Execute();
-            Debug.Log(_logicAgent.GetLog());
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -120,7 +121,6 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.Input = (UserInputType.OnEndDrag, eventData);
             _logicAgent.Execute(true);
-            Debug.Log(_logicAgent.GetLog());
         }
 
         public void OnCheckWordsButtonClicked()

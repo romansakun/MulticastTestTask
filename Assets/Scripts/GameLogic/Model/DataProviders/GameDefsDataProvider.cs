@@ -71,5 +71,16 @@ namespace GameLogic.Model.DataProviders
             throw new Exception($"There is no previous level for '{levelDefId}' in '{localizationDefId}' localization");
         }
 
+        public int GetLevelNumber(string levelDefId, string localizationDefId)
+        {
+            var levels = Localizations[localizationDefId].Levels;
+            foreach (var pair in levels)
+            {
+                if (pair.Value == levelDefId)
+                    return pair.Key;
+            }
+            return -1;
+        }
+
     }
 }
