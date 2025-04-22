@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
 using GameLogic.Model.Actions;
@@ -28,7 +29,12 @@ namespace GameLogic.UI.Gameplay
                 if (_userContext.TryGetLastUncompletedLevelProgress(out levelProgress))
                     context.LevelProgress = levelProgress;
             }
-        }
+            else
+            {
+                throw new Exception($"Can not add new level progress");
+            }
 
+            await UniTask.Yield();
+        }
     }
 }

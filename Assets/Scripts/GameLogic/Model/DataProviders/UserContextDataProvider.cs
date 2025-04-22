@@ -81,6 +81,22 @@ namespace GameLogic.Model.DataProviders
             return false;
         }
 
+        public bool TryGetLastCompletedLevelProgress(out LevelProgressContextDataProvider previousLevelProgress)
+        {
+            var previousLevelDefId = string.Empty;
+            var localizationDefId = LocalizationDefId.Value;
+            var levels = _gameDefs.Localizations[localizationDefId].Levels;
+            for (var index = 1; index <= levels.Count; index++)
+            {
+                var levelDefId = levels[index];
+                if (IsLevelCompleted(levelDefId))
+                    previousLevelDefId = levelDefId;
+                else
+                    break;
+            }
+            return TryGetLevelProgress(previousLevelDefId, out previousLevelProgress);
+        }
+
         public bool TryGetNewNextLevelDefId(out string nextLevelDefId)
         {
             nextLevelDefId = null;

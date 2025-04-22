@@ -7,13 +7,15 @@ namespace Infrastructure.LogicUtility
 {
     internal class LogicUtilityClient<TContext>: IDisposable where TContext : class, IContext
     {
+        public event Action<string> OnCatchError = delegate { };
+
         private readonly LogicAgent<TContext> _agent;
         private readonly List<INode<TContext>> _executedNodesChain;
         private readonly StringBuilder _errorsLog;
         private readonly StringBuilder _log;
         private readonly bool _safeMode;
-
         private bool _isDisposed;
+
 
         public LogicUtilityClient(LogicAgent<TContext> agent, bool safeMode)
         {
@@ -27,6 +29,7 @@ namespace Infrastructure.LogicUtility
         public async UniTask ExecuteAsync(INode<TContext> rootNode)
         {
             _executedNodesChain.Clear();
+            _errorsLog.Clear();
 
             var currentNode = rootNode;
             while (currentNode != null && !_isDisposed)
@@ -55,6 +58,7 @@ namespace Infrastructure.LogicUtility
                 catch (Exception error)
                 {
                     var errorMsg = $"{error.Message}\n{error.StackTrace}\n{GetNodeLogs()}";
+                    OnCatchError.Invoke(errorMsg);
                     if (_safeMode)
                     {
                         _errorsLog.AppendLine(errorMsg);
@@ -89,6 +93,7 @@ namespace Infrastructure.LogicUtility
 
         public void Dispose()
         {
+            OnCatchError = null;
             _isDisposed = true;
         }
     }

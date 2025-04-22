@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +16,8 @@ namespace GameLogic.UI
         [SerializeField] private short _overrideSortingOrder = -1;
 
         private ViewModel _viewModelInternal;
-        public short OverrideSortingOrder => _overrideSortingOrder;
+        private RectTransform _rectTransform;
+        private Canvas _canvas;
 
 
         public abstract UniTask Initialize(ViewModel viewModel);
@@ -32,6 +34,34 @@ namespace GameLogic.UI
         protected abstract void Subscribes();
         protected abstract void Unsubscribes();
 
+        public void PrepareToShow()
+        {
+            _canvas ??= GetComponent<Canvas>();
+            _rectTransform ??= GetComponent<RectTransform>();
+            _rectTransform.anchoredPosition = Vector2.zero;
+            _viewManager.Views.Subscribe(OnViewsChanged);
+            _canvas.pixelPerfect = true;
+            _canvas.overrideSorting = true;
+            if (_overrideSortingOrder > 0)
+                _canvas.sortingOrder = _overrideSortingOrder;
+        }
+
+        private void OnViewsChanged(IReadOnlyList<View> views)
+        {
+            if (_overrideSortingOrder > 0)
+                return;
+
+            for (var index = 0; index < views.Count; index++)
+            {
+                var view = views[index];
+                if (view == this)
+                {
+                    _canvas.sortingOrder = index;
+                    break;
+                }
+            }
+        }
+
         [ContextMenu("Close")]
         public void Close()
         {
@@ -40,8 +70,9 @@ namespace GameLogic.UI
 
         private void OnDestroy()
         {
-            Unsubscribes();
+            _viewManager.Views.Unsubscribe(OnViewsChanged);
 
+            Unsubscribes();
             _viewModelInternal?.Dispose();
         }
     }

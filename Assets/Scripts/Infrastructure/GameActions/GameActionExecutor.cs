@@ -38,6 +38,7 @@ namespace Infrastructure.GameActions
                 {
                     _isExecuting = true;
                     await gameAction.ExecuteAsync();
+                    await UniTask.Yield();
                     _isExecuting = false;
                 }
             }
@@ -50,6 +51,7 @@ namespace Infrastructure.GameActions
                 _isExecuting = false;
                 _executedGameActions.Add(gameAction);
                 _justPerformedGameAction.SetValueAndForceNotify(gameAction);
+                Debug.Log($"GameAction[{gameAction.GetType().Name}] executed");
             }
 
             if (_gameActions.Count > 0)

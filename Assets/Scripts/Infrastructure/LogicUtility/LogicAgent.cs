@@ -12,6 +12,7 @@ namespace Infrastructure.LogicUtility
         private bool _isDisposed;
 
         public event Action<TContext> OnFinished = delegate { };
+        public event Action<string> OnCatchError = delegate { };
 
         public IContext LogicContext => Context;
         public TContext Context { get; }
@@ -23,6 +24,7 @@ namespace Infrastructure.LogicUtility
             Context = context;
             _root = rootNode;
             _client = new LogicUtilityClient<TContext>(this, safeMode);
+            _client.OnCatchError += OnLogicFailed;
         }
 
         public async UniTask ExecuteAsync(bool force = false)
@@ -65,8 +67,14 @@ namespace Infrastructure.LogicUtility
             return $"LogicAgent<{typeof(TContext).Name}> execution log:\n{_client.GetNodeLogs()}";
         }
 
+        private void OnLogicFailed(string error)
+        {
+            OnCatchError.Invoke(error);
+        }
+
         public void Dispose()
         {
+            _client.OnCatchError -= OnLogicFailed;
             OnFinished = null;
             _client.Dispose();
             Context.Dispose();

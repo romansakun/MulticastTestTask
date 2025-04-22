@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Infrastructure.Extensions;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay
@@ -9,6 +10,7 @@ namespace GameLogic.UI.Gameplay
 
         public override void Execute(GameplayViewModelContext context)
         {
+            context.WordRowsHolder.DestroyChildren();
             var levelProgress = context.LevelProgress;
             for (var i = 0; i < levelProgress.DistributedClusters.Count; i++)
             {

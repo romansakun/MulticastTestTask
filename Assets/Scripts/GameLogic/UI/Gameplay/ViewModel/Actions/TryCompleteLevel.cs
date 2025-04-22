@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
 using GameLogic.Model.Actions;
 using GameLogic.Model.DataProviders;
+using GameLogic.UI.Victory;
 using Infrastructure.GameActions;
 using UnityEngine;
 using Zenject;
@@ -14,6 +15,8 @@ namespace GameLogic.UI.Gameplay
         [Inject] private GameActionExecutor _gameActionExecutor;
         [Inject] private GameActionFactory _gameActionFactory;
         [Inject] private UserContextDataProvider _userContext;
+        [Inject] private ViewManager _viewManager;
+        [Inject] private ViewModelFactory _viewModelFactory;
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
@@ -37,9 +40,10 @@ namespace GameLogic.UI.Gameplay
             }
         }
 
-        private void ShowVictoryView(GameplayViewModelContext context)
+        private async void ShowVictoryView(GameplayViewModelContext context)
         {
-            Debug.Log($"ShowVictoryView: valid");
+            var viewModel = _viewModelFactory.Create<VictoryViewModel>();
+            var view = await _viewManager.ShowAsync<VictoryView, VictoryViewModel>(viewModel);
         }
 
     }

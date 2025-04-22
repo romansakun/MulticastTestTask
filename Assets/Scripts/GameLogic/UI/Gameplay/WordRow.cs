@@ -1,5 +1,8 @@
 using System;
-using GameLogic.Extensions;
+using System.Collections.Generic;
+using Infrastructure.Extensions;
+using Infrastructure.Pools;
+using Infrastructure.Services;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -35,13 +38,14 @@ namespace GameLogic.UI.Gameplay
         public void OnSpawned(IMemoryPool memoryPool)
         {
             _memoryPool = memoryPool;
-            gameObject.SetActive(true);
             SetEnabledBlinking(false);
+            gameObject.SetActive(true);
         }
 
         public void SetEnabledBlinking(bool isEnabled)
         {
             _backImage.color = _backImage.color.WithAlpha(1f);
+            if (!_blinkAnimator) return;
             _blinkAnimator.Rebind();
             _blinkAnimator.enabled = isEnabled;
         }
@@ -49,6 +53,8 @@ namespace GameLogic.UI.Gameplay
         public void OnDespawned()
         {
             _memoryPool = null;
+            if (!this) return;
+            SetEnabledBlinking(false);
             gameObject.SetActive(false);
         }
 
@@ -59,6 +65,13 @@ namespace GameLogic.UI.Gameplay
 
         public class Factory : PlaceholderFactory<WordRow>
         {
+            [Inject] private DynamicMonoPool<WordRow> _dynamicMonoPool;
+
+            public override WordRow Create()
+            {
+                return _dynamicMonoPool.Spawn();
+            }
         }
+
     }
 }

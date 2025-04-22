@@ -15,15 +15,13 @@ namespace GameLogic.UI
         [Inject] private AssetLoader _assetLoader;
         [Inject] private Canvas _canvas;
 
-        private List<View> _instancedViews;
         private RectTransform _canvasRectTransform;
 
-        public IReactiveProperty<View> CurrentView => _currentView;
-        private readonly ReactiveProperty<View> _currentView = new(null);
+        public IReactiveProperty<IReadOnlyList<View>> Views => _instancedViews;
+        private readonly ReactiveProperty<List<View>> _instancedViews = new(new List<View>());
 
         public void Initialize()
         {
-            _instancedViews = new List<View>();
             _canvasRectTransform = _canvas.GetComponent<RectTransform>();
         }
 
@@ -33,40 +31,29 @@ namespace GameLogic.UI
             {
                 await view.Initialize(viewModel);
             }
-            _instancedViews.Add(view);
-            _currentView.SetValueAndForceNotify(view);
+            _instancedViews.Value.Add(view);
+            _instancedViews.ForceNotify();
         }
 
         public async UniTask<V> ShowAsync<V, VM> (VM viewModel) where V : View where VM : ViewModel
         {
             var viewPrefab = await _assetLoader.LoadPrefabAsync<V>();
             var view = _diContainer.InstantiatePrefabForComponent<V>(viewPrefab, _canvasRectTransform);
-
-            PrepareToShow(view);
+            view.PrepareToShow();
             await view.Initialize(viewModel);
-            _instancedViews.Add(view);
-            _currentView.SetValueAndForceNotify(view);
-            return view;
-        }
 
-        private void PrepareToShow<T>(T viewInstance) where T : View
-        {
-            var viewCanvas = viewInstance.GetComponent<Canvas>();
-            var viewRectTransform = viewInstance.GetComponent<RectTransform>();
-            viewRectTransform.anchoredPosition = Vector2.zero;
-            viewCanvas.pixelPerfect = true;
-            viewCanvas.overrideSorting = true;
-            viewCanvas.sortingOrder = viewInstance.OverrideSortingOrder > 0 
-                ? viewInstance.OverrideSortingOrder 
-                : _instancedViews.Count;
+            _instancedViews.Value.Add(view);
+            _instancedViews.ForceNotify();
+
+            return view;
         }
 
         public bool TryGetView<T>(out T view) where T : View
         {
             view = null;
-            for (int i = _instancedViews.Count - 1; i >= 0; i--)
+            for (int i = _instancedViews.Value.Count - 1; i >= 0; i--)
             {
-                var viewInstance = _instancedViews[i];
+                var viewInstance = _instancedViews.Value[i];
                 if (viewInstance is T needView)
                 {
                     view = needView;
@@ -78,9 +65,9 @@ namespace GameLogic.UI
 
         public void Close<T>(bool onlyTopView = false) where T : View
         {
-            for (int i = _instancedViews.Count - 1; i >= 0; i--)
+            for (int i = _instancedViews.Value.Count - 1; i >= 0; i--)
             {
-                var viewInstance = _instancedViews[i];
+                var viewInstance = _instancedViews.Value[i];
                 if (viewInstance is not T)
                     continue;
 
@@ -92,9 +79,9 @@ namespace GameLogic.UI
 
         public void Close(View view, bool onlyTopView = false)
         {
-            for (int i = _instancedViews.Count - 1; i >= 0; i--)
+            for (int i = _instancedViews.Value.Count - 1; i >= 0; i--)
             {
-                var viewInstance = _instancedViews[i];
+                var viewInstance = _instancedViews.Value[i];
                 if (viewInstance != view) 
                     continue;
 
@@ -106,9 +93,12 @@ namespace GameLogic.UI
 
         public void CloseAll()
         {
-            for (int i = _instancedViews.Count - 1; i >= 0; i--)
+            if (_instancedViews.Value == null)
+                return;
+
+            for (int i = _instancedViews.Value.Count - 1; i >= 0; i--)
             {
-                var viewInstance = _instancedViews[i];
+                var viewInstance = _instancedViews.Value[i];
                 if (viewInstance == null) 
                     continue;
 
@@ -118,8 +108,9 @@ namespace GameLogic.UI
 
         private void CloseView(View view)
         {
-            _instancedViews.Remove(view);
+            _instancedViews.Value.Remove(view);
             Object.Destroy(view.gameObject);
+            _instancedViews.ForceNotify();
         }
 
         public Vector2 ScreenPointToLocalPoint(Vector2 screenPoint)
@@ -135,8 +126,7 @@ namespace GameLogic.UI
 
         public void Dispose()
         {
-            CloseAll();
-            _currentView.Dispose();
+            _instancedViews.Dispose();
         }
 
     }

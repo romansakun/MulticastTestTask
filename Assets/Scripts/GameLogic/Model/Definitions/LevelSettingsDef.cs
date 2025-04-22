@@ -8,5 +8,6 @@ namespace GameLogic.Model.Definitions
         public Range WordsRange;
         public Range WordLengthsRange;
         public Range ClusterLengthsRange;
+        public string RulesDescriptionLocalizationKey;
     }
 }

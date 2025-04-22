@@ -87,6 +87,11 @@ namespace GameLogic.Model.Repositories
             return _userContext.LevelsProgress.TryGetValue(levelDefId, out var levelProgress) && levelProgress.IsCompleted;
         }
 
+        public void ClearAllProgress()
+        {
+            _userContext.LevelsProgress.Clear();
+        }
+
         public async void Save()
         {
             if (_willSave) 

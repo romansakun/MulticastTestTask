@@ -7,7 +7,7 @@ using Zenject;
 
 namespace GameLogic.Model.Actions
 {
-    public class CompleteLevelGameAction : IGameAction  
+    public class CompleteLevelGameAction : IGameAction
     {
         [Inject] private UserContextOperator _userContextOperator;
         [Inject] private DiContainer _diContainer;

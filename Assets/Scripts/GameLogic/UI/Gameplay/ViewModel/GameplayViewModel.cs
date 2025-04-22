@@ -1,5 +1,7 @@
 using Cysharp.Threading.Tasks;
+using GameLogic.Bootstrapper;
 using GameLogic.Factories;
+using GameLogic.Model.DataProviders;
 using Infrastructure;
 using Infrastructure.LogicUtility;
 using UnityEngine;
@@ -11,10 +13,18 @@ namespace GameLogic.UI.Gameplay
     public class GameplayViewModel : ViewModel 
     {
         [Inject] private LogicBuilderFactory _logicBuilderFactory;
+        [Inject] private GameAppReloader _reloader;
+        [Inject] private UserContextDataProvider _userContext;
+        [Inject] private GameDefsDataProvider _gameDefs;
 
         public IReactiveProperty<bool> IsUndistributedClustersScrollRectActive => _logicAgent.Context.IsUndistributedClustersScrollRectActive;
         public IReactiveProperty<bool> IsHintClusterInUndistributedClusters => _logicAgent.Context.IsHintClusterInUndistributedClusters;
         public IReactiveProperty<bool> IsFailedCompleteLevel => _logicAgent.Context.IsFailedCompleteLevel;
+        public IReactiveProperty<string> LevelNameText => _levelNameText;
+        public IReactiveProperty<string> DescriptionLevelText => _descriptionLevelText;
+
+        private readonly ReactiveProperty<string> _levelNameText = new();
+        private readonly ReactiveProperty<string> _descriptionLevelText = new();
 
         private LogicAgent<GameplayViewModelContext> _logicAgent;
 
@@ -55,6 +65,15 @@ namespace GameLogic.UI.Gameplay
                 .SetAsRoot();
 
             _logicAgent = logicBuilder.Build();
+            _logicAgent.OnCatchError += OnLogicFailed;
+        }
+
+        private void OnLogicFailed(string errorMessage)
+        {
+            Debug.Log(errorMessage);
+            _reloader.ReloadGame();
+            
+            //todo dialog view with reload button
         }
 
         public async UniTask StartLevelLoading(RectTransform wordsHolder, RectTransform undistributedClustersHolder)
@@ -62,6 +81,15 @@ namespace GameLogic.UI.Gameplay
             _logicAgent.Context.WordRowsHolder = wordsHolder;
             _logicAgent.Context.UndistributedClustersHolder = undistributedClustersHolder;
             await _logicAgent.ExecuteAsync();
+
+            var wordLength = _gameDefs.LevelSettings.WordLengthsRange.Max;
+            var wordCount = _gameDefs.LevelSettings.WordsRange.Max;
+            var localizedText= _userContext.GetLocalizedText(_gameDefs.LevelSettings.RulesDescriptionLocalizationKey);
+            _descriptionLevelText.Value = string.Format(localizedText, wordLength, wordCount);
+
+            var levelDefId = _logicAgent.Context.LevelProgress.LevelDefId;
+            var levelDef = _gameDefs.Levels[levelDefId];
+            _levelNameText.Value = _userContext.GetLocalizedText(levelDef.Name);
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -76,6 +104,7 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.Input = (UserInputType.OnBeginDrag, eventData);
             _logicAgent.Execute();
+            Debug.Log(_logicAgent.GetLog());
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -83,6 +112,7 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.Input = (UserInputType.OnDrag, eventData);
             _logicAgent.Execute();
+            Debug.Log(_logicAgent.GetLog());
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -90,6 +120,7 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.Input = (UserInputType.OnEndDrag, eventData);
             _logicAgent.Execute(true);
+            Debug.Log(_logicAgent.GetLog());
         }
 
         public void OnCheckWordsButtonClicked()
@@ -101,6 +132,7 @@ namespace GameLogic.UI.Gameplay
 
         public override void Dispose()
         {
+            _logicAgent.OnCatchError -= OnLogicFailed;
             _logicAgent.Dispose();
 
             base.Dispose();

@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using GameLogic.Factories;
 using GameLogic.UI;
 using GameLogic.UI.GameAppLoader;
+using Infrastructure.Extensions;
 using Zenject;
 
 namespace GameLogic.Bootstrapper
@@ -13,20 +15,21 @@ namespace GameLogic.Bootstrapper
 
         public void Initialize()
         {
-            _viewManager.CurrentView.Subscribe(OnCurrentViewChanged);
+            _viewManager.Views.Subscribe(OnViewsChanged);
         }
 
-        private async void OnCurrentViewChanged(View view)
+        private async void OnViewsChanged(IReadOnlyList<View> views)
         {
-            if (view is not GameAppLoaderView)
+            var gameAppLoadedView = views.Find(view => view is GameAppLoaderView);
+            if (gameAppLoadedView == null)
                 return;
 
             var viewModel = _viewModelFactory.Create<GameAppLoaderViewModel>();
-            await view.Initialize(viewModel);
+            await gameAppLoadedView.Initialize(viewModel);
 
             viewModel.AddToLoadingQueue<UnityRemoteConfigLoader>();
             viewModel.AddToLoadingQueue<UserContextLoader>();
-            viewModel.AddToLoadingQueue<BindingGameplayFactoriesLoader>();
+            viewModel.AddToLoadingQueue<InitDynamicMonoPoolsLoader>();
             viewModel.AddToLoadingQueue<TestLastLoader>();
 
             viewModel.ProcessLoadingQueue();
@@ -34,7 +37,7 @@ namespace GameLogic.Bootstrapper
 
         public void Dispose()
         {
-            _viewManager.CurrentView.Unsubscribe(OnCurrentViewChanged);
+            _viewManager.Views.Unsubscribe(OnViewsChanged);
         }
     }
 }

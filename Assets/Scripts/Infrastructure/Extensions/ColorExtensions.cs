@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameLogic.Extensions
+namespace Infrastructure.Extensions
 {
     public static class ColorExtensions 
     {

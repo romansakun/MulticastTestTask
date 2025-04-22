@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using GameLogic.Bootstrapper;
+using Infrastructure.Extensions;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay
@@ -11,6 +12,7 @@ namespace GameLogic.UI.Gameplay
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
+            context.UndistributedClustersHolder.DestroyChildren();
             var levelProgress = context.LevelProgress;
             for (var i = 0; i < levelProgress.UndistributedClusters.Count; i++)
             {

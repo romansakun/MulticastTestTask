@@ -13,6 +13,12 @@ namespace GameLogic.Model.Operators
             _userContextRepository = userContextRepository;
         }
 
+        public void ClearAllProgress()
+        {
+            _userContextRepository.ClearAllProgress();
+            _userContextRepository.Save();
+        }
+        
         public void UpdateLocalization(string localizationDefId)
         {
             _userContextRepository.SetLocalization(localizationDefId);

@@ -1,5 +1,7 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using GameLogic.UI.Components;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,6 +16,8 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private RectTransform _wordsHolder;
         [SerializeField] private Button _checkWordsButton;
         [SerializeField] private Image _checkWordsButtonImage;
+        [SerializeField] private TextMeshProUGUI _levelName;
+        [SerializeField] private TextMeshProUGUI _description;
 
         private bool _isScrollRectDragging;
         private Tween _failButtonAnimation;
@@ -32,6 +36,7 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsUndistributedClustersScrollRectActive.Subscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Subscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Subscribe(OnFailedCompleteLevelChanged);
+            _viewModel.DescriptionLevelText.Subscribe(OnDescriptionLevelTextChanged);
         }
 
         protected override void Unsubscribes()
@@ -40,8 +45,14 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsUndistributedClustersScrollRectActive.Unsubscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Unsubscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
+            _viewModel.DescriptionLevelText.Unsubscribe(OnDescriptionLevelTextChanged);
 
             _failButtonAnimation?.Kill();
+        }
+
+        private void OnDescriptionLevelTextChanged(string rules)
+        {
+            _description.text = rules;
         }
 
         private void OnUndistributedClustersScrollRectActiveChanged(bool state)

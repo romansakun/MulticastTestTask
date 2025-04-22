@@ -9,6 +9,8 @@
     },
     "LocalizationText": 
     {
-        "START": "Start!"
+        "START": "Start!",
+        "GENERAL_LEVEL_RULES" : "Drag the letters to form words.\n - length of words {0} letters\n - total words {1}\n...\n\tGood luck!",
+        "CHECK_WORDS_BUTTONS" : "Check words",
     }
 }

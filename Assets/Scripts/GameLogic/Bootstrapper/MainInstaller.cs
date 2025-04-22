@@ -1,6 +1,8 @@
 using GameLogic.Factories;
 using GameLogic.UI;
+using GameLogic.UI.Gameplay;
 using Infrastructure.GameActions;
+using Infrastructure.Pools;
 using Infrastructure.Services;
 using Zenject;
 
@@ -16,6 +18,11 @@ namespace GameLogic.Bootstrapper
             Container.Bind<LogicBuilderFactory>().AsSingle();
             Container.Bind<GameActionFactory>().AsSingle();
             Container.Bind<ViewModelFactory>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<DynamicMonoPool<Cluster>>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DynamicMonoPool<WordRow>>().AsSingle();
+            Container.BindFactory<Cluster, Cluster.Factory>().AsSingle();
+            Container.BindFactory<WordRow, WordRow.Factory>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<AssetLoader>().AsSingle();
             Container.BindInterfacesAndSelfTo<ViewManager>().AsSingle();

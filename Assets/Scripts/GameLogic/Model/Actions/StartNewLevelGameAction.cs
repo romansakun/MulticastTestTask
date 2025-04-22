@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using GameLogic.Extensions;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
 using GameLogic.Model.Operators;
+using Infrastructure.Extensions;
 using Infrastructure.GameActions;
 using Zenject;
 

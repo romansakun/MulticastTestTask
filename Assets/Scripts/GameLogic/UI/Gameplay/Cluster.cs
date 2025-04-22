@@ -1,4 +1,5 @@
 using System;
+using Infrastructure.Pools;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,14 +65,14 @@ namespace GameLogic.UI.Gameplay
 
         public void OnSpawned(IMemoryPool memoryPool)
         {
-            SetActive(true);
             _memoryPool = memoryPool;
+            gameObject.SetActive(true);
         }
 
         public void OnDespawned()
         {
             SetRotation(Vector3.zero);
-            SetActive(false);
+            gameObject.SetActive(false);
             _memoryPool = null;
         }
 
@@ -99,11 +100,18 @@ namespace GameLogic.UI.Gameplay
 
         public void Dispose()
         {
-            if (this) _memoryPool?.Despawn(this);
+            _memoryPool.Despawn(this);
         }
 
         public class Factory : PlaceholderFactory<Cluster>
         {
+            [Inject] private DynamicMonoPool<Cluster> _dynamicMonoPool;
+
+            public override Cluster Create()
+            {
+                return _dynamicMonoPool.Spawn();
+            }
         }
+
     }
 }
