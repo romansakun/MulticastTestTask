@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Infrastructure.Pools
 {
-    public class DynamicMonoPool<T> : IMemoryPool, IDisposable where T : MonoBehaviour, IPoolable<IMemoryPool>
+    public class DeferredMonoPool<T> : IMemoryPool, IDisposable where T : MonoBehaviour, IPoolable<IMemoryPool>
     {
         [Inject] private DiContainer _diContainer;
 

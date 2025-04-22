@@ -105,11 +105,11 @@ namespace GameLogic.UI.Gameplay
 
         public class Factory : PlaceholderFactory<Cluster>
         {
-            [Inject] private DynamicMonoPool<Cluster> _dynamicMonoPool;
+            [Inject] private DeferredMonoPool<Cluster> _deferredMonoPool;
 
             public override Cluster Create()
             {
-                return _dynamicMonoPool.Spawn();
+                return _deferredMonoPool.Spawn();
             }
         }
 

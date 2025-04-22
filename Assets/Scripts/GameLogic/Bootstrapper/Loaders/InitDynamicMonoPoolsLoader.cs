@@ -10,8 +10,8 @@ namespace GameLogic.Bootstrapper
     public class InitDynamicMonoPoolsLoader : IAsyncOperation
     {
         [Inject] private AssetLoader _assetLoader;
-        [Inject] private DynamicMonoPool<WordRow> _wordRowPool;
-        [Inject] private DynamicMonoPool<Cluster> _clusterPool;
+        [Inject] private DeferredMonoPool<WordRow> _wordRowPool;
+        [Inject] private DeferredMonoPool<Cluster> _clusterPool;
 
         public async UniTask ProcessAsync()
         {

@@ -9,12 +9,6 @@ namespace GameLogic.UI.Gameplay
             if (context.Input.Type != UserInputType.OnBeginDrag)
                 return 0;
 
-            var swipeDirection = context.Input.Data.delta;
-            var isNotVerticalSwipe = Mathf.Abs(swipeDirection.y) < Mathf.Abs(swipeDirection.x);
-            var isNotLastClusters = context.UndistributedClusters.Count > 3;
-            if (isNotLastClusters && isNotVerticalSwipe)
-                return 0;
-
             if (context.UndistributedClustersHolder.IsContainsScreenPoint(context.Input.Data.position) == false)
                 return 0;
 

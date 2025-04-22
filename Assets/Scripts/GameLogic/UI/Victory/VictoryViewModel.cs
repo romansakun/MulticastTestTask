@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
-using Cysharp.Threading.Tasks;
 using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.Actions;
 using GameLogic.Model.DataProviders;
 using GameLogic.UI.Gameplay;
+using GameLogic.UI.MainMenu;
 using Infrastructure.GameActions;
 using UnityEngine;
 using Zenject;
@@ -24,8 +23,8 @@ namespace GameLogic.UI.Victory
         [Inject] private GameActionFactory _gameActionFactory;
         [Inject] private GameActionExecutor _gameActionExecutor;
 
-        private List<WordRow> _wordRows = new();
-        private List<Cluster> _clusters = new();
+        private readonly List<WordRow> _wordRows = new();
+        private readonly List<Cluster> _clusters = new();
 
         public override void Initialize()
         {
@@ -73,9 +72,10 @@ namespace GameLogic.UI.Victory
             var view = _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
         }
 
-        public void OnMainMenuButtonClicked()
+        public async void OnMainMenuButtonClicked()
         {
-            throw new System.NotImplementedException();
+            var viewModel = _viewModelFactory.Create<MainMenuViewModel>();
+            var view = await _viewManager.ShowAsync<MainMenuView, MainMenuViewModel>(viewModel);
         }
 
         public override void Dispose()

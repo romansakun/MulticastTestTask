@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using Infrastructure.Extensions;
 using Infrastructure.Pools;
-using Infrastructure.Services;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -60,16 +58,16 @@ namespace GameLogic.UI.Gameplay
 
         public void Dispose()
         {
-            if (this) _memoryPool?.Despawn(this);
+            _memoryPool.Despawn(this);
         }
 
         public class Factory : PlaceholderFactory<WordRow>
         {
-            [Inject] private DynamicMonoPool<WordRow> _dynamicMonoPool;
+            [Inject] private DeferredMonoPool<WordRow> _deferredMonoPool;
 
             public override WordRow Create()
             {
-                return _dynamicMonoPool.Spawn();
+                return _deferredMonoPool.Spawn();
             }
         }
 

@@ -19,8 +19,8 @@ namespace GameLogic.Bootstrapper
             Container.Bind<GameActionFactory>().AsSingle();
             Container.Bind<ViewModelFactory>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<DynamicMonoPool<Cluster>>().AsSingle();
-            Container.BindInterfacesAndSelfTo<DynamicMonoPool<WordRow>>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DeferredMonoPool<Cluster>>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DeferredMonoPool<WordRow>>().AsSingle();
             Container.BindFactory<Cluster, Cluster.Factory>().AsSingle();
             Container.BindFactory<WordRow, WordRow.Factory>().AsSingle();
 

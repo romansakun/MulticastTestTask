@@ -132,9 +132,12 @@ namespace GameLogic.UI.Gameplay
 
         public override void Dispose()
         {
+            LevelNameText.Dispose();
+            DescriptionLevelText.Dispose();
+            IsFailedCompleteLevel.Dispose();
+
             _logicAgent.OnCatchError -= OnLogicFailed;
             _logicAgent.Dispose();
-
             base.Dispose();
         }
 

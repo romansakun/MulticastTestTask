@@ -16,6 +16,8 @@
         "VICTORY_VIEW_DESC" : "Поздравляем!\nВы выиграли этот уровень!",
         "TO_MAIN_MENU_BUTTON" : "На главную",
         "NEXT_LEVEL_BUTTON" : "Следующий уровень",
-        "LEVEL_NUMBER" : "Уровень {0}"
+        "LEVEL_NUMBER" : "Уровень {0}",
+        "MAIN_MENU_PLAY_BUTTON" : "Играть",
+        "MAIN_MENU_TITLE" : "Меню"
     }
 }

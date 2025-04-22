@@ -16,6 +16,8 @@
         "VICTORY_VIEW_DESC" : "Congratulations!\nYou won this level!",
         "TO_MAIN_MENU_BUTTON" : "To main menu",
         "NEXT_LEVEL_BUTTON" : "Next level",
-        "LEVEL_NUMBER" : "Level {0}"
+        "LEVEL_NUMBER" : "Level {0}",
+        "MAIN_MENU_PLAY_BUTTON" : "Play",
+        "MAIN_MENU_TITLE" : "Menu"
     }
 }
