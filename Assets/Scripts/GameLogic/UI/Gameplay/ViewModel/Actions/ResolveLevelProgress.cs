@@ -8,7 +8,7 @@ using Zenject;
 
 namespace GameLogic.UI.Gameplay
 {
-    public class GetOrAddLevelProgress : BaseGameplayViewModelAction
+    public class ResolveLevelProgress : BaseGameplayViewModelAction
     {
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private GameActionFactory _gameActionFactory;
@@ -16,6 +16,12 @@ namespace GameLogic.UI.Gameplay
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
+            if (_userContext.TryGetNewNextLevelDefId(out _) == false)
+            {
+                var gameAction = _gameActionFactory.Create<ClearUserProgressGameAction>();
+                await _gameActionExecutor.ExecuteAsync(gameAction);
+            }
+
             if (_userContext.TryGetLastUncompletedLevelProgress(out var levelProgress))
             {
                 context.LevelProgress = levelProgress;
@@ -31,7 +37,8 @@ namespace GameLogic.UI.Gameplay
             }
             else
             {
-                throw new Exception($"Can not add new level progress");
+                var gameAction = _gameActionFactory.Create<ClearUserProgressGameAction>();
+                await _gameActionExecutor.ExecuteAsync(gameAction);
             }
 
             await UniTask.Yield();

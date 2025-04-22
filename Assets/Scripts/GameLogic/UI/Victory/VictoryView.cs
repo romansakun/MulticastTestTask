@@ -1,11 +1,17 @@
 using Cysharp.Threading.Tasks;
+using GameLogic.Audio;
+using GameLogic.Bootstrapper;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace GameLogic.UI.Victory
 {
     public class VictoryView : View
     {
+        [Inject] private AudioPlayer _audioPlayer;
+        [Inject] private SoundsSettings _soundsSettings;
+        
         [SerializeField] private Button _nextLevelButton;
         [SerializeField] private Button _mainMenuButton;
         [SerializeField] private RectTransform _wordsHolder;
@@ -17,6 +23,8 @@ namespace GameLogic.UI.Victory
             UpdateViewModel(ref _viewModel, viewModel);
 
             _viewModel.LoadResolvedWords(_wordsHolder);
+
+            _audioPlayer.PlaySound(_soundsSettings.SuccessSound);
 
             return UniTask.CompletedTask;
         }

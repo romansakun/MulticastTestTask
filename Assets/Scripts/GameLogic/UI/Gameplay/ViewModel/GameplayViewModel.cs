@@ -33,7 +33,7 @@ namespace GameLogic.UI.Gameplay
             var logicBuilder = _logicBuilderFactory.Create<GameplayViewModelContext>();
 
             var loadLevelAction = logicBuilder
-                .AddAction<GetOrAddLevelProgress>()
+                .AddAction<ResolveLevelProgress>()
                 .JoinAction<LoadWordRows>()
                 .JoinAction<LoadWordDistributedClusters>()
                 .JoinAction<LoadUndistributedClusters>();

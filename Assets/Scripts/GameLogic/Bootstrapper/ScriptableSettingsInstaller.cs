@@ -1,6 +1,9 @@
 using System;
+using GameLogic.Model.Contexts;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
+using GameLogic.Model.Operators;
+using GameLogic.Model.Repositories;
 using UnityEngine;
 using Zenject;
 
@@ -19,9 +22,12 @@ namespace GameLogic.Bootstrapper
             var localGameDefs = Newtonsoft.Json.JsonConvert.DeserializeObject<GameDefs>(_localGameDefsTextAsset.text);
             var gameDefsProxy = new GameDefsDataProvider().SetGameDefs(localGameDefs);
             Container.Bind<GameDefsDataProvider>().FromInstance(gameDefsProxy).AsSingle();
+
             Container.Bind<SoundsSettings>().FromInstance(_soundsSettings).AsSingle();
             Container.Bind<ColorsSettings>().FromInstance(_colorsSettings).AsSingle();
             Container.Bind<GameplaySettings>().FromInstance(_gameplaySettings).AsSingle();
+
+            SignalsInstaller.Install(Container);
         }
     }
 
@@ -29,7 +35,7 @@ namespace GameLogic.Bootstrapper
     public class SoundsSettings
     {
         public AudioClip DropClusterSound;
-        public AudioClip SelectClusterSound;
+        public AudioClip TapSound;
         public AudioClip WrongAnswerSound;
         public AudioClip SuccessSound;
         public AudioClip BackgroundMusic;

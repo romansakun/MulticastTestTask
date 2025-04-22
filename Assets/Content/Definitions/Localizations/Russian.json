@@ -18,6 +18,10 @@
         "NEXT_LEVEL_BUTTON" : "Следующий уровень",
         "LEVEL_NUMBER" : "Уровень {0}",
         "MAIN_MENU_PLAY_BUTTON" : "Играть",
-        "MAIN_MENU_TITLE" : "Меню"
+        "MAIN_MENU_TITLE" : "Меню",
+        "SETTINGS_VIEW_TITLE" : "Настройки",
+        "SETTINGS_SOUNDS_LABEL" : "Звуки",
+        "SETTINGS_BACK_BUTTON" : "Назад"
+        
     }
 }

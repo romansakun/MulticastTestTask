@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"54621c6b-00f8-43c0-8ee9-b8486df76cce\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"1b9aa804-b43c-4e1d-b992-fe391a0551d1\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
@@ -34,39 +34,44 @@ MonoBehaviour:
     \u0443\u0440\u043E\u0432\u0435\u043D\u044C\",\r\n              \"LEVEL_NUMBER\":
     \"\u0423\u0440\u043E\u0432\u0435\u043D\u044C {0}\",\r\n              \"MAIN_MENU_PLAY_BUTTON\":
     \"\u0418\u0433\u0440\u0430\u0442\u044C\",\r\n              \"MAIN_MENU_TITLE\":
-    \"\u041C\u0435\u043D\u044E\"\r\n            },\r\n            \"Id\": \"Russian\"\r\n         
-    },\r\n          \"English\": {\r\n            \"Levels\": {\r\n             
-    \"1\": \"En_1\",\r\n              \"2\": \"En_2\",\r\n              \"3\": \"En_3\",\r\n             
-    \"4\": \"En_4\"\r\n            },\r\n            \"LocalizationText\": {\r\n             
-    \"START\": \"Start!\",\r\n              \"GENERAL_LEVEL_RULES\": \"Drag the letters
-    to form words.\\n - length of words {0} letters\\n - total words {1}\\n...\\n\\tGood
-    luck!\",\r\n              \"CHECK_WORDS_BUTTONS\": \"Check words\",\r\n             
-    \"VICTORY_VIEW_TITLE\": \"Victory!\",\r\n              \"VICTORY_VIEW_DESC\":
-    \"Congratulations!\\nYou won this level!\",\r\n              \"TO_MAIN_MENU_BUTTON\":
-    \"To main menu\",\r\n              \"NEXT_LEVEL_BUTTON\": \"Next level\",\r\n             
-    \"LEVEL_NUMBER\": \"Level {0}\",\r\n              \"MAIN_MENU_PLAY_BUTTON\":
-    \"Play\",\r\n              \"MAIN_MENU_TITLE\": \"Menu\"\r\n            },\r\n           
-    \"Id\": \"English\"\r\n          }\r\n        },\r\n        \"Levels\": {\r\n         
-    \"Ru_3\": {\r\n            \"Words\": {\r\n              \"\u0421\u0415\u0420\u0412\u0415\u0420\":
-    [\r\n                3,\r\n                3\r\n              ],\r\n             
-    \"\u0423\u0411\u0418\u0419\u0426\u0410\": [\r\n                2,\r\n               
-    2,\r\n                2\r\n              ],\r\n              \"\u041C\u0415\u041B\u041E\u0427\u042C\":
+    \"\u041C\u0435\u043D\u044E\",\r\n              \"SETTINGS_VIEW_TITLE\": \"\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\",\r\n             
+    \"SETTINGS_SOUNDS_LABEL\": \"\u0417\u0432\u0443\u043A\u0438\",\r\n             
+    \"SETTINGS_BACK_BUTTON\": \"\u041D\u0430\u0437\u0430\u0434\"\r\n            },\r\n           
+    \"Id\": \"Russian\"\r\n          },\r\n          \"English\": {\r\n           
+    \"Levels\": {\r\n              \"1\": \"En_1\",\r\n              \"2\": \"En_2\",\r\n             
+    \"3\": \"En_3\",\r\n              \"4\": \"En_4\"\r\n            },\r\n           
+    \"LocalizationText\": {\r\n              \"START\": \"Start!\",\r\n             
+    \"GENERAL_LEVEL_RULES\": \"Drag the letters to form words.\\n - length of words
+    {0} letters\\n - total words {1}\\n...\\n\\tGood luck!\",\r\n              \"CHECK_WORDS_BUTTONS\":
+    \"Check words\",\r\n              \"VICTORY_VIEW_TITLE\": \"Victory!\",\r\n             
+    \"VICTORY_VIEW_DESC\": \"Congratulations!\\nYou won this level!\",\r\n             
+    \"TO_MAIN_MENU_BUTTON\": \"To main menu\",\r\n              \"NEXT_LEVEL_BUTTON\":
+    \"Next level\",\r\n              \"LEVEL_NUMBER\": \"Level {0}\",\r\n             
+    \"MAIN_MENU_PLAY_BUTTON\": \"Play\",\r\n              \"MAIN_MENU_TITLE\": \"Menu\",\r\n             
+    \"SETTINGS_VIEW_TITLE\": \"Settings\",\r\n              \"SETTINGS_SOUNDS_LABEL\":
+    \"Sounds\",\r\n              \"SETTINGS_BACK_BUTTON\": \"Back\"\r\n           
+    },\r\n            \"Id\": \"English\"\r\n          }\r\n        },\r\n       
+    \"Levels\": {\r\n          \"Ru_3\": {\r\n            \"Words\": {\r\n             
+    \"\u0421\u0415\u0420\u0412\u0415\u0420\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"\u0423\u0411\u0418\u0419\u0426\u0410\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u0428\u041F\u0410\u0413\u0410\u0422\": [\r\n               
-    2,\r\n                2,\r\n                2\r\n              ]\r\n           
-    },\r\n            \"Id\": \"Ru_3\"\r\n          },\r\n          \"En_4\": {\r\n           
-    \"Words\": {\r\n              \"FLOWER\": [\r\n                2,\r\n               
-    2,\r\n                2\r\n              ],\r\n              \"NOODLE\": [\r\n               
-    3,\r\n                3\r\n              ],\r\n              \"WALLET\": [\r\n               
-    4,\r\n                2\r\n              ],\r\n              \"PILLOW\": [\r\n               
-    2,\r\n                4\r\n              ]\r\n            },\r\n            \"Id\":
-    \"En_4\"\r\n          },\r\n          \"En_1\": {\r\n            \"Words\": {\r\n             
-    \"ANCHOR\": [\r\n                2,\r\n                2,\r\n               
-    2\r\n              ],\r\n              \"BOTTLE\": [\r\n                3,\r\n               
-    3\r\n              ],\r\n              \"DANCER\": [\r\n                4,\r\n               
-    2\r\n              ],\r\n              \"ENGINE\": [\r\n                2,\r\n               
-    4\r\n              ]\r\n            },\r\n            \"Id\": \"En_1\"\r\n         
-    },\r\n          \"Ru_1\": {\r\n            \"Words\": {\r\n              \"\u0421\u041E\u0411\u0410\u041A\u0410\":
+    ],\r\n              \"\u041C\u0415\u041B\u041E\u0427\u042C\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    \"\u0428\u041F\u0410\u0413\u0410\u0422\": [\r\n                2,\r\n               
+    2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
+    \"Ru_3\"\r\n          },\r\n          \"En_4\": {\r\n            \"Words\": {\r\n             
+    \"FLOWER\": [\r\n                2,\r\n                2,\r\n               
+    2\r\n              ],\r\n              \"NOODLE\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"WALLET\": [\r\n                4,\r\n               
+    2\r\n              ],\r\n              \"PILLOW\": [\r\n                2,\r\n               
+    4\r\n              ]\r\n            },\r\n            \"Id\": \"En_4\"\r\n         
+    },\r\n          \"En_1\": {\r\n            \"Words\": {\r\n              \"ANCHOR\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"BOTTLE\": [\r\n                3,\r\n                3\r\n             
+    ],\r\n              \"DANCER\": [\r\n                4,\r\n                2\r\n             
+    ],\r\n              \"ENGINE\": [\r\n                2,\r\n                4\r\n             
+    ]\r\n            },\r\n            \"Id\": \"En_1\"\r\n          },\r\n         
+    \"Ru_1\": {\r\n            \"Words\": {\r\n              \"\u0421\u041E\u0411\u0410\u041A\u0410\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
     ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\": [\r\n               
     3,\r\n                3\r\n              ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\":
@@ -109,7 +114,7 @@ MonoBehaviour:
     4\r\n          },\r\n          \"RulesDescriptionLocalizationKey\": \"GENERAL_LEVEL_RULES\",\r\n         
     \"LevelNumberLocalizationKey\": \"LEVEL_NUMBER\",\r\n          \"Id\": \"LevelSettings\"\r\n       
     }\r\n      }\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"54621c6b-00f8-43c0-8ee9-b8486df76cce\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"1b9aa804-b43c-4e1d-b992-fe391a0551d1\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
@@ -131,39 +136,44 @@ MonoBehaviour:
     \u0443\u0440\u043E\u0432\u0435\u043D\u044C\",\r\n              \"LEVEL_NUMBER\":
     \"\u0423\u0440\u043E\u0432\u0435\u043D\u044C {0}\",\r\n              \"MAIN_MENU_PLAY_BUTTON\":
     \"\u0418\u0433\u0440\u0430\u0442\u044C\",\r\n              \"MAIN_MENU_TITLE\":
-    \"\u041C\u0435\u043D\u044E\"\r\n            },\r\n            \"Id\": \"Russian\"\r\n         
-    },\r\n          \"English\": {\r\n            \"Levels\": {\r\n             
-    \"1\": \"En_1\",\r\n              \"2\": \"En_2\",\r\n              \"3\": \"En_3\",\r\n             
-    \"4\": \"En_4\"\r\n            },\r\n            \"LocalizationText\": {\r\n             
-    \"START\": \"Start!\",\r\n              \"GENERAL_LEVEL_RULES\": \"Drag the letters
-    to form words.\\n - length of words {0} letters\\n - total words {1}\\n...\\n\\tGood
-    luck!\",\r\n              \"CHECK_WORDS_BUTTONS\": \"Check words\",\r\n             
-    \"VICTORY_VIEW_TITLE\": \"Victory!\",\r\n              \"VICTORY_VIEW_DESC\":
-    \"Congratulations!\\nYou won this level!\",\r\n              \"TO_MAIN_MENU_BUTTON\":
-    \"To main menu\",\r\n              \"NEXT_LEVEL_BUTTON\": \"Next level\",\r\n             
-    \"LEVEL_NUMBER\": \"Level {0}\",\r\n              \"MAIN_MENU_PLAY_BUTTON\":
-    \"Play\",\r\n              \"MAIN_MENU_TITLE\": \"Menu\"\r\n            },\r\n           
-    \"Id\": \"English\"\r\n          }\r\n        },\r\n        \"Levels\": {\r\n         
-    \"Ru_3\": {\r\n            \"Words\": {\r\n              \"\u0421\u0415\u0420\u0412\u0415\u0420\":
-    [\r\n                3,\r\n                3\r\n              ],\r\n             
-    \"\u0423\u0411\u0418\u0419\u0426\u0410\": [\r\n                2,\r\n               
-    2,\r\n                2\r\n              ],\r\n              \"\u041C\u0415\u041B\u041E\u0427\u042C\":
+    \"\u041C\u0435\u043D\u044E\",\r\n              \"SETTINGS_VIEW_TITLE\": \"\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\",\r\n             
+    \"SETTINGS_SOUNDS_LABEL\": \"\u0417\u0432\u0443\u043A\u0438\",\r\n             
+    \"SETTINGS_BACK_BUTTON\": \"\u041D\u0430\u0437\u0430\u0434\"\r\n            },\r\n           
+    \"Id\": \"Russian\"\r\n          },\r\n          \"English\": {\r\n           
+    \"Levels\": {\r\n              \"1\": \"En_1\",\r\n              \"2\": \"En_2\",\r\n             
+    \"3\": \"En_3\",\r\n              \"4\": \"En_4\"\r\n            },\r\n           
+    \"LocalizationText\": {\r\n              \"START\": \"Start!\",\r\n             
+    \"GENERAL_LEVEL_RULES\": \"Drag the letters to form words.\\n - length of words
+    {0} letters\\n - total words {1}\\n...\\n\\tGood luck!\",\r\n              \"CHECK_WORDS_BUTTONS\":
+    \"Check words\",\r\n              \"VICTORY_VIEW_TITLE\": \"Victory!\",\r\n             
+    \"VICTORY_VIEW_DESC\": \"Congratulations!\\nYou won this level!\",\r\n             
+    \"TO_MAIN_MENU_BUTTON\": \"To main menu\",\r\n              \"NEXT_LEVEL_BUTTON\":
+    \"Next level\",\r\n              \"LEVEL_NUMBER\": \"Level {0}\",\r\n             
+    \"MAIN_MENU_PLAY_BUTTON\": \"Play\",\r\n              \"MAIN_MENU_TITLE\": \"Menu\",\r\n             
+    \"SETTINGS_VIEW_TITLE\": \"Settings\",\r\n              \"SETTINGS_SOUNDS_LABEL\":
+    \"Sounds\",\r\n              \"SETTINGS_BACK_BUTTON\": \"Back\"\r\n           
+    },\r\n            \"Id\": \"English\"\r\n          }\r\n        },\r\n       
+    \"Levels\": {\r\n          \"Ru_3\": {\r\n            \"Words\": {\r\n             
+    \"\u0421\u0415\u0420\u0412\u0415\u0420\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"\u0423\u0411\u0418\u0419\u0426\u0410\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
-    ],\r\n              \"\u0428\u041F\u0410\u0413\u0410\u0422\": [\r\n               
-    2,\r\n                2,\r\n                2\r\n              ]\r\n           
-    },\r\n            \"Id\": \"Ru_3\"\r\n          },\r\n          \"En_4\": {\r\n           
-    \"Words\": {\r\n              \"FLOWER\": [\r\n                2,\r\n               
-    2,\r\n                2\r\n              ],\r\n              \"NOODLE\": [\r\n               
-    3,\r\n                3\r\n              ],\r\n              \"WALLET\": [\r\n               
-    4,\r\n                2\r\n              ],\r\n              \"PILLOW\": [\r\n               
-    2,\r\n                4\r\n              ]\r\n            },\r\n            \"Id\":
-    \"En_4\"\r\n          },\r\n          \"En_1\": {\r\n            \"Words\": {\r\n             
-    \"ANCHOR\": [\r\n                2,\r\n                2,\r\n               
-    2\r\n              ],\r\n              \"BOTTLE\": [\r\n                3,\r\n               
-    3\r\n              ],\r\n              \"DANCER\": [\r\n                4,\r\n               
-    2\r\n              ],\r\n              \"ENGINE\": [\r\n                2,\r\n               
-    4\r\n              ]\r\n            },\r\n            \"Id\": \"En_1\"\r\n         
-    },\r\n          \"Ru_1\": {\r\n            \"Words\": {\r\n              \"\u0421\u041E\u0411\u0410\u041A\u0410\":
+    ],\r\n              \"\u041C\u0415\u041B\u041E\u0427\u042C\": [\r\n               
+    2,\r\n                2,\r\n                2\r\n              ],\r\n             
+    \"\u0428\u041F\u0410\u0413\u0410\u0422\": [\r\n                2,\r\n               
+    2,\r\n                2\r\n              ]\r\n            },\r\n            \"Id\":
+    \"Ru_3\"\r\n          },\r\n          \"En_4\": {\r\n            \"Words\": {\r\n             
+    \"FLOWER\": [\r\n                2,\r\n                2,\r\n               
+    2\r\n              ],\r\n              \"NOODLE\": [\r\n                3,\r\n               
+    3\r\n              ],\r\n              \"WALLET\": [\r\n                4,\r\n               
+    2\r\n              ],\r\n              \"PILLOW\": [\r\n                2,\r\n               
+    4\r\n              ]\r\n            },\r\n            \"Id\": \"En_4\"\r\n         
+    },\r\n          \"En_1\": {\r\n            \"Words\": {\r\n              \"ANCHOR\":
+    [\r\n                2,\r\n                2,\r\n                2\r\n             
+    ],\r\n              \"BOTTLE\": [\r\n                3,\r\n                3\r\n             
+    ],\r\n              \"DANCER\": [\r\n                4,\r\n                2\r\n             
+    ],\r\n              \"ENGINE\": [\r\n                2,\r\n                4\r\n             
+    ]\r\n            },\r\n            \"Id\": \"En_1\"\r\n          },\r\n         
+    \"Ru_1\": {\r\n            \"Words\": {\r\n              \"\u0421\u041E\u0411\u0410\u041A\u0410\":
     [\r\n                2,\r\n                2,\r\n                2\r\n             
     ],\r\n              \"\u041F\u041B\u0410\u0422\u042C\u0415\": [\r\n               
     3,\r\n                3\r\n              ],\r\n              \"\u0411\u0410\u0417\u0423\u041A\u0410\":

@@ -1,14 +1,20 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using GameLogic.Audio;
+using GameLogic.Bootstrapper;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Zenject;
 
 namespace GameLogic.UI.Gameplay
 {
     public class GameplayView : View, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        [Inject] private AudioPlayer _audioPlayer;
+        [Inject] private SoundsSettings _soundsSettings;
+        
         [SerializeField] private RectTransform _scrollRectSwipeArea;
         [SerializeField] private ScrollRect _undistributedClustersScrollRect;
         [SerializeField] private RectTransform _undistributedClustersHolder;
@@ -74,6 +80,9 @@ namespace GameLogic.UI.Gameplay
         private void OnFailedCompleteLevelChanged(bool state)
         {
             if (!state) return;
+
+            _audioPlayer.PlaySound(_soundsSettings.WrongAnswerSound);
+
             _failButtonAnimation?.Kill();
             _checkWordsButton.interactable = false;
             _failButtonAnimation = _checkWordsButton.transform.DOShakePosition(.75f, new Vector2(25, 0));

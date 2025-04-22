@@ -18,9 +18,11 @@ namespace GameLogic.Model.Repositories
 
         public IReactiveProperty<string> LocalizationDefId => _localizationDefId;
         public IReactiveProperty<string> UpdatedLevelDefId => _localizationDefId;
+        public IReactiveProperty<bool> IsSoundsMuted => _isSoundsMuted;
 
         private readonly ReactiveProperty<string> _localizationDefId = new();
         private readonly ReactiveProperty<string> _updatedLevelDefId = new();
+        private readonly ReactiveProperty<bool> _isSoundsMuted = new();
 
         private readonly UserContext _userContext;
         private bool _willSave = false;
@@ -30,14 +32,21 @@ namespace GameLogic.Model.Repositories
         {
             _userContext = userContext;
             _localizationDefId.Value = userContext.LocalizationDefId;
+            _isSoundsMuted.Value = userContext.IsSoundsMuted;
+        }
+
+        public void SetSoundsMuted(bool isMuted)
+        {
+            _userContext.IsSoundsMuted = isMuted;
+            _isSoundsMuted.SetValueAndForceNotify(isMuted);
         }
 
         public void SetLocalization(string localizationDefId)
         {
             if (_gameDefs.Localizations.TryGetValue(localizationDefId, out _) == false)
             {
-                var defaultLocalization = _gameDefs.DefaultSettings.LocalizationDefId;
-                Debug.LogWarning($"'{localizationDefId}' localization not found, using default: '{defaultLocalization}'");
+                Debug.LogWarning($"'{localizationDefId}' localization not found");
+                localizationDefId = _userContext.LocalizationDefId ?? _gameDefs.DefaultSettings.LocalizationDefId;
             }
             _userContext.LocalizationDefId = localizationDefId;
 
@@ -87,9 +96,14 @@ namespace GameLogic.Model.Repositories
             return _userContext.LevelsProgress.TryGetValue(levelDefId, out var levelProgress) && levelProgress.IsCompleted;
         }
 
-        public void ClearAllProgress()
+        public void ClearProgress()
         {
-            _userContext.LevelsProgress.Clear();
+            var localizationDefId = _userContext.LocalizationDefId;
+            var levels = _gameDefs.Localizations[localizationDefId].Levels;
+            foreach (var pair in levels)
+            {
+                _userContext.LevelsProgress.Remove(pair.Value);
+            }
         }
 
         public async void Save()

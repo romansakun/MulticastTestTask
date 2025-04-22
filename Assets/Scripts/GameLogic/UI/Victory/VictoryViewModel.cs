@@ -53,7 +53,7 @@ namespace GameLogic.UI.Victory
                 cluster.SetParent(wordRow.ClustersHolder);
                 cluster.SetBackgroundColor(_colorsSettings.SelectedClusterBackColor);
                 cluster.SetTextColor(_colorsSettings.SelectedClusterTextColor);
-                
+
                 _wordRows.Add(wordRow);
                 _clusters.Add(cluster);
             }
@@ -61,15 +61,9 @@ namespace GameLogic.UI.Victory
 
         public async void OnNextLevelButtonClicked()
         {
-            if (_userContext.TryGetNewNextLevelDefId(out _) == false)
-            {
-                var gameAction = _gameActionFactory.Create<ClearUserContextGameAction>();
-                await _gameActionExecutor.ExecuteAsync(gameAction);
-            }
-
             _viewManager.CloseAll();
             var viewModel = _viewModelFactory.Create<GameplayViewModel>();
-            var view = _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
+            var view = await _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
         }
 
         public async void OnMainMenuButtonClicked()

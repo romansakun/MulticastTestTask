@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using GameLogic.Model.Contexts;
 using GameLogic.Model.Repositories;
 using Infrastructure;
 using UnityEngine;
@@ -15,6 +14,7 @@ namespace GameLogic.Model.DataProviders
 
         public IReactiveProperty<string> LocalizationDefId => _userContextRepository.LocalizationDefId;
         public IReactiveProperty<string> UpdatedLevelDefId => _userContextRepository.UpdatedLevelDefId;
+        public IReactiveProperty<bool> IsSoundsMuted => _userContextRepository.IsSoundsMuted;
 
         private readonly UserContextRepository _userContextRepository;
 

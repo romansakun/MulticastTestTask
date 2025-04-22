@@ -1,5 +1,6 @@
 using GameLogic.Factories;
 using GameLogic.UI.Gameplay;
+using GameLogic.UI.Settings;
 using Zenject;
 
 namespace GameLogic.UI.MainMenu
@@ -21,9 +22,11 @@ namespace GameLogic.UI.MainMenu
             _viewManager.Close<MainMenuView>();
         }
 
-        public void OnSettingsButtonClicked()
+        public async void OnSettingsButtonClicked()
         {
-            throw new System.NotImplementedException();
+            var viewModel = _viewModelFactory.Create<SettingsViewModel>();
+            await _viewManager.ShowAsync<SettingsView, SettingsViewModel>(viewModel);
+            _viewManager.Close<MainMenuView>();
         }
     }
 }

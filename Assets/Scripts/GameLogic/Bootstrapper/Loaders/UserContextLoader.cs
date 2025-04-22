@@ -17,10 +17,11 @@ namespace GameLogic.Bootstrapper
         [Inject] private DiContainer _diContainer;
         [Inject] private IFileService _fileService;
         [Inject] private GameDefsDataProvider _gameDefs;
+        [Inject] private SignalBus _signalBus;
 
         private UserContext _userContext;
 
-        public UniTask ProcessAsync()
+        public async UniTask ProcessAsync()
         {
             if (TryLoadingPlayerContext() == false)
             {
@@ -31,7 +32,8 @@ namespace GameLogic.Bootstrapper
             _diContainer.Bind<UserContextDataProvider>().AsSingle().WithArguments(repository);
             _diContainer.Bind<UserContextOperator>().AsSingle().WithArguments(repository);
 
-            return UniTask.CompletedTask;
+            await UniTask.Yield();
+            _signalBus.Fire<UserContextInitializedSignal>();
         }
 
         private bool TryLoadingPlayerContext()

@@ -1,3 +1,4 @@
+using GameLogic.Audio;
 using GameLogic.Bootstrapper;
 using Zenject;
 
@@ -5,6 +6,8 @@ namespace GameLogic.UI.Gameplay
 {
     public class EndDragUndistributedCluster : BaseGameplayViewModelAction
     {
+        [Inject] private AudioPlayer _audioPlayer;
+        [Inject] private SoundsSettings _soundsSettings;
         [Inject] private ColorsSettings _colorsSettings;
 
         public override void Execute(GameplayViewModelContext context)
@@ -28,6 +31,8 @@ namespace GameLogic.UI.Gameplay
             context.OriginDraggedCluster = null;
             context.OriginDraggedClusterWordRow = null;
             context.OriginDraggedClusterHolder = null;
+
+            _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
         }
 
         private void SetHintClusterAsDistributed(GameplayViewModelContext context)

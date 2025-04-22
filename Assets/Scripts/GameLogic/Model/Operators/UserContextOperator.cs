@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using GameLogic.Model.Contexts;
 using GameLogic.Model.Repositories;
 
 namespace GameLogic.Model.Operators
@@ -13,12 +12,18 @@ namespace GameLogic.Model.Operators
             _userContextRepository = userContextRepository;
         }
 
-        public void ClearAllProgress()
+        public void ClearProgress()
         {
-            _userContextRepository.ClearAllProgress();
+            _userContextRepository.ClearProgress();
             _userContextRepository.Save();
         }
-        
+
+        public void SetSoundsMuted(bool isMuted)
+        {
+            _userContextRepository.SetSoundsMuted(isMuted);
+            _userContextRepository.Save();
+        }
+
         public void UpdateLocalization(string localizationDefId)
         {
             _userContextRepository.SetLocalization(localizationDefId);

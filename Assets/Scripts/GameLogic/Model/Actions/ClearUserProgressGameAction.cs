@@ -6,7 +6,7 @@ using Zenject;
 
 namespace GameLogic.Model.Actions
 {
-    public class ClearUserContextGameAction : IGameAction  
+    public class ClearUserProgressGameAction : IGameAction  
     {
         [Inject] private UserContextOperator _userContextOperator;
         [Inject] private DiContainer _diContainer;
@@ -14,7 +14,7 @@ namespace GameLogic.Model.Actions
 
         public UniTask ExecuteAsync()
         {
-            _userContextOperator.ClearAllProgress();
+            _userContextOperator.ClearProgress();
 
             return UniTask.CompletedTask;
         }

@@ -18,6 +18,9 @@
         "NEXT_LEVEL_BUTTON" : "Next level",
         "LEVEL_NUMBER" : "Level {0}",
         "MAIN_MENU_PLAY_BUTTON" : "Play",
-        "MAIN_MENU_TITLE" : "Menu"
+        "MAIN_MENU_TITLE" : "Menu",
+        "SETTINGS_VIEW_TITLE" : "Settings",
+        "SETTINGS_SOUNDS_LABEL" : "Sounds",
+        "SETTINGS_BACK_BUTTON" : "Back"
     }
 }

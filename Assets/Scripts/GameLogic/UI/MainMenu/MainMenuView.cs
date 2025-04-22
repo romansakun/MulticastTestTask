@@ -9,12 +9,12 @@ namespace GameLogic.UI.MainMenu
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _settingsButton;
 
-
         private MainMenuViewModel _viewModel;
 
         public override UniTask Initialize(ViewModel viewModel)
         {
             UpdateViewModel(ref _viewModel, viewModel);
+
             return UniTask.CompletedTask;
         }
 
