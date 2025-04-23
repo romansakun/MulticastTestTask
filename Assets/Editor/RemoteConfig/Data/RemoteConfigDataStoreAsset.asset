@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"95f13b5a-6bc4-4864-ab11-aa568f402f3f\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"88f420f5-2f6d-4378-b56b-3e23431327b3\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
@@ -117,7 +117,7 @@ MonoBehaviour:
     4\r\n          },\r\n          \"RulesDescriptionLocalizationKey\": \"GENERAL_LEVEL_RULES\",\r\n         
     \"LevelNumberLocalizationKey\": \"LEVEL_NUMBER\",\r\n          \"Id\": \"LevelSettings\"\r\n       
     }\r\n      }\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"95f13b5a-6bc4-4864-ab11-aa568f402f3f\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"88f420f5-2f6d-4378-b56b-3e23431327b3\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
