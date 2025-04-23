@@ -38,8 +38,10 @@ namespace GameLogic.UI
         {
             _canvas ??= GetComponent<Canvas>();
             _rectTransform ??= GetComponent<RectTransform>();
-            _rectTransform.anchoredPosition = Vector2.zero;
+
             _viewManager.Views.Subscribe(OnViewsChanged);
+
+            _rectTransform.anchoredPosition = Vector2.zero;
             _canvas.pixelPerfect = true;
             _canvas.overrideSorting = true;
             if (_overrideSortingOrder > 0)

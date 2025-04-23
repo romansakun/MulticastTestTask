@@ -15,10 +15,10 @@ MonoBehaviour:
   _localGameDefsTextAsset: {fileID: 4900000, guid: 51e17174235aac24592df49227a823f8, type: 3}
   _soundsSettings:
     DropClusterSound: {fileID: 8300000, guid: 17c58c9221cb2c148910119d253fdf98, type: 3}
-    SelectClusterSound: {fileID: 8300000, guid: fd19fb15c94d1174aa551ae4c96987f5, type: 3}
+    TapSound: {fileID: 8300000, guid: fd19fb15c94d1174aa551ae4c96987f5, type: 3}
     WrongAnswerSound: {fileID: 8300000, guid: 4acbeae14b759dc409e143e826e54b2d, type: 3}
     SuccessSound: {fileID: 8300000, guid: 40ece7fae2afed54984c008d1853a332, type: 3}
-    BackgroundMusic: {fileID: 8300000, guid: ddd2c49ed50d7294281b3d6e89456b59, type: 3}
+    BackgroundMusic: {fileID: 8300000, guid: 9e5f7f1157bb17d449e965fff3fa1f6e, type: 3}
   _colorsSettings:
     DefaultClusterTextColor: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
     DefaultClusterBackColor: {r: 0.78431374, g: 0.78431374, b: 0, a: 1}

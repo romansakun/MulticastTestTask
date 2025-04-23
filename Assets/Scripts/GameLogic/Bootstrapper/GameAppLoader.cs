@@ -24,6 +24,8 @@ namespace GameLogic.Bootstrapper
             if (gameAppLoadedView == null)
                 return;
 
+            _viewManager.Views.Unsubscribe(OnViewsChanged);
+
             var viewModel = _viewModelFactory.Create<GameAppLoaderViewModel>();
             await gameAppLoadedView.Initialize(viewModel);
 
