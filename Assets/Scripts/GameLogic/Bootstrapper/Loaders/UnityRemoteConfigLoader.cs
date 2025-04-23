@@ -25,6 +25,10 @@ namespace GameLogic.Bootstrapper
             {
                 await InitializeRemoteConfigAsync();
             }
+            else
+            {
+                return;
+            }
             var runtimeConfig = await RemoteConfigService.Instance.FetchConfigsAsync(new UserAttributes(), new AppAttributes());
             if (runtimeConfig.config.TryGetValue(nameof(GameDefs), out var gameDefs))
             { 

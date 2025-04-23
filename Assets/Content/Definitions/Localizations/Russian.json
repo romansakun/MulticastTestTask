@@ -21,7 +21,8 @@
         "MAIN_MENU_TITLE" : "Меню",
         "SETTINGS_VIEW_TITLE" : "Настройки",
         "SETTINGS_SOUNDS_LABEL" : "Звуки",
-        "SETTINGS_BACK_BUTTON" : "Назад"
-        
+        "SETTINGS_BACK_BUTTON" : "Назад",
+        "HOW_PLAY_TITLE" : "Как играть",
+        "OK_BUTTON" : "Хорошо"
     }
 }

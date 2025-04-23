@@ -3,7 +3,6 @@ using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Operators;
-using GameLogic.UI.MainMenu;
 using Infrastructure;
 using UnityEngine;
 using Zenject;
@@ -41,10 +40,8 @@ namespace GameLogic.UI.Settings
             _isSoundMuted.Value = isMuted;
         }
 
-        public async void OnBackButtonClicked()
+        public void OnBackButtonClicked()
         {
-            var viewModel = _viewModelFactory.Create<MainMenuViewModel>(); 
-            var view = await _viewManager.ShowAsync<MainMenuView, MainMenuViewModel>(viewModel);
             _viewManager.Close<SettingsView>();
         }
     }

@@ -12,10 +12,10 @@ namespace GameLogic.UI.Gameplay
 {
     public class GameplayViewModel : ViewModel 
     {
-        [Inject] private LogicBuilderFactory _logicBuilderFactory;
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private GameDefsDataProvider _gameDefs;
-        [Inject] private GameAppReloader _reloader;
+        [Inject] private LogicBuilderFactory _logicBuilderFactory;
+        [Inject] private GameAppReloader _gameAppReloader;
 
         public IReactiveProperty<bool> IsUndistributedClustersScrollRectActive => _logicAgent.Context.IsUndistributedClustersScrollRectActive;
         public IReactiveProperty<bool> IsHintClusterInUndistributedClusters => _logicAgent.Context.IsHintClusterInUndistributedClusters;
@@ -36,7 +36,8 @@ namespace GameLogic.UI.Gameplay
                 .AddAction<ResolveLevelProgress>()
                 .JoinAction<LoadWordRows>()
                 .JoinAction<LoadWordDistributedClusters>()
-                .JoinAction<LoadUndistributedClusters>();
+                .JoinAction<LoadUndistributedClusters>()
+                .JoinAction<TryShowHowToPlayHint>();
 
             var prepareDragUndistributedClusterAction = logicBuilder.AddAction<PrepareDragUndistributedCluster>();
             var prepareDragDistributedClusterAction = logicBuilder.AddAction<PrepareDragDistributedCluster>();
@@ -73,7 +74,7 @@ namespace GameLogic.UI.Gameplay
             Debug.Log(errorMessage);
 
             //todo dialog view with reload button
-            _reloader.ReloadGame();
+            _gameAppReloader.ReloadGame();
         }
 
         public async UniTask StartLevelLoading(RectTransform wordsHolder, RectTransform undistributedClustersHolder)

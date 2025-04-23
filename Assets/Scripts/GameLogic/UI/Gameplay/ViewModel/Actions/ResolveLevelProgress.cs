@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
 using GameLogic.Model.Actions;
@@ -10,38 +11,69 @@ namespace GameLogic.UI.Gameplay
 {
     public class ResolveLevelProgress : BaseGameplayViewModelAction
     {
+        [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private GameActionFactory _gameActionFactory;
         [Inject] private GameActionExecutor _gameActionExecutor;
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
-            if (_userContext.TryGetNewNextLevelDefId(out _) == false)
+            if (TryLoadLastLevelProgress(context))
+                return;
+
+            if (await TryStartNewNextLevel(context)) 
+                return;
+
+            await RestartLevelsProgress();
+
+            if (await TryStartNewNextLevel(context) == false)
             {
-                var gameAction = _gameActionFactory.Create<ClearUserProgressGameAction>();
-                await _gameActionExecutor.ExecuteAsync(gameAction);
+                throw new Exception($"Cant load any level");
             }
+        }
+
+        private bool TryLoadLastLevelProgress(GameplayViewModelContext context)
+        {
+            if (_userContext.TryGetLastUncompletedLevelProgress(out var levelProgress))
+            {
+                var isLevelExist = _gameDefs.Levels.TryGetValue(levelProgress.LevelDefId, out _);
+                if (isLevelExist)
+                {
+                    context.LevelProgress = levelProgress;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private async UniTask<bool> TryStartNewNextLevel(GameplayViewModelContext context)
+        {
+            if (_userContext.TryGetNewNextLevelDefId(out var levelDefId) == false) 
+                return false;
+
+            var isLevelExist = _gameDefs.Levels.TryGetValue(levelDefId, out _);
+            if (isLevelExist == false)
+                return false;
+
+            var gameAction = _gameActionFactory.Create<StartNewLevelGameAction>(levelDefId);
+            await _gameActionExecutor.ExecuteAsync(gameAction);
+            await UniTask.Yield();
 
             if (_userContext.TryGetLastUncompletedLevelProgress(out var levelProgress))
             {
                 context.LevelProgress = levelProgress;
-            }
-            else if (_userContext.TryGetNewNextLevelDefId(out var levelDefId))
-            {
-                var gameAction = _gameActionFactory.Create<StartNewLevelGameAction>(levelDefId);
-                await _gameActionExecutor.ExecuteAsync(gameAction);
-                if (context.IsDisposed) return;
-
-                if (_userContext.TryGetLastUncompletedLevelProgress(out levelProgress))
-                    context.LevelProgress = levelProgress;
-            }
-            else
-            {
-                var gameAction = _gameActionFactory.Create<ClearUserProgressGameAction>();
-                await _gameActionExecutor.ExecuteAsync(gameAction);
+                return true;
             }
 
+            return false;
+        }
+
+        private async Task RestartLevelsProgress()
+        {
+            var gameAction = _gameActionFactory.Create<ClearUserProgressGameAction>();
+            await _gameActionExecutor.ExecuteAsync(gameAction);
             await UniTask.Yield();
         }
+
     }
 }

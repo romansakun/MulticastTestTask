@@ -96,6 +96,16 @@ namespace GameLogic.Model.Repositories
             return _userContext.LevelsProgress.TryGetValue(levelDefId, out var levelProgress) && levelProgress.IsCompleted;
         }
 
+        public bool IsHowToPlayHintShown()
+        {
+            return _userContext.IsHowToPlayHintShown;
+        }
+
+        public void SetHowToPlayHintShown()
+        {
+            _userContext.IsHowToPlayHintShown = true;
+        }
+
         public void ClearProgress()
         {
             var localizationDefId = _userContext.LocalizationDefId;

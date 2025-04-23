@@ -42,5 +42,10 @@ namespace GameLogic.Model.Operators
             _userContextRepository.Save();
         }
 
+        public void SetHowToPlayHintShown()
+        {
+            _userContextRepository.SetHowToPlayHintShown();
+            _userContextRepository.Save();
+        }
     }
 }

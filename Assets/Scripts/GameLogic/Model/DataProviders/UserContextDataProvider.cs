@@ -35,6 +35,11 @@ namespace GameLogic.Model.DataProviders
             return key;
         }
 
+        public bool IsHowToPlayHintShown()
+        {
+            return _userContextRepository.IsHowToPlayHintShown();
+        }
+
         public bool IsAnyLevelProgressExist()
         {
             return _userContextRepository.IsAnyLevelProgressExist();

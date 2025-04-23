@@ -23,6 +23,11 @@ namespace GameLogic.UI.Components
             }
         }
 
+        private void OnValidate()
+        {
+            _textMeshPro ??= GetComponent<TextMeshProUGUI>();
+        }
+
         private void Awake()
         {
             _textMeshPro ??= GetComponent<TextMeshProUGUI>();
@@ -31,7 +36,7 @@ namespace GameLogic.UI.Components
 
         private void Start()
         {
-            _userContext.LocalizationDefId.Subscribe(OnChangeUserLocalization);
+            _userContext.LocalizationDefId.Subscribe(OnChangeUserLocalization, false);
         }
 
         private void OnChangeUserLocalization(string localizationDefId)

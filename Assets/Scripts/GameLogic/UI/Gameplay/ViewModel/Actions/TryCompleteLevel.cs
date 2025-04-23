@@ -42,6 +42,7 @@ namespace GameLogic.UI.Gameplay
 
         private async void ShowVictoryView(GameplayViewModelContext context)
         {
+            _viewManager.Close<GameplayView>();
             var viewModel = _viewModelFactory.Create<VictoryViewModel>();
             var view = await _viewManager.ShowAsync<VictoryView, VictoryViewModel>(viewModel);
         }

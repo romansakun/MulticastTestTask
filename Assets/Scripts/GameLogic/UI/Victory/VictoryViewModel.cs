@@ -61,13 +61,14 @@ namespace GameLogic.UI.Victory
 
         public async void OnNextLevelButtonClicked()
         {
-            _viewManager.CloseAll();
+            _viewManager.Close<VictoryView>();
             var viewModel = _viewModelFactory.Create<GameplayViewModel>();
             var view = await _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
         }
 
         public async void OnMainMenuButtonClicked()
         {
+            _viewManager.Close<VictoryView>();
             var viewModel = _viewModelFactory.Create<MainMenuViewModel>();
             var view = await _viewManager.ShowAsync<MainMenuView, MainMenuViewModel>(viewModel);
         }

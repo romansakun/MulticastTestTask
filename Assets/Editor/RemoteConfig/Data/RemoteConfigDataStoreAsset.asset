@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"1b9aa804-b43c-4e1d-b992-fe391a0551d1\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"95f13b5a-6bc4-4864-ab11-aa568f402f3f\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
@@ -36,7 +36,9 @@ MonoBehaviour:
     \"\u0418\u0433\u0440\u0430\u0442\u044C\",\r\n              \"MAIN_MENU_TITLE\":
     \"\u041C\u0435\u043D\u044E\",\r\n              \"SETTINGS_VIEW_TITLE\": \"\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\",\r\n             
     \"SETTINGS_SOUNDS_LABEL\": \"\u0417\u0432\u0443\u043A\u0438\",\r\n             
-    \"SETTINGS_BACK_BUTTON\": \"\u041D\u0430\u0437\u0430\u0434\"\r\n            },\r\n           
+    \"SETTINGS_BACK_BUTTON\": \"\u041D\u0430\u0437\u0430\u0434\",\r\n             
+    \"HOW_PLAY_TITLE\": \"\u041A\u0430\u043A \u0438\u0433\u0440\u0430\u0442\u044C\",\r\n             
+    \"OK_BUTTON\": \"\u0425\u043E\u0440\u043E\u0448\u043E\"\r\n            },\r\n           
     \"Id\": \"Russian\"\r\n          },\r\n          \"English\": {\r\n           
     \"Levels\": {\r\n              \"1\": \"En_1\",\r\n              \"2\": \"En_2\",\r\n             
     \"3\": \"En_3\",\r\n              \"4\": \"En_4\"\r\n            },\r\n           
@@ -49,7 +51,8 @@ MonoBehaviour:
     \"Next level\",\r\n              \"LEVEL_NUMBER\": \"Level {0}\",\r\n             
     \"MAIN_MENU_PLAY_BUTTON\": \"Play\",\r\n              \"MAIN_MENU_TITLE\": \"Menu\",\r\n             
     \"SETTINGS_VIEW_TITLE\": \"Settings\",\r\n              \"SETTINGS_SOUNDS_LABEL\":
-    \"Sounds\",\r\n              \"SETTINGS_BACK_BUTTON\": \"Back\"\r\n           
+    \"Sounds\",\r\n              \"SETTINGS_BACK_BUTTON\": \"Back\",\r\n             
+    \"HOW_PLAY_TITLE\": \"How to play\",\r\n              \"OK_BUTTON\": \"Ok\"\r\n           
     },\r\n            \"Id\": \"English\"\r\n          }\r\n        },\r\n       
     \"Levels\": {\r\n          \"Ru_3\": {\r\n            \"Words\": {\r\n             
     \"\u0421\u0415\u0420\u0412\u0415\u0420\": [\r\n                3,\r\n               
@@ -114,7 +117,7 @@ MonoBehaviour:
     4\r\n          },\r\n          \"RulesDescriptionLocalizationKey\": \"GENERAL_LEVEL_RULES\",\r\n         
     \"LevelNumberLocalizationKey\": \"LEVEL_NUMBER\",\r\n          \"Id\": \"LevelSettings\"\r\n       
     }\r\n      }\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"1b9aa804-b43c-4e1d-b992-fe391a0551d1\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"95f13b5a-6bc4-4864-ab11-aa568f402f3f\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"GameDefs\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": \"gamedefs-template\",\r\n      \"value\": {\r\n        \"Localizations\":
     {\r\n          \"Russian\": {\r\n            \"Levels\": {\r\n              \"1\":
@@ -138,7 +141,9 @@ MonoBehaviour:
     \"\u0418\u0433\u0440\u0430\u0442\u044C\",\r\n              \"MAIN_MENU_TITLE\":
     \"\u041C\u0435\u043D\u044E\",\r\n              \"SETTINGS_VIEW_TITLE\": \"\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\",\r\n             
     \"SETTINGS_SOUNDS_LABEL\": \"\u0417\u0432\u0443\u043A\u0438\",\r\n             
-    \"SETTINGS_BACK_BUTTON\": \"\u041D\u0430\u0437\u0430\u0434\"\r\n            },\r\n           
+    \"SETTINGS_BACK_BUTTON\": \"\u041D\u0430\u0437\u0430\u0434\",\r\n             
+    \"HOW_PLAY_TITLE\": \"\u041A\u0430\u043A \u0438\u0433\u0440\u0430\u0442\u044C\",\r\n             
+    \"OK_BUTTON\": \"\u0425\u043E\u0440\u043E\u0448\u043E\"\r\n            },\r\n           
     \"Id\": \"Russian\"\r\n          },\r\n          \"English\": {\r\n           
     \"Levels\": {\r\n              \"1\": \"En_1\",\r\n              \"2\": \"En_2\",\r\n             
     \"3\": \"En_3\",\r\n              \"4\": \"En_4\"\r\n            },\r\n           
@@ -151,7 +156,8 @@ MonoBehaviour:
     \"Next level\",\r\n              \"LEVEL_NUMBER\": \"Level {0}\",\r\n             
     \"MAIN_MENU_PLAY_BUTTON\": \"Play\",\r\n              \"MAIN_MENU_TITLE\": \"Menu\",\r\n             
     \"SETTINGS_VIEW_TITLE\": \"Settings\",\r\n              \"SETTINGS_SOUNDS_LABEL\":
-    \"Sounds\",\r\n              \"SETTINGS_BACK_BUTTON\": \"Back\"\r\n           
+    \"Sounds\",\r\n              \"SETTINGS_BACK_BUTTON\": \"Back\",\r\n             
+    \"HOW_PLAY_TITLE\": \"How to play\",\r\n              \"OK_BUTTON\": \"Ok\"\r\n           
     },\r\n            \"Id\": \"English\"\r\n          }\r\n        },\r\n       
     \"Levels\": {\r\n          \"Ru_3\": {\r\n            \"Words\": {\r\n             
     \"\u0421\u0415\u0420\u0412\u0415\u0420\": [\r\n                3,\r\n               

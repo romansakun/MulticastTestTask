@@ -26,7 +26,6 @@ namespace GameLogic.UI.MainMenu
         {
             var viewModel = _viewModelFactory.Create<SettingsViewModel>();
             await _viewManager.ShowAsync<SettingsView, SettingsViewModel>(viewModel);
-            _viewManager.Close<MainMenuView>();
         }
     }
 }

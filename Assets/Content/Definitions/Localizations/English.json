@@ -21,6 +21,8 @@
         "MAIN_MENU_TITLE" : "Menu",
         "SETTINGS_VIEW_TITLE" : "Settings",
         "SETTINGS_SOUNDS_LABEL" : "Sounds",
-        "SETTINGS_BACK_BUTTON" : "Back"
+        "SETTINGS_BACK_BUTTON" : "Back",
+        "HOW_PLAY_TITLE" : "How to play",
+        "OK_BUTTON" : "Ok"
     }
 }
