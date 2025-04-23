@@ -1,9 +1,11 @@
 # Тестовое задание
 Прототип мобильной игры-головоломки с удалённой поставкой уровней (Unity Remote Config)
 
+
+
 ### Настройки
 
-Assets/Content/Definitions - все JSON настройки игры:
+`Assets/Content/Definitions` - все JSON настройки игры:
 * `Assets/Content/Definitions/Levels/`
 ```json5
   {
@@ -53,14 +55,29 @@ Assets/Content/Definitions - все JSON настройки игры:
 ```
 
 * `Assets/Content/ScriptableSettings/LocalGameDefs.json` - локальные настройки с 1 уровнем для каждой локализации
-* `Assets/Content/ScriptableSettings/ScriptableSettingsInstaller.asset` - scriptable настройки (цвета, звуки и прочее)
+* `Assets/Content/ScriptableSettings/ScriptableSettingsInstaller.asset` - scriptable настройки. Содержит ссылку на локальный JSON, цвета, звуки и переменные.
 
 После изменений в JSON настройках их нужно собрать в единый файл и загрузить в Unity Remote Config:
 
-* нажимаем кнопку _Definitions/Build_ в Unity:
+* нажимаем кнопку _Definitions/Build_ в Unity - это важно, т.к. все JSON валидируются при сборке:
 
 ![img](ReadMeAssets/definitions_build_hint.png)
 
-* получаем файл: `Assets/Definitions.json`
+* если изменения корректы и валидация при сборке пройдена,то получаем файл: `Assets/Definitions.json`
 * загружаем его в Unity Remote Config (ключ: _GameDefs_)
 
+# Архитектура проекта
+
+Сборки:
+* `Assets/Scripts/GameLogic/`:
+  - `Assets/Scripts/GameLogic/Model/` - загрузка/сохранение профиля игрока; получение JSON настроек и уровней. За основу взята идея паттерна репозиторий
+  
+  - `Assets/Scripts/GameLogic/Bootstrapper/` - логика загрузки (и перезагрузки) приложения. `Assets/Scripts/GameLogic/Bootstrapper/Loaders/UnityRemoteConfigLoader.cs` - загрузка настроек из Unity Remote Config 
+  - `Assets/Scripts/GameLogic/UI/` - UI на основе MVVM подхода
+* `Assets/Scripts/Infrastructure/` - инфраструктурные компоненты:
+  - `Assets/Scripts/Infrastructure/LogicUtility/` - на основе паттерна цепочка обязанностей. Применим для сложной, разветвленной логики одной сущности (например ИИ бота). В данном случае применен для `Assets/Scripts/GameLogic/UI/Gameplay/ViewModel/GameplayViewModel.cs`
+  - `Assets/Scripts/Infrastructure/Services/AssetLoader.cs` - загрузка ассетов через Addressables
+
+# Оптимизации
+* инстансы префабов для кластеров и строк (Cluster.cs и WordRow.cs) выдаются из пулов, которые инжектятся в фабрики
+* сохранение прогресса игрока происходит на следующий кадр,- чтобы исключить несколько сохранений в один кадр подряд
