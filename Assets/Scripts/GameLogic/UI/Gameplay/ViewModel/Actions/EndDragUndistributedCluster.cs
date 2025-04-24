@@ -12,7 +12,7 @@ namespace GameLogic.UI.Gameplay
 
         public override void Execute(GameplayViewModelContext context)
         {
-            context.IsUndistributedClustersScrollRectActive.Value = true;
+            context.IsUndistributedClustersScrollRectActive.SetValueAndForceNotify(true);
 
             StopWordRowsBlinking(context);
 
@@ -46,6 +46,7 @@ namespace GameLogic.UI.Gameplay
 
             context.HintCluster = null;
             context.HintClusterWordRow = null;
+            context.HintClusterHolder = null;
         }
 
         private static void DisposeOriginUndistributedCluster(GameplayViewModelContext context)

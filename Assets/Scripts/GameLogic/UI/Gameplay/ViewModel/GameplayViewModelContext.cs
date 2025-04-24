@@ -27,6 +27,8 @@ namespace GameLogic.UI.Gameplay
         public Cluster HintCluster { get; set; }
         public WordRow HintClusterWordRow { get; set; }
 
+        public RectTransform HintClusterHolder { get; set; }
+
         public Cluster DraggedCluster { get; set; }
         public Cluster OriginDraggedCluster { get; set; }
         public WordRow OriginDraggedClusterWordRow { get; set; }

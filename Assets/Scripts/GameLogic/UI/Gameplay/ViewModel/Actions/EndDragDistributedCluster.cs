@@ -32,6 +32,7 @@ namespace GameLogic.UI.Gameplay
             context.OriginDraggedClusterHolder = null;
             context.HintCluster = null;
             context.HintClusterWordRow = null;
+            context.HintClusterHolder = null;
 
             _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
         }

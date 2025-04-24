@@ -10,7 +10,9 @@ namespace Infrastructure.Pools
         [Inject] private DiContainer _diContainer;
 
         private readonly Stack<T> _pool = new();
+        private Transform _despawnObjectsParent;
         private T _prefab;
+        private bool _isDisposed;
 
         public int NumTotal { get; private set; }
         public int NumActive { get; private set;}
@@ -18,9 +20,10 @@ namespace Infrastructure.Pools
         public Type ItemType { get; private set;} 
 
 
-        public void InitPool(T prefab, int initialSize)
+        public void InitPool(T prefab, Transform parent, int initialSize)
         {
-            _prefab = prefab;
+            _prefab = prefab ? prefab : throw new ArgumentNullException(nameof(prefab));
+            _despawnObjectsParent = parent ? parent : throw new ArgumentNullException(nameof(parent));
             NumTotal = initialSize;
             NumInactive = initialSize;
             NumActive = 0;
@@ -40,20 +43,24 @@ namespace Infrastructure.Pools
         public void Despawn(object obj)
         {
             T item = (T)obj;
-            item.OnDespawned();
-            _pool.Push(item);
+            Despawn(item);
         }
 
         public void Despawn(T item)
         {
+            if (_isDisposed) return;
+            if (item == null) return;
+
             item.OnDespawned();
+            item.transform.SetParent(_despawnObjectsParent, false);
+
             _pool.Push(item);
         }
 
         public T Spawn()
         {
-            if (_prefab == null)
-                return null;
+            if (_isDisposed) return null;
+            if (_prefab == null) return null;
 
             while (_pool.Count > 0)
             {
@@ -69,6 +76,7 @@ namespace Infrastructure.Pools
 
         private T CreateNew()
         {
+            if (_isDisposed) return null;
             T instance = _diContainer.InstantiatePrefabForComponent<T>(_prefab);
             instance.OnSpawned(this);
             return instance;
@@ -89,8 +97,10 @@ namespace Infrastructure.Pools
 
         public void Dispose()
         {
+            _despawnObjectsParent = null;
             _prefab = null;
             _pool.Clear();
+            _isDisposed = true;
         }
     }
 }

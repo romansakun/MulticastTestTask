@@ -17,6 +17,8 @@ namespace GameLogic.UI.Gameplay
 
         public override void Execute(GameplayViewModelContext context)
         {
+            context.IsUndistributedClustersScrollRectActive.SetValueAndForceNotify(false);
+
             _audioPlayer.PlaySound(_soundsSettings.TapSound);
 
             var originalCluster = context.OriginDraggedCluster;
@@ -34,8 +36,6 @@ namespace GameLogic.UI.Gameplay
             context.DraggedCluster = swipingCluster;
 
             BlinkSuitableWordRows(context);
-
-            context.IsUndistributedClustersScrollRectActive.Value = false;
         }
 
         private void BlinkSuitableWordRows(GameplayViewModelContext context)

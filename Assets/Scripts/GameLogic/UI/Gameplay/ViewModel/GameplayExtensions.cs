@@ -30,7 +30,7 @@ namespace GameLogic.UI.Gameplay
             return RectTransformUtility.RectangleContainsScreenPoint(rt, point, null, Vector4.zero);
         }
 
-        public static int GetSiblingIndex(this Dictionary<WordRow, List<Cluster>> wordRows, WordRow wordRow, Vector2 point)
+        public static int GetSiblingIndexForClusterPoint(this Dictionary<WordRow, List<Cluster>> wordRows, WordRow wordRow, Vector2 point)
         {
             var sublimeIndex = 0;
             var clusters = wordRows[wordRow];

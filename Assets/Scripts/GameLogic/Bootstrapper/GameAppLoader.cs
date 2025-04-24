@@ -31,7 +31,7 @@ namespace GameLogic.Bootstrapper
 
             viewModel.AddToLoadingQueue<UnityRemoteConfigLoader>();
             viewModel.AddToLoadingQueue<UserContextLoader>();
-            viewModel.AddToLoadingQueue<InitDynamicMonoPoolsLoader>();
+            viewModel.AddToLoadingQueue<InitDeferredMonoPoolsLoader>();
             viewModel.AddToLoadingQueue<ShowMainMenuLoader>();
 
             viewModel.ProcessLoadingQueue();
