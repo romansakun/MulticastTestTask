@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
@@ -29,8 +30,19 @@ namespace GameLogic.Bootstrapper
             {
                 return;
             }
-            var runtimeConfig = await RemoteConfigService.Instance.FetchConfigsAsync(new UserAttributes(), new AppAttributes());
-            if (runtimeConfig.config.TryGetValue(nameof(GameDefs), out var gameDefs))
+
+            RuntimeConfig runtimeConfig;
+            try
+            {
+                runtimeConfig = await RemoteConfigService.Instance.FetchConfigsAsync(new UserAttributes(), new AppAttributes());
+            }
+            catch (Exception er)
+            {
+                Debug.LogError(er.Message);
+                return;
+            }
+
+            if (runtimeConfig != null && runtimeConfig.config.TryGetValue(nameof(GameDefs), out var gameDefs))
             { 
                 TryApplyRemoteSettings(gameDefs);
             }
@@ -39,7 +51,7 @@ namespace GameLogic.Bootstrapper
         private async UniTask InitializeRemoteConfigAsync()
         {
             await UnityServices.InitializeAsync();
-            if (!AuthenticationService.Instance.IsSignedIn)
+            if (AuthenticationService.Instance.IsSignedIn == false)
             {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
             }

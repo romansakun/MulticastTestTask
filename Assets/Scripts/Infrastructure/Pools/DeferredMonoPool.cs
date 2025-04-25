@@ -17,8 +17,13 @@ namespace Infrastructure.Pools
         public int NumTotal { get; private set; }
         public int NumActive { get; private set;}
         public int NumInactive { get; private set;}
-        public Type ItemType { get; private set;} 
+        public Type ItemType { get; private set;}
 
+
+        public DeferredMonoPool()
+        {
+            Application.quitting += Dispose;
+        }
 
         public void InitPool(T prefab, Transform parent, int initialSize)
         {
@@ -52,7 +57,8 @@ namespace Infrastructure.Pools
             if (item == null) return;
 
             item.OnDespawned();
-            item.transform.SetParent(_despawnObjectsParent, false);
+            if (_despawnObjectsParent != null &&item.transform.parent != _despawnObjectsParent)
+                item.transform.SetParent(_despawnObjectsParent, false);
 
             _pool.Push(item);
         }
@@ -97,10 +103,12 @@ namespace Infrastructure.Pools
 
         public void Dispose()
         {
+            if (_isDisposed) return;
+            Application.quitting -= Dispose;
             _despawnObjectsParent = null;
             _prefab = null;
-            _pool.Clear();
             _isDisposed = true;
+            _pool?.Clear();
         }
     }
 }

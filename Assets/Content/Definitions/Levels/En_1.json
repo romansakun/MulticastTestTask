@@ -1,9 +1,9 @@
 {
-    "Words": 
-    {
-        "ANCHOR" : [2, 2, 2],
-        "BOTTLE" : [3, 3],
-        "DANCER" : [4, 2],
-        "ENGINE" : [2, 4]
-    }
+	"Words":
+	{
+		"FATHER": [3, 3],
+		"MONKEY": [2, 4],
+		"BRUSH": [2, 3],
+		"NORTH": [3, 2]
+	}
 }

@@ -1,9 +1,9 @@
 {
-    "Words": 
-    {
-        "JACKET" : [2, 2, 2],
-        "KITTEN" : [3, 3],
-        "LADDER" : [4, 2],
-        "MAGNET" : [2, 4]
-    }
+	"Words":
+	{
+		"BERRY": [3, 2],
+		"MUSIC": [3, 2],
+		"QUALITY": [3, 2, 2],
+		"SPORT": [3, 2]
+	}
 }

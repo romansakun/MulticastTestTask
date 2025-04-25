@@ -15,7 +15,7 @@ namespace EditorDefinitions
 {
     public class GameDefsBuilder : EditorUtility 
     {
-        private static string DefinitionsFilePath => $"{Application.dataPath}/Definitions.json";
+        private static string DefinitionsFilePath => $"{Application.dataPath}/Content/ScriptableSettings/LocalGameDefs.json";
 
         [MenuItem("Definitions/Build")]
         public static void BuildDefinitions()

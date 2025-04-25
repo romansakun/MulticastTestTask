@@ -70,6 +70,11 @@ namespace GameLogic.Model.DataProviders
             return TryGetLastUncompletedLevelProgress(LocalizationDefId.Value, out levelProgress);
         }
 
+        public int GetAllFormedWordCount()
+        {
+            return _userContextRepository.GetAllFormedWordCount();  
+        }
+
         public bool TryGetLastUncompletedLevelProgress(string localizationDefId, out LevelProgressContextDataProvider levelProgress)
         {
             levelProgress = null;

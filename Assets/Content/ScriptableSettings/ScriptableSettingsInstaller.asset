@@ -28,4 +28,4 @@ MonoBehaviour:
     GhostClusterBackColor: {r: 0.078431375, g: 0.78431374, b: 0.078431375, a: 0.39215687}
   _gameplaySettings:
     DraggedClusterRotation: {x: 0, y: 0, z: 10}
-    DraggedClusterOffsetPosition: {x: 0, y: 140}
+    DraggedClusterOffsetPosition: {x: 0, y: 90}

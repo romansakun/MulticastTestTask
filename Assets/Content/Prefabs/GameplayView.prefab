@@ -311,7 +311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 180}
+  m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 600, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4207352791708384453
@@ -1103,6 +1103,7 @@ GameObject:
   - component: {fileID: 6571312113725420240}
   - component: {fileID: 8694207351371194259}
   - component: {fileID: 8797925126236699240}
+  - component: {fileID: 5050487109041964870}
   - component: {fileID: 5620175093326117907}
   m_Layer: 5
   m_Name: MainMenuButton
@@ -1169,6 +1170,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5050487109041964870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243538161416433707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55383a60baf476cba662b42a6e2fb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 5620175093326117907}
 --- !u!114 &5620175093326117907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,6 +1374,7 @@ GameObject:
   - component: {fileID: 3278046622609874715}
   - component: {fileID: 6610723194023032951}
   - component: {fileID: 7854713218603522945}
+  - component: {fileID: 6991174594325902925}
   m_Layer: 5
   m_Name: LeftSwipeArrowButton
   m_TagString: Untagged
@@ -1468,6 +1483,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6991174594325902925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752370389444901106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55383a60baf476cba662b42a6e2fb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 7854713218603522945}
 --- !u!1 &6018974275541700628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,6 +1799,7 @@ GameObject:
   - component: {fileID: 3291825544656897332}
   - component: {fileID: 333862264713840299}
   - component: {fileID: 7974977665445124957}
+  - component: {fileID: 4323245608973669525}
   m_Layer: 5
   m_Name: RightSwipeArrowButton
   m_TagString: Untagged
@@ -1879,6 +1908,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4323245608973669525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571723908960936960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55383a60baf476cba662b42a6e2fb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 7974977665445124957}
 --- !u!1 &6825414779464567742
 GameObject:
   m_ObjectHideFlags: 0

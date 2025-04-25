@@ -106,6 +106,24 @@ namespace GameLogic.Model.Repositories
             _userContext.IsHowToPlayHintShown = true;
         }
 
+        public int GetAllFormedWordCount()
+        {
+            var result = 0;
+            var localizationDefId = _userContext.LocalizationDefId;
+            var levels = _gameDefs.Localizations[localizationDefId].Levels;
+            foreach (var pair in levels)
+            {
+                if (_userContext.LevelsProgress.TryGetValue(pair.Value, out var levelProgress) == false)
+                    continue;
+
+                if (levelProgress.IsCompleted == false)
+                    continue;
+
+                result += _gameDefs.Levels[levelProgress.LevelDefId].Words.Count;
+            }
+            return result;
+        }
+
         public void ClearProgress()
         {
             var localizationDefId = _userContext.LocalizationDefId;
