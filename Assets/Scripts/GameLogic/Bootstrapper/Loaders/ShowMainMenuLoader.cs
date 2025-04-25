@@ -24,8 +24,6 @@ namespace GameLogic.Bootstrapper
         {
             var viewModel = _viewModelFactory.Create<MainMenuViewModel>();
             var view = await _viewManager.ShowAsync<MainMenuView, MainMenuViewModel>(viewModel);
-            
-            //_audioPlayer.PlayMusic(_soundsSettings.BackgroundMusic);
         }
     }
 }

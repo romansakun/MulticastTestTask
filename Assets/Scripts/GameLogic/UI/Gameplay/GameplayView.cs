@@ -20,7 +20,9 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private RectTransform _undistributedClustersHolder;
         [SerializeField] private RectTransform _wordsHolder;
         [SerializeField] private Button _checkWordsButton;
-        [SerializeField] private Image _checkWordsButtonImage;
+        [SerializeField] private Button _mainMenuButton;
+        [SerializeField] private Button _swipeToLeftButton;
+        [SerializeField] private Button _swipeToRightButton;
         [SerializeField] private TextMeshProUGUI _levelName;
         [SerializeField] private TextMeshProUGUI _description;
 
@@ -38,6 +40,9 @@ namespace GameLogic.UI.Gameplay
         protected override void Subscribes()
         {
             _checkWordsButton.onClick.AddListener(() => _viewModel.OnCheckWordsButtonClicked());
+            _mainMenuButton.onClick.AddListener(() => _viewModel.OnMainMenuButtonClicked());
+            _swipeToLeftButton.onClick.AddListener(OnSwipeToLeftButtonClicked);
+            _swipeToRightButton.onClick.AddListener(OnSwipeToRightButtonClicked);
             _viewModel.IsUndistributedClustersScrollRectActive.Subscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Subscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Subscribe(OnFailedCompleteLevelChanged);
@@ -48,6 +53,9 @@ namespace GameLogic.UI.Gameplay
         protected override void Unsubscribes()
         {
             _checkWordsButton.onClick.RemoveAllListeners();
+            _mainMenuButton.onClick.RemoveAllListeners();
+            _swipeToLeftButton.onClick.RemoveAllListeners();
+            _swipeToRightButton.onClick.RemoveAllListeners();
             _viewModel.IsUndistributedClustersScrollRectActive.Unsubscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Unsubscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
@@ -77,6 +85,16 @@ namespace GameLogic.UI.Gameplay
             if (state) _undistributedClustersScrollRect.horizontalNormalizedPosition = 0f;
         }
 
+        private void OnSwipeToRightButtonClicked()
+        {
+            _undistributedClustersScrollRect.horizontalNormalizedPosition = 1f;
+        }
+
+        private void OnSwipeToLeftButtonClicked()
+        {
+            _undistributedClustersScrollRect.horizontalNormalizedPosition = 0f;
+        }
+
         private void OnFailedCompleteLevelChanged(bool state)
         {
             if (!state) return;
@@ -85,7 +103,7 @@ namespace GameLogic.UI.Gameplay
 
             _failButtonAnimation?.Kill();
             _checkWordsButton.interactable = false;
-            _failButtonAnimation = _checkWordsButton.transform.DOShakePosition(.75f, new Vector2(25, 0));
+            _failButtonAnimation = _checkWordsButton.transform.DOShakePosition(.75f, new Vector2(15, 0));
             _failButtonAnimation.OnComplete(() =>
             {
                 _checkWordsButton.interactable = true;

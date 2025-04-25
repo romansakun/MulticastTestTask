@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace GameLogic.UI.Gameplay
 {
     public class OnBeginDragUndistributedCluster : BaseGameplayViewModelQualifier

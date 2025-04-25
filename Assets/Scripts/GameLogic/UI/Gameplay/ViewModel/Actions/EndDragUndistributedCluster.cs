@@ -1,22 +1,10 @@
-using GameLogic.Audio;
-using GameLogic.Bootstrapper;
-using Zenject;
-
 namespace GameLogic.UI.Gameplay
 {
-    public class EndDragUndistributedCluster : BaseGameplayViewModelAction
+    public class EndDragUndistributedCluster : BaseEndDragCluster
     {
-        [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
-        [Inject] private ColorsSettings _colorsSettings;
-
         public override void Execute(GameplayViewModelContext context)
         {
-            context.IsUndistributedClustersScrollRectActive.SetValueAndForceNotify(true);
-
-            StopWordRowsBlinking(context);
-
-            if (context.HintCluster != null)
+            if (context.HintClusterWordRow != null)
             {
                 SetHintClusterAsDistributed(context);
                 DisposeOriginUndistributedCluster(context);
@@ -26,49 +14,13 @@ namespace GameLogic.UI.Gameplay
                 ReturnOriginClusterState(context);
             }
 
-            context.DraggedCluster.Dispose();
-            context.DraggedCluster = null;
-            context.OriginDraggedCluster = null;
-            context.OriginDraggedClusterWordRow = null;
-            context.OriginDraggedClusterHolder = null;
+            StopWordRowsBlinking(context);
+            DisposeDraggedCluster(context);
+            ResetAfterDrag(context);
 
+            context.IsUndistributedClustersScrollRectActive.SetValueAndForceNotify(true);
             _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
         }
 
-        private void SetHintClusterAsDistributed(GameplayViewModelContext context)
-        {
-            var cluster = context.HintCluster;
-            cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-            cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
-            context.WordRowsClusters[context.HintClusterWordRow].Add(cluster);
-            context.DistributedClusters.Add(cluster);
-            context.AllClusters.Add(cluster);
-
-            context.HintCluster = null;
-            context.HintClusterWordRow = null;
-            context.HintClusterHolder = null;
-        }
-
-        private static void DisposeOriginUndistributedCluster(GameplayViewModelContext context)
-        {
-            context.UndistributedClusters.Remove(context.OriginDraggedCluster);
-            context.AllClusters.Remove(context.OriginDraggedCluster);
-            context.OriginDraggedCluster.Dispose();
-        }
-
-        private void ReturnOriginClusterState(GameplayViewModelContext context)
-        {
-            var original = context.OriginDraggedCluster;
-            original.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-            original.SetTextColor(_colorsSettings.DefaultClusterTextColor);
-        }
-
-        private void StopWordRowsBlinking(GameplayViewModelContext context)
-        {
-            foreach (var wordRow in context.WordRows)
-            {
-                wordRow.SetEnabledBlinking(false);
-            }
-        }
     }
 }

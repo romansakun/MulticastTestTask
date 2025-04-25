@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
+using GameLogic.UI.MainMenu;
 using Infrastructure;
 using Infrastructure.LogicUtility;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace GameLogic.UI.Gameplay
         [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private LogicBuilderFactory _logicBuilderFactory;
         [Inject] private GameAppReloader _gameAppReloader;
+        [Inject] private ViewModelFactory _viewModelFactory;
+        [Inject] private ViewManager _viewManager;
 
         public IReactiveProperty<bool> IsUndistributedClustersScrollRectActive => _logicAgent.Context.IsUndistributedClustersScrollRectActive;
         public IReactiveProperty<bool> IsHintClusterInUndistributedClusters => _logicAgent.Context.IsHintClusterInUndistributedClusters;
@@ -131,6 +134,13 @@ namespace GameLogic.UI.Gameplay
             _logicAgent.Execute(true);
         }
 
+        public async void OnMainMenuButtonClicked()
+        {
+            _viewManager.Close<GameplayView>();
+            var viewModel = _viewModelFactory.Create<MainMenuViewModel>();
+            var view = await _viewManager.ShowAsync<MainMenuView, MainMenuViewModel>(viewModel);
+        }
+
         public override void Dispose()
         {
             LevelNameText.Dispose();
@@ -141,6 +151,5 @@ namespace GameLogic.UI.Gameplay
             _logicAgent.Dispose();
             base.Dispose();
         }
-
     }
 }

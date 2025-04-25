@@ -21,10 +21,13 @@ namespace GameLogic.UI.Gameplay
             if (wordRow == null) 
                 return false;
 
-            var dontIgnoreWordLength = isDraggedClusterFromDistributed && context.OriginDraggedClusterHolder != wordRow.ClustersHolder;
+            var canIgnoreWordLength = isDraggedClusterFromDistributed && context.OriginDraggedClusterHolder == wordRow.ClustersHolder;
+            if (canIgnoreWordLength)
+                return true;
+
             var clusterTextLength = context.OriginDraggedCluster.GetText().Length;
             var wordLength = context.WordRowsClusters.GetWord(wordRow).Length;
-            if (dontIgnoreWordLength  && wordLength + clusterTextLength > _gameDefs.LevelSettings.WordLengthsRange.Max)
+            if (wordLength + clusterTextLength > _gameDefs.LevelSettings.WordLengthsRange.Max)
                 return false;
 
             return true;
