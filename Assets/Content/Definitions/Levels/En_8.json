@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"VALLEY": [2, 2, 2],
-		"MOTOR": [3, 2],
-		"CONTROL": [3, 4],
-		"VOLUME": [3, 3]
+		"MOTOR": [2, 3],
+		"CONTROL": [2, 2, 3],
+		"VOLUME": [2, 2, 2]
 	}
 }

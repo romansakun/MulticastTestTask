@@ -35,7 +35,7 @@ namespace GameLogic.UI.MainMenu
             {
                 _wordsCounter = showingValue;
                 _formedWordCount.SetValueAndForceNotify(showingValue);
-            }, count, 1f).SetEase(Ease.OutCubic);
+            }, count, 1f).SetEase(Ease.OutQuart);
         }
 
         public async void OnPlayButtonClicked()

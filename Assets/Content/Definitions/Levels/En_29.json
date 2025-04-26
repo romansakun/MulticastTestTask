@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"FASHION": [2, 3, 2],
-		"PROGRAM": [3, 4],
-		"KNIFE": [3, 2],
+		"FASHION": [2, 2, 3],
+		"PROGRAM": [2, 2, 3],
+		"KNIFE": [2, 3],
 		"SURFACE": [2, 2, 3]
 	}
 }

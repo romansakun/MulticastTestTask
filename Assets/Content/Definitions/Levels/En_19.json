@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"DRIVER": [2, 2, 2],
-		"PERSON": [3, 3],
-		"JUSTICE": [2, 3, 2],
-		"PURPOSE": [3, 4]
+		"PERSON": [2, 2, 2],
+		"JUSTICE": [2, 2, 3],
+		"PURPOSE": [2, 2, 3]
 	}
 }

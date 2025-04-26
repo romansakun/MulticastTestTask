@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CHANGE": [2, 4],
+		"CHANGE": [2, 2, 2],
 		"BROTHER": [2, 2, 3],
-		"CENTRE": [3, 3],
-		"ENTRY": [3, 2]
+		"CENTRE": [2, 2, 2],
+		"ENTRY": [2, 3]
 	}
 }

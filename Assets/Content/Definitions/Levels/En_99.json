@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"ECONOMY": [3, 4],
-		"CURTAIN": [2, 3, 2],
-		"FARMER": [2, 4],
-		"RECEIPT": [3, 2, 2]
+		"ECONOMY": [2, 2, 3],
+		"CURTAIN": [2, 2, 3],
+		"FARMER": [2, 2, 2],
+		"RECEIPT": [2, 2, 3]
 	}
 }

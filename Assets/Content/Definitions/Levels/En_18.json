@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CLASS": [3, 2],
-		"BEDROOM": [3, 2, 2],
-		"COUNTRY": [3, 4],
+		"CLASS": [2, 3],
+		"BEDROOM": [2, 2, 3],
+		"COUNTRY": [2, 2, 3],
 		"OTHERS": [2, 2, 2]
 	}
 }

@@ -1,8 +1,8 @@
 {
 	"Words":
 	{
-		"DESIGN": [3, 3],
-		"TRAFFIC": [3, 4],
+		"DESIGN": [2, 2, 2],
+		"TRAFFIC": [2, 2, 3],
 		"BRAKE": [2, 3],
 		"PATTERN": [2, 2, 3]
 	}

@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"LEADER": [2, 2, 2],
-		"CHURCH": [3, 3],
-		"SCREEN": [3, 3],
+		"CHURCH": [2, 2, 2],
+		"SCREEN": [2, 2, 2],
 		"RETURN": [2, 2, 2]
 	}
 }

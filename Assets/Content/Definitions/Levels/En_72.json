@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"TITLE": [2, 3],
-		"VICTORY": [2, 3, 2],
+		"VICTORY": [2, 2, 3],
 		"BLOOD": [2, 3],
-		"RADIO": [3, 2]
+		"RADIO": [2, 3]
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CAPITAL": [3, 4],
+		"CAPITAL": [2, 2, 3],
 		"ESTATE": [2, 2, 2],
-		"SEASON": [2, 4],
+		"SEASON": [2, 2, 2],
 		"DEATH": [2, 3]
 	}
 }

@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"DINNER": [2, 2, 2],
-		"ADDRESS": [3, 4],
+		"ADDRESS": [2, 2, 3],
 		"LIGHT": [2, 3],
-		"PACKAGE": [3, 2, 2]
+		"PACKAGE": [2, 2, 3]
 	}
 }

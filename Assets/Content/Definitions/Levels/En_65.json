@@ -2,7 +2,7 @@
 	"Words":
 	{
 		"OUTPUT": [2, 2, 2],
-		"MESSAGE": [3, 2, 2],
+		"MESSAGE": [2, 2, 3],
 		"CHAIN": [2, 3],
 		"ENERGY": [2, 2, 2]
 	}

@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"APPLE": [2, 3],
-		"OPINION": [2, 3, 2],
-		"MIDDLE": [3, 3],
+		"OPINION": [2, 2, 3],
+		"MIDDLE": [2, 2, 2],
 		"GLASS": [2, 3]
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"ASPECT": [3, 3],
-		"NOTICE": [3, 3],
-		"ABSENCE": [2, 3, 2],
-		"MARKET": [3, 3]
+		"ASPECT": [2, 2, 2],
+		"NOTICE": [2, 2, 2],
+		"ABSENCE": [2, 2, 3],
+		"MARKET": [2, 2, 2]
 	}
 }

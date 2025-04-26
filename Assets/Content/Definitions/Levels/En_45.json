@@ -1,7 +1,7 @@
 {
 	"Words":
 	{
-		"CHANNEL": [3, 4],
+		"CHANNEL": [2, 2, 3],
 		"SUPPLY": [2, 2, 2],
 		"FORCE": [2, 3],
 		"TRADE": [2, 3]

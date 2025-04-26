@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"BLADE": [3, 2],
-		"SYSTEM": [3, 3],
-		"MONEY": [3, 2],
-		"MASTER": [3, 3]
+		"BLADE": [2, 3],
+		"SYSTEM": [2, 2, 2],
+		"MONEY": [2, 3],
+		"MASTER": [2, 2, 2]
 	}
 }

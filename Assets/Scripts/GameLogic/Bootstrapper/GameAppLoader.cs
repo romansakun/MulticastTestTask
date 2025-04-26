@@ -32,7 +32,7 @@ namespace GameLogic.Bootstrapper
             var viewModel = _viewModelFactory.Create<GameAppLoaderViewModel>();
             await gameAppLoadedView.Initialize(viewModel);
 
-            viewModel.AddToLoadingQueue<UnityRemoteConfigLoader>();
+            //viewModel.AddToLoadingQueue<UnityRemoteConfigLoader>();
             viewModel.AddToLoadingQueue<UserContextLoader>();
             viewModel.AddToLoadingQueue<InitDeferredMonoPoolsLoader>();
             viewModel.AddToLoadingQueue<ShowMainMenuLoader>();

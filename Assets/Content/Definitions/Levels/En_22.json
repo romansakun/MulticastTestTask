@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"READER": [3, 3],
-		"SECTION": [2, 3, 2],
-		"TEACHER": [3, 4],
-		"MINUTE": [2, 4]
+		"READER": [2, 2, 2],
+		"SECTION": [2, 2, 3],
+		"TEACHER": [2, 2, 3],
+		"MINUTE": [2, 2, 2]
 	}
 }

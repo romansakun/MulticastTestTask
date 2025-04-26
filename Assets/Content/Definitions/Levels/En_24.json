@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"BOARD": [3, 2],
+		"BOARD": [2, 3],
 		"CHOICE": [2, 2, 2],
-		"EARTH": [3, 2],
-		"RELEASE": [3, 2, 2]
+		"EARTH": [2, 3],
+		"RELEASE": [2, 2, 3]
 	}
 }

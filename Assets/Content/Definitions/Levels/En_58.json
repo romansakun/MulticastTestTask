@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"SCHOOL": [2, 4],
-		"STOCK": [3, 2],
-		"CUSHION": [3, 2, 2],
+		"SCHOOL": [2, 2, 2],
+		"STOCK": [2, 3],
+		"CUSHION": [2, 2, 3],
 		"VIDEO": [2, 3]
 	}
 }

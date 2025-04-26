@@ -3,7 +3,7 @@
 	{
 		"VALUE": [2, 3],
 		"COVER": [2, 3],
-		"DEFENCE": [3, 4],
+		"DEFENCE": [2, 2, 3],
 		"NOISE": [2, 3]
 	}
 }

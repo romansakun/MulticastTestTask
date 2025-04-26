@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"SIGHT": [3, 2],
-		"AWARD": [3, 2],
-		"CHAPTER": [3, 2, 2],
-		"SUMMER": [2, 4]
+		"SIGHT": [2, 3],
+		"AWARD": [2, 3],
+		"CHAPTER": [2, 2, 3],
+		"SUMMER": [2, 2, 2]
 	}
 }

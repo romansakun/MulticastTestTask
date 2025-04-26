@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"VISION": [3, 3],
-		"BASKET": [2, 4],
+		"VISION": [2, 2, 2],
+		"BASKET": [2, 2, 2],
 		"STAFF": [2, 3],
-		"PROFIT": [2, 4]
+		"PROFIT": [2, 2, 2]
 	}
 }

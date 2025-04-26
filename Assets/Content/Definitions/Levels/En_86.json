@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"SAMPLE": [2, 2, 2],
-		"DETAIL": [2, 4],
+		"DETAIL": [2, 2, 2],
 		"TOTAL": [2, 3],
-		"MAJOR": [3, 2]
+		"MAJOR": [2, 3]
 	}
 }

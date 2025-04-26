@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"BREATH": [2, 4],
-		"RESULT": [2, 4],
+		"BREATH": [2, 2, 2],
+		"RESULT": [2, 2, 2],
 		"BOTTLE": [2, 2, 2],
-		"FACTOR": [3, 3]
+		"FACTOR": [2, 2, 2]
 	}
 }

@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"SCHEME": [2, 2, 2],
-		"MEMBER": [2, 4],
-		"JEWEL": [3, 2],
+		"MEMBER": [2, 2, 2],
+		"JEWEL": [2, 3],
 		"POTATO": [2, 2, 2]
 	}
 }

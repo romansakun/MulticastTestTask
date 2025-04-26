@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"STUFF": [3, 2],
+		"STUFF": [2, 3],
 		"METHOD": [2, 2, 2],
-		"MODEL": [3, 2],
-		"CONTENT": [2, 3, 2]
+		"MODEL": [2, 3],
+		"CONTENT": [2, 2, 3]
 	}
 }

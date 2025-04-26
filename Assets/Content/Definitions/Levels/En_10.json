@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"POCKET": [2, 4],
-		"ACCOUNT": [3, 2, 2],
+		"POCKET": [2, 2, 2],
+		"ACCOUNT": [2, 2, 3],
 		"SCALE": [2, 3],
-		"NERVE": [3, 2]
+		"NERVE": [2, 3]
 	}
 }

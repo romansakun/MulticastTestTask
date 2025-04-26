@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"FRONT": [2, 3],
-		"LIBRARY": [2, 3, 2],
-		"AGENCY": [3, 3],
-		"BIRTH": [3, 2]
+		"LIBRARY": [2, 2, 3],
+		"AGENCY": [2, 2, 2],
+		"BIRTH": [2, 3]
 	}
 }

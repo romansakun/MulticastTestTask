@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"UNION": [3, 2],
-		"FLOWER": [3, 3],
-		"STREET": [2, 4],
-		"ARTICLE": [3, 4]
+		"UNION": [2, 3],
+		"FLOWER": [2, 2, 2],
+		"STREET": [2, 2, 2],
+		"ARTICLE": [2, 2, 3]
 	}
 }

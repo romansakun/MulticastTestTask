@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"PERIOD": [2, 2, 2],
-		"STATION": [2, 3, 2],
+		"STATION": [2, 2, 3],
 		"VEHICLE": [2, 2, 3],
-		"RESPECT": [3, 2, 2]
+		"RESPECT": [2, 2, 3]
 	}
 }

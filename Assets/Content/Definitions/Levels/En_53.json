@@ -1,8 +1,8 @@
 {
 	"Words":
 	{
-		"POLICY": [3, 3],
-		"AVERAGE": [3, 4],
+		"POLICY": [2, 2, 2],
+		"AVERAGE": [2, 2, 3],
 		"BASIN": [2, 3],
 		"BASIS": [2, 3]
 	}

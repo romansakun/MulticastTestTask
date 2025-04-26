@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"FATHER": [3, 3],
-		"MONKEY": [2, 4],
+		"FATHER": [2, 2, 2],
+		"MONKEY": [2, 2, 2],
 		"BRUSH": [2, 3],
-		"NORTH": [3, 2]
+		"NORTH": [2, 3]
 	}
 }

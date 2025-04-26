@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"ATTACK": [3, 3],
-		"BRIDGE": [2, 4],
-		"CONTEXT": [2, 3, 2],
-		"TOPIC": [3, 2]
+		"ATTACK": [2, 2, 2],
+		"BRIDGE": [2, 2, 2],
+		"CONTEXT": [2, 2, 3],
+		"TOPIC": [2, 3]
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"BERRY": [3, 2],
-		"MUSIC": [3, 2],
-		"QUALITY": [3, 2, 2],
-		"SPORT": [3, 2]
+		"BERRY": [2, 3],
+		"MUSIC": [2, 3],
+		"QUALITY": [2, 2, 3],
+		"SPORT": [2, 3]
 	}
 }

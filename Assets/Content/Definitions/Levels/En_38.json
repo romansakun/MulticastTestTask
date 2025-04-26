@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"RELIEF": [3, 3],
+		"RELIEF": [2, 2, 2],
 		"STATUS": [2, 2, 2],
-		"THEORY": [3, 3],
-		"MOTION": [3, 3]
+		"THEORY": [2, 2, 2],
+		"MOTION": [2, 2, 2]
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CONCEPT": [3, 4],
-		"MACHINE": [3, 2, 2],
-		"COUNTY": [3, 3],
-		"REASON": [3, 3]
+		"CONCEPT": [2, 2, 3],
+		"MACHINE": [2, 2, 3],
+		"COUNTY": [2, 2, 2],
+		"REASON": [2, 2, 2]
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"SPRING": [2, 4],
-		"CHEESE": [3, 3],
-		"LUNCH": [3, 2],
-		"FUTURE": [2, 4]
+		"SPRING": [2, 2, 2],
+		"CHEESE": [2, 2, 2],
+		"LUNCH": [2, 3],
+		"FUTURE": [2, 2, 2]
 	}
 }

@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"IMAGE": [2, 3],
-		"FIGURE": [3, 3],
-		"RAILWAY": [3, 2, 2],
-		"STORY": [3, 2]
+		"FIGURE": [2, 2, 2],
+		"RAILWAY": [2, 2, 3],
+		"STORY": [2, 3]
 	}
 }

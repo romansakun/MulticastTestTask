@@ -14,8 +14,8 @@ namespace Editor
         [MenuItem("Definitions/Create levels")]
         public static void CreateLevels()
         {
-            var path = "Assets/Content/Words/russian_nouns_400_2.txt";
-            //var path = "Assets/Content/Words/en_nouns_2.txt";
+            //var path = "Assets/Content/Words/russian_nouns_400_2.txt";
+            var path = "Assets/Content/Words/en_nouns_2.txt";
             var enNouns = AssetDatabase.LoadAssetAtPath<TextAsset>(path).text.Split('\n');
 
             var sb = new StringBuilder();
@@ -39,8 +39,8 @@ namespace Editor
                 sb.Append("\t}\n");
                 sb.Append("}\n");
 
-                File.WriteAllText($@"Assets/Content/Definitions/Levels/Ru_{i / 4 + 1}.json", sb.ToString());
-                //File.WriteAllText($@"Assets/Content/Definitions/Levels/En_{i / 4 + 1}.json", sb.ToString());
+                //File.WriteAllText($@"Assets/Content/Definitions/Levels/Ru_{i / 4 + 1}.json", sb.ToString());
+                File.WriteAllText($@"Assets/Content/Definitions/Levels/En_{i / 4 + 1}.json", sb.ToString());
             }
         }
 
@@ -53,11 +53,8 @@ namespace Editor
                 var clusterLength = 0;
                 if (length == 3 || length == 2)
                     clusterLength = length;
-                else if (length == 4)
-                    //clusterLength = Random.Range(1, 3) > 1 ? 4 : 2;
+                else 
                     clusterLength = 2;
-                else if (length > 4)
-                    clusterLength = Random.Range(2, 4);
 
                 length -= clusterLength;
                 result += length > 0 ? $"{clusterLength}, " : $"{clusterLength}";

@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"PRISON": [2, 2, 2],
-		"BUTTON": [2, 4],
-		"DOUBT": [3, 2],
+		"BUTTON": [2, 2, 2],
+		"DOUBT": [2, 3],
 		"CHICKEN": [2, 2, 3]
 	}
 }

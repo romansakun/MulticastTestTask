@@ -3,7 +3,7 @@
 	{
 		"WEIGHT": [2, 2, 2],
 		"CAPTAIN": [2, 2, 3],
-		"CHARGE": [3, 3],
-		"RIVER": [3, 2]
+		"CHARGE": [2, 2, 2],
+		"RIVER": [2, 3]
 	}
 }

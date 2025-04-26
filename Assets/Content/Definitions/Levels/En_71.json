@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"BRANCH": [3, 3],
+		"BRANCH": [2, 2, 2],
 		"FRUIT": [2, 3],
-		"RIGHT": [3, 2],
-		"LEVEL": [3, 2]
+		"RIGHT": [2, 3],
+		"LEVEL": [2, 3]
 	}
 }

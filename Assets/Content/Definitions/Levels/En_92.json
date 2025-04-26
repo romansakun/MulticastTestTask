@@ -2,7 +2,7 @@
 	"Words":
 	{
 		"AGENT": [2, 3],
-		"ADVICE": [3, 3],
+		"ADVICE": [2, 2, 2],
 		"FLOOR": [2, 3],
 		"FLIGHT": [2, 2, 2]
 	}
