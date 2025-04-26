@@ -1,3 +1,4 @@
+using DG.Tweening;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.UI.Gameplay;
@@ -16,6 +17,9 @@ namespace GameLogic.UI.MainMenu
         public IReactiveProperty<int> FormedWordCount => _formedWordCount;
         private readonly ReactiveProperty<int> _formedWordCount = new(0);
 
+        private Tween _animation;
+        private int _wordsCounter;
+
         public override void Initialize()
         {
             _userContext.LocalizationDefId.Subscribe(OnLocalizationDefIdChanged);
@@ -25,6 +29,13 @@ namespace GameLogic.UI.MainMenu
         {
             var count = _userContext.GetAllFormedWordCount();
             _formedWordCount.SetValueAndForceNotify(count);
+
+            _animation?.Kill();
+            _animation = DOTween.To(() => _wordsCounter, showingValue =>
+            {
+                _wordsCounter = showingValue;
+                _formedWordCount.SetValueAndForceNotify(showingValue);
+            }, count, 1f).SetEase(Ease.OutCubic);
         }
 
         public async void OnPlayButtonClicked()
@@ -42,6 +53,7 @@ namespace GameLogic.UI.MainMenu
 
         public override void Dispose()
         {
+            _animation?.Kill();
             _userContext.LocalizationDefId.Unsubscribe(OnLocalizationDefIdChanged);
             _formedWordCount.Dispose();
         }

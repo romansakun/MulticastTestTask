@@ -54,7 +54,8 @@ namespace Editor
                 if (length == 3 || length == 2)
                     clusterLength = length;
                 else if (length == 4)
-                    clusterLength = Random.Range(1, 3) > 1 ? 4 : 2;
+                    //clusterLength = Random.Range(1, 3) > 1 ? 4 : 2;
+                    clusterLength = 2;
                 else if (length > 4)
                     clusterLength = Random.Range(2, 4);
 

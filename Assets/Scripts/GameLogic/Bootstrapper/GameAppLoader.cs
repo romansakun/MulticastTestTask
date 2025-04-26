@@ -4,6 +4,7 @@ using GameLogic.Factories;
 using GameLogic.UI;
 using GameLogic.UI.GameAppLoader;
 using Infrastructure.Extensions;
+using UnityEngine.Device;
 using Zenject;
 
 namespace GameLogic.Bootstrapper
@@ -15,6 +16,8 @@ namespace GameLogic.Bootstrapper
 
         public void Initialize()
         {
+            Application.targetFrameRate = 60;
+
             _viewManager.Views.Subscribe(OnViewsChanged);
         }
 
