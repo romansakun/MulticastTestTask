@@ -81,6 +81,7 @@ namespace GameLogic.UI.Gameplay
             endDragUndistributedClusterAction.DirectTo(trySaveLevelProgressAction);
             endDragDistributedClusterAction.DirectTo(trySaveLevelProgressAction);
             clickWordRowWithHintClusterAction.DirectTo(trySaveLevelProgressAction);
+            tryCompleteLevelAction.DirectTo(clickInputSelector);
 
             _logicAgent = logicBuilder.Build();
             _logicAgent.OnCatchError += OnLogicFailed;
