@@ -7,10 +7,11 @@ namespace GameLogic.UI.Gameplay
             if (context.Input.Type != UserInputType.OnBeginDrag)
                 return 0;
 
-            if (context.UndistributedClustersHolder.IsContainsScreenPoint(context.Input.Data.position) == false)
+            var pressPosition = context.Input.Data.pressPosition;
+            if (context.UndistributedClustersHolder.IsContainsScreenPoint(pressPosition) == false)
                 return 0;
 
-            var cluster = context.UndistributedClusters.Find(c => c.IsContainsScreenPoint(context.Input.Data.position));
+            var cluster = context.UndistributedClusters.Find(c => c.IsContainsScreenPoint(pressPosition));
             if (cluster == null)
                 return 0;
 

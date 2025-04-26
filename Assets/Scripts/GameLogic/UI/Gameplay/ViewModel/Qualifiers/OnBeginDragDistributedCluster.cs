@@ -7,11 +7,12 @@ namespace GameLogic.UI.Gameplay
             if (context.Input.Type != UserInputType.OnBeginDrag)
                 return 0;
 
-            var needWordRow = context.WordRows.Find(w => w.IsContainsScreenPoint(context.Input.Data.position));
+            var pressPosition = context.Input.Data.pressPosition;
+            var needWordRow = context.WordRows.Find(w => w.IsContainsScreenPoint(pressPosition));
             if (needWordRow == null)
                 return 0;
 
-            var cluster = context.WordRowsClusters[needWordRow].Find(c => c.IsContainsScreenPoint(context.Input.Data.position));
+            var cluster = context.WordRowsClusters[needWordRow].Find(c => c.IsContainsScreenPoint(pressPosition));
             if (cluster == null)
                 return 0;
 
