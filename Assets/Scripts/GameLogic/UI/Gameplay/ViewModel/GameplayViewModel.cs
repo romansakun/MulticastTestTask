@@ -49,11 +49,17 @@ namespace GameLogic.UI.Gameplay
             var endDragUndistributedClusterAction = logicBuilder.AddAction<EndDragUndistributedCluster>();
             var endDragDistributedClusterAction = logicBuilder.AddAction<EndDragDistributedCluster>();
 
+            var clickUndistributedClusterAction = logicBuilder.AddAction<ClickUndistributedCluster>();
+            var clickWordRowWithHintClusterAction = logicBuilder
+                .AddAction<ClickWordRowWithHint>()
+                .JoinAction<ResetClickContext>();
+            var tryReturnClickedClusterAction = logicBuilder
+                .AddAction<TryReturnClickedUndistributedCluster>()
+                .JoinAction<ResetClickContext>();
+
             var trySaveLevelProgressAction = logicBuilder.AddAction<TrySaveLevelProgress>();
             var tryCompleteLevelAction = logicBuilder.AddAction<TryCompleteLevel>();
- 
-            endDragUndistributedClusterAction.DirectTo(trySaveLevelProgressAction);
-            endDragDistributedClusterAction.DirectTo(trySaveLevelProgressAction);
+
             var swipeInputSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
                 .AddQualifier<OnBeginDragUndistributedCluster>(prepareDragUndistributedClusterAction)
                 .AddQualifier<OnBeginDragDistributedCluster>(prepareDragDistributedClusterAction)
@@ -61,12 +67,20 @@ namespace GameLogic.UI.Gameplay
                 .AddQualifier<OnDragDistributedCluster>(dragDistributedClusterAction)
                 .AddQualifier<OnEndDragUndistributedCluster>(endDragUndistributedClusterAction)
                 .AddQualifier<OnEndDragDistributedCluster>(endDragDistributedClusterAction);
-
+            var clickInputSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
+                .AddQualifier<OnClickUndistributedCluster>(clickUndistributedClusterAction)
+                .AddQualifier<OnClickWordRowWithHintCluster>(clickWordRowWithHintClusterAction)
+                .AddQualifier<DefaultQualifier<GameplayViewModelContext>>(tryReturnClickedClusterAction);
             var rootSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
                 .AddQualifier<IsLevelNotLoaded>(loadLevelAction)
                 .AddQualifier<IsUserCheckCompleteLevel>(tryCompleteLevelAction)
                 .AddQualifier<IsSwipeInput>(swipeInputSelector)
+                .AddQualifier<IsClickInput>(clickInputSelector)
                 .SetAsRoot();
+
+            endDragUndistributedClusterAction.DirectTo(trySaveLevelProgressAction);
+            endDragDistributedClusterAction.DirectTo(trySaveLevelProgressAction);
+            clickWordRowWithHintClusterAction.DirectTo(trySaveLevelProgressAction);
 
             _logicAgent = logicBuilder.Build();
             _logicAgent.OnCatchError += OnLogicFailed;

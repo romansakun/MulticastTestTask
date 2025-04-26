@@ -43,6 +43,11 @@ namespace GameLogic.UI.Gameplay
             _rectTransform.position = position;
         }
 
+        public Vector3 GetPosition()
+        {
+            return _rectTransform.position;
+        }
+
         public void SetRotation(Vector3 rotation)
         {
             _rectTransform.localEulerAngles = rotation;

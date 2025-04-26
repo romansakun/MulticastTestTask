@@ -13,6 +13,7 @@ namespace GameLogic.UI.Gameplay
         public readonly ReactiveProperty<bool> IsHintClusterInUndistributedClusters = new(false);
         public readonly ReactiveProperty<bool> IsFailedCompleteLevel = new(false);
 
+        public ClickContext Click { get; } = new();
         public LevelProgressContextDataProvider LevelProgress { get; set; }
         public RectTransform WordRowsHolder { get; set; }
         public RectTransform UndistributedClustersHolder { get; set; }
@@ -33,13 +34,14 @@ namespace GameLogic.UI.Gameplay
         public Cluster OriginDraggedCluster { get; set; }
         public WordRow OriginDraggedClusterWordRow { get; set; }
         public RectTransform OriginDraggedClusterHolder { get; set; }
+        
         public bool CheckCompleteLevel { get; set; }
-
 
         public bool IsDisposed { get; private set; }
 
         public void Dispose()
         {
+            Click.Dispose();
             IsUndistributedClustersScrollRectActive.Dispose();
             IsHintClusterInUndistributedClusters.Dispose();
             IsFailedCompleteLevel.Dispose();
@@ -53,6 +55,20 @@ namespace GameLogic.UI.Gameplay
             WordRowsClusters.Clear();
 
             IsDisposed = true;
+        }
+
+        public class ClickContext
+        {
+            public bool IsClickInputNow { get; set; }
+            public Dictionary<WordRow, Cluster> WordRowHintClusters { get; } = new();
+            public Cluster HintUndistributedClickedCluster { get; set; }
+            public Cluster OriginUndistributedClickedCluster { get; set; }
+            public WordRow ClickedHintWordRow { get; set; }
+
+            public void Dispose()
+            {
+                WordRowHintClusters.Clear();
+            }
         }
     }
 }
