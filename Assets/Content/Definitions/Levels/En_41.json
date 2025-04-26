@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"ROUTE": [2, 3],
+		"ROUTE": [3, 2],
 		"SILVER": [2, 2, 2],
 		"TRACK": [2, 3],
-		"WEEKEND": [2, 2, 3]
+		"WEEKEND": [3, 2, 2]
 	}
 }

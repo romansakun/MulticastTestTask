@@ -82,5 +82,26 @@ namespace GameLogic.Model.DataProviders
             return -1;
         }
 
+        public bool IsLevelContainsCluster(string cluster, string levelDefId)
+        {
+            var levelDef = _gameDefs.Levels[levelDefId];
+            foreach (var pair in levelDef.Words)
+            {
+                var word = pair.Key;
+                var clustersLengths = pair.Value;
+                var startIndex = 0;
+                for (var i = 0; i < clustersLengths.Count; i++)
+                {
+                    var clusterLength = clustersLengths[i];
+                    var levelCluster = word.Substring(startIndex, clusterLength);
+                    startIndex += clusterLength;
+
+                    if (levelCluster == cluster)
+                        return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

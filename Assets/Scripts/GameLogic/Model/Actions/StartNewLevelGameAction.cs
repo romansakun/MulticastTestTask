@@ -91,9 +91,6 @@ namespace GameLogic.Model.Actions
                         throw new Exception($"[{nameof(StartNewLevelGameAction)}] previous level '{prevLevelDef.Id}' is not completed!");
                 }
 
-                if (_userContext.IsLevelProgressExist(_levelDefId))
-                    throw new Exception($"[{nameof(StartNewLevelGameAction)}] level '{_levelDefId}' is already started!");
-
                 return true;
             }
 

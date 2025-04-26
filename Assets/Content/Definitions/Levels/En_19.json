@@ -3,7 +3,7 @@
 	{
 		"DRIVER": [2, 2, 2],
 		"PERSON": [2, 2, 2],
-		"JUSTICE": [2, 2, 3],
-		"PURPOSE": [2, 2, 3]
+		"JUSTICE": [3, 2, 2],
+		"PURPOSE": [2, 3, 2]
 	}
 }

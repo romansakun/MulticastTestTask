@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"GENERAL": [2, 2, 3],
+		"GENERAL": [2, 3, 2],
 		"GARDEN": [2, 2, 2],
-		"ELEMENT": [2, 2, 3],
+		"ELEMENT": [2, 3, 2],
 		"LEAGUE": [2, 2, 2]
 	}
 }

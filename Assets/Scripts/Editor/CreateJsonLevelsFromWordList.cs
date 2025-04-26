@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,25 @@ using Random = UnityEngine.Random;
 
 namespace Editor
 {
-    public class CreateJsonLevelsFromWordList : EditorUtility  
+    public class CreateJsonLevelsFromWordList : EditorUtility
     {
-        
+        private static Dictionary<string, string> WordPaths = new ()
+        {
+            {"Ru", "Assets/Content/Words/russian_nouns_400_2.txt"},
+            {"En", "Assets/Content/Words/en_nouns_2.txt"}
+        };
+
         [MenuItem("Definitions/Create levels")]
         public static void CreateLevels()
         {
-            //var path = "Assets/Content/Words/russian_nouns_400_2.txt";
-            var path = "Assets/Content/Words/en_nouns_2.txt";
+            foreach (var pair in WordPaths)
+            {
+                CreateLevels(pair.Key, pair.Value);
+            }
+        }
+
+        private static void CreateLevels(string locale, string path)
+        {
             var enNouns = AssetDatabase.LoadAssetAtPath<TextAsset>(path).text.Split('\n');
 
             var sb = new StringBuilder();
@@ -39,8 +51,7 @@ namespace Editor
                 sb.Append("\t}\n");
                 sb.Append("}\n");
 
-                //File.WriteAllText($@"Assets/Content/Definitions/Levels/Ru_{i / 4 + 1}.json", sb.ToString());
-                File.WriteAllText($@"Assets/Content/Definitions/Levels/En_{i / 4 + 1}.json", sb.ToString());
+                File.WriteAllText($@"Assets/Content/Definitions/Levels/{locale}_{i / 4 + 1}.json", sb.ToString());
             }
         }
 
@@ -52,9 +63,17 @@ namespace Editor
             {
                 var clusterLength = 0;
                 if (length == 3 || length == 2)
+                {
                     clusterLength = length;
-                else 
+                }
+                else if (length == 5 || length == 7)
+                {
+                    clusterLength = Random.Range(2, 4);
+                }
+                else
+                {
                     clusterLength = 2;
+                }
 
                 length -= clusterLength;
                 result += length > 0 ? $"{clusterLength}, " : $"{clusterLength}";
@@ -65,8 +84,14 @@ namespace Editor
         [MenuItem("Definitions/RemoveUseless")]
         public static void RemoveUseless()
         {
-            var path = "Assets/Content/Words/russian_nouns_400_2.txt";
-            //var path = "Assets/Content/Words/en_nouns_2.txt";
+            foreach (var pair in WordPaths)
+            {
+                RemoveUseless(pair.Key, pair.Value);
+            }
+        }
+
+        private static void RemoveUseless(string locale, string path)
+        {
             var enNouns = AssetDatabase.LoadAssetAtPath<TextAsset>(path).text.Split('\n').Distinct().ToList();
 
             var withoutUseless = enNouns.ToList();

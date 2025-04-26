@@ -1,8 +1,8 @@
 {
 	"Words":
 	{
-		"BRAIN": [2, 3],
-		"GRANT": [2, 3],
+		"BRAIN": [3, 2],
+		"GRANT": [3, 2],
 		"PARCEL": [2, 2, 2],
 		"CLIENT": [2, 2, 2]
 	}

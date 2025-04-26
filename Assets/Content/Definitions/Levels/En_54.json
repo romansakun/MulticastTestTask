@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CHAIR": [2, 3],
-		"SMILE": [2, 3],
+		"CHAIR": [3, 2],
+		"SMILE": [3, 2],
 		"STAGE": [2, 3],
-		"HOTEL": [2, 3]
+		"HOTEL": [3, 2]
 	}
 }

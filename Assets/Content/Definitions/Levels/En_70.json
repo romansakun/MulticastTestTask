@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"SQUARE": [2, 2, 2],
-		"JUDGE": [2, 3],
-		"METAL": [2, 3],
+		"JUDGE": [3, 2],
+		"METAL": [3, 2],
 		"PARTY": [2, 3]
 	}
 }

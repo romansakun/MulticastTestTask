@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"SILENCE": [2, 2, 3],
+		"SILENCE": [3, 2, 2],
 		"OFFICE": [2, 2, 2],
-		"STATE": [2, 3],
+		"STATE": [3, 2],
 		"BELIEF": [2, 2, 2]
 	}
 }

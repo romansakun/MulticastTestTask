@@ -3,7 +3,7 @@
 	{
 		"READER": [2, 2, 2],
 		"SECTION": [2, 2, 3],
-		"TEACHER": [2, 2, 3],
+		"TEACHER": [3, 2, 2],
 		"MINUTE": [2, 2, 2]
 	}
 }

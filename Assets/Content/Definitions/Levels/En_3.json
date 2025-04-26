@@ -3,7 +3,7 @@
 	{
 		"BERRY": [2, 3],
 		"MUSIC": [2, 3],
-		"QUALITY": [2, 2, 3],
+		"QUALITY": [3, 2, 2],
 		"SPORT": [2, 3]
 	}
 }

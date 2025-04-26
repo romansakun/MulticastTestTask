@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"SCENE": [2, 3],
-		"CONCERN": [2, 2, 3],
-		"POUND": [2, 3],
+		"CONCERN": [2, 3, 2],
+		"POUND": [3, 2],
 		"PALACE": [2, 2, 2]
 	}
 }

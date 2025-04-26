@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"PLANE": [2, 3],
-		"GROUP": [2, 3],
-		"VERSION": [2, 2, 3],
+		"PLANE": [3, 2],
+		"GROUP": [3, 2],
+		"VERSION": [3, 2, 2],
 		"PLAYER": [2, 2, 2]
 	}
 }

@@ -3,7 +3,7 @@
 	{
 		"WINDOW": [2, 2, 2],
 		"SPEECH": [2, 2, 2],
-		"FACTORY": [2, 2, 3],
+		"FACTORY": [2, 3, 2],
 		"STUDENT": [2, 2, 3]
 	}
 }

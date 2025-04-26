@@ -1,7 +1,7 @@
 {
 	"Words":
 	{
-		"MATCH": [2, 3],
+		"MATCH": [3, 2],
 		"FRIEND": [2, 2, 2],
 		"LENGTH": [2, 2, 2],
 		"STUDY": [2, 3]

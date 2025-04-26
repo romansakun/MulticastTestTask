@@ -2,7 +2,7 @@
 	"Words":
 	{
 		"PRICE": [2, 3],
-		"FINANCE": [2, 2, 3],
+		"FINANCE": [2, 3, 2],
 		"PUBLIC": [2, 2, 2],
 		"ANIMAL": [2, 2, 2]
 	}

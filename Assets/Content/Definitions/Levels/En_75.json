@@ -1,8 +1,8 @@
 {
 	"Words":
 	{
-		"VILLAGE": [2, 2, 3],
-		"PROJECT": [2, 2, 3],
+		"VILLAGE": [2, 3, 2],
+		"PROJECT": [3, 2, 2],
 		"ADULT": [2, 3],
 		"BATTLE": [2, 2, 2]
 	}

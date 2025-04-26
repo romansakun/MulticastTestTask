@@ -3,7 +3,7 @@
 	{
 		"PRISON": [2, 2, 2],
 		"BUTTON": [2, 2, 2],
-		"DOUBT": [2, 3],
-		"CHICKEN": [2, 2, 3]
+		"DOUBT": [3, 2],
+		"CHICKEN": [3, 2, 2]
 	}
 }

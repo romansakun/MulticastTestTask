@@ -2,8 +2,8 @@
 	"Words":
 	{
 		"CAMERA": [2, 2, 2],
-		"ABILITY": [2, 2, 3],
-		"HOUSE": [2, 3],
+		"ABILITY": [3, 2, 2],
+		"HOUSE": [3, 2],
 		"HOLIDAY": [2, 2, 3]
 	}
 }

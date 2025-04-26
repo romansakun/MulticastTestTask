@@ -1,8 +1,8 @@
 {
 	"Words":
 	{
-		"WOMAN": [2, 3],
-		"TRUTH": [2, 3],
+		"WOMAN": [3, 2],
+		"TRUTH": [3, 2],
 		"GROUND": [2, 2, 2],
 		"AMOUNT": [2, 2, 2]
 	}

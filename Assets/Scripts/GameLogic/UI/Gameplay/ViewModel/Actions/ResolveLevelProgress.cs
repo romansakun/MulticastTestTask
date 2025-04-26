@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
 using GameLogic.Model.Actions;
 using GameLogic.Model.DataProviders;
+using GameLogic.Model.Definitions;
 using Infrastructure.GameActions;
 using Zenject;
 
@@ -18,7 +19,7 @@ namespace GameLogic.UI.Gameplay
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
-            if (TryLoadLastLevelProgress(context))
+            if (await TryLoadLastLevelProgress(context))
                 return;
 
             if (await TryStartNewNextLevel(context)) 
@@ -32,18 +33,57 @@ namespace GameLogic.UI.Gameplay
             }
         }
 
-        private bool TryLoadLastLevelProgress(GameplayViewModelContext context)
+        private async UniTask<bool> TryLoadLastLevelProgress(GameplayViewModelContext context)
         {
             if (_userContext.TryGetLastUncompletedLevelProgress(out var levelProgress))
             {
-                var isLevelExist = _gameDefs.Levels.TryGetValue(levelProgress.LevelDefId, out _);
-                if (isLevelExist)
+                var isLevelExist = _gameDefs.Levels.TryGetValue(levelProgress.LevelDefId, out var levelDef);
+                var isLevelProgressValid = IsUserProgressValid(levelProgress, levelDef);
+                if (isLevelExist && isLevelProgressValid)
                 {
                     context.LevelProgress = levelProgress;
                     return true;
                 }
+                if (isLevelExist)
+                {
+                    var gameAction = _gameActionFactory.Create<StartNewLevelGameAction>(levelDef.Id);
+                    await _gameActionExecutor.ExecuteAsync(gameAction);
+                    await UniTask.Yield();
+
+                    if (_userContext.TryGetLastUncompletedLevelProgress(out levelProgress))
+                    {
+                        context.LevelProgress = levelProgress;
+                        return true;
+                    }
+                }
             }
             return false;
+        }
+
+        private bool IsUserProgressValid(LevelProgressContextDataProvider levelProgress, LevelDef levelDef)
+        {
+            if (levelProgress == null || levelDef == null)
+                return false;
+
+            foreach (var rowClusters in levelProgress.DistributedClusters)
+            {
+                foreach (var userProgressCluster in rowClusters)
+                {
+                    if (_gameDefs.IsLevelContainsCluster(userProgressCluster, levelDef.Id))
+                        continue;
+
+                    return false;
+                }
+            }
+
+            foreach (var cluster in levelProgress.UndistributedClusters)
+            {
+                if (_gameDefs.IsLevelContainsCluster(cluster, levelDef.Id))
+                    continue;
+
+                return false;
+            }
+            return true;
         }
 
         private async UniTask<bool> TryStartNewNextLevel(GameplayViewModelContext context)

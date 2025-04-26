@@ -3,7 +3,7 @@
 	{
 		"ASPECT": [2, 2, 2],
 		"NOTICE": [2, 2, 2],
-		"ABSENCE": [2, 2, 3],
+		"ABSENCE": [3, 2, 2],
 		"MARKET": [2, 2, 2]
 	}
 }
