@@ -71,6 +71,7 @@ namespace GameLogic.UI.Gameplay
                 context.Swipe.HintCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
                 context.Swipe.HintCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
                 context.Swipe.HintCluster.SetText(context.Swipe.DraggedCluster.GetText());
+                context.AllClusters.Add(context.Swipe.HintCluster);
             }
         }
 

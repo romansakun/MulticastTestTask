@@ -15,6 +15,7 @@ namespace GameLogic.UI.Gameplay
 
         public ClickContext Click { get; } = new();
         public SwipeContext Swipe { get; } = new();
+        public AdTipContext AdTip { get; } = new();
         public LevelProgressContextDataProvider LevelProgress { get; set; }
         public RectTransform WordRowsHolder { get; set; }
         public RectTransform UndistributedClustersHolder { get; set; }
@@ -27,13 +28,13 @@ namespace GameLogic.UI.Gameplay
         public (UserInputType Type, PointerEventData Data) Input { get; set; }
         public bool CheckCompleteLevel { get; set; }
 
-
         public bool IsDisposed { get; private set; }
 
         public void Dispose()
         {
             Swipe.Dispose();
             Click.Dispose();
+            AdTip.Dispose();
             IsUndistributedClustersScrollRectActive.Dispose();
             IsHintClusterInUndistributedClusters.Dispose();
             IsFailedCompleteLevel.Dispose();
@@ -48,38 +49,14 @@ namespace GameLogic.UI.Gameplay
 
             IsDisposed = true;
         }
+    }
 
-        public class SwipeContext
-        {
-            public bool IsSwipeInputNow { get; set; }
-
-            public Cluster HintCluster { get; set; }
-            public WordRow HintClusterWordRow { get; set; }
-
-            public RectTransform HintClusterHolder { get; set; }
-
-            public Cluster DraggedCluster { get; set; }
-            public Cluster OriginDraggedCluster { get; set; }
-            public WordRow OriginDraggedClusterWordRow { get; set; }
-            public RectTransform OriginDraggedClusterHolder { get; set; }
-            
-            public void Dispose()
-            {
-            }
-        }
+    public class AdTipContext
+    {
+        public bool IsAdTip { get; set; }
         
-        public class ClickContext
+        public void Dispose()
         {
-            public bool IsClickInputNow { get; set; }
-            public Dictionary<WordRow, Cluster> WordRowHintClusters { get; } = new();
-            public Cluster HintUndistributedClickedCluster { get; set; }
-            public Cluster OriginUndistributedClickedCluster { get; set; }
-            public WordRow ClickedHintWordRow { get; set; }
-
-            public void Dispose()
-            {
-                WordRowHintClusters.Clear();
-            }
         }
     }
 }

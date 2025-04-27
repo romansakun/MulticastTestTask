@@ -154,6 +154,45 @@ namespace GameLogic.Model.DataProviders
             return true;
         }
 
+        public bool CheckLevelProgress(string levelDefId)
+        {
+            if (_userContextRepository.TryGetLevelProgress(levelDefId, out var levelProgress) == false)
+                return false;
+
+            if (_gameDefs.Levels.TryGetValue(levelDefId, out var levelDef) == false)
+                return false;
+
+            var levelClusters = new List<string>();
+            foreach (var pair in levelDef.Words)
+            {
+                var word = pair.Key;
+                var clustersLengths = pair.Value;
+                var startIndex = 0;
+                for (var i = 0; i < clustersLengths.Count; i++)
+                {
+                    var clusterLength = clustersLengths[i];
+                    var levelCluster = word.Substring(startIndex, clusterLength);
+                    levelClusters.Add(levelCluster);
+                    startIndex += clusterLength;
+                }
+            }
+            foreach (var rowClusters in levelProgress.DistributedClusters)
+            {
+                foreach (var cluster in rowClusters)
+                {
+                    if (levelClusters.Contains(cluster)) continue;
+                    return false;
+                }
+            }
+            foreach (var cluster in levelProgress.UndistributedClusters)
+            {
+                if (levelClusters.Contains(cluster)) continue;
+                return false;
+            }
+
+            return true;
+        }
+
         public void Dispose()
         {
             _userContextRepository.Dispose();

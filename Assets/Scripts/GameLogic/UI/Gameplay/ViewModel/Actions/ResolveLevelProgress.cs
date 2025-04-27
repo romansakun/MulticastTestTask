@@ -35,26 +35,26 @@ namespace GameLogic.UI.Gameplay
 
         private async UniTask<bool> TryLoadLastLevelProgress(GameplayViewModelContext context)
         {
-            if (_userContext.TryGetLastUncompletedLevelProgress(out var levelProgress))
+            if (_userContext.TryGetLastUncompletedLevelProgress(out var levelProgress) == false) 
+                return false;
+
+            var isLevelExist = _gameDefs.Levels.TryGetValue(levelProgress.LevelDefId, out var levelDef);
+            var isLevelProgressValid = _userContext.CheckLevelProgress(levelProgress.LevelDefId);
+            if (isLevelExist && isLevelProgressValid)
             {
-                var isLevelExist = _gameDefs.Levels.TryGetValue(levelProgress.LevelDefId, out var levelDef);
-                var isLevelProgressValid = IsUserProgressValid(levelProgress, levelDef);
-                if (isLevelExist && isLevelProgressValid)
+                context.LevelProgress = levelProgress;
+                return true;
+            }
+            if (isLevelExist)
+            {
+                var gameAction = _gameActionFactory.Create<StartNewLevelGameAction>(levelDef.Id);
+                await _gameActionExecutor.ExecuteAsync(gameAction);
+                await UniTask.Yield();
+
+                if (_userContext.TryGetLastUncompletedLevelProgress(out levelProgress))
                 {
                     context.LevelProgress = levelProgress;
                     return true;
-                }
-                if (isLevelExist)
-                {
-                    var gameAction = _gameActionFactory.Create<StartNewLevelGameAction>(levelDef.Id);
-                    await _gameActionExecutor.ExecuteAsync(gameAction);
-                    await UniTask.Yield();
-
-                    if (_userContext.TryGetLastUncompletedLevelProgress(out levelProgress))
-                    {
-                        context.LevelProgress = levelProgress;
-                        return true;
-                    }
                 }
             }
             return false;

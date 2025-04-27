@@ -18,7 +18,6 @@ namespace GameLogic.UI.Gameplay
 
             context.WordRowsClusters[context.Swipe.HintClusterWordRow].Add(cluster);
             context.DistributedClusters.Add(cluster);
-            context.AllClusters.Add(cluster);
         }
 
         protected void SetHintClusterAsUndistributed(GameplayViewModelContext context)
@@ -28,7 +27,6 @@ namespace GameLogic.UI.Gameplay
             cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
 
             context.UndistributedClusters.Add(cluster);
-            context.AllClusters.Add(cluster);
         }
 
         protected void ReturnOriginClusterState(GameplayViewModelContext context)

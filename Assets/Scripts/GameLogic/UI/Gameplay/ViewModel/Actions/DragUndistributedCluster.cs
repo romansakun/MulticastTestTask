@@ -10,6 +10,7 @@ namespace GameLogic.UI.Gameplay
             }
             else if (context.Swipe.HintCluster != null)
             {
+                context.AllClusters.Remove(context.Swipe.HintCluster);
                 context.Swipe.HintCluster.Dispose();
                 context.Swipe.HintCluster = null;
                 context.Swipe.HintClusterWordRow = null;
