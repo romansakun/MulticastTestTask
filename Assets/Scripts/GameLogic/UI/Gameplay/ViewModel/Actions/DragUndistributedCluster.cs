@@ -8,12 +8,12 @@ namespace GameLogic.UI.Gameplay
             {
                 SetHintClusterAsDistributed(context, wordRow, false);
             }
-            else if (context.HintCluster != null)
+            else if (context.Swipe.HintCluster != null)
             {
-                context.HintCluster.Dispose();
-                context.HintCluster = null;
-                context.HintClusterWordRow = null;
-                context.HintClusterHolder = null;
+                context.Swipe.HintCluster.Dispose();
+                context.Swipe.HintCluster = null;
+                context.Swipe.HintClusterWordRow = null;
+                context.Swipe.HintClusterHolder = null;
             }
         }
     }

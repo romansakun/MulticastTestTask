@@ -4,7 +4,7 @@ namespace GameLogic.UI.Gameplay
     {
         public override void Execute(GameplayViewModelContext context)
         {
-            if (context.HintClusterWordRow != null)
+            if (context.Swipe.HintClusterWordRow != null)
             {
                 SetHintClusterAsDistributed(context);
             }

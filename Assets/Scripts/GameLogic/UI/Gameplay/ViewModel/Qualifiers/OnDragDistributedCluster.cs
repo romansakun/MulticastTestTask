@@ -12,14 +12,14 @@ namespace GameLogic.UI.Gameplay
             if (context.Input.Type != UserInputType.OnDrag)
                 return 0;
 
-            if (context.DraggedCluster == null)
+            if (context.Swipe.DraggedCluster == null)
                 return 0;
 
-            if (context.DistributedClusters.Contains(context.OriginDraggedCluster) == false)
+            if (context.DistributedClusters.Contains(context.Swipe.OriginDraggedCluster) == false)
                 return 0;
 
             var swipePosition = context.Input.Data.position + _gameplaySettings.DraggedClusterOffsetPosition;
-            context.DraggedCluster.SetPosition(swipePosition);
+            context.Swipe.DraggedCluster.SetPosition(swipePosition);
             context.Input = default;
 
             return 1;

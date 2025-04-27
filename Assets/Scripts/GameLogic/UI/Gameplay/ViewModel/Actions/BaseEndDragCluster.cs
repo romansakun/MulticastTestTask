@@ -12,18 +12,18 @@ namespace GameLogic.UI.Gameplay
 
         protected void SetHintClusterAsDistributed(GameplayViewModelContext context)
         {
-            var cluster = context.HintCluster;
+            var cluster = context.Swipe.HintCluster;
             cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
             cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
 
-            context.WordRowsClusters[context.HintClusterWordRow].Add(cluster);
+            context.WordRowsClusters[context.Swipe.HintClusterWordRow].Add(cluster);
             context.DistributedClusters.Add(cluster);
             context.AllClusters.Add(cluster);
         }
 
         protected void SetHintClusterAsUndistributed(GameplayViewModelContext context)
         {
-            var cluster = context.HintCluster;
+            var cluster = context.Swipe.HintCluster;
             cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
             cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
 
@@ -33,40 +33,42 @@ namespace GameLogic.UI.Gameplay
 
         protected void ReturnOriginClusterState(GameplayViewModelContext context)
         {
-            var original = context.OriginDraggedCluster;
+            var original = context.Swipe.OriginDraggedCluster;
             original.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
             original.SetTextColor(_colorsSettings.DefaultClusterTextColor);
         }
 
         protected void DisposeOriginUndistributedCluster(GameplayViewModelContext context)
         {
-            context.UndistributedClusters.Remove(context.OriginDraggedCluster);
-            context.AllClusters.Remove(context.OriginDraggedCluster);
-            context.OriginDraggedCluster.Dispose();
+            context.UndistributedClusters.Remove(context.Swipe.OriginDraggedCluster);
+            context.AllClusters.Remove(context.Swipe.OriginDraggedCluster);
+            context.Swipe.OriginDraggedCluster.Dispose();
         }
         
         protected void DisposeOriginWordRowCluster(GameplayViewModelContext context)
         {
-            context.AllClusters.Remove(context.OriginDraggedCluster);
-            context.DistributedClusters.Remove(context.OriginDraggedCluster);
-            context.WordRowsClusters[context.OriginDraggedClusterWordRow].Remove(context.OriginDraggedCluster);
-            context.OriginDraggedCluster.Dispose();
+            context.AllClusters.Remove(context.Swipe.OriginDraggedCluster);
+            context.DistributedClusters.Remove(context.Swipe.OriginDraggedCluster);
+            context.WordRowsClusters[context.Swipe.OriginDraggedClusterWordRow].Remove(context.Swipe.OriginDraggedCluster);
+            context.Swipe.OriginDraggedCluster.Dispose();
         }
 
         protected void DisposeDraggedCluster(GameplayViewModelContext context)
         {
-            context.DraggedCluster.Dispose();
+            context.Swipe.DraggedCluster.Dispose();
         }
 
         protected void ResetAfterDrag(GameplayViewModelContext context)
         {
-            context.DraggedCluster = null;
-            context.OriginDraggedCluster = null;
-            context.OriginDraggedClusterWordRow = null;
-            context.OriginDraggedClusterHolder = null;
-            context.HintCluster = null;
-            context.HintClusterWordRow = null;
-            context.HintClusterHolder = null;
+            context.Swipe.DraggedCluster = null;
+            context.Swipe.OriginDraggedCluster = null;
+            context.Swipe.OriginDraggedClusterWordRow = null;
+            context.Swipe.OriginDraggedClusterHolder = null;
+            context.Swipe.HintCluster = null;
+            context.Swipe.HintClusterWordRow = null;
+            context.Swipe.HintClusterHolder = null;
+
+            context.Swipe.IsSwipeInputNow = false;
         }
 
         protected void StopWordRowsBlinking(GameplayViewModelContext context)

@@ -7,6 +7,9 @@ namespace GameLogic.UI.Gameplay
             if (context.Input.Type != UserInputType.OnBeginDrag)
                 return 0;
 
+            if (context.Swipe.IsSwipeInputNow)
+                return 0;
+
             var pressPosition = context.Input.Data.pressPosition;
             var needWordRow = context.WordRows.Find(w => w.IsContainsScreenPoint(pressPosition));
             if (needWordRow == null)
@@ -16,11 +19,12 @@ namespace GameLogic.UI.Gameplay
             if (cluster == null)
                 return 0;
 
-            context.OriginDraggedCluster = cluster;
-            context.OriginDraggedClusterWordRow = needWordRow;
-            context.OriginDraggedClusterHolder = needWordRow.ClustersHolder;
+            context.Swipe.OriginDraggedCluster = cluster;
+            context.Swipe.OriginDraggedClusterWordRow = needWordRow;
+            context.Swipe.OriginDraggedClusterHolder = needWordRow.ClustersHolder;
 
             context.Input = default;
+            context.Swipe.IsSwipeInputNow = true;
 
             return 1;
         }

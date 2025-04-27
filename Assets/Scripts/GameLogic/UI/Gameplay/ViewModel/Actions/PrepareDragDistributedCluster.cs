@@ -19,7 +19,7 @@ namespace GameLogic.UI.Gameplay
         {
             _audioPlayer.PlaySound(_soundsSettings.TapSound);
 
-            var originalCluster = context.OriginDraggedCluster;
+            var originalCluster = context.Swipe.OriginDraggedCluster;
             originalCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
             originalCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
 
@@ -30,7 +30,7 @@ namespace GameLogic.UI.Gameplay
             swipingCluster.SetBackgroundColor(_colorsSettings.SelectedClusterBackColor);
             swipingCluster.SetTextColor(_colorsSettings.SelectedClusterTextColor);
             swipingCluster.SetRotation(_gameplaySettings.DraggedClusterRotation);
-            context.DraggedCluster = swipingCluster;
+            context.Swipe.DraggedCluster = swipingCluster;
 
             BlinkSuitableWordRows(context);
         }
@@ -39,12 +39,12 @@ namespace GameLogic.UI.Gameplay
         {
             foreach (var wordRow in context.WordRows)
             {
-                if (wordRow == context.OriginDraggedClusterWordRow)
+                if (wordRow == context.Swipe.OriginDraggedClusterWordRow)
                 {
                     wordRow.SetEnabledBlinking(true);
                     continue;
                 }
-                var clusterTextLength = context.OriginDraggedCluster.GetText().Length;
+                var clusterTextLength = context.Swipe.OriginDraggedCluster.GetText().Length;
                 var wordLength = context.WordRowsClusters.GetWord(wordRow).Length;
                 if (clusterTextLength + wordLength > _gameDefs.LevelSettings.WordLengthsRange.Max)
                     continue;

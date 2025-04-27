@@ -16,16 +16,16 @@ namespace GameLogic.UI.Gameplay
 
         protected bool TryGetWordRowUnderDraggedCluster(GameplayViewModelContext context, bool isDraggedClusterFromDistributed, out WordRow wordRow)
         {
-            var draggedClusterScreenPoint = context.DraggedCluster.GetScreenPoint();
+            var draggedClusterScreenPoint = context.Swipe.DraggedCluster.GetScreenPoint();
             wordRow = context.WordRows.Find(x => x.IsContainsScreenPoint(draggedClusterScreenPoint));
             if (wordRow == null) 
                 return false;
 
-            var canIgnoreWordLength = isDraggedClusterFromDistributed && context.OriginDraggedClusterHolder == wordRow.ClustersHolder;
+            var canIgnoreWordLength = isDraggedClusterFromDistributed && context.Swipe.OriginDraggedClusterHolder == wordRow.ClustersHolder;
             if (canIgnoreWordLength)
                 return true;
 
-            var clusterTextLength = context.OriginDraggedCluster.GetText().Length;
+            var clusterTextLength = context.Swipe.OriginDraggedCluster.GetText().Length;
             var wordLength = context.WordRowsClusters.GetWord(wordRow).Length;
             if (wordLength + clusterTextLength > _gameDefs.LevelSettings.WordLengthsRange.Max)
                 return false;
@@ -36,55 +36,55 @@ namespace GameLogic.UI.Gameplay
         protected void SetHintClusterAsUndistributed(GameplayViewModelContext context)
         {
             TryCreateHintCluster(context);
-            if (context.HintClusterHolder != context.UndistributedClustersHolder)
+            if (context.Swipe.HintClusterHolder != context.UndistributedClustersHolder)
             {
-                context.HintCluster.SetParent(context.UndistributedClustersHolder);
-                context.HintCluster.SetSiblingIndex(0);
-                context.HintClusterHolder = context.UndistributedClustersHolder;
+                context.Swipe.HintCluster.SetParent(context.UndistributedClustersHolder);
+                context.Swipe.HintCluster.SetSiblingIndex(0);
+                context.Swipe.HintClusterHolder = context.UndistributedClustersHolder;
                 context.IsHintClusterInUndistributedClusters.SetValueAndForceNotify(true);
             }
-            context.OriginDraggedCluster.SetActive(false);
-            context.HintClusterWordRow = null;
+            context.Swipe.OriginDraggedCluster.SetActive(false);
+            context.Swipe.HintClusterWordRow = null;
         }
 
         protected void SetHintClusterAsDistributed(GameplayViewModelContext context, WordRow wordRow, bool hideOriginDraggedCluster)
         {
             TryCreateHintCluster(context);
-            if (context.HintClusterHolder != wordRow.ClustersHolder)
+            if (context.Swipe.HintClusterHolder != wordRow.ClustersHolder)
             {
-                context.HintCluster.SetParent(wordRow.ClustersHolder);
-                context.HintClusterHolder = wordRow.ClustersHolder;
-                context.HintClusterWordRow = wordRow;
+                context.Swipe.HintCluster.SetParent(wordRow.ClustersHolder);
+                context.Swipe.HintClusterHolder = wordRow.ClustersHolder;
+                context.Swipe.HintClusterWordRow = wordRow;
             }
 
             SetSiblingIndexForHintCluster(context, wordRow);
 
             if (hideOriginDraggedCluster)
-                context.OriginDraggedCluster.SetActive(false);
+                context.Swipe.OriginDraggedCluster.SetActive(false);
         }
 
         private void TryCreateHintCluster(GameplayViewModelContext context)
         {
-            if (context.HintCluster == null)
+            if (context.Swipe.HintCluster == null)
             {
-                context.HintCluster = _clusterFactory.Create();
-                context.HintCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
-                context.HintCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
-                context.HintCluster.SetText(context.DraggedCluster.GetText());
+                context.Swipe.HintCluster = _clusterFactory.Create();
+                context.Swipe.HintCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
+                context.Swipe.HintCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
+                context.Swipe.HintCluster.SetText(context.Swipe.DraggedCluster.GetText());
             }
         }
 
         private void SetSiblingIndexForHintCluster(GameplayViewModelContext context, WordRow wordRow)
         {
             _bufferClusters.Clear();
-            _bufferClusters.Add(context.HintCluster);
+            _bufferClusters.Add(context.Swipe.HintCluster);
             _bufferClusters.AddRange(context.WordRowsClusters[wordRow]);
-            var draggedClusterScreenPoint = context.DraggedCluster.GetScreenPoint();
+            var draggedClusterScreenPoint = context.Swipe.DraggedCluster.GetScreenPoint();
             var closest = _bufferClusters.GetClosest(draggedClusterScreenPoint);
-            if (closest != context.HintCluster)
+            if (closest != context.Swipe.HintCluster)
             {
                 var siblingIndex = context.WordRowsClusters.GetSiblingIndexForClusterPoint(wordRow, draggedClusterScreenPoint);
-                context.HintCluster.SetSiblingIndex(siblingIndex);
+                context.Swipe.HintCluster.SetSiblingIndex(siblingIndex);
             }
         }
 

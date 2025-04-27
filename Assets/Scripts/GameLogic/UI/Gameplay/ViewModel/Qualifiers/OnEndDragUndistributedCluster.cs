@@ -7,10 +7,10 @@ namespace GameLogic.UI.Gameplay
             if (context.Input.Type != UserInputType.OnEndDrag)
                 return 0;
 
-            if (context.DraggedCluster == null)
+            if (context.Swipe.DraggedCluster == null)
                 return 0;
 
-            if (context.UndistributedClusters.Contains(context.OriginDraggedCluster) == false)
+            if (context.UndistributedClusters.Contains(context.Swipe.OriginDraggedCluster) == false)
                 return 0;
 
             context.Input = default;
