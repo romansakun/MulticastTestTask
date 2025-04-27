@@ -7,6 +7,9 @@ namespace GameLogic.UI.Gameplay
             if (context.Click.IsClickInputNow == false)
                 return 0;
 
+            if (context.Input == default)
+                return 0;
+
             var position = context.Input.Data.position;
             var needWordRow = context.WordRows.Find(w => w.IsContainsScreenPoint(position));
             if (needWordRow == null)
