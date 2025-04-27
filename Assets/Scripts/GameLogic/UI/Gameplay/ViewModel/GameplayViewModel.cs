@@ -143,7 +143,11 @@ namespace GameLogic.UI.Gameplay
 
         public void OnCheckWordsButtonClicked()
         {
-            if (_logicAgent.IsExecuting) return;
+            if (_logicAgent.IsExecuting)
+                return;
+            if (_logicAgent.Context.Swipe.IsSwipeInputNow || _logicAgent.Context.Click.IsClickInputNow) 
+                return;
+
             _logicAgent.Context.CheckCompleteLevel = true;
             _logicAgent.Execute(true);
         }

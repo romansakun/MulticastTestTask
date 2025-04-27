@@ -4,9 +4,6 @@ namespace GameLogic.UI.Gameplay
     {
         public override float Score(GameplayViewModelContext context)
         {
-            if (context.Input.Type != UserInputType.OnPointerClick)
-                return 0;
-
             if (context.Click.IsClickInputNow == false)
                 return 0;
 
