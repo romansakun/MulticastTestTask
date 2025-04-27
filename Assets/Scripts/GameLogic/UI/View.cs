@@ -44,14 +44,15 @@ namespace GameLogic.UI
             _rectTransform.anchoredPosition = Vector2.zero;
             _canvas.pixelPerfect = true;
             _canvas.overrideSorting = true;
-            if (_overrideSortingOrder > 0)
-                _canvas.sortingOrder = _overrideSortingOrder;
         }
 
         private void OnViewsChanged(IReadOnlyList<View> views)
         {
             if (_overrideSortingOrder > 0)
+            {
+                _canvas.sortingOrder = _overrideSortingOrder;
                 return;
+            }
 
             for (var index = 0; index < views.Count; index++)
             {
