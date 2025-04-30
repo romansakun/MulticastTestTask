@@ -19,6 +19,14 @@ namespace GameLogic.UI.Gameplay
             return _stringBuilder.ToString();
         }
 
+        public static void RemoveCluster(this Dictionary<WordRow, List<Cluster>> wordRows, Cluster cluster)
+        {
+            foreach (var pair in wordRows)
+            {
+                if (pair.Value.Remove(cluster)) break;
+            }
+        }
+
         public static Vector2 GetScreenPoint(this RectTransform rt)
         {
             var point = rt.TransformPoint(rt.rect.center);
@@ -58,6 +66,21 @@ namespace GameLogic.UI.Gameplay
                 }
             }
             return closest;
+        }
+
+        public static List<string> GetWordClusters (this Dictionary<string, List<int>> words, string word)
+        {
+            var result = new List<string>();
+            var clusters = words[word];
+            var startIndex = 0;
+            for (var i = 0; i < clusters.Count; i++)
+            {
+                var clusterLength = clusters[i];
+                var levelCluster = word.Substring(startIndex, clusterLength);
+                result.Add(levelCluster);
+                startIndex += clusterLength;
+            }
+            return result;
         }
 
     }

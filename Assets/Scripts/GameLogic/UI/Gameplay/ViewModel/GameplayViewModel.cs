@@ -11,7 +11,7 @@ using Zenject;
 
 namespace GameLogic.UI.Gameplay
 {
-    public class GameplayViewModel : ViewModel 
+    public class GameplayViewModel : ViewModel
     {
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private GameDefsDataProvider _gameDefs;
@@ -73,9 +73,9 @@ namespace GameLogic.UI.Gameplay
                 .AddQualifier<DefaultQualifier<GameplayViewModelContext>>(tryReturnClickedClusterAction);
             var rootSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
                 .AddQualifier<IsLevelNotLoaded>(loadLevelAction)
-                .AddQualifier<IsUserCheckCompleteLevel>(tryCompleteLevelAction)
                 .AddQualifier<IsSwipeInput>(swipeInputSelector)
                 .AddQualifier<IsClickInput>(clickInputSelector)
+                .AddQualifier<IsUserCheckCompleteLevel>(tryCompleteLevelAction)
                 .SetAsRoot();
 
             endDragUndistributedClusterAction.DirectTo(trySaveLevelProgressAction);
@@ -148,8 +148,16 @@ namespace GameLogic.UI.Gameplay
             _logicAgent.Execute(true);
         }
 
+        public void OnAdTipButtonClicked()
+        {
+            if (_logicAgent.IsExecuting) return;
+            _logicAgent.Context.AdTip.IsAdTip = true;
+            _logicAgent.Execute(true);
+        }
+
         public async void OnMainMenuButtonClicked()
         {
+            if (_logicAgent.IsExecuting) return;
             _viewManager.Close<GameplayView>();
             var viewModel = _viewModelFactory.Create<MainMenuViewModel>();
             var view = await _viewManager.ShowAsync<MainMenuView, MainMenuViewModel>(viewModel);

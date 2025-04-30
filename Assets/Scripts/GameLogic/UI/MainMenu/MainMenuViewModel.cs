@@ -1,9 +1,11 @@
 using DG.Tweening;
+using GameLogic.Ads;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.UI.Gameplay;
 using GameLogic.UI.Settings;
 using Infrastructure;
+using UnityEngine;
 using Zenject;
 
 namespace GameLogic.UI.MainMenu
@@ -13,6 +15,7 @@ namespace GameLogic.UI.MainMenu
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private UserContextDataProvider _userContext;
+        [Inject] private IAdsShower _adsShower;
 
         public IReactiveProperty<int> FormedWordCount => _formedWordCount;
         private readonly ReactiveProperty<int> _formedWordCount = new(0);
@@ -49,6 +52,12 @@ namespace GameLogic.UI.MainMenu
         {
             var viewModel = _viewModelFactory.Create<SettingsViewModel>();
             await _viewManager.ShowAsync<SettingsView, SettingsViewModel>(viewModel);
+        }
+
+        public void OnRewardAdButtonClicked()
+        {
+            Debug.Log("OnRewardAdButtonClicked");
+            _adsShower.Show(AdSlots.AdRewardSlotID);
         }
 
         public override void Dispose()

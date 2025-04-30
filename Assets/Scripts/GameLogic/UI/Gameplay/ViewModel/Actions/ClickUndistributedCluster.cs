@@ -39,14 +39,14 @@ namespace GameLogic.UI.Gameplay
 
             foreach (var wordRow in context.WordRows)
             {
-                if (CadAddClickHintCluster(context, wordRow))
+                if (CanAddClickHintCluster(context, wordRow))
                 {
                     AddHintClusterToWordRow(context, wordRow);
                 }
             }
         }
 
-        private bool CadAddClickHintCluster(GameplayViewModelContext context, WordRow wordRow)
+        private bool CanAddClickHintCluster(GameplayViewModelContext context, WordRow wordRow)
         {
             var clusterTextLength = context.Click.OriginUndistributedClickedCluster.GetText().Length;
             var wordLength = context.WordRowsClusters.GetWord(wordRow).Length;

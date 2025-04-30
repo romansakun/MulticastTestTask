@@ -4,7 +4,7 @@ namespace GameLogic.UI.Gameplay
     {
         public override void Execute(GameplayViewModelContext context)
         {
-            if (TryGetWordRowUnderDraggedCluster(context, true, out var wordRow))
+            if (TryGetWordRowWithEmptyPlaceUnderDraggedCluster(context, true, out var wordRow))
             {
                 SetHintClusterAsDistributed(context, wordRow, true);
             }

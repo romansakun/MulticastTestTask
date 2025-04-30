@@ -14,7 +14,7 @@ namespace GameLogic.UI.Gameplay
         private readonly List<Cluster> _bufferClusters = new();
 
 
-        protected bool TryGetWordRowUnderDraggedCluster(GameplayViewModelContext context, bool isDraggedClusterFromDistributed, out WordRow wordRow)
+        protected bool TryGetWordRowWithEmptyPlaceUnderDraggedCluster(GameplayViewModelContext context, bool isDraggedClusterFromDistributed, out WordRow wordRow)
         {
             var draggedClusterScreenPoint = context.Swipe.DraggedCluster.GetScreenPoint();
             wordRow = context.WordRows.Find(x => x.IsContainsScreenPoint(draggedClusterScreenPoint));

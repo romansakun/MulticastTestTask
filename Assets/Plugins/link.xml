@@ -1,6 +1,5 @@
 <linker>
    <assembly fullname="Zenject" preserve="all"/>
    <assembly fullname="GameLogic" preserve="all"/>
-   <assembly fullname="LogicUtility" preserve="all"/>
    <assembly fullname="Infrastructure" preserve="all"/>
 </linker>

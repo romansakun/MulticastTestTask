@@ -8,6 +8,7 @@ namespace GameLogic.UI.MainMenu
     public class MainMenuView : View
     {
         [SerializeField] private Button _playButton;
+        [SerializeField] private Button _showAdRewardButton;
         [SerializeField] private Button _settingsButton;
         [SerializeField] private TextMeshProUGUI _formedWordNumberText;
 
@@ -24,6 +25,7 @@ namespace GameLogic.UI.MainMenu
         {
             _playButton.onClick.AddListener(_viewModel.OnPlayButtonClicked);
             _settingsButton.onClick.AddListener(_viewModel.OnSettingsButtonClicked);
+            _showAdRewardButton.onClick.AddListener(_viewModel.OnRewardAdButtonClicked);
             _viewModel.FormedWordCount.Subscribe(OnFormedWordCountChanged);
         }
 
@@ -31,6 +33,7 @@ namespace GameLogic.UI.MainMenu
         {
             _playButton.onClick.RemoveListener(_viewModel.OnPlayButtonClicked);
             _settingsButton.onClick.RemoveListener(_viewModel.OnSettingsButtonClicked);
+            _showAdRewardButton.onClick.RemoveListener(_viewModel.OnRewardAdButtonClicked);
             _viewModel.FormedWordCount.Unsubscribe(OnFormedWordCountChanged);
         }
 

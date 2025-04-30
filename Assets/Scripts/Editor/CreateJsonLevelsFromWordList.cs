@@ -14,8 +14,73 @@ namespace Editor
         private static Dictionary<string, string> WordPaths = new ()
         {
             {"Ru", "Assets/Content/Words/russian_nouns_400_2.txt"},
-            {"En", "Assets/Content/Words/en_nouns_2.txt"}
+            {"En", "Assets/Content/Words/en_nouns_2.txt"},
+            {"AllWords", "Assets/Content/Words/allWords.txt"},
+            {"AllTowns", "Assets/Content/Words/allTowns.txt"},
+            {"NeedWords", "Assets/Content/Words/needWords.txt"},
+            {"NeedWords6", "Assets/Content/Words/needWords6.txt"}
         };
+
+        [MenuItem("Definitions/Get words")]
+        public static void GetWords()
+        {
+            var all = AssetDatabase.LoadAssetAtPath<TextAsset>(WordPaths["AllWords"]).text.Split('\n');
+            var nouns = new List<string>();
+           
+            for (var i = 0 ; i < all.Length; i++)
+            {
+                var row = all[i];
+                if (row.Contains("noun") == false)
+                    continue;
+
+                var word = row.Split(' ')[2].Trim();
+                if (word.Length < 5 || word.Length > 7)
+                    continue;
+
+                nouns.Add(word);
+            }
+            for (var i = 0 ; i < all.Length; i++)
+            {
+                var row = all[i];
+                if (row.Contains("noun"))
+                    continue;
+
+                var word = row.Split(' ')[2].Trim();
+                if (word.Length < 5 || word.Length > 7)
+                    continue;
+
+                if (nouns.Contains(word))
+                    nouns.Remove(word);
+            }
+            var allTowns = AssetDatabase.LoadAssetAtPath<TextAsset>(WordPaths["AllTowns"]).text.Split('\n');
+            for (var i = 0 ; i < allTowns.Length; i++)
+            {
+                var town = allTowns[i];
+                if (town.Length < 5 || town.Length > 7)
+                    continue;
+
+                var lowerTown = town.ToLower();
+                if (nouns.Contains(lowerTown))
+                    nouns.Remove(lowerTown);
+            }
+
+            var sb = new StringBuilder();
+            for (var i = 0 ; i < nouns.Count; i++)
+            {
+                var word = nouns[i];
+                sb.Append($"{word}\n");
+            }
+            File.WriteAllText(WordPaths["NeedWords"], sb.ToString());
+
+            sb.Clear();
+            for (var i = 0 ; i < nouns.Count; i++)
+            {
+                var word = nouns[i];
+                if (word.Length == 6)
+                    sb.Append($"{word}\n");
+            }
+            File.WriteAllText(WordPaths["NeedWords6"], sb.ToString());
+        }
 
         [MenuItem("Definitions/Create levels")]
         public static void CreateLevels()
