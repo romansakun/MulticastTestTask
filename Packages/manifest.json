@@ -1,29 +1,18 @@
 {
   "dependencies": {
-    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.addressables": "2.4.3",
-
-    "com.unity.ads": "4.4.2",
-
     "com.unity.ide.rider": "3.0.36",
     "com.unity.mobile.android-logcat": "1.4.5",
-
-    "com.unity.multiplayer.center": "1.0.0",
-
-    "com.unity.remote-config": "4.1.1",
     "com.unity.test-framework": "1.5.1",
     "com.unity.ugui": "2.0.0",
-
     "com.unity.modules.accessibility": "1.0.0",
-
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.assetbundle": "1.0.0",
     "com.unity.modules.audio": "1.0.0",
     "com.unity.modules.imageconversion": "1.0.0",
     "com.unity.modules.imgui": "1.0.0",
-    "com.unity.modules.jsonserialize": "1.0.0",
     "com.unity.modules.ui": "1.0.0",
     "com.unity.modules.video": "1.0.0"
   }
