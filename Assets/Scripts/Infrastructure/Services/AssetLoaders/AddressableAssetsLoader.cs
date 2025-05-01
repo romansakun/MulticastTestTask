@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.Services
 {
-    public class AssetLoader : IDisposable
+    public class AddressableAssetsLoader : IAssetsLoader
     {
         private readonly Dictionary<(string name, Type type), AsyncOperationHandle> _objectOperationHandles = new();
         private readonly Dictionary<(string name, Type type), UniTask> _objectOperationTasks = new();
@@ -27,7 +27,7 @@ namespace Infrastructure.Services
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[AssetLoader] Addressables initialization failed: {ex.Message}");
+                Debug.LogError($"[AddressableAssetsLoader] Addressables initialization failed: {ex.Message}");
                 throw;
             }
         }
@@ -82,7 +82,7 @@ namespace Infrastructure.Services
                 if (_objectOperationHandles.TryGetValue(key, out var handle))
                 {
                     if (handle.Result == null)
-                        throw new Exception($"[AssetLoader] Asset {name} was loaded but Result is null");
+                        throw new Exception($"[AddressableAssetsLoader] Asset {name} was loaded but Result is null");
 
                     return handle.Result as T;
                 }
@@ -94,11 +94,11 @@ namespace Infrastructure.Services
 
                 if (loadAssetAsync.Status != AsyncOperationStatus.Succeeded )
                 {
-                    throw new Exception($"[AssetLoader] Failed to load {typeof(T).Name} '{name}': {loadAssetAsync.Status}, exception: {loadAssetAsync.OperationException}");
+                    throw new Exception($"[AddressableAssetsLoader] Failed to load {typeof(T).Name} '{name}': {loadAssetAsync.Status}, exception: {loadAssetAsync.OperationException}");
                 }
                 if (loadAssetAsync.Result == null)
                 {
-                    throw new Exception($"[AssetLoader] Failed to load {typeof(T).Name} '{name}': Result is null");
+                    throw new Exception($"[AddressableAssetsLoader] Failed to load {typeof(T).Name} '{name}': Result is null");
                 }
 
                 _objectOperationHandles.TryAdd(key, loadAssetAsync);
@@ -108,7 +108,7 @@ namespace Infrastructure.Services
             }
             catch (Exception ex)
             {
-                var error = new Exception($"[AssetLoader] Failed to load {typeof(T).Name} '{name}': {ex.Message}");
+                var error = new Exception($"[AddressableAssetsLoader] Failed to load {typeof(T).Name} '{name}': {ex.Message}");
                 _errors.TryAdd(key, error);
                 throw error;
             }

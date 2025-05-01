@@ -13,6 +13,8 @@ namespace GameLogic.Bootstrapper
         public override void InstallBindings()
         {
             Container.Bind<IFileService>().To<FileService>().AsSingle();
+            Container.Bind<IAssetsLoader>().To<AddressableAssetsLoader>().AsSingle();
+
             Container.Bind<GameAppReloader>().AsSingle();
 
             Container.Bind<LogicBuilderFactory>().AsSingle();
@@ -24,7 +26,6 @@ namespace GameLogic.Bootstrapper
             Container.BindFactory<Cluster, Cluster.Factory>().AsSingle();
             Container.BindFactory<WordRow, WordRow.Factory>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<AssetLoader>().AsSingle();
             Container.BindInterfacesAndSelfTo<ViewManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameActionExecutor>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameAppLoader>().AsSingle();

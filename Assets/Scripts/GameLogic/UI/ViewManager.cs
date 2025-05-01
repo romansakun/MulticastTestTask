@@ -12,7 +12,7 @@ namespace GameLogic.UI
     public class ViewManager : IInitializable, IDisposable
     {
         [Inject] private DiContainer _diContainer;
-        [Inject] private AssetLoader _assetLoader;
+        [Inject] private IAssetsLoader _assetsLoader;
         [Inject] private Canvas _canvas;
 
         private RectTransform _canvasRectTransform;
@@ -37,7 +37,7 @@ namespace GameLogic.UI
 
         public async UniTask<V> ShowAsync<V, VM> (VM viewModel) where V : View where VM : ViewModel
         {
-            var viewPrefab = await _assetLoader.LoadPrefabAsync<V>();
+            var viewPrefab = await _assetsLoader.LoadPrefabAsync<V>();
             var view = _diContainer.InstantiatePrefabForComponent<V>(viewPrefab, _canvasRectTransform);
             view.PrepareToShow();
             await view.Initialize(viewModel);

@@ -2,5 +2,7 @@
    <assembly fullname="Zenject" preserve="all"/>
    <assembly fullname="GameLogic" preserve="all"/>
    <assembly fullname="Infrastructure" preserve="all"/>
+   <!--
    <assembly fullname="YandexMobileAds" preserve="all"/>
+   -->
 </linker>
