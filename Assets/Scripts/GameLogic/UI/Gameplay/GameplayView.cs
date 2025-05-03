@@ -23,6 +23,7 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private Button _mainMenuButton;
         [SerializeField] private Button _swipeToLeftButton;
         [SerializeField] private Button _swipeToRightButton;
+        [SerializeField] private Button _adTipButton;
         [SerializeField] private TextMeshProUGUI _levelName;
         [SerializeField] private TextMeshProUGUI _description;
 
@@ -43,6 +44,8 @@ namespace GameLogic.UI.Gameplay
             _mainMenuButton.onClick.AddListener(() => _viewModel.OnMainMenuButtonClicked());
             _swipeToLeftButton.onClick.AddListener(OnSwipeToLeftButtonClicked);
             _swipeToRightButton.onClick.AddListener(OnSwipeToRightButtonClicked);
+            _adTipButton.onClick.AddListener(OnAdTipButtonClicked);
+            _viewModel.UndistributedClustersScrollRectNormalizedPosition.Subscribe(OnUndistributedClustersScrollRectNormalizedPositionChanged);
             _viewModel.IsUndistributedClustersScrollRectActive.Subscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Subscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Subscribe(OnFailedCompleteLevelChanged);
@@ -56,6 +59,8 @@ namespace GameLogic.UI.Gameplay
             _mainMenuButton.onClick.RemoveAllListeners();
             _swipeToLeftButton.onClick.RemoveAllListeners();
             _swipeToRightButton.onClick.RemoveAllListeners();
+            _adTipButton.onClick.RemoveAllListeners();
+            _viewModel.UndistributedClustersScrollRectNormalizedPosition.Unsubscribe(OnUndistributedClustersScrollRectNormalizedPositionChanged);
             _viewModel.IsUndistributedClustersScrollRectActive.Unsubscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Unsubscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
@@ -63,6 +68,11 @@ namespace GameLogic.UI.Gameplay
             _viewModel.LevelNameText.Unsubscribe(OnLevelNameTextChanged);
 
             _failButtonAnimation?.Kill();
+        }
+
+        private void OnUndistributedClustersScrollRectNormalizedPositionChanged(float value)
+        {
+            _undistributedClustersScrollRect.horizontalNormalizedPosition = value;
         }
 
         private void OnLevelNameTextChanged(string levelName)
@@ -88,6 +98,11 @@ namespace GameLogic.UI.Gameplay
         private void OnSwipeToRightButtonClicked()
         {
             _undistributedClustersScrollRect.horizontalNormalizedPosition = 1f;
+        }
+
+        private void OnAdTipButtonClicked()
+        {
+            _viewModel.OnAdTipButtonClicked();
         }
 
         private void OnSwipeToLeftButtonClicked()

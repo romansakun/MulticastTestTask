@@ -5,7 +5,6 @@ using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using Infrastructure.Extensions;
-using UnityEngine;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay
@@ -24,75 +23,63 @@ namespace GameLogic.UI.Gameplay
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
-            var levelDef = _gameDefs.Levels[context.LevelProgress.LevelDefId];
-            var rowsFreeClusters = new List<Cluster>();
-            var changeableWordRows = new List<WordRow>();
-            var unguessedWords = new List<string>();
-            var guessedWords = new List<string>();
-            foreach (var pair in levelDef.Words)
+            // cleaning row
+            var replacingClusters = context.WordRowsClusters[context.AdTip.SuitableWordRow];
+            for (var i = replacingClusters.Count - 1; i >= 0; i--)
             {
-                var word = pair.Key;
-                foreach (var wordRow in context.WordRowsClusters)
-                {
-                    var playerWord = context.WordRowsClusters.GetWord(wordRow.Key);
-                    if (playerWord == word)
-                    {
-                        guessedWords.Add(word);
-                    }
-                    else
-                    {
-                        unguessedWords.Add(word);
-                        changeableWordRows.Add(wordRow.Key);
-                        rowsFreeClusters.AddRange(wordRow.Value);
-                    }
-                }
-            }
-            if (guessedWords.Count == levelDef.Words.Count)
-            {
-                Debug.LogWarning("All words are guessed");
-                return;
-            }
+                context.UndistributedClustersScrollRectNormalizedPosition.Value = 0;
 
-            var needWordRow = context.WordRows.Find(wr => changeableWordRows.Contains(wr));
-            var clusters = context.WordRowsClusters[needWordRow];
-            for (var i = clusters.Count - 1; i >= 0; i--)
-            {
-                var cluster = clusters[i];
+                var cluster = replacingClusters[i];
                 context.WordRowsClusters.RemoveCluster(cluster);
                 context.DistributedClusters.Remove(cluster);
                 context.UndistributedClusters.Add(cluster);
                 cluster.SetParent(context.UndistributedClustersHolder);
+                cluster.SetSiblingIndex(0);
+                _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
 
                 await UniTask.Delay(250);
+                if (context.IsDisposed) return;
             }
+            //
 
-            var needWord = unguessedWords[0];
+            // resolve available clusters
+            var availableRowsClusters = new List<Cluster>();
+            availableRowsClusters.AddRange(context.DistributedClusters);
+            foreach (var immutableWordRow in context.AdTip.ImmutableWordRows)
+            {
+                var immutableClusters = context.WordRowsClusters[immutableWordRow];
+                availableRowsClusters.RemoveAll(immutableClusters.Contains);
+            }
+            //
+
+
+            var levelDef = _gameDefs.Levels[context.LevelProgress.LevelDefId];
+            var needWord = context.AdTip.NotFormedWords[0];
             var needWordClusters = levelDef.Words.GetWordClusters(needWord);
-            for (int i = needWordClusters.Count - 1; i >= 0; i--)
+            for (int i = 0; i < needWordClusters.Count; i++)
             {
                 var clusterText = needWordClusters[i];
-                var cluster = rowsFreeClusters.Find(c => c.GetText() == clusterText);
-                if (cluster != null)
+                var cluster = context.UndistributedClusters.Find(c => c.IsValueEqual(clusterText));
+                if (cluster == null)
                 {
-                    rowsFreeClusters.Remove(cluster);
-                    needWordClusters.Remove(clusterText);
+                    cluster = availableRowsClusters.Find(c => c.IsValueEqual(clusterText));
                     context.WordRowsClusters.RemoveCluster(cluster);
                     context.DistributedClusters.Remove(cluster);
                     context.UndistributedClusters.Add(cluster);
                     cluster.SetParent(context.UndistributedClustersHolder);
+                    cluster.SetSiblingIndex(0);
+                    _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
+                    context.UndistributedClustersScrollRectNormalizedPosition.Value = 0;
 
-                    await UniTask.Delay(250);
+                    await UniTask.Delay(125);
+                    if (context.IsDisposed) return;
                 }
-            }
-
-            needWordClusters = levelDef.Words.GetWordClusters(needWord);
-            for (int i = 0; i < needWordClusters.Count; i++)
-            {
-                var clusterText = needWordClusters[i];
-                var cluster = context.UndistributedClusters.Find(c => c.GetText() == clusterText);
-
                 cluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
                 cluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
+
+                var clusterIndex = cluster.GetSiblingIndex();
+                var scrollValue = clusterIndex / (float) context.UndistributedClusters.Count;
+                context.UndistributedClustersScrollRectNormalizedPosition.Value = scrollValue;
 
                 _viewManager.TryGetView<GameplayView>(out var gameplayView);
                 var originalClusterText = cluster.GetText();
@@ -105,25 +92,31 @@ namespace GameLogic.UI.Gameplay
                 var position = cluster.GetPosition();
                 var offset = _gameplaySettings.DraggedClusterOffsetPosition.AddZ();
                 clickedCluster.SetPosition(position + offset);
-                var hintCluster = AddHintClusterToWordRow(context, needWordRow, cluster);
+                var hintCluster = AddHintClusterToWordRow(context, context.AdTip.SuitableWordRow, cluster);
 
                 await UniTask.Delay(125);
+                if (context.IsDisposed) return;
 
                 _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
 
                 context.AllClusters.Remove(hintCluster);
                 hintCluster.Dispose();
 
-                context.WordRowsClusters[needWordRow].Add(cluster);
+                context.WordRowsClusters[context.AdTip.SuitableWordRow].Add(cluster);
                 context.UndistributedClusters.Remove(cluster);
                 context.DistributedClusters.Add(cluster);
 
-                cluster.SetParent(needWordRow.ClustersHolder);
+                cluster.SetParent(context.AdTip.SuitableWordRow.ClustersHolder);
                 cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
                 cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
-                
+
+                clickedCluster.Dispose();
+
                 await UniTask.Delay(125);
+                if (context.IsDisposed) return;
             }
+            
+            context.AdTip.Reset();
         }
 
         private Cluster AddHintClusterToWordRow(GameplayViewModelContext context, WordRow wordRow, Cluster cluster)

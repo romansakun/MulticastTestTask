@@ -20,6 +20,7 @@ namespace GameLogic.UI.Gameplay
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private ViewManager _viewManager;
 
+        public IReactiveProperty<float> UndistributedClustersScrollRectNormalizedPosition => _logicAgent.Context.UndistributedClustersScrollRectNormalizedPosition;
         public IReactiveProperty<bool> IsUndistributedClustersScrollRectActive => _logicAgent.Context.IsUndistributedClustersScrollRectActive;
         public IReactiveProperty<bool> IsHintClusterInUndistributedClusters => _logicAgent.Context.IsHintClusterInUndistributedClusters;
         public IReactiveProperty<bool> IsFailedCompleteLevel => _logicAgent.Context.IsFailedCompleteLevel;
@@ -41,6 +42,9 @@ namespace GameLogic.UI.Gameplay
                 .JoinAction<LoadWordDistributedClusters>()
                 .JoinAction<LoadUndistributedClusters>()
                 .JoinAction<TryShowHowToPlayHint>();
+
+            var atTipAction = logicBuilder
+                .AddAction<ApplyAdTip>();
 
             var prepareDragUndistributedClusterAction = logicBuilder.AddAction<PrepareDragUndistributedCluster>();
             var prepareDragDistributedClusterAction = logicBuilder.AddAction<PrepareDragDistributedCluster>();
@@ -73,14 +77,16 @@ namespace GameLogic.UI.Gameplay
                 .AddQualifier<DefaultQualifier<GameplayViewModelContext>>(tryReturnClickedClusterAction);
             var rootSelector = logicBuilder.AddSelector<FirstScoreSelector<GameplayViewModelContext>>()
                 .AddQualifier<IsLevelNotLoaded>(loadLevelAction)
+                .AddQualifier<IsAdTip>(atTipAction)
+                .AddQualifier<IsUserCheckCompleteLevel>(tryCompleteLevelAction)
                 .AddQualifier<IsSwipeInput>(swipeInputSelector)
                 .AddQualifier<IsClickInput>(clickInputSelector)
-                .AddQualifier<IsUserCheckCompleteLevel>(tryCompleteLevelAction)
                 .SetAsRoot();
 
             endDragUndistributedClusterAction.DirectTo(trySaveLevelProgressAction);
             endDragDistributedClusterAction.DirectTo(trySaveLevelProgressAction);
             clickWordRowWithHintClusterAction.DirectTo(trySaveLevelProgressAction);
+            atTipAction.DirectTo(trySaveLevelProgressAction);
 
             _logicAgent = logicBuilder.Build();
             _logicAgent.OnCatchError += OnLogicFailed;

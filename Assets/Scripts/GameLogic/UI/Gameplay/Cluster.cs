@@ -28,6 +28,16 @@ namespace GameLogic.UI.Gameplay
             return _value;
         }
 
+        public bool IsValueEqual(Cluster cluster)
+        {
+            return IsValueEqual(cluster.GetText());
+        }
+
+        public bool IsValueEqual(string value)
+        {
+            return string.Equals(_value, value, StringComparison.CurrentCultureIgnoreCase);
+        }
+
         public void SetBackgroundColor(Color color)
         {
             _backImage.color = color;
