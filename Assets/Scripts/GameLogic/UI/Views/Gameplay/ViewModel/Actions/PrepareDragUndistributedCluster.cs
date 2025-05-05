@@ -5,7 +5,7 @@ using Zenject;
 
 namespace GameLogic.UI.Gameplay
 {
-    public class PrepareDragDistributedCluster : BaseGameplayViewModelAction
+    public class PrepareDragUndistributedCluster : BaseGameplayViewModelAction
     {
         [Inject] private AudioPlayer _audioPlayer;
         [Inject] private SoundsSettings _soundsSettings;
@@ -17,18 +17,19 @@ namespace GameLogic.UI.Gameplay
 
         public override void Execute(GameplayViewModelContext context)
         {
+            context.IsUndistributedClustersScrollRectActive.SetValueAndForceNotify(false);
+
             _audioPlayer.PlaySound(_soundsSettings.TapSound);
 
             var originalCluster = context.Swipe.OriginDraggedCluster;
-            originalCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
-            originalCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
+            originalCluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);
 
             _viewManager.TryGetView<GameplayView>(out var gameplayView);
+            var originalClusterText = originalCluster.GetText();
             var swipingCluster = _clusterFactory.Create();
             swipingCluster.SetParent(gameplayView.transform);
-            swipingCluster.SetText(originalCluster.GetText());
-            swipingCluster.SetBackgroundColor(_colorsSettings.SelectedClusterBackColor);
-            swipingCluster.SetTextColor(_colorsSettings.SelectedClusterTextColor);
+            swipingCluster.SetText(originalClusterText);
+            swipingCluster.SetColorAlpha(1);
             swipingCluster.SetRotation(_gameplaySettings.DraggedClusterRotation);
             context.Swipe.DraggedCluster = swipingCluster;
 
@@ -39,14 +40,9 @@ namespace GameLogic.UI.Gameplay
         {
             foreach (var wordRow in context.WordRows)
             {
-                if (wordRow == context.Swipe.OriginDraggedClusterWordRow)
-                {
-                    wordRow.SetEnabledBlinking(true);
-                    continue;
-                }
-                var clusterTextLength = context.Swipe.OriginDraggedCluster.GetText().Length;
+                var clusterLength = context.Swipe.OriginDraggedCluster.GetText().Length;
                 var wordLength = context.WordRowsClusters.GetWord(wordRow).Length;
-                if (clusterTextLength + wordLength > _gameDefs.LevelSettings.WordLengthsRange.Max)
+                if (wordLength + clusterLength > _gameDefs.LevelSettings.WordLengthsRange.Max)
                     continue;
 
                 wordRow.SetEnabledBlinking(true);

@@ -1,4 +1,5 @@
 using System;
+using Infrastructure.Extensions;
 using Infrastructure.Pools;
 using TMPro;
 using UnityEngine;
@@ -36,6 +37,12 @@ namespace GameLogic.UI.Gameplay
         public bool IsValueEqual(string value)
         {
             return string.Equals(_value, value, StringComparison.CurrentCultureIgnoreCase);
+        }
+
+        public void SetColorAlpha(float alpha)
+        {
+            _backImage.color = _backImage.color.WithAlpha(alpha);
+            _valueText.color = _valueText.color.WithAlpha(alpha);
         }
 
         public void SetBackgroundColor(Color color)

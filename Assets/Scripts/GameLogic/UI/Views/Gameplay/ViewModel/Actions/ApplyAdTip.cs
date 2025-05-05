@@ -74,8 +74,7 @@ namespace GameLogic.UI.Gameplay
                     await UniTask.Delay(125);
                     if (context.IsDisposed) return;
                 }
-                cluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
-                cluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
+                cluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);
 
                 var clusterIndex = cluster.GetSiblingIndex();
                 var scrollValue = clusterIndex / (float) context.UndistributedClusters.Count;
@@ -86,8 +85,7 @@ namespace GameLogic.UI.Gameplay
                 var clickedCluster = _clusterFactory.Create();
                 clickedCluster.SetParent(gameplayView.transform);
                 clickedCluster.SetText(originalClusterText);
-                clickedCluster.SetBackgroundColor(_colorsSettings.SelectedClusterBackColor);
-                clickedCluster.SetTextColor(_colorsSettings.SelectedClusterTextColor);
+                cluster.SetColorAlpha(1);
                 clickedCluster.SetRotation(_gameplaySettings.DraggedClusterRotation);
                 var position = cluster.GetPosition();
                 var offset = _gameplaySettings.DraggedClusterOffsetPosition.AddZ();
@@ -107,8 +105,7 @@ namespace GameLogic.UI.Gameplay
                 context.DistributedClusters.Add(cluster);
 
                 cluster.SetParent(context.AdTip.SuitableWordRow.ClustersHolder);
-                cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-                cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
+                cluster.SetColorAlpha(1);
 
                 clickedCluster.Dispose();
 
@@ -130,8 +127,7 @@ namespace GameLogic.UI.Gameplay
         private Cluster CreateHintCluster(GameplayViewModelContext context, Cluster cluster)
         {
             var hintCluster = _clusterFactory.Create();
-            hintCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
-            hintCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
+            cluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);
             hintCluster.SetText(cluster.GetText());
             return hintCluster;
         }

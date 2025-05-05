@@ -15,8 +15,7 @@ namespace GameLogic.UI.Gameplay
             if (context.Click.OriginUndistributedClickedCluster == null)
                 return;
 
-            context.Click.OriginUndistributedClickedCluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-            context.Click.OriginUndistributedClickedCluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
+            context.Click.OriginUndistributedClickedCluster.SetColorAlpha(1);
             _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
         }
     }

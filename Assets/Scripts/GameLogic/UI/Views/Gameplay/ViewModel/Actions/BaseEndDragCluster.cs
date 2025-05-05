@@ -13,8 +13,7 @@ namespace GameLogic.UI.Gameplay
         protected void SetHintClusterAsDistributed(GameplayViewModelContext context)
         {
             var cluster = context.Swipe.HintCluster;
-            cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-            cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
+            cluster.SetColorAlpha(1);
 
             context.WordRowsClusters[context.Swipe.HintClusterWordRow].Add(cluster);
             context.DistributedClusters.Add(cluster);
@@ -23,8 +22,7 @@ namespace GameLogic.UI.Gameplay
         protected void SetHintClusterAsUndistributed(GameplayViewModelContext context)
         {
             var cluster = context.Swipe.HintCluster;
-            cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-            cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
+            cluster.SetColorAlpha(1);
 
             context.UndistributedClusters.Add(cluster);
         }
@@ -32,8 +30,7 @@ namespace GameLogic.UI.Gameplay
         protected void ReturnOriginClusterState(GameplayViewModelContext context)
         {
             var original = context.Swipe.OriginDraggedCluster;
-            original.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-            original.SetTextColor(_colorsSettings.DefaultClusterTextColor);
+            original.SetColorAlpha(1);
         }
 
         protected void DisposeOriginUndistributedCluster(GameplayViewModelContext context)

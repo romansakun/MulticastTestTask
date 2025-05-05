@@ -68,8 +68,7 @@ namespace GameLogic.UI.Gameplay
             if (context.Swipe.HintCluster == null)
             {
                 context.Swipe.HintCluster = _clusterFactory.Create();
-                context.Swipe.HintCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
-                context.Swipe.HintCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
+                context.Swipe.HintCluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);
                 context.Swipe.HintCluster.SetText(context.Swipe.DraggedCluster.GetText());
                 context.AllClusters.Add(context.Swipe.HintCluster);
             }

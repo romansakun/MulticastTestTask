@@ -6,7 +6,6 @@ namespace GameLogic.UI.Gameplay
 {
     public class LoadWordDistributedClusters : BaseGameplayViewModelAction
     {
-        [Inject] private ColorsSettings _colorsSettings;
         [Inject] private Cluster.Factory _clusterFactory;
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
@@ -21,8 +20,7 @@ namespace GameLogic.UI.Gameplay
                     var cluster = _clusterFactory.Create();
                     cluster.SetText(clusterText);
                     cluster.SetParent(wordRow.ClustersHolder);
-                    cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-                    cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
+                    cluster.SetColorAlpha(1);
 
                     context.WordRowsClusters[wordRow].Add(cluster);
                     context.DistributedClusters.Add(cluster);

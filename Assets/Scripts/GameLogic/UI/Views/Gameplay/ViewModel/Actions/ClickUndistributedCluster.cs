@@ -21,16 +21,14 @@ namespace GameLogic.UI.Gameplay
             _audioPlayer.PlaySound(_soundsSettings.TapSound);
 
             var originalCluster = context.Click.OriginUndistributedClickedCluster;
-            originalCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
-            originalCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
+            originalCluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);
 
             _viewManager.TryGetView<GameplayView>(out var gameplayView);
             var originalClusterText = originalCluster.GetText();
             var clickedCluster = _clusterFactory.Create();
             clickedCluster.SetParent(gameplayView.transform);
             clickedCluster.SetText(originalClusterText);
-            clickedCluster.SetBackgroundColor(_colorsSettings.SelectedClusterBackColor);
-            clickedCluster.SetTextColor(_colorsSettings.SelectedClusterTextColor);
+            clickedCluster.SetColorAlpha(1);
             clickedCluster.SetRotation(_gameplaySettings.DraggedClusterRotation);
             var position = originalCluster.GetPosition();
             var offset = _gameplaySettings.DraggedClusterOffsetPosition.AddZ();
@@ -67,8 +65,7 @@ namespace GameLogic.UI.Gameplay
         private Cluster CreateHintCluster(GameplayViewModelContext context)
         {
             var hintCluster = _clusterFactory.Create();
-            hintCluster.SetBackgroundColor(_colorsSettings.GhostClusterBackColor);
-            hintCluster.SetTextColor(_colorsSettings.GhostClusterTextColor);
+            hintCluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);
             hintCluster.SetText(context.Click.OriginUndistributedClickedCluster.GetText());
             return hintCluster;
         }

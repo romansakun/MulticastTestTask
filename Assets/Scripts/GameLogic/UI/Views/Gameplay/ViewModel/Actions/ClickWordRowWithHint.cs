@@ -26,8 +26,7 @@ namespace GameLogic.UI.Gameplay
             context.DistributedClusters.Add(cluster);
 
             cluster.SetParent(wordRow.ClustersHolder);
-            cluster.SetBackgroundColor(_colorsSettings.DefaultClusterBackColor);
-            cluster.SetTextColor(_colorsSettings.DefaultClusterTextColor);
+            cluster.SetColorAlpha(1);
         }
     }
 }
