@@ -21,7 +21,7 @@ namespace GameLogic.UI.Gameplay
             if (wordRow == null) 
                 return false;
 
-            var canIgnoreWordLength = isDraggedClusterFromDistributed && context.Swipe.OriginDraggedClusterHolder == wordRow.ClustersHolder;
+            var canIgnoreWordLength = isDraggedClusterFromDistributed && wordRow.IsClusterHolder(context.Swipe.OriginDraggedClusterHolder);
             if (canIgnoreWordLength)
                 return true;
 
@@ -50,10 +50,10 @@ namespace GameLogic.UI.Gameplay
         protected void SetHintClusterAsDistributed(GameplayViewModelContext context, WordRow wordRow, bool hideOriginDraggedCluster)
         {
             TryCreateHintCluster(context);
-            if (context.Swipe.HintClusterHolder != wordRow.ClustersHolder)
+            if (wordRow.IsClusterHolder(context.Swipe.HintClusterHolder) == false)
             {
-                context.Swipe.HintCluster.SetParent(wordRow.ClustersHolder);
-                context.Swipe.HintClusterHolder = wordRow.ClustersHolder;
+                wordRow.SetClusterAsChild(context.Swipe.HintCluster);
+                context.Swipe.HintClusterHolder = wordRow.GetClusterHolder();
                 context.Swipe.HintClusterWordRow = wordRow;
             }
 

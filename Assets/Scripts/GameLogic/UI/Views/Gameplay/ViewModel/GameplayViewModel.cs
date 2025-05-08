@@ -7,6 +7,7 @@ using Infrastructure;
 using Infrastructure.LogicUtility;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay
@@ -138,6 +139,7 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.Input = (UserInputType.OnDrag, eventData);
             _logicAgent.Execute();
+            Debug.Log(_logicAgent.GetLog());
         }
 
         public void OnEndDrag(PointerEventData eventData)

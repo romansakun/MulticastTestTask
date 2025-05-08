@@ -13,10 +13,9 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private RectTransform _rectTransform;
         [SerializeField] private RectTransform _clustersHolder;
         [SerializeField] private Animator _blinkAnimator;
+        [SerializeField] private HorizontalLayoutGroup _horizontalLayoutGroup;
 
         private IMemoryPool _memoryPool;
-
-        public RectTransform ClustersHolder => _clustersHolder;
 
         public void SetBackgroundColor(Color color)
         {
@@ -33,11 +32,31 @@ namespace GameLogic.UI.Gameplay
             _rectTransform.SetParent(parent, false);
         }
 
+        public void SetClusterAsChild(Cluster cluster)
+        {
+            cluster.SetParent(_clustersHolder);
+        }
+
+        public bool IsClusterHolder(RectTransform holder)
+        {
+            return _clustersHolder == holder;
+        }
+
+        public RectTransform GetClusterHolder()
+        {
+            return _clustersHolder;
+        }
+
         public void OnSpawned(IMemoryPool memoryPool)
         {
             _memoryPool = memoryPool;
-            SetEnabledBlinking(false);
             gameObject.SetActive(true);
+            SetEnabledBlinking(false);
+        }
+
+        public void UpdateLayout()
+        {
+            _horizontalLayoutGroup.SetLayoutHorizontal();
         }
 
         public void SetEnabledBlinking(bool isEnabled)

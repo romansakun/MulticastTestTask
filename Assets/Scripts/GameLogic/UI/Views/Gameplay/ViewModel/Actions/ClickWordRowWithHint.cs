@@ -25,7 +25,7 @@ namespace GameLogic.UI.Gameplay
             context.UndistributedClusters.Remove(cluster);
             context.DistributedClusters.Add(cluster);
 
-            cluster.SetParent(wordRow.ClustersHolder);
+            wordRow.SetClusterAsChild(cluster);
             cluster.SetColorAlpha(1);
         }
     }

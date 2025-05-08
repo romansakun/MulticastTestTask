@@ -19,7 +19,7 @@ namespace GameLogic.UI.Gameplay
                 {
                     var cluster = _clusterFactory.Create();
                     cluster.SetText(clusterText);
-                    cluster.SetParent(wordRow.ClustersHolder);
+                    wordRow.SetClusterAsChild(cluster);
                     cluster.SetColorAlpha(1);
 
                     context.WordRowsClusters[wordRow].Add(cluster);
@@ -28,6 +28,8 @@ namespace GameLogic.UI.Gameplay
                 }
             }
             await UniTask.Yield();
+
+            context.WordRows.ForEach(wr => wr.UpdateLayout());
         }
 
     }

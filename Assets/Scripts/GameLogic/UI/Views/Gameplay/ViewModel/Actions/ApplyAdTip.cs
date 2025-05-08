@@ -104,7 +104,7 @@ namespace GameLogic.UI.Gameplay
                 context.UndistributedClusters.Remove(cluster);
                 context.DistributedClusters.Add(cluster);
 
-                cluster.SetParent(context.AdTip.SuitableWordRow.ClustersHolder);
+                context.AdTip.SuitableWordRow.SetClusterAsChild(cluster);
                 cluster.SetColorAlpha(1);
 
                 clickedCluster.Dispose();
@@ -119,7 +119,7 @@ namespace GameLogic.UI.Gameplay
         private Cluster AddHintClusterToWordRow(GameplayViewModelContext context, WordRow wordRow, Cluster cluster)
         {
             var hintCluster = CreateHintCluster(context, cluster);
-            hintCluster.SetParent(wordRow.ClustersHolder);
+            wordRow.SetClusterAsChild(hintCluster);
             context.AllClusters.Add(hintCluster);
             return hintCluster;
         }

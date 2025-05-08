@@ -44,7 +44,7 @@ namespace GameLogic.UI.Victory
                 }
                 var cluster = _clusterFactory.Create();
                 cluster.SetText(sb.ToString());
-                cluster.SetParent(wordRow.ClustersHolder);
+                wordRow.SetClusterAsChild(cluster);
                 cluster.SetColorAlpha(1);
 
                 _wordRows.Add(wordRow);

@@ -57,7 +57,7 @@ namespace GameLogic.UI.Gameplay
         private void AddHintClusterToWordRow(GameplayViewModelContext context, WordRow wordRow)
         {
             var hintCluster = CreateHintCluster(context);
-            hintCluster.SetParent(wordRow.ClustersHolder);
+            wordRow.SetClusterAsChild(hintCluster);
             context.Click.WordRowHintClusters.Add(wordRow, hintCluster);
             context.AllClusters.Add(hintCluster);
         }

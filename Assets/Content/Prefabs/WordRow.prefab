@@ -57,6 +57,7 @@ MonoBehaviour:
   _rectTransform: {fileID: 6273812498136665591}
   _clustersHolder: {fileID: 6874472114164063674}
   _blinkAnimator: {fileID: 1507649212727666323}
+  _horizontalLayoutGroup: {fileID: 6671208266029580181}
 --- !u!222 &7687836632811718912
 CanvasRenderer:
   m_ObjectHideFlags: 0

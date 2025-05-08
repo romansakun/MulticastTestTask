@@ -21,7 +21,7 @@ namespace GameLogic.UI.Gameplay
 
             context.Swipe.OriginDraggedCluster = cluster;
             context.Swipe.OriginDraggedClusterWordRow = needWordRow;
-            context.Swipe.OriginDraggedClusterHolder = needWordRow.ClustersHolder;
+            context.Swipe.OriginDraggedClusterHolder = needWordRow.GetClusterHolder();
 
             context.Input = default;
             context.Swipe.IsSwipeInputNow = true;
