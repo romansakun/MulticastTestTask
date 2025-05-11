@@ -24,8 +24,13 @@ namespace GameLogic.UI.Gameplay
         public IReactiveProperty<bool> IsUndistributedClustersScrollRectActive => _logicAgent.Context.IsUndistributedClustersScrollRectActive;
         public IReactiveProperty<bool> IsHintClusterInUndistributedClusters => _logicAgent.Context.IsHintClusterInUndistributedClusters;
         public IReactiveProperty<bool> IsFailedCompleteLevel => _logicAgent.Context.IsFailedCompleteLevel;
+        public IReactiveProperty<int> CheckingWordsCount => _logicAgent.Context.CheckingWordsCount;
+        public IReactiveProperty<bool> IsCheckingWordsByAdsActive => _logicAgent.Context.IsCheckingWordsByAdsActive;
+        public IReactiveProperty<bool> IsTipByAdsActive => _logicAgent.Context.IsTipByAdsActive;
+        public IReactiveProperty<bool> IsTipVisible => _logicAgent.Context.IsTipVisible;
         public IReactiveProperty<string> LevelNameText => _levelNameText;
         public IReactiveProperty<string> DescriptionLevelText => _descriptionLevelText;
+
 
         private readonly ReactiveProperty<string> _levelNameText = new();
         private readonly ReactiveProperty<string> _descriptionLevelText = new();
@@ -41,10 +46,11 @@ namespace GameLogic.UI.Gameplay
                 .JoinAction<LoadWordRows>()
                 .JoinAction<LoadWordDistributedClusters>()
                 .JoinAction<LoadUndistributedClusters>()
+                .JoinAction<ResolveCheckingWordsAndHint>()
                 .JoinAction<TryShowHowToPlayHint>();
 
             var atTipAction = logicBuilder
-                .AddAction<ApplyAdTip>();
+                .AddAction<TryApplyAdTip>();
 
             var prepareDragUndistributedClusterAction = logicBuilder.AddAction<PrepareDragUndistributedCluster>();
             var prepareDragDistributedClusterAction = logicBuilder.AddAction<PrepareDragDistributedCluster>();

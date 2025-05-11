@@ -16,6 +16,10 @@ namespace GameLogic.UI.Gameplay
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
+            // TODO: replace it
+            context.IsTipVisible.Value = context.UndistributedClusters.Count > 0;
+            //
+
             var distributedClustersInView = new List<List<string>>();
             foreach (var row in context.WordRows)
             {
@@ -48,6 +52,7 @@ namespace GameLogic.UI.Gameplay
                 undistributedClustersInView,
                 distributedClustersInView);
             await _gameActionExecutor.ExecuteAsync(gameAction);
+            if (context.IsDisposed) return;
 
             _userContext.TryGetLevelProgress(context.LevelProgress.LevelDefId, out var levelProgress);
             context.LevelProgress = levelProgress;

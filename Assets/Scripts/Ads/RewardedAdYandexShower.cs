@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using GameLogic.Ads;
 using UnityEngine;
 using YandexMobileAds;
@@ -12,10 +14,15 @@ namespace Ads
 
         private RewardedAdLoader _rewardedAdLoader;
         private RewardedAd _rewardedAd;
+        private Reward _reward;
         private string _message = "";
+        private bool _isRequesting = false;
 
         public void Awake()
         {
+            //Sets COPPA restriction for user age under 13
+            MobileAds.SetAgeRestrictedUser(true);
+
             _rewardedAdLoader = new RewardedAdLoader();
             _rewardedAdLoader.OnAdLoaded += HandleAdLoaded;
             _rewardedAdLoader.OnAdFailedToLoad += HandleAdFailedToLoad;
@@ -23,19 +30,52 @@ namespace Ads
             RequestRewardedAd();
         }
 
-        public void Show(uint slotId)
+        public UniTask<bool> Show()
         {
-            TryShowRewardedAd();
+#if UNITY_EDITOR
+            return UniTask.FromResult(true);
+#else
+            return ShowInternal();
+#endif
         }
 
-        public bool TryShowRewardedAd()
+        private async UniTask<bool> ShowInternal()
+        {
+            _reward = null;
+            if (await TryShowRewardedAd() == false)
+                return false;
+
+            var waitSecondsTask = UniTask.Delay(TimeSpan.FromSeconds(120));
+            var waitRewardTask = UniTask.WaitWhile(() => _reward == null);
+            await UniTask.WhenAny(waitSecondsTask, waitRewardTask);
+
+            return _reward != null;
+        }
+
+        private void RequestRewardedAd()
+        {
+            _isRequesting = true;
+            if (_rewardedAd != null)
+            {
+                _rewardedAd.Destroy();
+                _rewardedAd = null;
+            }
+            _rewardedAdLoader.LoadAd(CreateAdRequest(REWARDED_AD_ID));
+            DisplayMessage("Rewarded Ad is requested");
+        }
+
+        private async UniTask<bool> TryShowRewardedAd()
         {
             if (_rewardedAd == null)
             {
                 DisplayMessage("RewardedAd is not ready yet");
-
-                return false;
+                if (_isRequesting == false)
+                    RequestRewardedAd();
+                
+                await UniTask.WaitWhile(() => _rewardedAd == null);
             }
+            if (_rewardedAd == null)
+                return false;
 
             _rewardedAd.OnAdClicked += HandleAdClicked;
             _rewardedAd.OnAdShown += HandleAdShown;
@@ -48,21 +88,6 @@ namespace Ads
             return true;
         }
 
-        private void RequestRewardedAd()
-        {
-            DisplayMessage("RewardedAd is not ready yet");
-            //Sets COPPA restriction for user age under 13
-            MobileAds.SetAgeRestrictedUser(true);
-
-            if (_rewardedAd != null)
-            {
-                _rewardedAd.Destroy();
-            }
-
-            _rewardedAdLoader.LoadAd(CreateAdRequest(REWARDED_AD_ID));
-            DisplayMessage("Rewarded Ad is requested");
-        }
-
         private AdRequestConfiguration CreateAdRequest(string adUnitId)
         {
             return new AdRequestConfiguration.Builder(adUnitId).Build();
@@ -73,13 +98,13 @@ namespace Ads
         private void HandleAdLoaded(object sender, RewardedAdLoadedEventArgs args)
         {
             DisplayMessage("HandleAdLoaded event received");
+            _isRequesting = false;
             _rewardedAd = args.RewardedAd;
         }
 
         private void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
         {
             DisplayMessage($"HandleAdFailedToLoad event received with _message: {args.Message}");
-
             RequestRewardedAd();
         }
 
@@ -110,11 +135,16 @@ namespace Ads
         private void HandleRewarded(object sender, Reward args)
         {
             DisplayMessage($"HandleRewarded event received: amout = {args.amount}, type = {args.type}");
+            RequestRewardedAd();
+
+            //successful
+            _reward = args;
         }
 
         private void HandleAdFailedToShow(object sender, AdFailureEventArgs args)
         {
             DisplayMessage($"HandleAdFailedToShow event received with _message: {args.Message}");
+            RequestRewardedAd();
         }
 
         private void DisplayMessage(String message)

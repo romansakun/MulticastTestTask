@@ -1,7 +1,9 @@
+using Cysharp.Threading.Tasks;
+
 namespace GameLogic.Ads
 {
     public interface IAdsShower
     {
-        void Show (uint slotId);
+        UniTask<bool> Show ();
     }
 }

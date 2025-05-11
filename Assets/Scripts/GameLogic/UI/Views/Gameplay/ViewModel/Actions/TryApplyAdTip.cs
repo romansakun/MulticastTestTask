@@ -1,28 +1,43 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using GameLogic.Ads;
 using GameLogic.Audio;
 using GameLogic.Bootstrapper;
-using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
+using GameLogic.Model.Operators;
 using Infrastructure.Extensions;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay
 {
-    public class ApplyAdTip : BaseGameplayViewModelAction
+    public class TryApplyAdTip : BaseGameplayViewModelAction
     {
         [Inject] private UserContextDataProvider _userContext;
+        [Inject] private UserContextOperator _userContextOperator;
         [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private ViewManager _viewManager;
-        [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private ColorsSettings _colorsSettings;
         [Inject] private GameplaySettings _gameplaySettings;
         [Inject] private Cluster.Factory _clusterFactory;
         [Inject] private AudioPlayer _audioPlayer;
         [Inject] private SoundsSettings _soundsSettings;
+        [Inject] private IAdsShower _adsShower;
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
+            if (_userContext.AdsTipsCount.Value <= 0)
+            {
+                var hasReward = await _adsShower.Show();
+                if (context.IsDisposed) return;
+                if (hasReward)
+                {
+                    _userContextOperator.AddAdsTip();
+                    context.IsTipByAdsActive.Value = false;
+                }
+                return;
+            }
+
+
             // cleaning row
             var replacingClusters = context.WordRowsClusters[context.AdTip.SuitableWordRow];
             for (var i = replacingClusters.Count - 1; i >= 0; i--)
@@ -112,8 +127,11 @@ namespace GameLogic.UI.Gameplay
                 await UniTask.Delay(125);
                 if (context.IsDisposed) return;
             }
-            
+
             context.AdTip.Reset();
+
+            _userContextOperator.UseAdsTip();
+            context.IsTipByAdsActive.Value = _userContext.AdsTipsCount.Value <= 0;
         }
 
         private Cluster AddHintClusterToWordRow(GameplayViewModelContext context, WordRow wordRow, Cluster cluster)

@@ -9,10 +9,14 @@ namespace GameLogic.UI.Gameplay
 {
     public class GameplayViewModelContext : IContext
     {
+        public readonly ReactiveProperty<int> CheckingWordsCount = new(3);
         public readonly ReactiveProperty<float> UndistributedClustersScrollRectNormalizedPosition = new(0);
         public readonly ReactiveProperty<bool> IsUndistributedClustersScrollRectActive = new(true);
         public readonly ReactiveProperty<bool> IsHintClusterInUndistributedClusters = new(false);
         public readonly ReactiveProperty<bool> IsFailedCompleteLevel = new(false);
+        public readonly ReactiveProperty<bool> IsCheckingWordsByAdsActive = new(false);
+        public readonly ReactiveProperty<bool> IsTipByAdsActive = new(false);
+        public readonly ReactiveProperty<bool> IsTipVisible = new(true);
 
         public ClickContext Click { get; } = new();
         public SwipeContext Swipe { get; } = new();

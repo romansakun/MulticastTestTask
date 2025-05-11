@@ -99,7 +99,7 @@ namespace GameLogic.UI.MainMenu
         public void OnRewardAdButtonClicked()
         {
             Debug.Log("OnRewardAdButtonClicked");
-            _adsShower.Show(AdSlots.AdRewardSlotID);
+            //_adsShower.Show(AdSlots.HintSlotID);
         }
 
         public override void Dispose()

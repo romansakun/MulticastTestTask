@@ -9,7 +9,6 @@ namespace GameLogic.Model.Definitions
 
         public int ConsumablesUpdateIntervalSeconds;
         public int CheckingWordsDailyFreeCount;
-        public int CheckingWordsVictoryAddingCount;
         public int AdsTipDailyFreeCount;
     }
 }

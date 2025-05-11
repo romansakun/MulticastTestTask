@@ -60,6 +60,10 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsFailedCompleteLevel.Subscribe(OnFailedCompleteLevelChanged);
             _viewModel.DescriptionLevelText.Subscribe(OnDescriptionLevelTextChanged);
             _viewModel.LevelNameText.Subscribe(OnLevelNameTextChanged);
+            _viewModel.CheckingWordsCount.Subscribe(OnCheckingWordsCountChanged);
+            _viewModel.IsCheckingWordsByAdsActive.Subscribe(OnCheckingWordsByAdsChanged);
+            _viewModel.IsTipByAdsActive.Subscribe(OnTipByAdsChanged);
+            _viewModel.IsTipVisible.Subscribe(OnTipVisibleChanged);
         }
 
         protected override void Unsubscribes()
@@ -75,6 +79,10 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
             _viewModel.DescriptionLevelText.Unsubscribe(OnDescriptionLevelTextChanged);
             _viewModel.LevelNameText.Unsubscribe(OnLevelNameTextChanged);
+            _viewModel.CheckingWordsCount.Unsubscribe(OnCheckingWordsCountChanged);
+            _viewModel.IsCheckingWordsByAdsActive.Unsubscribe(OnCheckingWordsByAdsChanged);
+            _viewModel.IsTipByAdsActive.Unsubscribe(OnTipByAdsChanged);
+            _viewModel.IsTipVisible.Unsubscribe(OnTipVisibleChanged);
 
             _failButtonAnimation?.Kill();
         }
@@ -99,9 +107,45 @@ namespace GameLogic.UI.Gameplay
             _undistributedClustersScrollRect.enabled = state;
         }
 
+        private void OnTipVisibleChanged(bool state)
+        {
+            _adTipButton.gameObject.SetActive(state);
+        }
+
         private void OnHintClusterInUndistributedClustersChanged(bool state)
         {
             if (state) _undistributedClustersScrollRect.horizontalNormalizedPosition = 0f;
+        }
+
+        private void OnCheckingWordsByAdsChanged(bool state)
+        {
+            Debug.Log($"OnCheckingWordsByAdsChanged state: {state}");
+            if (state)
+            {
+                _checkWordsButtonCountLabel.gameObject.SetActive(false);
+                _checkWordsButtonAdsImage.gameObject.SetActive(true);
+            }
+            else
+            {
+                _checkWordsButtonCountLabel.gameObject.SetActive(true);
+                _checkWordsButtonAdsImage.gameObject.SetActive(false);
+            }
+        }
+
+        private void OnCheckingWordsCountChanged(int count)
+        {
+            _checkWordsButtonCountLabel.text = $"({count})";
+            if (count > 0)
+            {
+                _checkWordsButtonCountLabel.gameObject.SetActive(true);
+                _checkWordsButtonAdsImage.gameObject.SetActive(false);
+            }
+        }
+
+        private void OnTipByAdsChanged(bool state)
+        {
+            Debug.Log($"OnTipByAdsChanged state: {state}");
+            _adTipButtonAdsImage.gameObject.SetActive(state);
         }
 
         private void OnSwipeToRightButtonClicked()

@@ -67,6 +67,12 @@ namespace GameLogic.Model.Operators
             _userContextRepository.Save();
         }
 
+        public void AddCheckingWords()
+        {
+            _userContextRepository.AddCheckingWords();
+            _userContextRepository.Save();
+        }
+
         public void AddAdsTip()
         {
             _userContextRepository.AddAdsTip();

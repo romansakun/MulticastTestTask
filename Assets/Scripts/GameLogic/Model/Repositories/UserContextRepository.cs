@@ -37,6 +37,8 @@ namespace GameLogic.Model.Repositories
             _userContext = userContext;
             _localizationDefId.Value = userContext.LocalizationDefId;
             _isSoundsMuted.Value = userContext.IsSoundsMuted;
+            _checkingWordsCount.Value = userContext.Consumables.WordsCheckingCount;
+            _adsTipsCount.Value = userContext.Consumables.AdsTipCount;
         }
 
         public void SetSoundsMuted(bool isMuted)
@@ -62,7 +64,6 @@ namespace GameLogic.Model.Repositories
             _userContext.LevelsProgress[levelDefId].IsCompleted = true;
             _updatedLevelDefId.SetValueAndForceNotify(levelDefId);
 
-            _userContext.Consumables.WordsCheckingCount += _gameDefs.DefaultSettings.CheckingWordsVictoryAddingCount;
             _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
         }
 
@@ -161,9 +162,10 @@ namespace GameLogic.Model.Repositories
             return true;
         }
 
-        public int GetCheckingWordsCount()
+        public void AddCheckingWords()
         {
-            return _userContext.Consumables.WordsCheckingCount;
+            _userContext.Consumables.WordsCheckingCount += 1;
+            _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
         }
 
         public void UseCheckingWords()
