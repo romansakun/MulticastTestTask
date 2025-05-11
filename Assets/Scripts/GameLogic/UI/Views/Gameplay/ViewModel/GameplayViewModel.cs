@@ -7,7 +7,6 @@ using Infrastructure;
 using Infrastructure.LogicUtility;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay

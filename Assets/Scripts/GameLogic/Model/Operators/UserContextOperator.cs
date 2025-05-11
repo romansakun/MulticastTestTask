@@ -47,5 +47,37 @@ namespace GameLogic.Model.Operators
             _userContextRepository.SetHowToPlayHintShown();
             _userContextRepository.Save();
         }
+
+        public bool TryUpdateFreeConsumablesCount()
+        {
+            if (_userContextRepository.TryUpdateFreeConsumablesCount())
+            {
+                _userContextRepository.Save();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void UseCheckingWords()
+        {
+            _userContextRepository.UseCheckingWords();
+            _userContextRepository.Save();
+        }
+
+        public void AddAdsTip()
+        {
+            _userContextRepository.AddAdsTip();
+            _userContextRepository.Save();
+        }
+
+        public void UseAdsTip()
+        {
+            _userContextRepository.UseAdsTip();
+            _userContextRepository.Save();
+        }
+
     }
 }

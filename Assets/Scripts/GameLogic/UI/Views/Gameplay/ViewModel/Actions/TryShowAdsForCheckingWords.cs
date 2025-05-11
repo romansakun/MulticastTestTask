@@ -2,6 +2,8 @@ using System;
 using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
 using GameLogic.Model.Actions;
+using GameLogic.Model.DataProviders;
+using GameLogic.Model.Operators;
 using GameLogic.UI.Victory;
 using Infrastructure.GameActions;
 using UnityEngine;
@@ -9,10 +11,12 @@ using Zenject;
 
 namespace GameLogic.UI.Gameplay
 {
-    public class TryCompleteLevel : BaseGameplayViewModelAction
+    public class TryShowAdsForCheckingWords : BaseGameplayViewModelAction
     {
         [Inject] private GameActionExecutor _gameActionExecutor;
         [Inject] private GameActionFactory _gameActionFactory;
+        [Inject] private UserContextDataProvider _userContext;
+        [Inject] private UserContextOperator _userContextOperator;
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
 

@@ -19,10 +19,14 @@ namespace GameLogic.Model.Repositories
         public IReactiveProperty<string> LocalizationDefId => _localizationDefId;
         public IReactiveProperty<string> UpdatedLevelDefId => _localizationDefId;
         public IReactiveProperty<bool> IsSoundsMuted => _isSoundsMuted;
+        public IReactiveProperty<int> CheckingWordsCount => _checkingWordsCount;
+        public IReactiveProperty<int> AdsTipsCount => _adsTipsCount;
 
         private readonly ReactiveProperty<string> _localizationDefId = new();
         private readonly ReactiveProperty<string> _updatedLevelDefId = new();
         private readonly ReactiveProperty<bool> _isSoundsMuted = new();
+        private readonly ReactiveProperty<int> _checkingWordsCount = new();
+        private readonly ReactiveProperty<int> _adsTipsCount = new();
 
         private readonly UserContext _userContext;
         private bool _willSave = false;
@@ -56,8 +60,10 @@ namespace GameLogic.Model.Repositories
         public void CompleteLevel(string levelDefId)
         {
             _userContext.LevelsProgress[levelDefId].IsCompleted = true;
-
             _updatedLevelDefId.SetValueAndForceNotify(levelDefId);
+
+            _userContext.Consumables.WordsCheckingCount += _gameDefs.DefaultSettings.CheckingWordsVictoryAddingCount;
+            _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
         }
 
         public void AddOrUpdateLevelProgress(string needLevelDefId, List<string> undistributedClusters, List<List<string>> distributedClusters)
@@ -106,22 +112,76 @@ namespace GameLogic.Model.Repositories
             _userContext.IsHowToPlayHintShown = true;
         }
 
-        public int GetAllFormedWordCount()
+        public int GetAllCompletedLevels()
         {
             var result = 0;
-            var localizationDefId = _userContext.LocalizationDefId;
+            foreach (var pair in _userContext.LevelsProgress)
+            {
+                if (pair.Value.IsCompleted)
+                    result += 1;
+            }
+            return result;
+        }
+
+        public bool IsLocalizationLevelsCompleted(string localizationDefId)
+        {
             var levels = _gameDefs.Localizations[localizationDefId].Levels;
             foreach (var pair in levels)
             {
                 if (_userContext.LevelsProgress.TryGetValue(pair.Value, out var levelProgress) == false)
-                    continue;
-
+                    return false;
                 if (levelProgress.IsCompleted == false)
-                    continue;
-
-                result += _gameDefs.Levels[levelProgress.LevelDefId].Words.Count;
+                    return false;
             }
-            return result;
+            return true;
+        }
+
+        public int GetConsumablesUpdateDurationSeconds()
+        {
+            var durationSeconds = _gameDefs.DefaultSettings.ConsumablesUpdateIntervalSeconds;
+            var nextUpdate = _userContext.Consumables.LastFreeUpdateTime.AddSeconds(durationSeconds);
+            return (int)(nextUpdate - DateTime.Now).TotalSeconds;
+        }
+
+        public bool TryUpdateFreeConsumablesCount()
+        {
+            var dateTime = DateTime.Now;
+            var checkingWords = _userContext.Consumables;
+            var durationSeconds = _gameDefs.DefaultSettings.ConsumablesUpdateIntervalSeconds;
+            if (checkingWords.LastFreeUpdateTime != default && checkingWords.LastFreeUpdateTime.AddSeconds(durationSeconds) > dateTime) 
+                return false;
+
+            _userContext.Consumables.WordsCheckingCount = _gameDefs.DefaultSettings.CheckingWordsDailyFreeCount;
+            _userContext.Consumables.AdsTipCount = _gameDefs.DefaultSettings.AdsTipDailyFreeCount;
+            _userContext.Consumables.LastFreeUpdateTime = dateTime;
+
+            _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
+            _adsTipsCount.Value = _userContext.Consumables.AdsTipCount;
+
+            return true;
+        }
+
+        public int GetCheckingWordsCount()
+        {
+            return _userContext.Consumables.WordsCheckingCount;
+        }
+
+        public void UseCheckingWords()
+        {
+            _userContext.Consumables.WordsCheckingCount -= 1;
+            _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
+        }
+
+        public void AddAdsTip()
+        {
+            _userContext.Consumables.AdsTipCount += 1;
+            _adsTipsCount.Value = _userContext.Consumables.AdsTipCount;
+        }
+
+        public void UseAdsTip()
+        {
+            _userContext.Consumables.AdsTipCount -= 1;
+            _adsTipsCount.Value = _userContext.Consumables.AdsTipCount;
         }
 
         public void ClearProgress()

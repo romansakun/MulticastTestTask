@@ -32,10 +32,7 @@ namespace GameLogic.UI.Components
         {
             _textMeshPro ??= GetComponent<TextMeshProUGUI>();
             LocalizationKey = _localizationKey;
-        }
-
-        private void Start()
-        {
+            
             _userContext.LocalizationDefId.Subscribe(OnChangeUserLocalization, false);
         }
 

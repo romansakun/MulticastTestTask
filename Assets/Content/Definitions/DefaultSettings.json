@@ -1,3 +1,8 @@
 {
-    "LocalizationDefId" : "Russian"
+    "LocalizationDefId" : "Russian",
+
+    "ConsumablesUpdateIntervalSeconds" : 28800,
+    "CheckingWordsDailyFreeCount" : 3,
+    "CheckingWordsVictoryAddingCount" : 1,
+    "AdsTipDailyFreeCount" : 1
 }

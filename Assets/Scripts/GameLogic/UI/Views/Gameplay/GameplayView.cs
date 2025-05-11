@@ -19,13 +19,22 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private ScrollRect _undistributedClustersScrollRect;
         [SerializeField] private RectTransform _undistributedClustersHolder;
         [SerializeField] private RectTransform _wordsHolder;
-        [SerializeField] private Button _checkWordsButton;
         [SerializeField] private Button _mainMenuButton;
         [SerializeField] private Button _swipeToLeftButton;
         [SerializeField] private Button _swipeToRightButton;
-        [SerializeField] private Button _adTipButton;
         [SerializeField] private TextMeshProUGUI _levelName;
         [SerializeField] private TextMeshProUGUI _description;
+
+        [Header("Ad Tip button")]
+        [SerializeField] private Button _adTipButton;
+        [SerializeField] private GameObject _adTipButtonAdsImage;
+        [SerializeField] private GameObject _adTipButtonTipImage;
+
+        [Header("Check words button")]
+        [SerializeField] private Button _checkWordsButton;
+        [SerializeField] private TextMeshProUGUI _checkWordsButtonLabel;
+        [SerializeField] private TextMeshProUGUI _checkWordsButtonCountLabel;
+        [SerializeField] private GameObject _checkWordsButtonAdsImage;
 
         private bool _isScrollRectDragging;
         private Tween _failButtonAnimation;
