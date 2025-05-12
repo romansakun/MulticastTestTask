@@ -55,7 +55,10 @@ namespace GameLogic.UI.Gameplay
                 Debug.Log($"CompleteLevelGameAction: validator check failed\n{ex.Message}");
                 context.IsFailedCompleteLevel.SetValueAndForceNotify(true);
 
-                _userContextOperator.UseCheckingWords();
+                if (context.UndistributedClusters.Count <= 0)
+                {
+                    _userContextOperator.UseCheckingWords();
+                }
                 context.CheckingWordsCount.Value = _userContext.CheckingWordsCount.Value;
             }
 

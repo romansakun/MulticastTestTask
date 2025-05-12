@@ -19,6 +19,7 @@ namespace GameLogic.UI.Victory
         [SerializeField] private Button _mainMenuButton;
         [SerializeField] private RectTransform _wordsHolder;
         [SerializeField] private TextMeshProUGUI _congratulationsText;
+        [SerializeField] private GameObject _gptChatLoadingCircle;
 
         private VictoryViewModel _viewModel;
 
@@ -57,6 +58,7 @@ namespace GameLogic.UI.Victory
             {
                 _congratulationsText.text = congratulationsText;
                 _congratulationsText.gameObject.SetActive(true);
+                _gptChatLoadingCircle.SetActive(false);
             }
             else
             {

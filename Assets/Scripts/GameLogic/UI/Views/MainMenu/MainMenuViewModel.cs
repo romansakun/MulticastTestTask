@@ -4,6 +4,7 @@ using GameLogic.Ads;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.UI.Gameplay;
+using GameLogic.UI.HowToPlayHint;
 using GameLogic.UI.Settings;
 using Infrastructure;
 using Infrastructure.Extensions;
@@ -96,6 +97,12 @@ namespace GameLogic.UI.MainMenu
             await _viewManager.ShowAsync<SettingsView, SettingsViewModel>(viewModel);
         }
 
+        public async void OnHelpButtonClicked()
+        {
+            var viewModel = _viewModelFactory.Create<HowToPlayHintViewModel>();
+            await _viewManager.ShowAsync<HowToPlayHintView, HowToPlayHintViewModel>(viewModel);
+        }
+
         public void OnRewardAdButtonClicked()
         {
             Debug.Log("OnRewardAdButtonClicked");
@@ -113,6 +120,5 @@ namespace GameLogic.UI.MainMenu
 
             _userContext.LocalizationDefId.Unsubscribe(OnLocalizationDefIdChanged);
         }
-
     }
 }

@@ -5,33 +5,14 @@ using GameLogic.GptChats;
 
 public class GeminiAPI : MonoBehaviour, IGptChat
 {
-    private const string APIKey = "AIzaSyC9bZ9bsaLbMs8Gi55sbfzbqt0RLb2kZr8";
-    private const string URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
+    //private const string URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
+    private const string URL = "https://www.chess4chess.somee.com/api/Gemini/ask";
 
-    // private async void Start()
-    // {
-        // var response = await SendGeminiRequest("Тебе нужно похвалить игрока за прохождение уровня в головоломке (составление слов из кусочков), сделай это одним предложением, будь краток (5-12 слов)");
-        // Debug.Log(response);
-    //}
 
-    public async UniTask<string> Ask(string promt)
+    public async UniTask<string> Ask(string prompt)
     {
-        var requestData = new GeminiRequest
-        {
-            contents = new[]
-            {
-                new Content
-                {
-                    parts = new[]
-                    {
-                        new Part { text = promt }
-                    }
-                }
-            }
-        };
-
-        var jsonBody = JsonUtility.ToJson(requestData);
-        using (UnityWebRequest request = new UnityWebRequest(URL + APIKey, "POST"))
+        string jsonBody = $"\"{prompt}\""; 
+        using (UnityWebRequest request = new UnityWebRequest(URL, "POST"))
         {
             byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -67,12 +48,6 @@ public class GeminiAPI : MonoBehaviour, IGptChat
         }
         return null;
 
-    }
-
-    [System.Serializable]
-    public class GeminiRequest
-    {
-        public Content[] contents;
     }
 
     [System.Serializable]

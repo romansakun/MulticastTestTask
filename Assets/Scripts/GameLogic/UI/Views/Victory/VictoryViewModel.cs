@@ -14,6 +14,7 @@ namespace GameLogic.UI.Victory
     public class VictoryViewModel : ViewModel
     {
         [Inject] private UserContextDataProvider _userContext;
+        [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private WordRow.Factory _wordRowFactory;
         [Inject] private Cluster.Factory _clusterFactory;
         [Inject] private ViewManager _viewManager;
@@ -60,18 +61,23 @@ namespace GameLogic.UI.Victory
                 _clusters.Add(cluster);
             }
             
-            TrySetCongratulationsText();
+            TrySetCongratulationsText(lastLevelProgress);
         }
 
-        private async void TrySetCongratulationsText()
+        private async void TrySetCongratulationsText(LevelProgressContextDataProvider levelProgress)
         {
             var sb = new StringBuilder();
-            sb.Append("\"");
+            sb.Append("[");
             _clusters.ForEach(c => sb.Append($" {c.GetText()} "));
-            sb.Append("\"");
+            sb.Append("]");
+            
+            var levelDefId = levelProgress.LevelDefId;
+            var levelNumber = _gameDefs.GetLevelNumber(levelDefId, _userContext.LocalizationDefId.Value);
 
-            var prompt = _userContext.GetLocalizedText("VICTORY_PROMPT", sb.ToString());
+            var prompt = _userContext.GetLocalizedText("VICTORY_PROMPT", sb.ToString(), levelNumber);
             var congratulationsText = await _gptChat.Ask(prompt);
+            if (_congratulationsText.IsDisposed)
+                return;
 
             if (string.IsNullOrEmpty(congratulationsText) == false)
             {
@@ -106,6 +112,7 @@ namespace GameLogic.UI.Victory
             _wordRows.Clear();
             _clusters.Clear();
             _visibleNextLevelButton.Dispose();
+            _congratulationsText.Dispose();
         }
 
     }
