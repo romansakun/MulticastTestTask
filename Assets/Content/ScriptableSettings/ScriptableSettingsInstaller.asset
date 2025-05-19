@@ -38,4 +38,4 @@ MonoBehaviour:
       - {r: 0.78431374, g: 0.78431374, b: 0.8627451, a: 1}
   _gameplaySettings:
     DraggedClusterRotation: {x: 0, y: 0, z: 10}
-    DraggedClusterOffsetPosition: {x: 0, y: 90}
+    DraggedClusterOffsetPosition: {x: 0, y: 80}

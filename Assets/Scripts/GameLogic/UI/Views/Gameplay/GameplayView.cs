@@ -7,7 +7,6 @@ using GameLogic.UI.Components;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 

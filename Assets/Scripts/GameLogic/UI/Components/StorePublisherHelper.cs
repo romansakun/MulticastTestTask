@@ -5,27 +5,38 @@ namespace GameLogic.UI.Components
 {
     public class StorePublisherHelper : MonoBehaviour
     {
+        [Header("Cursor")]
+        public bool useCursor = true;
         public Texture2D cursorTexture; 
         public Texture2D cursorTapTexture; 
 
         void Start()
         {
-            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+            if (useCursor)
+            {
+                Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+            }
         }
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (useCursor)
             {
-                Cursor.SetCursor(cursorTapTexture, new Vector2(25, 0), CursorMode.ForceSoftware);
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                Cursor.SetCursor(cursorTexture, new Vector2(25, 0), CursorMode.ForceSoftware);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Cursor.SetCursor(cursorTapTexture, new Vector2(25, 0), CursorMode.ForceSoftware);
+                }
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    Cursor.SetCursor(cursorTexture, new Vector2(25, 0), CursorMode.ForceSoftware);
+                }
             }
 
             if (Input.GetKey(KeyCode.P))
+            {
                 ScreenShot();
+            }
         }
 
         [ContextMenu("ScreenShot")]

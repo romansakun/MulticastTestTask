@@ -17,6 +17,7 @@ namespace Ads
         private Reward _reward;
         private string _message = "";
         private bool _isRequesting = false;
+        private bool _isAdDismissed = false;
 
         public void Awake()
         {
@@ -48,9 +49,11 @@ namespace Ads
             if (await TryShowRewardedAd() == false)
                 return false;
 
+            _isAdDismissed = false;
             var waitSecondsTask = UniTask.Delay(TimeSpan.FromSeconds(120));
+            var waitAdDismissedTask = UniTask.WaitWhile(() => _isAdDismissed == false);
             var waitRewardTask = UniTask.WaitWhile(() => _reward == null);
-            await UniTask.WhenAny(waitSecondsTask, waitRewardTask);
+            await UniTask.WhenAny(waitAdDismissedTask, waitSecondsTask, waitRewardTask);
 
             return _reward != null;
         }
@@ -127,6 +130,7 @@ namespace Ads
 
             _rewardedAd?.Destroy();
             _rewardedAd = null;
+            _isAdDismissed = true;
         }
 
         private void HandleImpression(object sender, ImpressionData impressionData)

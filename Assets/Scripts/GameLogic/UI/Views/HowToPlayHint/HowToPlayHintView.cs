@@ -1,18 +1,21 @@
 using Cysharp.Threading.Tasks;
+using GameLogic.Audio;
+using GameLogic.Bootstrapper;
 using GameLogic.Model.DataProviders;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.Video;
 using Zenject;
 
 namespace GameLogic.UI.HowToPlayHint
 {
-    public class HowToPlayHintView : View
+    public class HowToPlayHintView : View, IPointerClickHandler
     {
         [Inject] private UserContextDataProvider _userContext;
-
-        [SerializeField] private Button _okButton;
+        [Inject] private AudioPlayer _audioPlayer;
+        [Inject] private SoundsSettings _soundsSettings;
+        
         [SerializeField] private VideoPlayer _videoPlayer;
         [SerializeField] private VideoClip[] _videoClips;
         [SerializeField] private TextMeshProUGUI _titleText;
@@ -31,16 +34,21 @@ namespace GameLogic.UI.HowToPlayHint
 
         protected override void Subscribes()
         {
-            _okButton.onClick.AddListener(OnOkButtonClicked);
         }
 
         protected override void Unsubscribes()
         {
-            _okButton.onClick.RemoveAllListeners();
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            OnOkButtonClicked();
         }
 
         private void OnOkButtonClicked()
         {
+            _audioPlayer.PlaySound(_soundsSettings.TapSound);
+
             if (_currentVideoIndex < _videoClips.Length - 1)
             {
                 _currentVideoIndex++;
