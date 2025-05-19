@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using GameLogic.Bootstrapper;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay

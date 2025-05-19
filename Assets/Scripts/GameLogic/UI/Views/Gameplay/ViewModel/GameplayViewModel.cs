@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
+using GameLogic.UI.CenterMessage;
 using GameLogic.UI.MainMenu;
 using Infrastructure;
 using Infrastructure.LogicUtility;
@@ -24,9 +25,8 @@ namespace GameLogic.UI.Gameplay
         public IReactiveProperty<bool> IsUndistributedClustersScrollRectActive => _logicAgent.Context.IsUndistributedClustersScrollRectActive;
         public IReactiveProperty<bool> IsHintClusterInUndistributedClusters => _logicAgent.Context.IsHintClusterInUndistributedClusters;
         public IReactiveProperty<bool> IsFailedCompleteLevel => _logicAgent.Context.IsFailedCompleteLevel;
-        public IReactiveProperty<int> CheckingWordsCount => _logicAgent.Context.CheckingWordsCount;
-        public IReactiveProperty<bool> IsCheckingWordsByAdsActive => _logicAgent.Context.IsCheckingWordsByAdsActive;
-        public IReactiveProperty<bool> IsTipByAdsActive => _logicAgent.Context.IsTipByAdsActive;
+        public IReactiveProperty<ConsumableButtonState> CheckingWordsButtonState => _logicAgent.Context.CheckingWordsButtonState;
+        public IReactiveProperty<ConsumableButtonState> TipButtonState => _logicAgent.Context.TipButtonState;
         public IReactiveProperty<bool> IsTipVisible => _logicAgent.Context.IsTipVisible;
         public IReactiveProperty<string> LevelNameText => _levelNameText;
         public IReactiveProperty<string> DescriptionLevelText => _descriptionLevelText;
@@ -98,11 +98,15 @@ namespace GameLogic.UI.Gameplay
             _logicAgent.OnCatchError += OnLogicFailed;
         }
 
-        private void OnLogicFailed(string errorMessage)
+        private async void OnLogicFailed(string errorMessage)
         {
             Debug.Log(errorMessage);
 
-            //todo dialog view with reload button
+            var viewModel = _viewModelFactory.Create<CenterMessageViewModel>();
+            viewModel.SetText("An ERROR occurred, the game will be restarted");//сделать локаль
+            var view = await _viewManager.ShowAsync<CenterMessageView, CenterMessageViewModel>(viewModel);
+            await view.ShowAndClose();
+
             _gameAppReloader.ReloadGame();
         }
 

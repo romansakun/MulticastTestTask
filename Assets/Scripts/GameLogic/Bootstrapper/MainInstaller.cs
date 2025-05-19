@@ -1,4 +1,5 @@
 using GameLogic.Factories;
+using GameLogic.Tutorial;
 using GameLogic.UI;
 using GameLogic.UI.Gameplay;
 using Infrastructure.GameActions;
@@ -27,6 +28,7 @@ namespace GameLogic.Bootstrapper
             Container.BindFactory<Cluster, Cluster.Factory>().AsSingle();
             Container.BindFactory<WordRow, WordRow.Factory>().AsSingle();
 
+            //Container.BindInterfacesAndSelfTo<TutorialService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ViewManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameActionExecutor>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameAppLoader>().AsSingle();

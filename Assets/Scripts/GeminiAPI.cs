@@ -5,7 +5,6 @@ using GameLogic.GptChats;
 
 public class GeminiAPI : MonoBehaviour, IGptChat
 {
-    //private const string URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
     private const string URL = "https://www.chess4chess.somee.com/api/Gemini/ask";
 
 

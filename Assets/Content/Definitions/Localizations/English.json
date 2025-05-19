@@ -125,7 +125,8 @@
         "OK_BUTTON" : "Ok",
         "LEVELS_COMPLETED_LABEL" : "Completed levels: ",
         "GAME_OVER_MAIN_MENU_LABEL": "Congratulations!\nYou passed all levels!",
-        "CONSUMABLES_INFO_MAIN_MENU": "+3 check words after: ",
+        "NO_ADS_NOW_TRY_LATER": "No video now, Please try later.",
+        "FREE_UPDATE_AFTER": "+3 after: ",
         "VICTORY_PROMPT": "Give the player a congratulations for completing the level in the game (form words from pieces, here are the words: {0}, completed level: {1}), make it a single sentence (5-12 words)"
     }
 }

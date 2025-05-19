@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using GameLogic.Audio;
 using GameLogic.Bootstrapper;
+using GameLogic.UI.Components;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
@@ -19,7 +22,6 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private ScrollRect _undistributedClustersScrollRect;
         [SerializeField] private RectTransform _undistributedClustersHolder;
         [SerializeField] private RectTransform _wordsHolder;
-        [SerializeField] private Button _mainMenuButton;
         [SerializeField] private Button _swipeToLeftButton;
         [SerializeField] private Button _swipeToRightButton;
         [SerializeField] private TextMeshProUGUI _levelName;
@@ -27,14 +29,17 @@ namespace GameLogic.UI.Gameplay
 
         [Header("Ad Tip button")]
         [SerializeField] private Button _adTipButton;
+        [SerializeField] private GameObject _adTipButtonIcon;
         [SerializeField] private GameObject _adTipButtonAdsImage;
-        [SerializeField] private GameObject _adTipButtonTipImage;
+        [SerializeField] private CircleCountText _adTipButtonCountText;
 
         [Header("Check words button")]
         [SerializeField] private Button _checkWordsButton;
         [SerializeField] private TextMeshProUGUI _checkWordsButtonLabel;
-        [SerializeField] private TextMeshProUGUI _checkWordsButtonCountLabel;
+        [SerializeField] private CircleCountText _checkWordsButtonCountText;
         [SerializeField] private GameObject _checkWordsButtonAdsImage;
+        [SerializeField] private List<GameObject> _checkingWordsButtonEmpties;
+   
 
         private bool _isScrollRectDragging;
         private Tween _failButtonAnimation;
@@ -50,7 +55,6 @@ namespace GameLogic.UI.Gameplay
         protected override void Subscribes()
         {
             _checkWordsButton.onClick.AddListener(() => _viewModel.OnCheckWordsButtonClicked());
-            _mainMenuButton.onClick.AddListener(() => _viewModel.OnMainMenuButtonClicked());
             _swipeToLeftButton.onClick.AddListener(OnSwipeToLeftButtonClicked);
             _swipeToRightButton.onClick.AddListener(OnSwipeToRightButtonClicked);
             _adTipButton.onClick.AddListener(OnAdTipButtonClicked);
@@ -60,16 +64,14 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsFailedCompleteLevel.Subscribe(OnFailedCompleteLevelChanged);
             _viewModel.DescriptionLevelText.Subscribe(OnDescriptionLevelTextChanged);
             _viewModel.LevelNameText.Subscribe(OnLevelNameTextChanged);
-            _viewModel.CheckingWordsCount.Subscribe(OnCheckingWordsCountChanged);
-            _viewModel.IsCheckingWordsByAdsActive.Subscribe(OnCheckingWordsByAdsChanged);
-            _viewModel.IsTipByAdsActive.Subscribe(OnTipByAdsChanged);
+            _viewModel.CheckingWordsButtonState.Subscribe(OnCheckingWordsButtonStateChanged);
+            _viewModel.TipButtonState.Subscribe(OnTipButtonStateChanged);
             _viewModel.IsTipVisible.Subscribe(OnTipVisibleChanged);
         }
 
         protected override void Unsubscribes()
         {
             _checkWordsButton.onClick.RemoveAllListeners();
-            _mainMenuButton.onClick.RemoveAllListeners();
             _swipeToLeftButton.onClick.RemoveAllListeners();
             _swipeToRightButton.onClick.RemoveAllListeners();
             _adTipButton.onClick.RemoveAllListeners();
@@ -79,12 +81,28 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
             _viewModel.DescriptionLevelText.Unsubscribe(OnDescriptionLevelTextChanged);
             _viewModel.LevelNameText.Unsubscribe(OnLevelNameTextChanged);
-            _viewModel.CheckingWordsCount.Unsubscribe(OnCheckingWordsCountChanged);
-            _viewModel.IsCheckingWordsByAdsActive.Unsubscribe(OnCheckingWordsByAdsChanged);
-            _viewModel.IsTipByAdsActive.Unsubscribe(OnTipByAdsChanged);
+            _viewModel.CheckingWordsButtonState.Unsubscribe(OnCheckingWordsButtonStateChanged);
+            _viewModel.TipButtonState.Unsubscribe(OnTipButtonStateChanged);
             _viewModel.IsTipVisible.Unsubscribe(OnTipVisibleChanged);
 
             _failButtonAnimation?.Kill();
+        }
+
+        private void OnCheckingWordsButtonStateChanged(ConsumableButtonState state)
+        {
+            _checkWordsButtonLabel.gameObject.SetActive(state.IsShowConsumable);
+            _checkWordsButtonCountText.gameObject.SetActive(state.IsShowCount);
+            _checkWordsButtonAdsImage.gameObject.SetActive(state.IsShowAdsIcon);
+            _checkWordsButtonCountText.SetCount(state.Count, state.IsShowPlusCount);
+            _checkingWordsButtonEmpties.ForEach(go => go.SetActive(state.IsShowAdsIcon));
+        }
+
+        private void OnTipButtonStateChanged(ConsumableButtonState state)
+        {
+            _adTipButtonIcon.gameObject.SetActive(state.IsShowConsumable);
+            _adTipButtonCountText.gameObject.SetActive(state.IsShowCount);
+            _adTipButtonAdsImage.gameObject.SetActive(state.IsShowAdsIcon);
+            _adTipButtonCountText.SetCount(state.Count, state.IsShowPlusCount);
         }
 
         private void OnUndistributedClustersScrollRectNormalizedPositionChanged(float value)
@@ -117,36 +135,6 @@ namespace GameLogic.UI.Gameplay
             if (state) _undistributedClustersScrollRect.horizontalNormalizedPosition = 0f;
         }
 
-        private void OnCheckingWordsByAdsChanged(bool state)
-        {
-            Debug.Log($"OnCheckingWordsByAdsChanged state: {state}");
-            if (state)
-            {
-                _checkWordsButtonCountLabel.gameObject.SetActive(false);
-                _checkWordsButtonAdsImage.gameObject.SetActive(true);
-            }
-            else
-            {
-                _checkWordsButtonCountLabel.gameObject.SetActive(true);
-                _checkWordsButtonAdsImage.gameObject.SetActive(false);
-            }
-        }
-
-        private void OnCheckingWordsCountChanged(int count)
-        {
-            _checkWordsButtonCountLabel.text = $"({count})";
-            if (count > 0)
-            {
-                _checkWordsButtonCountLabel.gameObject.SetActive(true);
-                _checkWordsButtonAdsImage.gameObject.SetActive(false);
-            }
-        }
-
-        private void OnTipByAdsChanged(bool state)
-        {
-            Debug.Log($"OnTipByAdsChanged state: {state}");
-            _adTipButtonAdsImage.gameObject.SetActive(state);
-        }
 
         private void OnSwipeToRightButtonClicked()
         {

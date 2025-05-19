@@ -24,6 +24,4 @@ namespace GameLogic.UI.Components
             _graphic.color = _colorsSettings.ElementColors[_elementColor];
         }
     }
-}namespace GameLogic.UI.Components
-{
 }

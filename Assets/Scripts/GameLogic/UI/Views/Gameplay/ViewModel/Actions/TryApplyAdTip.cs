@@ -3,9 +3,12 @@ using Cysharp.Threading.Tasks;
 using GameLogic.Ads;
 using GameLogic.Audio;
 using GameLogic.Bootstrapper;
+using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Operators;
+using GameLogic.UI.CenterMessage;
 using Infrastructure.Extensions;
+using Infrastructure.Services;
 using Zenject;
 
 namespace GameLogic.UI.Gameplay
@@ -16,12 +19,14 @@ namespace GameLogic.UI.Gameplay
         [Inject] private UserContextOperator _userContextOperator;
         [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private ViewManager _viewManager;
+        [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private ColorsSettings _colorsSettings;
         [Inject] private GameplaySettings _gameplaySettings;
         [Inject] private Cluster.Factory _clusterFactory;
         [Inject] private AudioPlayer _audioPlayer;
         [Inject] private SoundsSettings _soundsSettings;
         [Inject] private IAdsShower _adsShower;
+        [Inject] private ITimerService _timerService;
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
@@ -32,11 +37,14 @@ namespace GameLogic.UI.Gameplay
                 if (hasReward)
                 {
                     _userContextOperator.AddAdsTip();
-                    context.IsTipByAdsActive.Value = false;
+                    UpdateTipButtonState(context);
+                }
+                else
+                {
+                    await ShowCenterMessageWithTimer();
                 }
                 return;
             }
-
 
             // cleaning row
             var replacingClusters = context.WordRowsClusters[context.AdTip.SuitableWordRow];
@@ -131,7 +139,7 @@ namespace GameLogic.UI.Gameplay
             context.AdTip.Reset();
 
             _userContextOperator.UseAdsTip();
-            context.IsTipByAdsActive.Value = _userContext.AdsTipsCount.Value <= 0;
+            UpdateTipButtonState(context);
         }
 
         private Cluster AddHintClusterToWordRow(GameplayViewModelContext context, WordRow wordRow, Cluster cluster)
@@ -148,6 +156,29 @@ namespace GameLogic.UI.Gameplay
             cluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);
             hintCluster.SetText(cluster.GetText());
             return hintCluster;
+        }
+
+        private void UpdateTipButtonState(GameplayViewModelContext context)
+        {
+            var tipCount = _userContext.AdsTipsCount.Value;
+            var tipState = ConsumableButtonState.State(tipCount, _gameDefs.DefaultSettings.ConsumablesFreeCount);
+            context.TipButtonState.SetValueAndForceNotify(tipState);
+        }
+
+        private async UniTask ShowCenterMessageWithTimer()
+        {
+            var viewModel = _viewModelFactory.Create<CenterMessageViewModel>();
+            var duration = _userContext.GetConsumablesUpdateDurationSeconds();
+            var timer = _timerService.SetTimer(duration, ts =>
+                {
+                    var noAdsText = _userContext.GetLocalizedText("NO_ADS_NOW_TRY_LATER");
+                    var localizedText = _userContext.GetLocalizedText("FREE_UPDATE_AFTER");
+                    viewModel.SetText(ts.HmsD2($"{noAdsText}\n{localizedText}"));
+                },
+                null, 1000);
+            var view = await _viewManager.ShowAsync<CenterMessageView, CenterMessageViewModel>(viewModel);
+            await view.ShowAndClose();
+            timer.Dispose();
         }
     }
 }

@@ -6,6 +6,7 @@ namespace GameLogic.UI.Gameplay
 {
     public class ResolveCheckingWordsAndHint : BaseGameplayViewModelAction
     {
+        [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private UserContextOperator _userContextOperator;
 
@@ -14,13 +15,12 @@ namespace GameLogic.UI.Gameplay
             _userContextOperator.TryUpdateFreeConsumablesCount();
 
             var checkingWordsCount = _userContext.CheckingWordsCount.Value;
-            context.CheckingWordsCount.Value = checkingWordsCount;
-            context.IsCheckingWordsByAdsActive.Value = checkingWordsCount <= 0;
+            var checkingWordsState = ConsumableButtonState.State(checkingWordsCount, _gameDefs.DefaultSettings.ConsumablesFreeCount);
+            context.CheckingWordsButtonState.SetValueAndForceNotify(checkingWordsState);
 
-            var hintCount = _userContext.AdsTipsCount.Value;
-            context.IsTipByAdsActive.Value = hintCount <= 0;
-
-            context.IsTipVisible.Value = context.UndistributedClusters.Count > 0;
+            var tipCount = _userContext.AdsTipsCount.Value;
+            var tipState = ConsumableButtonState.State(tipCount, _gameDefs.DefaultSettings.ConsumablesFreeCount);
+            context.TipButtonState.SetValueAndForceNotify(tipState);
         }
     }
 }

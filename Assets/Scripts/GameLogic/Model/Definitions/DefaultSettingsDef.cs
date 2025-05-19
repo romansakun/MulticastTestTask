@@ -8,7 +8,7 @@ namespace GameLogic.Model.Definitions
         public string LocalizationDefId;
 
         public int ConsumablesUpdateIntervalSeconds;
-        public int CheckingWordsDailyFreeCount;
-        public int AdsTipDailyFreeCount;
+        public int ConsumablesFreeCount;
+        public int ConsumablesByAdsCount;
     }
 }

@@ -9,13 +9,12 @@ namespace GameLogic.UI.Gameplay
 {
     public class GameplayViewModelContext : IContext
     {
-        public readonly ReactiveProperty<int> CheckingWordsCount = new(3);
+        public readonly ReactiveProperty<ConsumableButtonState> CheckingWordsButtonState = new();
+        public readonly ReactiveProperty<ConsumableButtonState> TipButtonState = new();
         public readonly ReactiveProperty<float> UndistributedClustersScrollRectNormalizedPosition = new(0);
         public readonly ReactiveProperty<bool> IsUndistributedClustersScrollRectActive = new(true);
         public readonly ReactiveProperty<bool> IsHintClusterInUndistributedClusters = new(false);
         public readonly ReactiveProperty<bool> IsFailedCompleteLevel = new(false);
-        public readonly ReactiveProperty<bool> IsCheckingWordsByAdsActive = new(false);
-        public readonly ReactiveProperty<bool> IsTipByAdsActive = new(false);
         public readonly ReactiveProperty<bool> IsTipVisible = new(true);
 
         public ClickContext Click { get; } = new();
@@ -43,6 +42,8 @@ namespace GameLogic.UI.Gameplay
             UndistributedClustersScrollRectNormalizedPosition.Dispose();
             IsUndistributedClustersScrollRectActive.Dispose();
             IsHintClusterInUndistributedClusters.Dispose();
+            CheckingWordsButtonState.Dispose();
+            TipButtonState.Dispose();
             IsFailedCompleteLevel.Dispose();
             AllClusters.ForEach(c => c.Dispose());
             WordRows.ForEach(w => w.Dispose());
@@ -54,29 +55,6 @@ namespace GameLogic.UI.Gameplay
             WordRowsClusters.Clear();
 
             IsDisposed = true;
-        }
-    }
-
-    public class AdTipContext
-    {
-        public bool IsAdTip { get; set; }
-
-        public List<string> FormedWords = new List<string>();
-        public List<string> NotFormedWords = new List<string>();
-        public List<WordRow> ImmutableWordRows = new List<WordRow>();
-        public WordRow SuitableWordRow { get; set; }
-
-        public void Reset()
-        {
-            IsAdTip = false;
-            FormedWords.Clear();
-            NotFormedWords.Clear();
-            ImmutableWordRows.Clear();
-            SuitableWordRow = null;
-        }
-
-        public void Dispose()
-        {
         }
     }
 }

@@ -5,8 +5,11 @@ using GameLogic.Factories;
 using GameLogic.Model.Actions;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Operators;
+using GameLogic.UI.CenterMessage;
 using GameLogic.UI.Victory;
+using Infrastructure.Extensions;
 using Infrastructure.GameActions;
+using Infrastructure.Services;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +17,7 @@ namespace GameLogic.UI.Gameplay
 {
     public class TryCompleteLevel : BaseGameplayViewModelAction
     {
+        [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private UserContextOperator _userContextOperator;
         [Inject] private GameActionExecutor _gameActionExecutor;
@@ -21,6 +25,7 @@ namespace GameLogic.UI.Gameplay
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private IAdsShower _adsShower;
+        [Inject] private ITimerService _timerService;
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
@@ -31,8 +36,11 @@ namespace GameLogic.UI.Gameplay
                 if (hasReward)
                 {
                     _userContextOperator.AddCheckingWords();
-                    context.IsCheckingWordsByAdsActive.Value = false;
-                    context.CheckingWordsCount.Value = _userContext.CheckingWordsCount.Value;
+                    UpdateCheckingWordsButtonState(context);
+                }
+                else
+                {
+                    await ShowCenterMessageWithTimer();
                 }
                 return;
             }
@@ -59,10 +67,15 @@ namespace GameLogic.UI.Gameplay
                 {
                     _userContextOperator.UseCheckingWords();
                 }
-                context.CheckingWordsCount.Value = _userContext.CheckingWordsCount.Value;
+                UpdateCheckingWordsButtonState(context);
             }
+        }
 
-            context.IsCheckingWordsByAdsActive.Value = _userContext.CheckingWordsCount.Value <= 0;
+        private void UpdateCheckingWordsButtonState(GameplayViewModelContext context)
+        {
+            var checkingWordsCount = _userContext.CheckingWordsCount.Value;
+            var checkingWordsState = ConsumableButtonState.State(checkingWordsCount, _gameDefs.DefaultSettings.ConsumablesFreeCount);
+            context.CheckingWordsButtonState.SetValueAndForceNotify(checkingWordsState);
         }
 
         private async void ShowVictoryView(GameplayViewModelContext context)
@@ -71,6 +84,22 @@ namespace GameLogic.UI.Gameplay
             var viewModel = _viewModelFactory.Create<VictoryViewModel>();
             var view = await _viewManager.ShowAsync<VictoryView, VictoryViewModel>(viewModel);
         }
-
+        
+        private async UniTask ShowCenterMessageWithTimer()
+        {
+            var viewModel = _viewModelFactory.Create<CenterMessageViewModel>();
+            var duration = _userContext.GetConsumablesUpdateDurationSeconds();
+            var timer = _timerService.SetTimer(duration, ts =>
+                {
+                    var noAdsText = _userContext.GetLocalizedText("NO_ADS_NOW_TRY_LATER");
+                    var localizedText = _userContext.GetLocalizedText("FREE_UPDATE_AFTER");
+                    viewModel.SetText(ts.HmsD2($"{noAdsText}\n{localizedText}"));
+                },
+                null, 1000);
+            var view = await _viewManager.ShowAsync<CenterMessageView, CenterMessageViewModel>(viewModel);
+            await view.ShowAndClose();
+            timer.Dispose();
+        }
+        
     }
 }

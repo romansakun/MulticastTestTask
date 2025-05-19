@@ -1,7 +1,7 @@
 {
     "LocalizationDefId" : "Russian",
 
-    "ConsumablesUpdateIntervalSeconds" : 28800,
-    "CheckingWordsDailyFreeCount" : 3,
-    "AdsTipDailyFreeCount" : 3
+    "ConsumablesUpdateIntervalSeconds" : 10800,
+    "ConsumablesFreeCount" : 3,
+    "ConsumablesByAdsCount" : 3
 }

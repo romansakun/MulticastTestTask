@@ -152,8 +152,8 @@ namespace GameLogic.Model.Repositories
             if (checkingWords.LastFreeUpdateTime != default && checkingWords.LastFreeUpdateTime.AddSeconds(durationSeconds) > dateTime) 
                 return false;
 
-            _userContext.Consumables.WordsCheckingCount = _gameDefs.DefaultSettings.CheckingWordsDailyFreeCount;
-            _userContext.Consumables.AdsTipCount = _gameDefs.DefaultSettings.AdsTipDailyFreeCount;
+            _userContext.Consumables.WordsCheckingCount = _gameDefs.DefaultSettings.ConsumablesFreeCount;
+            _userContext.Consumables.AdsTipCount = _gameDefs.DefaultSettings.ConsumablesFreeCount;
             _userContext.Consumables.LastFreeUpdateTime = dateTime;
 
             _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
@@ -164,20 +164,20 @@ namespace GameLogic.Model.Repositories
 
         public void AddCheckingWords()
         {
-            _userContext.Consumables.WordsCheckingCount += 1;
+            _userContext.Consumables.WordsCheckingCount += _gameDefs.DefaultSettings.ConsumablesByAdsCount;
             _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
+        }
+
+        public void AddAdsTip()
+        {
+            _userContext.Consumables.AdsTipCount += _gameDefs.DefaultSettings.ConsumablesByAdsCount;;
+            _adsTipsCount.Value = _userContext.Consumables.AdsTipCount;
         }
 
         public void UseCheckingWords()
         {
             _userContext.Consumables.WordsCheckingCount -= 1;
             _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
-        }
-
-        public void AddAdsTip()
-        {
-            _userContext.Consumables.AdsTipCount += 1;
-            _adsTipsCount.Value = _userContext.Consumables.AdsTipCount;
         }
 
         public void UseAdsTip()

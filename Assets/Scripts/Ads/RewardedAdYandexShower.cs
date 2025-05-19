@@ -41,6 +41,9 @@ namespace Ads
 
         private async UniTask<bool> ShowInternal()
         {
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+                return false;
+
             _reward = null;
             if (await TryShowRewardedAd() == false)
                 return false;
