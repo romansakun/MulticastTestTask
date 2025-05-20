@@ -11,6 +11,7 @@ namespace GameLogic.UI.Components
 
         private Vector2 _lastSizeDelta;
 
+
         protected override void OnRectTransformDimensionsChange()
         {
             base.OnRectTransformDimensionsChange();

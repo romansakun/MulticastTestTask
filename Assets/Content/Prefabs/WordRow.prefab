@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6273812498136665591}
   - component: {fileID: 6485819870146458214}
   - component: {fileID: 7687836632811718912}
+  - component: {fileID: 8687344257573883116}
   - component: {fileID: 1380989112401561624}
   - component: {fileID: 1507649212727666323}
   m_Layer: 5
@@ -56,6 +57,7 @@ MonoBehaviour:
   _rectTransform: {fileID: 6273812498136665591}
   _clustersHolder: {fileID: 6874472114164063674}
   _blinkAnimator: {fileID: 1507649212727666323}
+  _horizontalLayoutGroup: {fileID: 6671208266029580181}
 --- !u!222 &7687836632811718912
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -64,6 +66,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81149532250146180}
   m_CullTransparentMesh: 1
+--- !u!114 &8687344257573883116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81149532250146180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a04c01512a040f8b5ea414b6e96908d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _elementColor: 4
+  _graphic: {fileID: 1380989112401561624}
 --- !u!114 &1380989112401561624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +112,7 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!95 &1507649212727666323
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,6 +126,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

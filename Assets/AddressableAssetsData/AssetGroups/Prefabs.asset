@@ -13,17 +13,20 @@ MonoBehaviour:
   m_Name: Prefabs
   m_EditorClassIdentifier: 
   m_GroupName: Prefabs
-  m_Data:
-    m_SerializedData: []
   m_GUID: 7dc8e4808f707a144b59c223e262a34b
   m_SerializeEntries:
-  - m_GUID: ac91777b07ad98a499e1d73e75054479
-    m_Address: Cluster
+  - m_GUID: 20fdb325f065fc9468a537d0def07e69
+    m_Address: GameplayView
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 20fdb325f065fc9468a537d0def07e69
-    m_Address: GameplayView
+  - m_GUID: 294626fe0081e3e41b095f0edd29cca6
+    m_Address: CenterMessageView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ee5edb6cbea8ec48880c0edc7f22162
+    m_Address: MainMenuView
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -37,13 +40,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2ee5edb6cbea8ec48880c0edc7f22162
-    m_Address: MainMenuView
+  - m_GUID: 9dae2bd82f88dab4a8dd263a2b78357c
+    m_Address: SettingsView
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9dae2bd82f88dab4a8dd263a2b78357c
-    m_Address: SettingsView
+  - m_GUID: ac91777b07ad98a499e1d73e75054479
+    m_Address: Cluster
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -56,5 +59,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: e31acbd790e5f0047b619e21668e0e15, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 29202159d03b7e34bbe4088207c071b3, type: 2}
     - {fileID: 11400000, guid: 00644e3bfce31a949a84cb17344a34a0, type: 2}
+    - {fileID: 11400000, guid: 29202159d03b7e34bbe4088207c071b3, type: 2}

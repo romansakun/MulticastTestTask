@@ -1,9 +1,7 @@
 using System;
-using GameLogic.Model.Contexts;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
-using GameLogic.Model.Operators;
-using GameLogic.Model.Repositories;
+using GameLogic.UI;
 using UnityEngine;
 using Zenject;
 
@@ -44,14 +42,8 @@ namespace GameLogic.Bootstrapper
     [Serializable]
     public class ColorsSettings
     {
-        public Color DefaultClusterTextColor;
-        public Color DefaultClusterBackColor;
-
-        public Color SelectedClusterTextColor;
-        public Color SelectedClusterBackColor;
-
-        public Color GhostClusterTextColor;
-        public Color GhostClusterBackColor;
+        public float GhostClusterAlpha = 0.5f;
+        public ElementColorDictionary ElementColors = new ElementColorDictionary();
     }
 
     [Serializable]
@@ -60,4 +52,7 @@ namespace GameLogic.Bootstrapper
         public Vector3 DraggedClusterRotation = new Vector3(0, 0, 10);
         public Vector2 DraggedClusterOffsetPosition = new Vector2(0, 15);
     }
+
+    [Serializable]
+    public class ElementColorDictionary : SerializableDictionary<ElementColor, Color> { }
 }

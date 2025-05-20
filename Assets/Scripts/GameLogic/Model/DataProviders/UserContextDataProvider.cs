@@ -15,6 +15,8 @@ namespace GameLogic.Model.DataProviders
         public IReactiveProperty<string> LocalizationDefId => _userContextRepository.LocalizationDefId;
         public IReactiveProperty<string> UpdatedLevelDefId => _userContextRepository.UpdatedLevelDefId;
         public IReactiveProperty<bool> IsSoundsMuted => _userContextRepository.IsSoundsMuted;
+        public IReactiveProperty<int> CheckingWordsCount => _userContextRepository.CheckingWordsCount;
+        public IReactiveProperty<int> AdsTipsCount => _userContextRepository.AdsTipsCount;
 
         private readonly UserContextRepository _userContextRepository;
 
@@ -22,6 +24,11 @@ namespace GameLogic.Model.DataProviders
         public UserContextDataProvider(UserContextRepository userContextRepositoryRepository)
         {
             _userContextRepository = userContextRepositoryRepository;
+        }
+
+        public int GetConsumablesUpdateDurationSeconds()
+        {
+            return _userContextRepository.GetConsumablesUpdateDurationSeconds();
         }
 
         public string GetLocalizedText(string key)
@@ -33,6 +40,12 @@ namespace GameLogic.Model.DataProviders
             }
             Debug.LogWarning($"'{key}' not found in '{localizationDef.Id}' localization");
             return key;
+        }
+
+        public string GetLocalizedText(string key, params object[] args)
+        {
+            var text = GetLocalizedText(key);
+            return string.Format(text, args);
         }
 
         public bool IsHowToPlayHintShown()
@@ -70,9 +83,19 @@ namespace GameLogic.Model.DataProviders
             return TryGetLastUncompletedLevelProgress(LocalizationDefId.Value, out levelProgress);
         }
 
-        public int GetAllFormedWordCount()
+        public bool IsCurrentLocalizationLevelsCompleted()
         {
-            return _userContextRepository.GetAllFormedWordCount();  
+            return _userContextRepository.IsLocalizationLevelsCompleted(_userContextRepository.LocalizationDefId.Value);
+        }
+
+        public bool IsLocalizationLevelsCompleted(string localizationDefId)
+        {
+            return _userContextRepository.IsLocalizationLevelsCompleted(localizationDefId);
+        }
+
+        public int GetAllCompletedLevels()
+        {
+            return _userContextRepository.GetAllCompletedLevels();  
         }
 
         public bool TryGetLastUncompletedLevelProgress(string localizationDefId, out LevelProgressContextDataProvider levelProgress)
@@ -151,6 +174,45 @@ namespace GameLogic.Model.DataProviders
                     return false;
                 }
             }
+            return true;
+        }
+
+        public bool CheckLevelProgress(string levelDefId)
+        {
+            if (_userContextRepository.TryGetLevelProgress(levelDefId, out var levelProgress) == false)
+                return false;
+
+            if (_gameDefs.Levels.TryGetValue(levelDefId, out var levelDef) == false)
+                return false;
+
+            var levelClusters = new List<string>();
+            foreach (var pair in levelDef.Words)
+            {
+                var word = pair.Key;
+                var clustersLengths = pair.Value;
+                var startIndex = 0;
+                for (var i = 0; i < clustersLengths.Count; i++)
+                {
+                    var clusterLength = clustersLengths[i];
+                    var levelCluster = word.Substring(startIndex, clusterLength);
+                    levelClusters.Add(levelCluster);
+                    startIndex += clusterLength;
+                }
+            }
+            foreach (var rowClusters in levelProgress.DistributedClusters)
+            {
+                foreach (var cluster in rowClusters)
+                {
+                    if (levelClusters.Contains(cluster)) continue;
+                    return false;
+                }
+            }
+            foreach (var cluster in levelProgress.UndistributedClusters)
+            {
+                if (levelClusters.Contains(cluster)) continue;
+                return false;
+            }
+
             return true;
         }
 

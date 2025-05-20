@@ -6,6 +6,7 @@ namespace Infrastructure
     {
         private Action<T> _onChanged;
         private T _value;
+        private bool _isDisposed;
 
         public T Value
         {
@@ -20,6 +21,7 @@ namespace Infrastructure
             }
         }
 
+        public bool IsDisposed => _isDisposed;
 
         public ReactiveProperty()
         {
@@ -58,6 +60,7 @@ namespace Infrastructure
         {
             _onChanged = null;
             _value = default;
+            _isDisposed = true;
         }
 
     }

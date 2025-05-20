@@ -105,6 +105,9 @@
     },
     "LocalizationText": 
     {
+        "VIDEO_TITLE_1": "Form words",
+        "VIDEO_TITLE_2": "Use hints",
+        "VIDEO_TITLE_3": "Check words",
         "START": "Start!",
         "GENERAL_LEVEL_RULES" : "Drag the letters to form words.\n - length of words {0} letters\n - total words {1}\n...\n\tGood luck!",
         "CHECK_WORDS_BUTTONS" : "Check words",
@@ -120,6 +123,10 @@
         "SETTINGS_BACK_BUTTON" : "Back",
         "HOW_PLAY_TITLE" : "How to play",
         "OK_BUTTON" : "Ok",
-        "FORMED_WORDS_LABEL" : "Formed words: "
+        "LEVELS_COMPLETED_LABEL" : "Completed levels: ",
+        "GAME_OVER_MAIN_MENU_LABEL": "Congratulations!\nYou passed all levels!",
+        "NO_ADS_NOW_TRY_LATER": "No video now, Please try later.",
+        "FREE_UPDATE_AFTER": "+3 after: ",
+        "VICTORY_PROMPT": "Give the player a congratulations for completing the level in the game (form words from pieces, here are the words: {0}, completed level: {1}), make it a single sentence (5-12 words)"
     }
 }

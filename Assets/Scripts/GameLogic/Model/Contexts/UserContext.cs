@@ -9,6 +9,8 @@ namespace GameLogic.Model.Contexts
         public bool IsSoundsMuted { get; set; }
         public bool IsHowToPlayHintShown { get; set; }
         public string LocalizationDefId { get; set; }
+
+        public ConsumablesContext Consumables { get; set; } = new();
         public Dictionary<string, LevelProgressContext> LevelsProgress { get; set; } = new();
     }
 }

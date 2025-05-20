@@ -29,6 +29,9 @@ namespace GameLogic.Bootstrapper
             }
 
             var repository = _diContainer.Instantiate<UserContextRepository>(new object[] { _userContext });
+            repository.TryUpdateFreeConsumablesCount();
+            Debug.Log($"Last update consumables: {_userContext.Consumables.LastFreeUpdateTime}");
+
             _diContainer.Bind<UserContextDataProvider>().AsSingle().WithArguments(repository);
             _diContainer.Bind<UserContextOperator>().AsSingle().WithArguments(repository);
 

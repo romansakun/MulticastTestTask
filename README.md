@@ -59,7 +59,7 @@
 
 ![img](ReadMeAssets/definitions_build_hint.png)
 
-* если изменения корректы и валидация при сборке пройдена,то получаем файл: `Assets/Definitions.json`
+* результат будет тут: `Assets/Content/ScriptableSettings/LocalGameDefs.json`
 
 # Архитектура проекта
 

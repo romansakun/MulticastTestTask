@@ -1,7 +1,6 @@
 {
     "Description": "Russian",
-    "Levels": 
-    {
+    "Levels": {
         "1": "Ru_1",
         "2": "Ru_2",
         "3": "Ru_3",
@@ -221,23 +220,29 @@
         "217": "Ru_217",
         "218": "Ru_218"
     },
-    "LocalizationText":
-    {
+    "LocalizationText": {
+        "VIDEO_TITLE_1": "Составляйте слова",
+        "VIDEO_TITLE_2": "Пользуйтесь подсказкой",
+        "VIDEO_TITLE_3": "Проверяйте слова",
         "START": "Старт!",
-        "GENERAL_LEVEL_RULES" : "Перетаскивайте кусочки с буквами в строки, чтобы составить слова.\n - длина слов {0} букв\n - всего слов {1}\n...\n\tУдачи!",
-        "CHECK_WORDS_BUTTONS" : "Проверить слова",
-        "VICTORY_VIEW_TITLE" : "Победа!",
-        "VICTORY_VIEW_DESC" : "Поздравляем!\nВы выиграли этот уровень!",
-        "TO_MAIN_MENU_BUTTON" : "На главную",
-        "NEXT_LEVEL_BUTTON" : "Следующий уровень",
-        "LEVEL_NUMBER" : "Уровень {0}",
-        "MAIN_MENU_PLAY_BUTTON" : "Играть",
-        "MAIN_MENU_TITLE" : "Меню",
-        "SETTINGS_VIEW_TITLE" : "Настройки",
-        "SETTINGS_SOUNDS_LABEL" : "Звуки",
-        "SETTINGS_BACK_BUTTON" : "Назад",
-        "HOW_PLAY_TITLE" : "Как играть",
-        "OK_BUTTON" : "Хорошо",
-        "FORMED_WORDS_LABEL" : "Составленно слов: "
+        "GENERAL_LEVEL_RULES": "Перетаскивайте кусочки с буквами в строки, чтобы составить слова.\n - длина слов {0} букв\n - всего слов {1}\n...\n\tУдачи!",
+        "CHECK_WORDS_BUTTONS": "Проверить слова",
+        "VICTORY_VIEW_TITLE": "Победа!",
+        "VICTORY_VIEW_DESC": "Поздравляем!\nВы выиграли этот уровень!",
+        "TO_MAIN_MENU_BUTTON": "На главную",
+        "NEXT_LEVEL_BUTTON": "Следующий уровень",
+        "LEVEL_NUMBER": "Уровень {0}",
+        "MAIN_MENU_PLAY_BUTTON": "Играть",
+        "MAIN_MENU_TITLE": "Меню",
+        "SETTINGS_VIEW_TITLE": "Настройки",
+        "SETTINGS_SOUNDS_LABEL": "Звуки",
+        "SETTINGS_BACK_BUTTON": "Назад",
+        "HOW_PLAY_TITLE": "Как играть",
+        "OK_BUTTON": "Хорошо",
+        "LEVELS_COMPLETED_LABEL": "Пройдено уровней: ",
+        "GAME_OVER_MAIN_MENU_LABEL": "Поздравляем!\nВы прошли все уровни!",
+        "NO_ADS_NOW_TRY_LATER": "Сейчас нет видео, попробуйте позже.",
+        "FREE_UPDATE_AFTER": "+3 через: ",
+        "VICTORY_PROMPT": "Тебе нужно прокомментировать прохождение уровня в головоломке - составление слов из кластеров букв. пройден {1} уровень, вот собранные слова: {0}. Игрок ожидает похвалы за свои старания, но не банальной и не в лоб. Я верю в твои способности, будь собой, но старайся быть кратким (5-12 слов). Можешь опираться на Михаила Елизарова (но не упоминай его)"
     }
 }

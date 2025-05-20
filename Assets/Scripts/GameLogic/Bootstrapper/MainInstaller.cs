@@ -1,4 +1,5 @@
 using GameLogic.Factories;
+using GameLogic.Tutorial;
 using GameLogic.UI;
 using GameLogic.UI.Gameplay;
 using Infrastructure.GameActions;
@@ -8,11 +9,14 @@ using Zenject;
 
 namespace GameLogic.Bootstrapper
 {
-    public class MainInstaller : MonoInstaller  
+    public class MainInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
+            Container.Bind(typeof(ITimerService), typeof(ITickable)).To<TimerService>().AsSingle();
             Container.Bind<IFileService>().To<FileService>().AsSingle();
+            Container.Bind<IAssetsLoader>().To<AddressableAssetsLoader>().AsSingle();
+
             Container.Bind<GameAppReloader>().AsSingle();
 
             Container.Bind<LogicBuilderFactory>().AsSingle();
@@ -24,7 +28,7 @@ namespace GameLogic.Bootstrapper
             Container.BindFactory<Cluster, Cluster.Factory>().AsSingle();
             Container.BindFactory<WordRow, WordRow.Factory>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<AssetLoader>().AsSingle();
+            //Container.BindInterfacesAndSelfTo<TutorialService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ViewManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameActionExecutor>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameAppLoader>().AsSingle();
