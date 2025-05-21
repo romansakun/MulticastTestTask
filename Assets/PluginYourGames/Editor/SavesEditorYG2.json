@@ -1,0 +1,12 @@
+{
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 30,
+    "userData": "{\r\n  \"IsSoundsMuted\": false,\r\n  \"IsHowToPlayHintShown\": true,\r\n  \"LocalizationDefId\": \"Russian\",\r\n  \"Consumables\": {\r\n    \"WordsCheckingCount\": 3,\r\n    \"AdsTipCount\": 0,\r\n    \"LastFreeUpdateTime\": \"2025-05-21T12:29:12.6055429+03:00\"\r\n  },\r\n  \"LevelsProgress\": {\r\n    \"Ru_1\": {\r\n      \"LevelDefId\": \"Ru_1\",\r\n      \"IsCompleted\": true,\r\n      \"UndistributedClusters\": [],\r\n      \"DistributedClusters\": [\r\n        [\r\n          \"КАБ\",\r\n          \"АЧ\",\r\n          \"ОК\"\r\n        ],\r\n        [\r\n          \"ФО\",\r\n          \"РЕ\",\r\n          \"ЛЬ\"\r\n        ],\r\n        [\r\n          \"РЕ\",\r\n          \"БРО\"\r\n        ],\r\n        [\r\n          \"ПР\",\r\n          \"ОЕ\",\r\n          \"КТ\"\r\n        ]\r\n      ]\r\n    },\r\n    \"Ru_2\": {\r\n      \"LevelDefId\": \"Ru_2\",\r\n      \"IsCompleted\": true,\r\n      \"UndistributedClusters\": [],\r\n      \"DistributedClusters\": [\r\n        [\r\n          \"ФА\",\r\n          \"КЕЛ\"\r\n        ],\r\n        [\r\n          \"НОР\",\r\n          \"МА\"\r\n        ],\r\n        [\r\n          \"БЕ\",\r\n          \"РЕГ\"\r\n        ],\r\n        [\r\n          \"ЛИ\",\r\n          \"ЛИЯ\"\r\n        ]\r\n      ]\r\n    },\r\n    \"Ru_3\": {\r\n      \"LevelDefId\": \"Ru_3\",\r\n      \"IsCompleted\": true,\r\n      \"UndistributedClusters\": [],\r\n      \"DistributedClusters\": [\r\n        [\r\n          \"ПЕР\",\r\n          \"ЕХ\",\r\n          \"ОД\"\r\n        ],\r\n        [\r\n          \"ЯК\",\r\n          \"ОРЬ\"\r\n        ],\r\n        [\r\n          \"ЧЕР\",\r\n          \"НИ\",\r\n          \"КА\"\r\n        ],\r\n        [\r\n          \"ТИ\",\r\n          \"ПАЖ\"\r\n        ]\r\n      ]\r\n    }\r\n  }\r\n}"
+}

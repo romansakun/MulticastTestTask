@@ -19,6 +19,7 @@ namespace GameLogic.UI.HowToPlayHint
         [SerializeField] private VideoPlayer _videoPlayer;
         [SerializeField] private VideoClip[] _videoClips;
         [SerializeField] private TextMeshProUGUI _titleText;
+        [SerializeField] private GameObject _loadingCircle;
 
         private int _currentVideoIndex = 0;
         private HowToPlayHintViewModel _viewModel;
@@ -34,10 +35,13 @@ namespace GameLogic.UI.HowToPlayHint
 
         protected override void Subscribes()
         {
+            _videoPlayer.waitForFirstFrame = true;
+            _videoPlayer.prepareCompleted += OnVideoPlayerPrepareCompleted;
         }
 
         protected override void Unsubscribes()
         {
+            _videoPlayer.prepareCompleted -= OnVideoPlayerPrepareCompleted;
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -61,11 +65,27 @@ namespace GameLogic.UI.HowToPlayHint
             }
         }
 
+
+        private const string VideoUrl = "https://chess4chess.somee.com/Videos/";
+
         private void PlayHelpVideo()
         {
+#if UNITY_WEBGL
+            _videoPlayer.url = VideoUrl + _videoClips[_currentVideoIndex].name + ".mp4";
+#else
             _videoPlayer.clip = _videoClips[_currentVideoIndex];
+#endif
             _titleText.text = _userContext.GetLocalizedText($"VIDEO_TITLE_{_currentVideoIndex + 1}");
+
+            _loadingCircle.SetActive(true);
+            _videoPlayer.Prepare();
+        }
+
+        private void OnVideoPlayerPrepareCompleted(VideoPlayer source)
+        {
+            _loadingCircle.SetActive(false);
             _videoPlayer.Play();
         }
+
     }
 }

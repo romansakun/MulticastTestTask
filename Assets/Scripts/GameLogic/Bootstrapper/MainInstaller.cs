@@ -14,7 +14,7 @@ namespace GameLogic.Bootstrapper
         public override void InstallBindings()
         {
             Container.Bind(typeof(ITimerService), typeof(ITickable)).To<TimerService>().AsSingle();
-            Container.Bind<IFileService>().To<FileService>().AsSingle();
+            //Container.Bind<IFileService>().To<YandexSaves>().AsSingle();
             Container.Bind<IAssetsLoader>().To<AddressableAssetsLoader>().AsSingle();
 
             Container.Bind<GameAppReloader>().AsSingle();

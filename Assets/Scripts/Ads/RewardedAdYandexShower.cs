@@ -10,8 +10,6 @@ namespace Ads
 {
     public class RewardedAdYandexShower : MonoBehaviour, IAdsShower
     {
-        private const string REWARDED_AD_ID = "R-M-15325632-1";
-
         private RewardedAdLoader _rewardedAdLoader;
         private RewardedAd _rewardedAd;
         private Reward _reward;
@@ -66,7 +64,7 @@ namespace Ads
                 _rewardedAd.Destroy();
                 _rewardedAd = null;
             }
-            _rewardedAdLoader.LoadAd(CreateAdRequest(REWARDED_AD_ID));
+            _rewardedAdLoader.LoadAd(CreateAdRequest(RewardedAds.REWARDED_AD_ID));
             DisplayMessage("Rewarded Ad is requested");
         }
 

@@ -41,7 +41,7 @@ namespace GameLogic.Bootstrapper
 
         private bool TryLoadingPlayerContext()
         {
-            if (_fileService.TryReadAllText(GamePaths.PlayerContext, out var json) == false)
+            if (_fileService.TryReadAllText(GamePaths.PlayerContext, out var json) == false || string.IsNullOrEmpty(json))
                 return false;
 
             _userContext = JsonConvert.DeserializeObject<UserContext>(json);
