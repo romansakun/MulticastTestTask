@@ -210,7 +210,7 @@ namespace GameLogic.Model.Repositories
 
         private void SaveInternal()
         {
-            var json = JsonConvert.SerializeObject(_userContext, Formatting.Indented);
+            var json = JsonConvert.SerializeObject(_userContext, Formatting.None);
             _fileService.WriteAllText(GamePaths.PlayerContext, json);
         }
 

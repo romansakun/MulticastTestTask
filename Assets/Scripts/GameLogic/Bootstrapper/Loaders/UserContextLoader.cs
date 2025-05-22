@@ -41,11 +41,21 @@ namespace GameLogic.Bootstrapper
 
         private bool TryLoadingPlayerContext()
         {
-            if (_fileService.TryReadAllText(GamePaths.PlayerContext, out var json) == false || string.IsNullOrEmpty(json))
+            if (_fileService.TryReadAllText(GamePaths.PlayerContext, out var json) == false)
                 return false;
 
-            _userContext = JsonConvert.DeserializeObject<UserContext>(json);
-            return true;
+            try
+            {
+                _userContext = JsonConvert.DeserializeObject<UserContext>(json);
+            }
+            catch (JsonReaderException ex)
+            {
+                Debug.LogError("JSON parsing error: " + ex.Message);
+                Debug.LogError("Raw JSON: " + json);
+                return false;
+            }
+
+            return _userContext != null;
         }
 
         private void CreateNewPlayerContext()
@@ -55,7 +65,7 @@ namespace GameLogic.Bootstrapper
                 LocalizationDefId = GetLocalizationDefId()
             };
 
-            var json = JsonConvert.SerializeObject(_userContext, Formatting.Indented);
+            var json = JsonConvert.SerializeObject(_userContext, Formatting.None);
             _fileService.WriteAllText(GamePaths.PlayerContext, json);
         }
 

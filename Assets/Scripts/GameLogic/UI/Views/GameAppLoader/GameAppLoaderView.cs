@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace GameLogic.UI.GameAppLoader
@@ -11,6 +12,7 @@ namespace GameLogic.UI.GameAppLoader
         [Inject] private ViewModelFactory _viewModelFactory;
 
         [SerializeField] private TextMeshProUGUI _loadingText;
+        [SerializeField] private Image _loadingImage;
 
         private GameAppLoaderViewModel _viewModel;
 
@@ -28,17 +30,18 @@ namespace GameLogic.UI.GameAppLoader
 
         protected override void Subscribes()
         {
-            _viewModel.ProgressText.Subscribe(OnLoadingTextChanged);
+            _viewModel.Progress.Subscribe(OnProgressChanged);
         }
 
         protected override void Unsubscribes()
         {
-            _viewModel.ProgressText.Unsubscribe(OnLoadingTextChanged);
+            _viewModel.Progress.Unsubscribe(OnProgressChanged);
         }
 
-        private void OnLoadingTextChanged(string text)
+        private void OnProgressChanged(float progress)
         {
-            _loadingText.text = text;
+            _loadingText.text = $"{(int)(progress * 100)}%";
+            _loadingImage.fillAmount = progress;
         }
     }
 }

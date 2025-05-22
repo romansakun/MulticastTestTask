@@ -41,7 +41,7 @@ namespace Ads
             _isError = false;
             _isClose = false;
 
-            YG2.RewardedAdvShow(RewardedAds.REWARDED_AD_ID, () =>
+            YG2.RewardedAdvShow(RewardedAds.YG_REWARDED_AD_ID, () =>
             {
                 _isReward = true;
             });

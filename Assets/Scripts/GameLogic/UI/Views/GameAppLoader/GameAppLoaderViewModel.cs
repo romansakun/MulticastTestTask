@@ -11,8 +11,8 @@ namespace GameLogic.UI.GameAppLoader
         [Inject] private ViewManager _viewManager;
 
         private readonly AsyncOperationQueue _loadingQueue = new();
-        public IReactiveProperty<string> ProgressText => _progressText;
-        private readonly ReactiveProperty<string> _progressText = new();
+        public IReactiveProperty<float> Progress => _progress;
+        private readonly ReactiveProperty<float> _progress = new();
 
         private float _showingProgress;
         private Tween _animation;
@@ -45,7 +45,7 @@ namespace GameLogic.UI.GameAppLoader
             _animation = DOTween.To(() => _showingProgress, showingValue =>
             {
                 _showingProgress = showingValue;
-                _progressText.SetValueAndForceNotify($"Loading: {showingValue:P0}");
+                _progress.SetValueAndForceNotify(showingValue);
             }, progressValue, 1f);
         }
 
@@ -53,7 +53,7 @@ namespace GameLogic.UI.GameAppLoader
         {
             _loadingQueue.Progress.Unsubscribe(OnProgressChanged);
             _loadingQueue.Dispose();
-            _progressText.Dispose();
+            _progress.Dispose();
             _animation?.Kill();
         }
     }

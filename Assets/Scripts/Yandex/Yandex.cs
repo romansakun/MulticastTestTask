@@ -1,5 +1,7 @@
 using Cysharp.Threading.Tasks;
+using GameLogic.Model.Contexts;
 using Infrastructure.Services;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace YG
@@ -8,13 +10,13 @@ namespace YG
     {
         public bool TryReadAllText(string path, out string content)
         {
-            content = YG2.saves.userData;
-            return true;
+            content = JsonConvert.SerializeObject(YG2.saves.userContext);
+            return string.IsNullOrEmpty(content) == false;
         }
 
         public void WriteAllText(string path, string content)
         {
-            YG2.saves.userData = content;
+            YG2.saves.userContext = JsonConvert.DeserializeObject<UserContext>(content);;
             YG2.SaveProgress();
         }
 
@@ -34,10 +36,4 @@ namespace YG
             return UniTask.CompletedTask;
         }
     }
-
-    public partial class SavesYG
-    {
-        public string userData;
-    }
-
 }
