@@ -1,5 +1,5 @@
 {
-  "idSave": 67,
+  "idSave": 68,
   "userContext": {
     "IsSoundsMuted": false,
     "IsHowToPlayHintShown": true,
@@ -34,6 +34,26 @@
             "ОЕ",
             "КТ"
           ]
+        ]
+      },
+      "Ru_2": {
+        "LevelDefId": "Ru_2",
+        "IsCompleted": false,
+        "UndistributedClusters": [
+          "БЕ",
+          "ЛИ",
+          "НОР",
+          "МА",
+          "ЛИЯ",
+          "ФА",
+          "РЕГ",
+          "КЕЛ"
+        ],
+        "DistributedClusters": [
+          [],
+          [],
+          [],
+          []
         ]
       }
     }
