@@ -1,13 +1,13 @@
 {
-  "idSave": 68,
+  "idSave": 85,
   "userContext": {
     "IsSoundsMuted": false,
     "IsHowToPlayHintShown": true,
     "LocalizationDefId": "Russian",
     "Consumables": {
       "WordsCheckingCount": 3,
-      "AdsTipCount": 0,
-      "LastFreeUpdateTime": "2025-05-22T15:25:00.6759125+03:00"
+      "AdsTipCount": 3,
+      "LastFreeUpdateTime": "2025-05-23T14:58:42.4105331+03:00"
     },
     "LevelsProgress": {
       "Ru_1": {
@@ -41,18 +41,44 @@
         "IsCompleted": false,
         "UndistributedClusters": [
           "БЕ",
-          "ЛИ",
-          "НОР",
-          "МА",
-          "ЛИЯ",
           "ФА",
           "РЕГ",
           "КЕЛ"
         ],
         "DistributedClusters": [
+          [
+            "НОР"
+          ],
+          [
+            "ЛИ",
+            "ЛИЯ"
+          ],
+          [
+            "МА"
+          ],
+          []
+        ]
+      },
+      "En_1": {
+        "LevelDefId": "En_1",
+        "IsCompleted": false,
+        "UndistributedClusters": [
+          "TH",
+          "BRU",
+          "FA",
+          "NK",
+          "SH",
+          "NOR",
+          "ER",
+          "EY"
+        ],
+        "DistributedClusters": [
           [],
           [],
-          [],
+          [
+            "MO",
+            "TH"
+          ],
           []
         ]
       }

@@ -1,4 +1,3 @@
-using GameLogic.Model.DataProviders;
 using Zenject;
 
 namespace GameLogic.Bootstrapper

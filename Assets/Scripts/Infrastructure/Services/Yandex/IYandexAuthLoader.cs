@@ -11,4 +11,9 @@ namespace Infrastructure.Services
     {
         UniTask GameReady();
     }
+
+    public interface IYandexLocalization
+    {
+        void SetLocalization(string lang);
+    }
 }

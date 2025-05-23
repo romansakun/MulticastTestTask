@@ -4,6 +4,7 @@ using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Operators;
 using Infrastructure;
+using Infrastructure.Services;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,7 @@ namespace GameLogic.UI.Settings
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
+        [Inject] private IYandexLocalization _yandexLocalization;
 
         public IReactiveProperty<bool> IsSoundsMuted => _isSoundMuted;
         private ReactiveProperty<bool> _isSoundMuted;
@@ -28,7 +30,15 @@ namespace GameLogic.UI.Settings
 
         public void SetLocalization(SystemLanguage language)
         {
-            _userContextOperator.UpdateLocalization(language.ToString());
+            switch (language)
+            {
+                case SystemLanguage.Russian:
+                    _yandexLocalization.SetLocalization("ru");
+                    break;
+                default:
+                    _yandexLocalization.SetLocalization("en");
+                    break;
+            }
         }
 
         public void OnSoundsToggleValueChanged(bool state)
