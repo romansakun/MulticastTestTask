@@ -1,5 +1,6 @@
 {
     "Description": "Russian",
+    "TutorialVideos" : ["video_help_11", "video_help_22", "video_help_33"],
     "Levels": {
         "1": "Ru_1",
         "2": "Ru_2",
@@ -221,6 +222,7 @@
         "218": "Ru_218"
     },
     "LocalizationText": {
+        "GAMEPLAY_ERROR": "Произошла ошибка, будет перезагрузка",
         "VIDEO_TITLE_1": "Составляйте слова",
         "VIDEO_TITLE_2": "Пользуйтесь подсказкой",
         "VIDEO_TITLE_3": "Проверяйте слова",

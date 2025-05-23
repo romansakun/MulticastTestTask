@@ -46,8 +46,8 @@ namespace GameLogic.UI.Gameplay
                 .JoinAction<LoadWordRows>()
                 .JoinAction<LoadWordDistributedClusters>()
                 .JoinAction<LoadUndistributedClusters>()
-                .JoinAction<ResolveCheckingWordsAndHint>()
-                .JoinAction<TryShowHowToPlayHint>();
+                .JoinAction<ResolveCheckingWordsAndHint>();
+                //.JoinAction<TryShowHowToPlayHint>();
 
             var atTipAction = logicBuilder
                 .AddAction<TryApplyAdTip>();
@@ -103,7 +103,7 @@ namespace GameLogic.UI.Gameplay
             Debug.Log(errorMessage);
 
             var viewModel = _viewModelFactory.Create<CenterMessageViewModel>();
-            viewModel.SetText("An ERROR occurred, the game will be restarted");//сделать локаль
+            viewModel.SetText(_userContext.GetLocalizedText("GAMEPLAY_ERROR"));
             var view = await _viewManager.ShowAsync<CenterMessageView, CenterMessageViewModel>(viewModel);
             await view.ShowAndClose();
 
@@ -170,14 +170,6 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.AdTip.IsAdTip = true;
             _logicAgent.Execute(true);
-        }
-
-        public async void OnMainMenuButtonClicked()
-        {
-            if (_logicAgent.IsExecuting) return;
-            _viewManager.Close<GameplayView>();
-            var viewModel = _viewModelFactory.Create<MainMenuViewModel>();
-            var view = await _viewManager.ShowAsync<MainMenuView, MainMenuViewModel>(viewModel);
         }
 
         public override void Dispose()

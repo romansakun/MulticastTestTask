@@ -1,13 +1,13 @@
 {
-  "idSave": 85,
+  "idSave": 256,
   "userContext": {
     "IsSoundsMuted": false,
     "IsHowToPlayHintShown": true,
-    "LocalizationDefId": "Russian",
+    "LocalizationDefId": "English",
     "Consumables": {
       "WordsCheckingCount": 3,
-      "AdsTipCount": 3,
-      "LastFreeUpdateTime": "2025-05-23T14:58:42.4105331+03:00"
+      "AdsTipCount": 2,
+      "LastFreeUpdateTime": "2025-05-23T18:11:42.7239101+03:00"
     },
     "LevelsProgress": {
       "Ru_1": {
@@ -38,47 +38,119 @@
       },
       "Ru_2": {
         "LevelDefId": "Ru_2",
-        "IsCompleted": false,
-        "UndistributedClusters": [
-          "БЕ",
-          "ФА",
-          "РЕГ",
-          "КЕЛ"
-        ],
+        "IsCompleted": true,
+        "UndistributedClusters": [],
         "DistributedClusters": [
           [
-            "НОР"
+            "ФА",
+            "КЕЛ"
           ],
           [
             "ЛИ",
             "ЛИЯ"
           ],
           [
+            "НОР",
             "МА"
           ],
-          []
+          [
+            "БЕ",
+            "РЕГ"
+          ]
         ]
       },
       "En_1": {
         "LevelDefId": "En_1",
+        "IsCompleted": true,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "FA",
+            "TH",
+            "ER"
+          ],
+          [
+            "MO",
+            "NK",
+            "EY"
+          ],
+          [
+            "BRU",
+            "SH"
+          ],
+          [
+            "NOR",
+            "TH"
+          ]
+        ]
+      },
+      "Ru_3": {
+        "LevelDefId": "Ru_3",
         "IsCompleted": false,
         "UndistributedClusters": [
-          "TH",
-          "BRU",
-          "FA",
-          "NK",
-          "SH",
-          "NOR",
-          "ER",
-          "EY"
+          "ПАЖ",
+          "КА",
+          "ОРЬ",
+          "ОД",
+          "ЕХ",
+          "НИ",
+          "ЧЕР",
+          "ПЕР",
+          "ЯК",
+          "ТИ"
         ],
         "DistributedClusters": [
           [],
           [],
+          [],
+          []
+        ]
+      },
+      "En_2": {
+        "LevelDefId": "En_2",
+        "IsCompleted": true,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
           [
-            "MO",
-            "TH"
+            "OB",
+            "JE",
+            "CT"
           ],
+          [
+            "SU",
+            "BJ",
+            "ECT"
+          ],
+          [
+            "MAN",
+            "AG",
+            "ER"
+          ],
+          [
+            "CO",
+            "UR",
+            "SE"
+          ]
+        ]
+      },
+      "En_3": {
+        "LevelDefId": "En_3",
+        "IsCompleted": false,
+        "UndistributedClusters": [
+          "TY",
+          "QUA",
+          "SP",
+          "MU",
+          "RRY",
+          "LI",
+          "ORT",
+          "SIC",
+          "BE"
+        ],
+        "DistributedClusters": [
+          [],
+          [],
+          [],
           []
         ]
       }

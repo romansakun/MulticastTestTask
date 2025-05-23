@@ -1,5 +1,6 @@
 {
     "Description": "English",
+    "TutorialVideos" : ["video_help_en_1", "video_help_en_2", "video_help_en_3"],
     "Levels":
     {
         "1": "En_1",
@@ -105,6 +106,7 @@
     },
     "LocalizationText": 
     {
+        "GAMEPLAY_ERROR": "An ERROR occurred, the game will be restarted",
         "VIDEO_TITLE_1": "Form words",
         "VIDEO_TITLE_2": "Use hints",
         "VIDEO_TITLE_3": "Check words",

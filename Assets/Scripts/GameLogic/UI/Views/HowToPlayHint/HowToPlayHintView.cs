@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using GameLogic.Audio;
 using GameLogic.Bootstrapper;
@@ -13,14 +14,15 @@ namespace GameLogic.UI.HowToPlayHint
     public class HowToPlayHintView : View, IPointerClickHandler
     {
         [Inject] private UserContextDataProvider _userContext;
+        [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private AudioPlayer _audioPlayer;
         [Inject] private SoundsSettings _soundsSettings;
-        
+
         [SerializeField] private VideoPlayer _videoPlayer;
-        [SerializeField] private VideoClip[] _videoClips;
         [SerializeField] private TextMeshProUGUI _titleText;
         [SerializeField] private GameObject _loadingCircle;
 
+        private List<string> _videoUrls;
         private int _currentVideoIndex = 0;
         private HowToPlayHintViewModel _viewModel;
 
@@ -28,6 +30,7 @@ namespace GameLogic.UI.HowToPlayHint
         {
             UpdateViewModel(ref _viewModel, viewModel);
 
+            _videoUrls = _gameDefs.Localizations[_userContext.LocalizationDefId.Value].TutorialVideos;
             PlayHelpVideo();
 
             return UniTask.CompletedTask;
@@ -53,7 +56,7 @@ namespace GameLogic.UI.HowToPlayHint
         {
             _audioPlayer.PlaySound(_soundsSettings.TapSound);
 
-            if (_currentVideoIndex < _videoClips.Length - 1)
+            if (_currentVideoIndex < _videoUrls.Count - 1)
             {
                 _currentVideoIndex++;
                 _videoPlayer.Stop();
@@ -70,11 +73,7 @@ namespace GameLogic.UI.HowToPlayHint
 
         private void PlayHelpVideo()
         {
-#if UNITY_WEBGL
-            _videoPlayer.url = VideoUrl + _videoClips[_currentVideoIndex].name + ".mp4";
-#else
-            _videoPlayer.clip = _videoClips[_currentVideoIndex];
-#endif
+            _videoPlayer.url = VideoUrl + _videoUrls[_currentVideoIndex] + ".mp4";
             _titleText.text = _userContext.GetLocalizedText($"VIDEO_TITLE_{_currentVideoIndex + 1}");
 
             _loadingCircle.SetActive(true);

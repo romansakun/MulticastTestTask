@@ -964,6 +964,7 @@ GameObject:
   - component: {fileID: 8935744503070179052}
   - component: {fileID: 7773358296105191504}
   - component: {fileID: 171912598712798695}
+  - component: {fileID: 1772448564787874534}
   - component: {fileID: 9141372202469831340}
   m_Layer: 5
   m_Name: HelpButton
@@ -1043,6 +1044,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _elementColor: 6
   _graphic: {fileID: 7773358296105191504}
+--- !u!114 &1772448564787874534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6407918969250438087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55383a60baf476cba662b42a6e2fb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 9141372202469831340}
 --- !u!114 &9141372202469831340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,7 +1165,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

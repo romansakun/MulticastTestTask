@@ -103,10 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _overrideSortingOrder: 999
   _videoPlayer: {fileID: 8716753590678722222}
-  _videoClips:
-  - {fileID: 32900000, guid: 3431360f327714c479a34b6387867fee, type: 3}
-  - {fileID: 32900000, guid: 8a4e5a18883ba9f42a6123ccb4d41a3e, type: 3}
-  - {fileID: 32900000, guid: bdf8ddc68f809f64a9bc8f9c38f1c634, type: 3}
+  _videoClips: []
   _titleText: {fileID: 3006326719933071938}
   _loadingCircle: {fileID: 9204153396408253269}
 --- !u!1 &2711845078036913886
