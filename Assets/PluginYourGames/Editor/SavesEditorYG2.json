@@ -1,9 +1,9 @@
 {
-  "idSave": 256,
+  "idSave": 280,
   "userContext": {
     "IsSoundsMuted": false,
     "IsHowToPlayHintShown": true,
-    "LocalizationDefId": "English",
+    "LocalizationDefId": "Russian",
     "Consumables": {
       "WordsCheckingCount": 3,
       "AdsTipCount": 2,
@@ -86,24 +86,27 @@
       },
       "Ru_3": {
         "LevelDefId": "Ru_3",
-        "IsCompleted": false,
-        "UndistributedClusters": [
-          "ПАЖ",
-          "КА",
-          "ОРЬ",
-          "ОД",
-          "ЕХ",
-          "НИ",
-          "ЧЕР",
-          "ПЕР",
-          "ЯК",
-          "ТИ"
-        ],
+        "IsCompleted": true,
+        "UndistributedClusters": [],
         "DistributedClusters": [
-          [],
-          [],
-          [],
-          []
+          [
+            "ЯК",
+            "ОРЬ"
+          ],
+          [
+            "ПЕР",
+            "ЕХ",
+            "ОД"
+          ],
+          [
+            "ЧЕР",
+            "НИ",
+            "КА"
+          ],
+          [
+            "ТИ",
+            "ПАЖ"
+          ]
         ]
       },
       "En_2": {
