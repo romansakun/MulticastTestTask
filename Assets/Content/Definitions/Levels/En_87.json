@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"SHEET": [2, 3],
-		"THING": [2, 3],
-		"ENGINE": [2, 2, 2],
-		"KINGDOM": [2, 3, 2]
+		"ABILITY": [3, 2, 2],
+		"ECONOMY": [3, 2, 2],
+		"SUCCESS": [3, 2, 2],
+		"TEACHER": [2, 2, 3]
 	}
 }

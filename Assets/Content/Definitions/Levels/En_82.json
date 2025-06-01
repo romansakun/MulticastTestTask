@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"TROUBLE": [3, 2, 2],
-		"EVENT": [3, 2],
-		"MONTH": [3, 2],
-		"REGION": [2, 2, 2]
+		"RESPECT": [3, 2, 2],
+		"ARTICLE": [2, 3, 2],
+		"LIBRARY": [2, 2, 3],
+		"PRODUCT": [2, 3, 2]
 	}
 }

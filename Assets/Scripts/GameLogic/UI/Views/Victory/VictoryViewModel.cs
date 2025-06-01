@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using System.Text;
+using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
 using GameLogic.GptChats;
+using GameLogic.Helpers;
 using GameLogic.Model.DataProviders;
 using GameLogic.UI.Gameplay;
 using GameLogic.UI.MainMenu;
 using Infrastructure;
+using Infrastructure.Services;
 using UnityEngine;
 using Zenject;
 
@@ -14,12 +17,14 @@ namespace GameLogic.UI.Victory
     public class VictoryViewModel : ViewModel
     {
         [Inject] private UserContextDataProvider _userContext;
+        [Inject] private UserContextRatingHelper _ratingHelper;
         [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private WordRow.Factory _wordRowFactory;
         [Inject] private Cluster.Factory _clusterFactory;
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private IGptChat _gptChat;
+        [Inject] private IYandexLeaderboards _yandexLeaderboards;
 
         private readonly List<WordRow> _wordRows = new();
         private readonly List<Cluster> _clusters = new();
@@ -29,6 +34,9 @@ namespace GameLogic.UI.Victory
 
         public IReactiveProperty<string> CongratulationsText => _congratulationsText;
         private readonly ReactiveProperty<string> _congratulationsText = new();
+
+        public IReactiveProperty<string> ScoreText => _scoreText;
+        private readonly ReactiveProperty<string> _scoreText = new();
 
         public override void Initialize()
         {
@@ -62,6 +70,7 @@ namespace GameLogic.UI.Victory
             }
             
             TrySetCongratulationsText(lastLevelProgress);
+            SetRating(lastLevelProgress);
         }
 
         private async void TrySetCongratulationsText(LevelProgressContextDataProvider levelProgress)
@@ -85,18 +94,30 @@ namespace GameLogic.UI.Victory
             }
         }
 
+        private void SetRating(LevelProgressContextDataProvider levelProgress)
+        {
+            var localizationDefId = _userContext.LocalizationDefId.Value;
+            var score = _ratingHelper.AddLevelScore(localizationDefId, levelProgress);
+
+            _scoreText.Value = $"+{score}";
+
+            var lang = _gameDefs.Localizations[localizationDefId].Description;
+            _yandexLeaderboards.SetLeaderboard(lang, _ratingHelper.GetRating(localizationDefId));
+        }
+
         public async void OnNextLevelButtonClicked()
         {
-            _viewManager.Close<VictoryView>();
+            var closing = _viewManager.Close<VictoryView>(false, false);
             var viewModel = _viewModelFactory.Create<GameplayViewModel>();
-            var view = await _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
+            var showing = _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
+            await UniTask.WhenAll(closing, showing);
         }
 
         public async void OnMainMenuButtonClicked()
-        {   
-            _viewManager.Close<VictoryView>();
+        {
             var viewModel = _viewModelFactory.Create<MainMenuViewModel>();
             var view = await _viewManager.ShowAsync<MainMenuView, MainMenuViewModel>(viewModel);
+            await _viewManager.Close<VictoryView>(false, false);
         }
 
         public override void Dispose()

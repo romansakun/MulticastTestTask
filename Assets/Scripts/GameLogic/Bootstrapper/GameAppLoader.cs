@@ -34,6 +34,8 @@ namespace GameLogic.Bootstrapper
 
             //viewModel.AddToLoadingQueue<YandexAuthLoader>();
             viewModel.AddToLoadingQueue<UserContextLoader>();
+            viewModel.AddToLoadingQueue<MusicLoading>();
+            viewModel.AddToLoadingQueue<RatingLoading>();
             viewModel.AddToLoadingQueue<InitDeferredMonoPoolsLoader>();
             viewModel.AddToLoadingQueue<ShowMainMenuLoader>();
             viewModel.AddToLoadingQueue<YandexGraLoading>();

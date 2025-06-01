@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"RECORD": [2, 2, 2],
-		"CHANCE": [2, 2, 2],
-		"NATURE": [2, 2, 2],
-		"SPEED": [2, 3]
+		"TRUST": [3, 2],
+		"MUSIC": [3, 2],
+		"STEEL": [2, 3],
+		"SCALE": [3, 2]
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"PERIOD": [2, 2, 2],
-		"STATION": [3, 2, 2],
-		"VEHICLE": [2, 3, 2],
-		"RESPECT": [2, 3, 2]
+		"BEDROOM": [3, 2, 2],
+		"WEEKEND": [2, 3, 2],
+		"CURTAIN": [3, 2, 2],
+		"CUSHION": [2, 2, 3]
 	}
 }

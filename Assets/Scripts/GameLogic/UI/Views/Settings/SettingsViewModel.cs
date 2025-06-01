@@ -3,6 +3,7 @@ using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Operators;
+using GameLogic.UI.MainMenu;
 using Infrastructure;
 using Infrastructure.Services;
 using UnityEngine;
@@ -50,9 +51,11 @@ namespace GameLogic.UI.Settings
             _isSoundMuted.Value = isMuted;
         }
 
-        public void OnBackButtonClicked()
+        public async void OnBackButtonClicked()
         {
-            _viewManager.Close<SettingsView>();
+            _viewManager.TryGetView<MainMenuView>(out var view);
+            view.gameObject.SetActive(true);
+            await _viewManager.Close<SettingsView>();
         }
     }
 }

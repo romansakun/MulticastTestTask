@@ -47,7 +47,7 @@ namespace GameLogic.Audio
 
         public void PlayMusic(AudioClip music)
         {
-            if (_userContext.IsSoundsMuted.Value) return;
+            //if (_userContext.IsSoundsMuted.Value) return;
             if (music == null)
             {
                 Debug.LogWarning($"There is no music");
@@ -60,7 +60,7 @@ namespace GameLogic.Audio
 
         private void OnDestroy()
         {
-            _userContext.IsSoundsMuted.Unsubscribe(OnSoundMutedChanged);
+            _userContext?.IsSoundsMuted.Unsubscribe(OnSoundMutedChanged);
             _signalBus.Unsubscribe<UserContextInitializedSignal>(OnUserContextInitialized);
         }
     }

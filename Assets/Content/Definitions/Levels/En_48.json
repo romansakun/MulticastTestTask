@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CORNER": [2, 2, 2],
-		"CREDIT": [2, 2, 2],
-		"RANGE": [3, 2],
-		"SHAPE": [2, 3]
+		"MOMENT": [2, 2, 2],
+		"MOTION": [2, 2, 2],
+		"WEIGHT": [2, 2, 2],
+		"CREDIT": [2, 2, 2]
 	}
 }

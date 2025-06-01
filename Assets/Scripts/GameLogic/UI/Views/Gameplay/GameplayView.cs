@@ -4,6 +4,7 @@ using DG.Tweening;
 using GameLogic.Audio;
 using GameLogic.Bootstrapper;
 using GameLogic.UI.Components;
+using GameLogic.UI.Victory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,7 +17,9 @@ namespace GameLogic.UI.Gameplay
     {
         [Inject] private AudioPlayer _audioPlayer;
         [Inject] private SoundsSettings _soundsSettings;
-        
+
+        [SerializeField] private ViewContentAnimations _animations;
+
         [SerializeField] private RectTransform _scrollRectSwipeArea;
         [SerializeField] private ScrollRect _undistributedClustersScrollRect;
         [SerializeField] private RectTransform _undistributedClustersHolder;
@@ -38,7 +41,6 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private CircleCountText _checkWordsButtonCountText;
         [SerializeField] private GameObject _checkWordsButtonAdsImage;
         [SerializeField] private List<GameObject> _checkingWordsButtonEmpties;
-   
 
         private bool _isScrollRectDragging;
         private Tween _failButtonAnimation;
@@ -199,5 +201,17 @@ namespace GameLogic.UI.Gameplay
             _viewModel.OnEndDrag(eventData);
         }
 
+        public override async UniTask AnimateClosing()
+        {
+            await _animations.HideToRight();
+        }
+
+        public override async UniTask AnimateShowing()
+        {
+            if (_viewManager.TryGetView<VictoryView>(out _))
+                await _animations.ShowFromLeft();
+            else
+                await _animations.ShowByScaleAndAlpha();
+        }
     }
 }

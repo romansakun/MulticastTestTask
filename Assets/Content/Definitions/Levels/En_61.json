@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"POWER": [3, 2],
-		"CENTURY": [2, 3, 2],
-		"QUEEN": [3, 2],
-		"GRASS": [3, 2]
+		"DOCTOR": [2, 2, 2],
+		"LEADER": [2, 2, 2],
+		"CAREER": [2, 2, 2],
+		"BATTLE": [2, 2, 2]
 	}
 }

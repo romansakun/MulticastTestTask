@@ -88,6 +88,9 @@ namespace GameLogic.UI.Gameplay
         public void OnSpawned(IMemoryPool memoryPool)
         {
             _memoryPool = memoryPool;
+            _rectTransform.anchoredPosition = Vector2.zero;
+            _rectTransform.anchorMin = Vector2.one * 0.5f;
+            _rectTransform.anchorMax = Vector2.one * 0.5f;
             gameObject.SetActive(true);
         }
 

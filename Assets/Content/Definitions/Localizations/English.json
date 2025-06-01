@@ -1,5 +1,5 @@
 {
-    "Description": "English",
+    "Description": "en",
     "TutorialVideos" : ["video_help_en_1", "video_help_en_2", "video_help_en_3"],
     "Levels":
     {
@@ -104,6 +104,14 @@
         "99": "En_99",
         "100": "En_100"
     },
+    "Leagues": {
+        "1": "En_League_1",
+        "2": "En_League_2", 
+        "3": "En_League_3",
+        "4": "En_League_4",
+        "5": "En_League_5",
+        "6": "En_League_6"
+    },
     "LocalizationText": 
     {
         "GAMEPLAY_ERROR": "An ERROR occurred, the game will be restarted",
@@ -129,6 +137,7 @@
         "GAME_OVER_MAIN_MENU_LABEL": "Congratulations!\nYou passed all levels!",
         "NO_ADS_NOW_TRY_LATER": "No video now, Please try later.",
         "FREE_UPDATE_AFTER": "+3 after: ",
+        "LEADERBOARD_TITLE": "Ranking",
         "VICTORY_PROMPT": "Give the player a congratulations for completing the level in the game (form words from pieces, here are the words: {0}, completed level: {1}), make it a single sentence (5-12 words)"
     }
 }

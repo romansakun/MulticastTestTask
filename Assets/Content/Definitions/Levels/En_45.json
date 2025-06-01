@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CHANNEL": [3, 2, 2],
 		"SUPPLY": [2, 2, 2],
-		"FORCE": [2, 3],
-		"TRADE": [2, 3]
+		"LETTER": [2, 2, 2],
+		"VOLUME": [2, 2, 2],
+		"REGION": [2, 2, 2]
 	}
 }

@@ -27,6 +27,10 @@ namespace EditorDefinitions
             {
                 ValidateLocalization(pair.Value);
             }
+            foreach (var pair in _gameDefs.Leagues)
+            {
+                ValidateLeague(pair.Value);
+            }
         }
 
         private void ValidateLevelsSettings()
@@ -45,6 +49,15 @@ namespace EditorDefinitions
             var clusterLengthsRange = _gameDefs.LevelSettings.ClusterLengthsRange;
             if (clusterLengthsRange.IsValid() == false || clusterLengthsRange.Min < 1)
                 throw new Exception("LevelSettings.ClusterLengthsRange is invalid!");
+        }
+
+        private void ValidateLeague(LeagueDef leagueDef)
+        {
+            foreach (var levelDefId in leagueDef.Levels)
+            {
+                if (_gameDefs.Levels.TryGetValue(levelDefId, out _) == false)
+                    throw new Exception($"League[{leagueDef.Id}]: Level with id '{levelDefId}' not found!");
+            }
         }
 
         private void ValidateLevel(LevelDef level)

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"EXTENT": [2, 2, 2],
-		"SECTOR": [2, 2, 2],
-		"CHESS": [3, 2],
-		"WORLD": [2, 3]
+		"MUSEUM": [2, 2, 2],
+		"ENGINE": [2, 2, 2],
+		"SILVER": [2, 2, 2],
+		"REFORM": [2, 2, 2]
 	}
 }

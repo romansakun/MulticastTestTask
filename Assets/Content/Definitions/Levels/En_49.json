@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"LEADER": [2, 2, 2],
-		"CHURCH": [2, 2, 2],
-		"SCREEN": [2, 2, 2],
-		"RETURN": [2, 2, 2]
+		"AUTHOR": [2, 2, 2],
+		"STATUS": [2, 2, 2],
+		"FACTOR": [2, 2, 2],
+		"ACCESS": [2, 2, 2]
 	}
 }

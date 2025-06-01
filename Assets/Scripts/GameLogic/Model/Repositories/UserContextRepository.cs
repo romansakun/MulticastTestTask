@@ -83,6 +83,14 @@ namespace GameLogic.Model.Repositories
             _updatedLevelDefId.SetValueAndForceNotify(needLevelDefId);
         }
 
+        public void IncrementSaves(string levelDefId)
+        {
+            if (_userContext.LevelsProgress.TryGetValue(levelDefId, out var needLevel))
+            {
+                needLevel.SavesCount += 1;
+            }
+        }
+
         public bool IsAnyLevelProgressExist()
         {
             return _userContext.LevelsProgress.Count > 0;

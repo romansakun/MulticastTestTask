@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"VALLEY": [2, 2, 2],
-		"MOTOR": [3, 2],
-		"CONTROL": [3, 2, 2],
-		"VOLUME": [2, 2, 2]
+		"PRICE": [2, 3],
+		"FORCE": [3, 2],
+		"MODEL": [2, 3],
+		"UNION": [3, 2]
 	}
 }

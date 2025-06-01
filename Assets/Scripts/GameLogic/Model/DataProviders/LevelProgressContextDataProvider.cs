@@ -7,6 +7,7 @@ namespace GameLogic.Model.DataProviders
     {
         public string LevelDefId { get; }
         public bool IsCompleted { get; }
+        public int SavesCount { get; }
         public IReadOnlyList<string> UndistributedClusters { get; }
         public IReadOnlyList<IReadOnlyList<string>> DistributedClusters { get; }
 
@@ -14,6 +15,7 @@ namespace GameLogic.Model.DataProviders
         {
             LevelDefId = levelProgress.LevelDefId;
             IsCompleted = levelProgress.IsCompleted;
+            SavesCount = levelProgress.SavesCount;
             UndistributedClusters = levelProgress.UndistributedClusters;
             DistributedClusters = levelProgress.DistributedClusters;
         }

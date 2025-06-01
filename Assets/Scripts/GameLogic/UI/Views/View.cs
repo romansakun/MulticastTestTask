@@ -65,10 +65,20 @@ namespace GameLogic.UI
             }
         }
 
-        [ContextMenu("Close")]
-        public void Close()
+        public virtual UniTask AnimateShowing()
         {
-            _viewManager.Close(this);
+            return UniTask.CompletedTask;
+        }
+
+        public virtual UniTask AnimateClosing()
+        {
+            return UniTask.CompletedTask;
+        }
+
+        [ContextMenu("Close")]
+        public async void Close(bool force = false)
+        {
+            await _viewManager.Close(this);
         }
 
         private void OnDestroy()

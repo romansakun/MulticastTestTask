@@ -13,6 +13,8 @@ namespace GameLogic.UI
         CommonButtonText = 8,
         CongratulationsText = 9,
         CommonClusterText = 10,
-        MainMenuViewElement = 11
+        MainMenuViewElement = 11,
+        LeaderboardMyPlayerBack = 12,
+        LeaderboardOtherPlayerBack = 13,
     }
 }

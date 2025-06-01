@@ -26,6 +26,7 @@ namespace GameLogic.Model.Actions
         public UniTask ExecuteAsync()
         {
             _userContextOperator.AddOrUpdateLevelProgress(_levelDefId, _undistributedClusters, _distributedClusters);
+            _userContextOperator.IncrementSaves(_levelDefId);
 
             return UniTask.CompletedTask;
         }

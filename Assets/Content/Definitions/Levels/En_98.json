@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"SESSION": [3, 2, 2],
-		"OFFER": [2, 3],
-		"PIECE": [2, 3],
-		"PHONE": [2, 3]
+		"RECEIPT": [2, 3, 2],
+		"VICTORY": [2, 3, 2],
+		"PACKAGE": [2, 2, 3],
+		"CABINET": [3, 2, 2]
 	}
 }

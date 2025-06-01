@@ -1,5 +1,4 @@
 using System;
-using Infrastructure.Extensions;
 using Infrastructure.Pools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +11,6 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private Image _backImage;
         [SerializeField] private RectTransform _rectTransform;
         [SerializeField] private RectTransform _clustersHolder;
-        [SerializeField] private Animator _blinkAnimator;
         [SerializeField] private HorizontalLayoutGroup _horizontalLayoutGroup;
 
         private IMemoryPool _memoryPool;
@@ -50,6 +48,11 @@ namespace GameLogic.UI.Gameplay
         public void OnSpawned(IMemoryPool memoryPool)
         {
             _memoryPool = memoryPool;
+            _rectTransform.anchoredPosition = Vector2.zero;
+            _rectTransform.anchorMin = Vector2.one * 0.5f;
+            _rectTransform.anchorMax = Vector2.one * 0.5f;
+            _clustersHolder.anchoredPosition = Vector2.zero;
+            _clustersHolder.sizeDelta = Vector2.zero;
             gameObject.SetActive(true);
             SetEnabledBlinking(false);
         }
@@ -61,10 +64,10 @@ namespace GameLogic.UI.Gameplay
 
         public void SetEnabledBlinking(bool isEnabled)
         {
-            _backImage.color = _backImage.color.WithAlpha(1f);
-            if (!_blinkAnimator) return;
-            _blinkAnimator.Rebind();
-            _blinkAnimator.enabled = isEnabled;
+            // _backImage.color = _backImage.color.WithAlpha(1f);
+            // if (!_blinkAnimator) return;
+            // _blinkAnimator.Rebind();
+            // _blinkAnimator.enabled = isEnabled;
         }
 
         public void OnDespawned()

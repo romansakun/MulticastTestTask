@@ -5,11 +5,12 @@ using GameLogic.Model.Operators;
 using Infrastructure.Services;
 using Newtonsoft.Json;
 using UnityEngine;
+using YG.Utils.LB;
 using Zenject;
 
 namespace YG
 {
-    public class Yandex : MonoBehaviour, IFileService, IYandexAuthLoader, IYandexGRA, IYandexLocalization
+    public class Yandex : MonoBehaviour, IFileService, IYandexAuthLoader, IYandexGRA, IYandexLocalization, IYandexLeaderboards
     {
         [Inject] private SignalBus _signalBus;
         [Inject] private DiContainer _diContainer;
@@ -21,6 +22,7 @@ namespace YG
             _signalBus.Subscribe<UserContextInitializedSignal>(OnUserContextInitialized);
             YG2.onCorrectLang += OnCorrectLanguage;
             YG2.onSwitchLang += OnLanguageChanged;
+            YG2.onGetLeaderboard += OnGetLeaderboard;
         }
 
         private void OnDestroy()
@@ -28,12 +30,18 @@ namespace YG
             _signalBus.Unsubscribe<UserContextInitializedSignal>(OnUserContextInitialized);
             YG2.onCorrectLang -= OnCorrectLanguage;
             YG2.onSwitchLang -= OnLanguageChanged;
+            YG2.onGetLeaderboard -= OnGetLeaderboard;
         }
 
         private void OnUserContextInitialized(UserContextInitializedSignal signal)
         {
             _userContextOperator = _diContainer.Resolve<UserContextOperator>();
             OnLanguageChanged(YG2.lang);
+        }
+
+        private void OnGetLeaderboard(LBData leaderboardData)
+        {
+            _leaderboardData = leaderboardData;
         }
 
         public bool TryReadAllText(string path, out string content)
@@ -63,7 +71,7 @@ namespace YG
 
             return UniTask.CompletedTask;
         }
-        
+
         public void SetLocalization(string lang)
         {
             YG2.lang = lang;
@@ -93,5 +101,44 @@ namespace YG
             }
         }
 
+        private LBData _leaderboardData;
+
+        public void SetLeaderboard(string lang, int score)
+        {
+            var tableId = GetLeaderboardId(lang);
+            YG2.SetLeaderboard(tableId, score);
+        }
+
+        public async UniTask<Infrastructure.Services.Yandex.Leaderboards.LBData> GetLeaderboard(string lang)
+        {
+            _leaderboardData = null;
+            var tableId = GetLeaderboardId(lang);
+            YG2.GetLeaderboard(tableId);
+            while (_leaderboardData == null)
+            {
+                await UniTask.Yield();
+            }
+            return ConvertLeaderboardData(_leaderboardData);
+        }
+
+        private static string GetLeaderboardId(string lang)
+        {
+#if UNITY_EDITOR
+            return "test";
+#else
+            return lang  == "ru" ? "RuBestPlayers" : "EnBestPlayers";
+#endif
+        }
+
+        private Infrastructure.Services.Yandex.Leaderboards.LBData ConvertLeaderboardData(LBData leaderboardData)
+        {
+            var json = JsonConvert.SerializeObject(leaderboardData);
+            var data = JsonConvert.DeserializeObject<Infrastructure.Services.Yandex.Leaderboards.LBData>(json);
+            if (data.currentPlayer != null)
+            {
+                data.currentPlayer.name = YG2.player.name;
+            }
+            return data;
+        }
     }
 }

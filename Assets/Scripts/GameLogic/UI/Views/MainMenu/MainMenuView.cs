@@ -9,9 +9,13 @@ namespace GameLogic.UI.MainMenu
     {
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _settingsButton;
-        [SerializeField] private Button _helpButton;
-        [SerializeField] private GameObject _gameOverLabel;
-        [SerializeField] private TextMeshProUGUI _levelsCompletedNumberText;
+        [SerializeField] private Button _leaderboardsButton;
+        //[SerializeField] private GameObject _gameOverLabel;
+        //[SerializeField] private TextMeshProUGUI _levelsCompletedNumberText;
+        [Header("League")]
+        [SerializeField] private TextMeshProUGUI _leagueLevelsLabel;
+        [SerializeField] private Image _leagueWreathIcon;
+        [SerializeField] private Image _leagueRomanNumberIcon;
 
         private MainMenuViewModel _viewModel;
 
@@ -25,8 +29,10 @@ namespace GameLogic.UI.MainMenu
         {
             _playButton.onClick.AddListener(_viewModel.OnPlayButtonClicked);
             _settingsButton.onClick.AddListener(_viewModel.OnSettingsButtonClicked);
-            _helpButton.onClick.AddListener(_viewModel.OnHelpButtonClicked);
-            _viewModel.CompletedLevelsCount.Subscribe(OnLevelsCompletedCountChanged);
+            _leaderboardsButton.onClick.AddListener(_viewModel.OnLeaderboardsButtonClicked);
+            _viewModel.LeagueWreathIcon.Subscribe(OnLeagueWreathIconChanged);
+            _viewModel.LeagueLevelsLabel.Subscribe(OnLeagueLevelsLabelChanged);
+            _viewModel.LeagueRomanNumberIcon.Subscribe(OnLeagueRomanNumberIconChanged);
             _viewModel.IsLocalizationGameOver.Subscribe(OnLocalizationGameOverChanged);
         }
 
@@ -34,20 +40,39 @@ namespace GameLogic.UI.MainMenu
         {
             _playButton.onClick.RemoveListener(_viewModel.OnPlayButtonClicked);
             _settingsButton.onClick.RemoveListener(_viewModel.OnSettingsButtonClicked);
-            _helpButton.onClick.RemoveAllListeners();
-            _viewModel.CompletedLevelsCount.Unsubscribe(OnLevelsCompletedCountChanged);
+            _leaderboardsButton.onClick.RemoveAllListeners();
+            _viewModel.LeagueWreathIcon.Unsubscribe(OnLeagueWreathIconChanged);
+            _viewModel.LeagueLevelsLabel.Unsubscribe(OnLeagueLevelsLabelChanged);
+            _viewModel.LeagueRomanNumberIcon.Unsubscribe(OnLeagueRomanNumberIconChanged);
             _viewModel.IsLocalizationGameOver.Unsubscribe(OnLocalizationGameOverChanged);
         }
 
-        private void OnLevelsCompletedCountChanged(int count)
+        private void OnLeagueWreathIconChanged(Sprite sprite)
         {
-            _levelsCompletedNumberText.text = count.ToString();
+            _leagueWreathIcon.enabled = sprite != null;
+            _leagueWreathIcon.sprite = sprite;
         }
+
+        private void OnLeagueRomanNumberIconChanged(Sprite sprite)
+        {
+            _leagueRomanNumberIcon.enabled = sprite != null;
+            _leagueRomanNumberIcon.sprite = sprite;
+        }
+
+        private void OnLeagueLevelsLabelChanged(string value)
+        {
+            _leagueLevelsLabel.text = value;
+        }
+
+        // private void OnLevelsCompletedCountChanged(int count)
+        // {
+        //     _levelsCompletedNumberText.text = count.ToString();
+        // }
 
         private void OnLocalizationGameOverChanged(bool state)
         {
             _playButton.gameObject.SetActive(state == false);
-            _gameOverLabel.SetActive(state);
+            //_gameOverLabel.SetActive(state);
         }
 
     }

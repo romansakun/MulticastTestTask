@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"UNION": [2, 3],
-		"FLOWER": [2, 2, 2],
-		"STREET": [2, 2, 2],
-		"ARTICLE": [2, 2, 3]
+		"ACTION": [2, 2, 2],
+		"EFFECT": [2, 2, 2],
+		"COURSE": [2, 2, 2],
+		"COUNTY": [2, 2, 2]
 	}
 }

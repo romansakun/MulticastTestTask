@@ -148,7 +148,7 @@ namespace GameLogic.UI.Gameplay
             if (_logicAgent.IsExecuting) return;
             _logicAgent.Context.Input = (UserInputType.OnDrag, eventData);
             _logicAgent.Execute();
-            Debug.Log(_logicAgent.GetLog());
+            //Debug.Log(_logicAgent.GetLog());
         }
 
         public void OnEndDrag(PointerEventData eventData)

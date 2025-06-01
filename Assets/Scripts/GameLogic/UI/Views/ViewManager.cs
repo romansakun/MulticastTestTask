@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Infrastructure;
 using Infrastructure.Services;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -23,6 +24,8 @@ namespace GameLogic.UI
         public void Initialize()
         {
             _canvasRectTransform = _canvas.GetComponent<RectTransform>();
+            var canvasScaler = _canvas.GetComponent<CanvasScaler>();
+            canvasScaler.matchWidthOrHeight = Screen.width > Screen.height ? 0.88f : 0.7f;
         }
 
         public async UniTask AddView<V, VM>(V view, VM viewModel) where V : View where VM : ViewModel
@@ -35,12 +38,21 @@ namespace GameLogic.UI
             _instancedViews.ForceNotify();
         }
 
-        public async UniTask<V> ShowAsync<V, VM> (VM viewModel) where V : View where VM : ViewModel
+        public async UniTask<V> ShowAsync<V, VM> (VM viewModel, bool force = false) where V : View where VM : ViewModel
         {
             var viewPrefab = await _assetsLoader.LoadPrefabAsync<V>();
             var view = _diContainer.InstantiatePrefabForComponent<V>(viewPrefab, _canvasRectTransform);
             view.PrepareToShow();
-            await view.Initialize(viewModel);
+
+            var initializingTask = view.Initialize(viewModel);
+            if (force == false)
+            {
+                await UniTask.WhenAll(initializingTask, view.AnimateShowing());
+            }
+            else
+            {
+                await initializingTask;
+            }
 
             _instancedViews.Value.Add(view);
             _instancedViews.ForceNotify();
@@ -63,7 +75,7 @@ namespace GameLogic.UI
             return false;
         }
 
-        public void Close<T>(bool onlyTopView = false) where T : View
+        public async UniTask Close<T>(bool onlyTopView = false, bool force = true) where T : View
         {
             for (int i = _instancedViews.Value.Count - 1; i >= 0; i--)
             {
@@ -71,13 +83,13 @@ namespace GameLogic.UI
                 if (viewInstance is not T)
                     continue;
 
-                CloseView(viewInstance);
+                await CloseView(viewInstance, force);
                 if (onlyTopView) 
                     break;
             }
         }
 
-        public void Close(View view, bool onlyTopView = false)
+        public async UniTask Close(View view, bool onlyTopView = false, bool force = true)
         {
             for (int i = _instancedViews.Value.Count - 1; i >= 0; i--)
             {
@@ -85,13 +97,13 @@ namespace GameLogic.UI
                 if (viewInstance != view) 
                     continue;
 
-                CloseView(viewInstance);
+                await CloseView(viewInstance, force);
                 if (onlyTopView)
                     break;
             }
         }
 
-        public void CloseAll()
+        public async void CloseAll()
         {
             if (_instancedViews.Value == null)
                 return;
@@ -102,12 +114,16 @@ namespace GameLogic.UI
                 if (viewInstance == null) 
                     continue;
 
-                CloseView(viewInstance);
+                await CloseView(viewInstance);
             }
         }
 
-        private void CloseView(View view)
+        private async UniTask CloseView(View view, bool force = true)
         {
+            if (force == false)
+            {
+                await view.AnimateClosing();
+            }
             _instancedViews.Value.Remove(view);
             Object.Destroy(view.gameObject);
             _instancedViews.ForceNotify();

@@ -59,16 +59,26 @@ namespace EditorDefinitions
                 if (dictFieldTypes.TryGetValue(dirName, out var dictField))
                 {
                     var textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(definitionPath);
-                    if (JsonConvert.DeserializeObject(textAsset.text, dictField.Item2, settings) is not BaseDef loadedDef)
-                        throw new Exception($"Failed to load {fileName} from {definitionPath} - it is not BaseDef type");
+                    BaseDef def = null;
+                    try
+                    {
+                        if (JsonConvert.DeserializeObject(textAsset.text, dictField.Item2, settings) is not BaseDef loadedDef)
+                            throw new Exception($"Failed to load {fileName} from {definitionPath} - it is not BaseDef type");
 
-                    loadedDef.Id = fileName;
+                        def = loadedDef;
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception($"Failed to load {fileName} from {definitionPath}\n{e.Message}");
+                    }
+
+                    def.Id = fileName;
 
                     if (dictField.Item1.GetValue(gameDefs) is not IDictionary dictFieldValue)
                         throw new Exception($"Failed to get {fileName} from {definitionPath}");
 
-                    dictFieldValue.Add(fileName, loadedDef);
-                    loadedDefs.Add(loadedDef);
+                    dictFieldValue.Add(fileName, def);
+                    loadedDefs.Add(def);
                 }
                 else if (propertyTypes.TryGetValue(fileName, out var property))
                 {

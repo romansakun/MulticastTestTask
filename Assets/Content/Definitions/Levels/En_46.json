@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"SCENE": [2, 3],
-		"CONCERN": [2, 3, 2],
-		"POUND": [3, 2],
-		"PALACE": [2, 2, 2]
+		"NOTICE": [2, 2, 2],
+		"AGENCY": [2, 2, 2],
+		"LENGTH": [2, 2, 2],
+		"ANSWER": [2, 2, 2]
 	}
 }

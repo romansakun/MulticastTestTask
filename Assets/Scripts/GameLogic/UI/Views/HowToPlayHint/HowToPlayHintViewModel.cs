@@ -13,10 +13,10 @@ namespace GameLogic.UI.HowToPlayHint
             
         }
 
-        public void OkButtonClicked()
+        public async void OkButtonClicked()
         {
             _userContextOperator.SetHowToPlayHintShown();
-            _viewManager.Close<HowToPlayHintView>();
+            await _viewManager.Close<HowToPlayHintView>();
         }
     }
 }

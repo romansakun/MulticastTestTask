@@ -9,6 +9,7 @@ namespace GameLogic.Model.DataProviders
         public DefaultSettingsDef DefaultSettings => _gameDefs.DefaultSettings;
         public LevelSettingsDef LevelSettings => _gameDefs.LevelSettings;
         public IReadOnlyDictionary<string, LevelDef> Levels => _gameDefs.Levels;
+        public IReadOnlyDictionary<string, LeagueDef> Leagues => _gameDefs.Leagues;
         public IReadOnlyDictionary<string, LocalizationDef> Localizations => _gameDefs.Localizations;
 
         private GameDefs _gameDefs;
@@ -19,6 +20,17 @@ namespace GameLogic.Model.DataProviders
             return this;
         }
 
+        public List<LeagueDef> GetLocalizationLeagues(string localizationDefId)
+        {
+            var result = new List<LeagueDef>();
+            var localizationLeagues = Localizations[localizationDefId].Leagues;
+            foreach (var pair in localizationLeagues)
+            {
+                result.Add(Leagues[pair.Value]);
+            }
+            return result;
+        }
+        
         public LevelDef GetFirstLevelDef(string localizationDefId)
         {
             var localizationLevels = Localizations[localizationDefId].Levels;

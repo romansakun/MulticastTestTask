@@ -1,7 +1,7 @@
 using GameLogic.Factories;
-using GameLogic.Tutorial;
 using GameLogic.UI;
 using GameLogic.UI.Gameplay;
+using GameLogic.UI.Leaderboards;
 using Infrastructure.GameActions;
 using Infrastructure.Pools;
 using Infrastructure.Services;
@@ -24,8 +24,10 @@ namespace GameLogic.Bootstrapper
 
             Container.BindInterfacesAndSelfTo<DeferredMonoPool<Cluster>>().AsSingle();
             Container.BindInterfacesAndSelfTo<DeferredMonoPool<WordRow>>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DeferredMonoPool<PlayerLine>>().AsSingle();
             Container.BindFactory<Cluster, Cluster.Factory>().AsSingle();
             Container.BindFactory<WordRow, WordRow.Factory>().AsSingle();
+            Container.BindFactory<PlayerLine, PlayerLine.Factory>().AsSingle();
 
             //Container.BindInterfacesAndSelfTo<TutorialService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ViewManager>().AsSingle();

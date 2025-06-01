@@ -31,7 +31,7 @@ namespace GameLogic.UI.Gameplay
             clickedCluster.SetColorAlpha(1);
             clickedCluster.SetRotation(_gameplaySettings.DraggedClusterRotation);
             var position = originalCluster.GetPosition();
-            var offset = _gameplaySettings.DraggedClusterOffsetPosition.AddZ();
+            var offset = _gameplaySettings.ClusterOffsetPosition().AddZ();
             clickedCluster.SetPosition(position + offset);
             context.Click.HintUndistributedClickedCluster = clickedCluster;
 

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"BREATH": [2, 2, 2],
-		"RESULT": [2, 2, 2],
-		"BOTTLE": [2, 2, 2],
-		"FACTOR": [2, 2, 2]
+		"CULTURE": [3, 2, 2],
+		"STATION": [3, 2, 2],
+		"PAYMENT": [3, 2, 2],
+		"CONTENT": [2, 2, 3]
 	}
 }

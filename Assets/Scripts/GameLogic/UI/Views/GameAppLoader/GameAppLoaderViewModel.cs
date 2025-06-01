@@ -36,7 +36,7 @@ namespace GameLogic.UI.GameAppLoader
             {
                 await UniTask.Yield();
             }
-            _viewManager.Close<GameAppLoaderView>();
+            await _viewManager.Close<GameAppLoaderView>();
         }
 
         private void OnProgressChanged(float progressValue)

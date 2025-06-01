@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CHAIR": [3, 2],
-		"SMILE": [3, 2],
-		"STAGE": [2, 3],
-		"HOTEL": [3, 2]
+		"SQUARE": [2, 2, 2],
+		"RELIEF": [2, 2, 2],
+		"ANIMAL": [2, 2, 2],
+		"BRANCH": [2, 2, 2]
 	}
 }

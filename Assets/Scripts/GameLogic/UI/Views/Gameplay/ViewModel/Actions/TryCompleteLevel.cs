@@ -80,11 +80,12 @@ namespace GameLogic.UI.Gameplay
 
         private async void ShowVictoryView(GameplayViewModelContext context)
         {
-            _viewManager.Close<GameplayView>();
+            var closing = _viewManager.Close<GameplayView>(false, false);
             var viewModel = _viewModelFactory.Create<VictoryViewModel>();
-            var view = await _viewManager.ShowAsync<VictoryView, VictoryViewModel>(viewModel);
+            var showing = _viewManager.ShowAsync<VictoryView, VictoryViewModel>(viewModel);
+            await UniTask.WhenAll(closing, showing);
         }
-        
+
         private async UniTask ShowCenterMessageWithTimer()
         {
             var viewModel = _viewModelFactory.Create<CenterMessageViewModel>();

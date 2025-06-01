@@ -2,6 +2,8 @@ using Cysharp.Threading.Tasks;
 using GameLogic.Audio;
 using GameLogic.Bootstrapper;
 using GameLogic.GptChats;
+using GameLogic.UI.Components;
+using GameLogic.UI.MainMenu;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,7 +21,9 @@ namespace GameLogic.UI.Victory
         [SerializeField] private Button _mainMenuButton;
         [SerializeField] private RectTransform _wordsHolder;
         [SerializeField] private TextMeshProUGUI _congratulationsText;
+        [SerializeField] private TextMeshProUGUI _scoreText;
         [SerializeField] private GameObject _gptChatLoadingCircle;
+        [SerializeField] private ViewContentAnimations _animations;
 
         private VictoryViewModel _viewModel;
 
@@ -31,7 +35,7 @@ namespace GameLogic.UI.Victory
 
             _audioPlayer.PlaySound(_soundsSettings.SuccessSound);
             
-           // _gptChat.Ask()
+            
 
             return UniTask.CompletedTask;
         }
@@ -42,6 +46,7 @@ namespace GameLogic.UI.Victory
             _mainMenuButton.onClick.AddListener(_viewModel.OnMainMenuButtonClicked);
             _viewModel.VisibleNextLevelButton.Subscribe(OnVisibleNextLevelButtonChanged);
             _viewModel.CongratulationsText.Subscribe(OnCongratulationsTextChanged);
+            _viewModel.ScoreText.Subscribe(OnScoreTextChanged);
         }
 
         protected override void Unsubscribes()
@@ -50,6 +55,12 @@ namespace GameLogic.UI.Victory
             _mainMenuButton.onClick.AddListener(_viewModel.OnMainMenuButtonClicked);
             _viewModel.VisibleNextLevelButton.Unsubscribe(OnVisibleNextLevelButtonChanged);
             _viewModel.CongratulationsText.Unsubscribe(OnCongratulationsTextChanged);
+            _viewModel.ScoreText.Unsubscribe(OnScoreTextChanged);
+        }
+
+        private void OnScoreTextChanged(string score)
+        {
+            _scoreText.text = score;
         }
 
         private void OnCongratulationsTextChanged(string congratulationsText)
@@ -69,6 +80,19 @@ namespace GameLogic.UI.Victory
         private void OnVisibleNextLevelButtonChanged(bool state)
         {
             _nextLevelButton.gameObject.SetActive(state);
+        }
+
+        public override async UniTask AnimateClosing()
+        {
+            if (_viewManager.TryGetView<MainMenuView>(out _))
+                await _animations.HideByScaleAndAlpha();
+            else
+                await _animations.HideToRight();
+        }
+
+        public override async UniTask AnimateShowing()
+        {
+            await _animations.ShowFromLeft();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace YG.EditorScr
             if (File.Exists(InfoYG.FILE_SERVER_INFO))
             {
                 string infoText = File.ReadAllText(InfoYG.FILE_SERVER_INFO);
-                _saveInfo = JsonUtility.FromJson<ServerJson>(infoText);
+                _saveInfo = JsonUtility.FromJson<ServerJson>(infoText) ?? new ServerJson();
             }
             else
             {

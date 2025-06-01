@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"VILLAGE": [2, 3, 2],
-		"PROJECT": [3, 2, 2],
-		"ADULT": [2, 3],
-		"BATTLE": [2, 2, 2]
+		"GENERAL": [2, 3, 2],
+		"SECTION": [3, 2, 2],
+		"SERVICE": [3, 2, 2],
+		"COMPANY": [2, 2, 3]
 	}
 }

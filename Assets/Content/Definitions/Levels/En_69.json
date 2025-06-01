@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"PLANE": [3, 2],
-		"GROUP": [3, 2],
-		"VERSION": [3, 2, 2],
-		"PLAYER": [2, 2, 2]
+		"BISHOP": [2, 2, 2],
+		"DRIVER": [2, 2, 2],
+		"FARMER": [2, 2, 2],
+		"ARTIST": [2, 2, 2]
 	}
 }

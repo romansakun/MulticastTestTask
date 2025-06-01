@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"TITLE": [3, 2],
-		"VICTORY": [2, 3, 2],
-		"BLOOD": [3, 2],
-		"RADIO": [2, 3]
+		"BUTTON": [2, 2, 2],
+		"PLAYER": [2, 2, 2],
+		"CHEESE": [2, 2, 2],
+		"NEEDLE": [2, 2, 2]
 	}
 }

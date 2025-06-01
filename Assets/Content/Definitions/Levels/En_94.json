@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CHANGE": [2, 2, 2],
-		"BROTHER": [3, 2, 2],
-		"CENTRE": [2, 2, 2],
-		"ENTRY": [2, 3]
+		"QUARTER": [3, 2, 2],
+		"FEATURE": [3, 2, 2],
+		"WEATHER": [2, 3, 2],
+		"TROUBLE": [3, 2, 2]
 	}
 }

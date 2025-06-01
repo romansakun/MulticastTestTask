@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"VALUE": [3, 2],
-		"COVER": [3, 2],
-		"DEFENCE": [3, 2, 2],
-		"NOISE": [2, 3]
+		"REPORT": [2, 2, 2],
+		"PERIOD": [2, 2, 2],
+		"OFFICE": [2, 2, 2],
+		"HEALTH": [2, 2, 2]
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"EXAMPLE": [3, 2, 2],
-		"PLACE": [2, 3],
-		"FIELD": [2, 3],
-		"ISSUE": [3, 2]
+		"SHAPE": [2, 3],
+		"ENTRY": [3, 2],
+		"PHONE": [3, 2],
+		"BRAIN": [3, 2]
 	}
 }

@@ -10,5 +10,6 @@ namespace GameLogic.Model.Definitions
         public LevelSettingsDef LevelSettings { get; set; }
         public Dictionary<string, LocalizationDef> Localizations = new();
         public Dictionary<string, LevelDef> Levels = new();
+        public Dictionary<string, LeagueDef> Leagues = new();
     }
 }

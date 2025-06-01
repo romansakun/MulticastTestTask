@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"SAMPLE": [2, 2, 2],
-		"DETAIL": [2, 2, 2],
-		"TOTAL": [2, 3],
-		"MAJOR": [2, 3]
+		"MORNING": [2, 3, 2],
+		"BALANCE": [2, 2, 3],
+		"BENEFIT": [2, 3, 2],
+		"MACHINE": [3, 2, 2]
 	}
 }

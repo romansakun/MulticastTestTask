@@ -83,20 +83,25 @@ public class CreateJsonLevelsFromWordList : EditorUtility
     [MenuItem("Definitions/Create levels")]
     public static void CreateLevels()
     {
-        foreach (var pair in WordPaths)
+        var objects = Selection.objects;
+        foreach (var obj in objects)
         {
-            CreateLevels(pair.Key, pair.Value);
+            if (obj is TextAsset textAsset)
+            {
+                CreateLevels(textAsset.name, path: AssetDatabase.GetAssetPath(textAsset));
+            }
         }
     }
 
     private static void CreateLevels(string locale, string path)
     {
-        var enNouns = AssetDatabase.LoadAssetAtPath<TextAsset>(path).text.Split('\n');
+        var words = AssetDatabase.LoadAssetAtPath<TextAsset>(path).text.Split('\n');
 
         var sb = new StringBuilder();
-        for (var i = 0 ; i < enNouns.Length; i++)
+        for (var i = 0 ; i < words.Length; i++)
         {
-            sb.Append($"\"{enNouns[i].ToUpper()}\": [{GetClusters(enNouns[i])}]\n");
+            var word = words[i].Trim();
+            sb.Append($"\"{word.ToUpper()}\": [{GetClusters(word)}]\n");
         }
 
         var allWordClusters = sb.ToString().Split('\n');

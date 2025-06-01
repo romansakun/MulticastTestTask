@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"AGENT": [2, 3],
-		"ADVICE": [2, 2, 2],
-		"FLOOR": [3, 2],
-		"FLIGHT": [2, 2, 2]
+		"RAILWAY": [3, 2, 2],
+		"SESSION": [3, 2, 2],
+		"FINANCE": [3, 2, 2],
+		"VEHICLE": [3, 2, 2]
 	}
 }

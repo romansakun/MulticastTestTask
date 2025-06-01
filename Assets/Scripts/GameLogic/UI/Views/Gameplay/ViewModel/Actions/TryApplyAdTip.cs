@@ -111,7 +111,7 @@ namespace GameLogic.UI.Gameplay
                 cluster.SetColorAlpha(1);
                 clickedCluster.SetRotation(_gameplaySettings.DraggedClusterRotation);
                 var position = cluster.GetPosition();
-                var offset = _gameplaySettings.DraggedClusterOffsetPosition.AddZ();
+                var offset = _gameplaySettings.ClusterOffsetPosition().AddZ();
                 clickedCluster.SetPosition(position + offset);
                 var hintCluster = AddHintClusterToWordRow(context, context.AdTip.SuitableWordRow, cluster);
 

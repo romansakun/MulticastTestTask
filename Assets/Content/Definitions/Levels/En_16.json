@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"WEIGHT": [2, 2, 2],
-		"CAPTAIN": [2, 2, 3],
-		"CHARGE": [2, 2, 2],
-		"RIVER": [3, 2]
+		"JUDGE": [3, 2],
+		"PEACE": [3, 2],
+		"START": [2, 3],
+		"INDEX": [3, 2]
 	}
 }

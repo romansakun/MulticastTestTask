@@ -61,6 +61,12 @@ namespace GameLogic.Model.Operators
             }
         }
 
+        public void IncrementSaves(string levelDefId)
+        {
+            _userContextRepository.IncrementSaves(levelDefId);
+            _userContextRepository.Save();
+        }
+
         public void UseCheckingWords()
         {
             _userContextRepository.UseCheckingWords();
@@ -84,6 +90,5 @@ namespace GameLogic.Model.Operators
             _userContextRepository.UseAdsTip();
             _userContextRepository.Save();
         }
-
     }
 }

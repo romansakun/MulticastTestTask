@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"PROBLEM": [3, 2, 2],
-		"DRINK": [2, 3],
-		"MOMENT": [2, 2, 2],
-		"POINT": [2, 3]
+		"PRESENT": [2, 2, 3],
+		"CONTROL": [2, 3, 2],
+		"PROGRAM": [2, 3, 2],
+		"COUNTRY": [3, 2, 2]
 	}
 }

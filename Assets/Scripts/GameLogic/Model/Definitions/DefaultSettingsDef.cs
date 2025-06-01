@@ -10,5 +10,9 @@ namespace GameLogic.Model.Definitions
         public int ConsumablesUpdateIntervalSeconds;
         public int ConsumablesFreeCount;
         public int ConsumablesByAdsCount;
+
+        // public int ScoreByFinishedLevel;
+        // public int MaxScoreByLevel;
+        // public int DecrementScoreByMove;
     }
 }

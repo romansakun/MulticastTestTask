@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"WOMAN": [3, 2],
-		"TRUTH": [3, 2],
-		"GROUND": [2, 2, 2],
-		"AMOUNT": [2, 2, 2]
+		"NETWORK": [2, 2, 3],
+		"FREEDOM": [2, 3, 2],
+		"PATTERN": [2, 3, 2],
+		"CONCEPT": [3, 2, 2]
 	}
 }

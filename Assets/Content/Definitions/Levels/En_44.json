@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"MUSEUM": [2, 2, 2],
-		"TARGET": [2, 2, 2],
-		"HEALTH": [2, 2, 2],
-		"NUMBER": [2, 2, 2]
+		"GROUND": [2, 2, 2],
+		"MOTHER": [2, 2, 2],
+		"SOURCE": [2, 2, 2],
+		"RETURN": [2, 2, 2]
 	}
 }

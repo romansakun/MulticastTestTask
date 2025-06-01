@@ -44,6 +44,7 @@ namespace GameLogic.Bootstrapper
     {
         public float GhostClusterAlpha = 0.5f;
         public ElementColorDictionary ElementColors = new ElementColorDictionary();
+        public LeaderboardRankColorDictionary LeaderboardRankColors = new LeaderboardRankColorDictionary();
     }
 
     [Serializable]
@@ -51,8 +52,14 @@ namespace GameLogic.Bootstrapper
     {
         public Vector3 DraggedClusterRotation = new Vector3(0, 0, 10);
         public Vector2 DraggedClusterOffsetPosition = new Vector2(0, 15);
+
+        public Vector2 ClusterOffsetPosition()
+        {
+            var aspectRatio = (Screen.height * 1f) / Screen.width;
+            return new Vector2(DraggedClusterOffsetPosition.x * aspectRatio, DraggedClusterOffsetPosition.y * aspectRatio);
+        }
     }
 
-    [Serializable]
-    public class ElementColorDictionary : SerializableDictionary<ElementColor, Color> { }
+    [Serializable] public class ElementColorDictionary : SerializableDictionary<ElementColor, Color> { }
+    [Serializable] public class LeaderboardRankColorDictionary : SerializableDictionary<int, Color> { }
 }

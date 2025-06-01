@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"COUNCIL": [2, 2, 3],
-		"SOCIETY": [2, 3, 2],
-		"AUTHOR": [2, 2, 2],
-		"PRESS": [2, 3]
+		"COUNCIL": [3, 2, 2],
+		"COLLEGE": [3, 2, 2],
+		"PROJECT": [3, 2, 2],
+		"MILLION": [2, 2, 3]
 	}
 }

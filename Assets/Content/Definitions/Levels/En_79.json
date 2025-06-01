@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"ORDER": [3, 2],
-		"FAILURE": [3, 2, 2],
-		"PLATE": [3, 2],
-		"OFFICER": [3, 2, 2]
+		"ACCOUNT": [3, 2, 2],
+		"AVERAGE": [2, 3, 2],
+		"SURFACE": [2, 3, 2],
+		"PURPOSE": [2, 2, 3]
 	}
 }

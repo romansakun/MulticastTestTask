@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"ORANGE": [2, 2, 2],
-		"BISHOP": [2, 2, 2],
-		"CHILD": [2, 3],
-		"START": [2, 3]
+		"CAPTAIN": [2, 3, 2],
+		"VERSION": [3, 2, 2],
+		"SPEAKER": [3, 2, 2],
+		"DISPLAY": [2, 2, 3]
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"PEACE": [2, 3],
-		"COURT": [3, 2],
-		"THREAT": [2, 2, 2],
-		"COLOUR": [2, 2, 2]
+		"OWNER": [2, 3],
+		"PLATE": [3, 2],
+		"STYLE": [3, 2],
+		"RADIO": [2, 3]
 	}
 }

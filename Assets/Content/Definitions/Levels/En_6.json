@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"CONTACT": [2, 3, 2],
-		"CANCER": [2, 2, 2],
-		"CASTLE": [2, 2, 2],
-		"KITCHEN": [2, 2, 3]
+		"TRADE": [2, 3],
+		"CLASS": [3, 2],
+		"PARTY": [3, 2],
+		"MONEY": [2, 3]
 	}
 }

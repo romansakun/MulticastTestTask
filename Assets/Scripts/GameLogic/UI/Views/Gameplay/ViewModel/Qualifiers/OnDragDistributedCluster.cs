@@ -18,7 +18,7 @@ namespace GameLogic.UI.Gameplay
             if (context.DistributedClusters.Contains(context.Swipe.OriginDraggedCluster) == false)
                 return 0;
 
-            var swipePosition = context.Input.Data.position + _gameplaySettings.DraggedClusterOffsetPosition;
+            var swipePosition = context.Input.Data.position + _gameplaySettings.ClusterOffsetPosition();
             context.Swipe.DraggedCluster.SetPosition(swipePosition);
             context.Input = default;
 

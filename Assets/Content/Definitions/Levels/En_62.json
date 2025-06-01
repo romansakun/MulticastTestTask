@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"PRODUCT": [2, 3, 2],
-		"ACCESS": [2, 2, 2],
-		"DAMAGE": [2, 2, 2],
-		"BENEFIT": [3, 2, 2]
+		"MINUTE": [2, 2, 2],
+		"GARDEN": [2, 2, 2],
+		"TARGET": [2, 2, 2],
+		"READER": [2, 2, 2]
 	}
 }

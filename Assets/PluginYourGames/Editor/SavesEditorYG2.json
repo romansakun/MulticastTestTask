@@ -1,18 +1,19 @@
 {
-  "idSave": 280,
+  "idSave": 2444,
   "userContext": {
     "IsSoundsMuted": false,
     "IsHowToPlayHintShown": true,
     "LocalizationDefId": "Russian",
     "Consumables": {
-      "WordsCheckingCount": 3,
-      "AdsTipCount": 2,
-      "LastFreeUpdateTime": "2025-05-23T18:11:42.7239101+03:00"
+      "WordsCheckingCount": 2998,
+      "AdsTipCount": 2642,
+      "LastFreeUpdateTime": "2025-06-02T00:09:25.9829683+03:00"
     },
     "LevelsProgress": {
       "Ru_1": {
         "LevelDefId": "Ru_1",
         "IsCompleted": true,
+        "SavesCount": 0,
         "UndistributedClusters": [],
         "DistributedClusters": [
           [
@@ -39,6 +40,7 @@
       "Ru_2": {
         "LevelDefId": "Ru_2",
         "IsCompleted": true,
+        "SavesCount": 0,
         "UndistributedClusters": [],
         "DistributedClusters": [
           [
@@ -62,6 +64,7 @@
       "En_1": {
         "LevelDefId": "En_1",
         "IsCompleted": true,
+        "SavesCount": 0,
         "UndistributedClusters": [],
         "DistributedClusters": [
           [
@@ -87,6 +90,7 @@
       "Ru_3": {
         "LevelDefId": "Ru_3",
         "IsCompleted": true,
+        "SavesCount": 0,
         "UndistributedClusters": [],
         "DistributedClusters": [
           [
@@ -112,6 +116,7 @@
       "En_2": {
         "LevelDefId": "En_2",
         "IsCompleted": true,
+        "SavesCount": 0,
         "UndistributedClusters": [],
         "DistributedClusters": [
           [
@@ -138,17 +143,5337 @@
       },
       "En_3": {
         "LevelDefId": "En_3",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BE",
+            "RRY"
+          ],
+          [
+            "MU",
+            "SIC"
+          ],
+          [
+            "QUA",
+            "LI",
+            "TY"
+          ],
+          [
+            "SP",
+            "ORT"
+          ]
+        ]
+      },
+      "Ru_4": {
+        "LevelDefId": "Ru_4",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ВЕ",
+            "ЧЕР"
+          ],
+          [
+            "ПЛЕ",
+            "ЧО"
+          ],
+          [
+            "УЛИ",
+            "ЦА"
+          ],
+          [
+            "НАР",
+            "ОД"
+          ]
+        ]
+      },
+      "Ru_5": {
+        "LevelDefId": "Ru_5",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МЫС",
+            "ЛЬ"
+          ],
+          [
+            "ПР",
+            "АВО"
+          ],
+          [
+            "ПАЛ",
+            "ЕЦ"
+          ],
+          [
+            "СТЕ",
+            "НА"
+          ]
+        ]
+      },
+      "Ru_6": {
+        "LevelDefId": "Ru_6",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МЕС",
+            "ЯЦ"
+          ],
+          [
+            "СПИ",
+            "НА"
+          ],
+          [
+            "ОБ",
+            "РАЗ"
+          ],
+          [
+            "ШК",
+            "ОЛА"
+          ]
+        ]
+      },
+      "Ru_7": {
+        "LevelDefId": "Ru_7",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "КРО",
+            "ВЬ"
+          ],
+          [
+            "БЕ",
+            "РЕГ"
+          ],
+          [
+            "ОТ",
+            "ВЕТ"
+          ],
+          [
+            "СЕМ",
+            "ЬЯ"
+          ]
+        ]
+      },
+      "Ru_8": {
+        "LevelDefId": "Ru_8",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "НЕМ",
+            "ЕЦ"
+          ],
+          [
+            "СМЫ",
+            "СЛ"
+          ],
+          [
+            "ГР",
+            "УДЬ"
+          ],
+          [
+            "ФО",
+            "РМА"
+          ]
+        ]
+      },
+      "Ru_9": {
+        "LevelDefId": "Ru_9",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ОГ",
+            "ОНЬ"
+          ],
+          [
+            "ГО",
+            "СТЬ"
+          ],
+          [
+            "ВЕ",
+            "ТЕР"
+          ],
+          [
+            "АР",
+            "МИЯ"
+          ]
+        ]
+      },
+      "Ru_10": {
+        "LevelDefId": "Ru_10",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЗАК",
+            "ОН"
+          ],
+          [
+            "ВОЛ",
+            "ОС"
+          ],
+          [
+            "ЧЕР",
+            "ТА"
+          ],
+          [
+            "НО",
+            "МЕР"
+          ]
+        ]
+      },
+      "Ru_11": {
+        "LevelDefId": "Ru_11",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ГЕР",
+            "ОЙ"
+          ],
+          [
+            "СТР",
+            "АХ"
+          ],
+          [
+            "СВ",
+            "ЯЗЬ"
+          ],
+          [
+            "ГЛА",
+            "ВА"
+          ]
+        ]
+      },
+      "Ru_12": {
+        "LevelDefId": "Ru_12",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "РУБ",
+            "ЛЬ"
+          ],
+          [
+            "ЧИС",
+            "ЛО"
+          ],
+          [
+            "ЦЕН",
+            "ТР"
+          ],
+          [
+            "КЛА",
+            "СС"
+          ]
+        ]
+      },
+      "Ru_13": {
+        "LevelDefId": "Ru_13",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МУЖ",
+            "ИК"
+          ],
+          [
+            "АВТ",
+            "ОР"
+          ],
+          [
+            "НАУ",
+            "КА"
+          ],
+          [
+            "КУХ",
+            "НЯ"
+          ]
+        ]
+      },
+      "Ru_14": {
+        "LevelDefId": "Ru_14",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТРА",
+            "ВА"
+          ],
+          [
+            "РО",
+            "МАН"
+          ],
+          [
+            "ЗАП",
+            "АХ"
+          ],
+          [
+            "СЛ",
+            "ЕЗА"
+          ]
+        ]
+      },
+      "Ru_15": {
+        "LevelDefId": "Ru_15",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТОЧ",
+            "КА"
+          ],
+          [
+            "САП",
+            "ОГ"
+          ],
+          [
+            "ТОЛ",
+            "ПА"
+          ],
+          [
+            "ДОЖ",
+            "ДЬ"
+          ]
+        ]
+      },
+      "Ru_16": {
+        "LevelDefId": "Ru_16",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ВЫХ",
+            "ОД"
+          ],
+          [
+            "ДУР",
+            "АК"
+          ],
+          [
+            "СОВ",
+            "ЕТ"
+          ],
+          [
+            "СО",
+            "СЕД"
+          ]
+        ]
+      },
+      "Ru_17": {
+        "LevelDefId": "Ru_17",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПОЕ",
+            "ЗД"
+          ],
+          [
+            "ОР",
+            "ГАН"
+          ],
+          [
+            "КА",
+            "РТА"
+          ],
+          [
+            "СЛ",
+            "АВА"
+          ]
+        ]
+      },
+      "Ru_18": {
+        "LevelDefId": "Ru_18",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПТИ",
+            "ЦА"
+          ],
+          [
+            "ВОД",
+            "КА"
+          ],
+          [
+            "ПОВ",
+            "ОД"
+          ],
+          [
+            "КРЫ",
+            "ША"
+          ]
+        ]
+      },
+      "Ru_19": {
+        "LevelDefId": "Ru_19",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МЕ",
+            "ШОК"
+          ],
+          [
+            "ЖИВ",
+            "ОТ"
+          ],
+          [
+            "РА",
+            "ЙОН"
+          ],
+          [
+            "ФРО",
+            "НТ"
+          ]
+        ]
+      },
+      "Ru_20": {
+        "LevelDefId": "Ru_20",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЗА",
+            "ВОД"
+          ],
+          [
+            "КУ",
+            "ЛАК"
+          ],
+          [
+            "КУС",
+            "ОК"
+          ],
+          [
+            "СУТ",
+            "КИ"
+          ]
+        ]
+      },
+      "Ru_21": {
+        "LevelDefId": "Ru_21",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТЕА",
+            "ТР"
+          ],
+          [
+            "СО",
+            "ТНЯ"
+          ],
+          [
+            "МАЙ",
+            "ОР"
+          ],
+          [
+            "ВОЛ",
+            "НА"
+          ]
+        ]
+      },
+      "Ru_22": {
+        "LevelDefId": "Ru_22",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ФИ",
+            "ЛЬМ"
+          ],
+          [
+            "СТ",
+            "ИХИ"
+          ],
+          [
+            "ВАГ",
+            "ОН"
+          ],
+          [
+            "ХВО",
+            "СТ"
+          ]
+        ]
+      },
+      "Ru_23": {
+        "LevelDefId": "Ru_23",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЛИН",
+            "ИЯ"
+          ],
+          [
+            "МАС",
+            "СА"
+          ],
+          [
+            "ТРУ",
+            "БА"
+          ],
+          [
+            "ЛО",
+            "ДКА"
+          ]
+        ]
+      },
+      "Ru_24": {
+        "LevelDefId": "Ru_24",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ОТ",
+            "ДЕЛ"
+          ],
+          [
+            "УС",
+            "ПЕХ"
+          ],
+          [
+            "ВЕ",
+            "СНА"
+          ],
+          [
+            "СЦЕ",
+            "НА"
+          ]
+        ]
+      },
+      "Ru_25": {
+        "LevelDefId": "Ru_25",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЧЕ",
+            "СТЬ"
+          ],
+          [
+            "ФИ",
+            "РМА"
+          ],
+          [
+            "ЗАП",
+            "АД"
+          ],
+          [
+            "БИ",
+            "ЛЕТ"
+          ]
+        ]
+      },
+      "Ru_26": {
+        "LevelDefId": "Ru_26",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "РЫН",
+            "ОК"
+          ],
+          [
+            "КО",
+            "СТЬ"
+          ],
+          [
+            "ЗАМ",
+            "ОК"
+          ],
+          [
+            "ФР",
+            "АЗА"
+          ]
+        ]
+      },
+      "Ru_27": {
+        "LevelDefId": "Ru_27",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПРИ",
+            "ЕМ"
+          ],
+          [
+            "ШУ",
+            "ТКА"
+          ],
+          [
+            "КО",
+            "ШКА"
+          ],
+          [
+            "ДИВ",
+            "АН"
+          ]
+        ]
+      },
+      "Ru_28": {
+        "LevelDefId": "Ru_28",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПОК",
+            "ОЙ"
+          ],
+          [
+            "ДОС",
+            "КА"
+          ],
+          [
+            "АКТ",
+            "ЕР"
+          ],
+          [
+            "ПО",
+            "РОГ"
+          ]
+        ]
+      },
+      "Ru_29": {
+        "LevelDefId": "Ru_29",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ГО",
+            "РЛО"
+          ],
+          [
+            "ТЕ",
+            "КСТ"
+          ],
+          [
+            "АД",
+            "РЕС"
+          ],
+          [
+            "СУМ",
+            "КА"
+          ]
+        ]
+      },
+      "Ru_30": {
+        "LevelDefId": "Ru_30",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПЕС",
+            "НЯ"
+          ],
+          [
+            "МА",
+            "СЛО"
+          ],
+          [
+            "ПЕС",
+            "ОК"
+          ],
+          [
+            "ТА",
+            "ЙНА"
+          ]
+        ]
+      },
+      "Ru_31": {
+        "LevelDefId": "Ru_31",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПО",
+            "ИСК"
+          ],
+          [
+            "КР",
+            "ЫЛО"
+          ],
+          [
+            "РУЧ",
+            "КА"
+          ],
+          [
+            "ОС",
+            "ЕНЬ"
+          ]
+        ]
+      },
+      "Ru_32": {
+        "LevelDefId": "Ru_32",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЭКР",
+            "АН"
+          ],
+          [
+            "ОЗЕ",
+            "РО"
+          ],
+          [
+            "СРЕ",
+            "ДА"
+          ],
+          [
+            "ДО",
+            "БРО"
+          ]
+        ]
+      },
+      "Ru_33": {
+        "LevelDefId": "Ru_33",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ШТУ",
+            "КА"
+          ],
+          [
+            "ВЫВ",
+            "ОД"
+          ],
+          [
+            "ХОЛ",
+            "ОД"
+          ],
+          [
+            "РЕ",
+            "ЖИМ"
+          ]
+        ]
+      },
+      "Ru_34": {
+        "LevelDefId": "Ru_34",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПУН",
+            "КТ"
+          ],
+          [
+            "ПОТ",
+            "ОК"
+          ],
+          [
+            "СТ",
+            "РОЙ"
+          ],
+          [
+            "БУК",
+            "ВА"
+          ]
+        ]
+      },
+      "Ru_35": {
+        "LevelDefId": "Ru_35",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ДОЧ",
+            "КА"
+          ],
+          [
+            "ВЫБ",
+            "ОР"
+          ],
+          [
+            "МЕ",
+            "ЧТА"
+          ],
+          [
+            "ВЗ",
+            "РЫВ"
+          ]
+        ]
+      },
+      "Ru_36": {
+        "LevelDefId": "Ru_36",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СУМ",
+            "МА"
+          ],
+          [
+            "ТО",
+            "ПОР"
+          ],
+          [
+            "ОК",
+            "ЕАН"
+          ],
+          [
+            "ЮН",
+            "ОША"
+          ]
+        ]
+      },
+      "Ru_37": {
+        "LevelDefId": "Ru_37",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "КР",
+            "ЕСТ"
+          ],
+          [
+            "КАН",
+            "АЛ"
+          ],
+          [
+            "СМ",
+            "ЕНА"
+          ],
+          [
+            "БРЮ",
+            "КИ"
+          ]
+        ]
+      },
+      "Ru_38": {
+        "LevelDefId": "Ru_38",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТОВ",
+            "АР"
+          ],
+          [
+            "ЦИ",
+            "ФРА"
+          ],
+          [
+            "ЗАП",
+            "АС"
+          ],
+          [
+            "ЭПО",
+            "ХА"
+          ]
+        ]
+      },
+      "Ru_39": {
+        "LevelDefId": "Ru_39",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "РАД",
+            "ИО"
+          ],
+          [
+            "ШО",
+            "ССЕ"
+          ],
+          [
+            "ПО",
+            "ЛЕТ"
+          ],
+          [
+            "ЛАМ",
+            "ПА"
+          ]
+        ]
+      },
+      "Ru_40": {
+        "LevelDefId": "Ru_40",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ОТ",
+            "ДЫХ"
+          ],
+          [
+            "НО",
+            "РМА"
+          ],
+          [
+            "СУД",
+            "ЬЯ"
+          ],
+          [
+            "СФ",
+            "ЕРА"
+          ]
+        ]
+      },
+      "Ru_41": {
+        "LevelDefId": "Ru_41",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПАК",
+            "ЕТ"
+          ],
+          [
+            "СТ",
+            "ИЛЬ"
+          ],
+          [
+            "ТА",
+            "НЕЦ"
+          ],
+          [
+            "КН",
+            "ЯЗЬ"
+          ]
+        ]
+      },
+      "Ru_42": {
+        "LevelDefId": "Ru_42",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПА",
+            "ПКА"
+          ],
+          [
+            "РЫ",
+            "БАК"
+          ],
+          [
+            "МА",
+            "РКА"
+          ],
+          [
+            "МОР",
+            "ЯК"
+          ]
+        ]
+      },
+      "Ru_43": {
+        "LevelDefId": "Ru_43",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СА",
+            "ХАР"
+          ],
+          [
+            "КОВ",
+            "ЕР"
+          ],
+          [
+            "УДА",
+            "ЧА"
+          ],
+          [
+            "ЛИ",
+            "ДЕР"
+          ]
+        ]
+      },
+      "Ru_44": {
+        "LevelDefId": "Ru_44",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ОБМ",
+            "ЕН"
+          ],
+          [
+            "САР",
+            "АЙ"
+          ],
+          [
+            "МЫШ",
+            "ЦА"
+          ],
+          [
+            "ОТЧ",
+            "ЕТ"
+          ]
+        ]
+      },
+      "Ru_45": {
+        "LevelDefId": "Ru_45",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "БЛЮ",
+            "ДО"
+          ],
+          [
+            "АК",
+            "ЦИЯ"
+          ],
+          [
+            "ОТ",
+            "КАЗ"
+          ],
+          [
+            "СВЕ",
+            "ЧА"
+          ]
+        ]
+      },
+      "Ru_46": {
+        "LevelDefId": "Ru_46",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПО",
+            "ЧВА"
+          ],
+          [
+            "НУ",
+            "ЖДА"
+          ],
+          [
+            "РАМ",
+            "КА"
+          ],
+          [
+            "ЧА",
+            "ШКА"
+          ]
+        ]
+      },
+      "Ru_47": {
+        "LevelDefId": "Ru_47",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТР",
+            "ЕСК"
+          ],
+          [
+            "УГ",
+            "ОЛЬ"
+          ],
+          [
+            "СЮ",
+            "ЖЕТ"
+          ],
+          [
+            "СХ",
+            "ЕМА"
+          ]
+        ]
+      },
+      "Ru_48": {
+        "LevelDefId": "Ru_48",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "НАЛ",
+            "ОГ"
+          ],
+          [
+            "РУБ",
+            "ЕЖ"
+          ],
+          [
+            "ЖИ",
+            "ЛЬЕ"
+          ],
+          [
+            "ПЬ",
+            "ЕСА"
+          ]
+        ]
+      },
+      "Ru_49": {
+        "LevelDefId": "Ru_49",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СПО",
+            "РТ"
+          ],
+          [
+            "ОБ",
+            "ЪЕМ"
+          ],
+          [
+            "ЗА",
+            "КАЗ"
+          ],
+          [
+            "ДОХ",
+            "ОД"
+          ]
+        ]
+      },
+      "Ru_50": {
+        "LevelDefId": "Ru_50",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ФРУ",
+            "КТ"
+          ],
+          [
+            "ДЛИ",
+            "НА"
+          ],
+          [
+            "НЕ",
+            "ФТЬ"
+          ],
+          [
+            "СЕ",
+            "РИЯ"
+          ]
+        ]
+      },
+      "Ru_51": {
+        "LevelDefId": "Ru_51",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СЕ",
+            "ЗОН"
+          ],
+          [
+            "ТО",
+            "ННА"
+          ],
+          [
+            "ЯГО",
+            "ДА"
+          ],
+          [
+            "НА",
+            "БОР"
+          ]
+        ]
+      },
+      "Ru_52": {
+        "LevelDefId": "Ru_52",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МЕ",
+            "ТОД"
+          ],
+          [
+            "ГР",
+            "УША"
+          ],
+          [
+            "РЕ",
+            "БРО"
+          ],
+          [
+            "ОК",
+            "РУГ"
+          ]
+        ]
+      },
+      "En_4": {
+        "LevelDefId": "En_4",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "AT",
+            "TA",
+            "CK"
+          ],
+          [
+            "BR",
+            "ID",
+            "GE"
+          ],
+          [
+            "CO",
+            "NT",
+            "EXT"
+          ],
+          [
+            "TO",
+            "PIC"
+          ]
+        ]
+      },
+      "En_5": {
+        "LevelDefId": "En_5",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "LE",
+            "VEL"
+          ],
+          [
+            "FIE",
+            "LD"
+          ],
+          [
+            "LIG",
+            "HT"
+          ],
+          [
+            "NO",
+            "RTH"
+          ]
+        ]
+      },
+      "Ru_53": {
+        "LevelDefId": "Ru_53",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТР",
+            "ОПА"
+          ],
+          [
+            "ПЕР",
+            "ЕЦ"
+          ],
+          [
+            "УЧЕ",
+            "БА"
+          ],
+          [
+            "ИГ",
+            "РОК"
+          ]
+        ]
+      },
+      "Ru_54": {
+        "LevelDefId": "Ru_54",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТЕ",
+            "РКА"
+          ],
+          [
+            "ТУН",
+            "ЕЦ"
+          ],
+          [
+            "ГОН",
+            "КА"
+          ],
+          [
+            "ПИ",
+            "РОГ"
+          ]
+        ]
+      },
+      "Ru_55": {
+        "LevelDefId": "Ru_55",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ШИ",
+            "РМА"
+          ],
+          [
+            "КУЛ",
+            "ИЧ"
+          ],
+          [
+            "УЛИ",
+            "КА"
+          ],
+          [
+            "ЛИЛ",
+            "ИЯ"
+          ]
+        ]
+      },
+      "Ru_56": {
+        "LevelDefId": "Ru_56",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ФОБ",
+            "ИЯ"
+          ],
+          [
+            "СА",
+            "ЛАТ"
+          ],
+          [
+            "ТЕ",
+            "САК"
+          ],
+          [
+            "ТРО",
+            "МП"
+          ]
+        ]
+      },
+      "Ru_57": {
+        "LevelDefId": "Ru_57",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "УЗН",
+            "ИК"
+          ],
+          [
+            "ФАК",
+            "ЕЛ"
+          ],
+          [
+            "ФА",
+            "ЗАН"
+          ],
+          [
+            "ФИН",
+            "АЛ"
+          ]
+        ]
+      },
+      "Ru_58": {
+        "LevelDefId": "Ru_58",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МИ",
+            "СКА"
+          ],
+          [
+            "ФО",
+            "ТОН"
+          ],
+          [
+            "ВИ",
+            "ШНЯ"
+          ],
+          [
+            "ТУ",
+            "МБА"
+          ]
+        ]
+      },
+      "Ru_59": {
+        "LevelDefId": "Ru_59",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТОТ",
+            "ЕМ"
+          ],
+          [
+            "ФЛ",
+            "ЯГА"
+          ],
+          [
+            "КОК",
+            "ОС"
+          ],
+          [
+            "ТО",
+            "РБА"
+          ]
+        ]
+      },
+      "Ru_60": {
+        "LevelDefId": "Ru_60",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЧЕ",
+            "ХОЛ"
+          ],
+          [
+            "УТИ",
+            "ЛЬ"
+          ],
+          [
+            "ТО",
+            "ПКА"
+          ],
+          [
+            "ТР",
+            "АУР"
+          ]
+        ]
+      },
+      "Ru_61": {
+        "LevelDefId": "Ru_61",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "АКТ",
+            "ИВ"
+          ],
+          [
+            "УД",
+            "АЛЬ"
+          ],
+          [
+            "УКС",
+            "УС"
+          ],
+          [
+            "ФЛО",
+            "РА"
+          ]
+        ]
+      },
+      "Ru_62": {
+        "LevelDefId": "Ru_62",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТА",
+            "ХТА"
+          ],
+          [
+            "ПЧЕ",
+            "ЛА"
+          ],
+          [
+            "АС",
+            "ТРА"
+          ],
+          [
+            "ЦЕ",
+            "ЛОЕ"
+          ]
+        ]
+      },
+      "Ru_63": {
+        "LevelDefId": "Ru_63",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "РЕ",
+            "ГБИ"
+          ],
+          [
+            "ПЛ",
+            "АТА"
+          ],
+          [
+            "ТВИ",
+            "СТ"
+          ],
+          [
+            "ТЯП",
+            "КА"
+          ]
+        ]
+      },
+      "Ru_64": {
+        "LevelDefId": "Ru_64",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТА",
+            "РАН"
+          ],
+          [
+            "МАН",
+            "ГО"
+          ],
+          [
+            "ТРУ",
+            "ХА"
+          ],
+          [
+            "УКЛ",
+            "ОН"
+          ]
+        ]
+      },
+      "Ru_65": {
+        "LevelDefId": "Ru_65",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТО",
+            "ПОТ"
+          ],
+          [
+            "ОВО",
+            "ЩИ"
+          ],
+          [
+            "РЕН",
+            "ТА"
+          ],
+          [
+            "ФЕ",
+            "РЗЬ"
+          ]
+        ]
+      },
+      "Ru_66": {
+        "LevelDefId": "Ru_66",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТЕ",
+            "РЕМ"
+          ],
+          [
+            "ФОР",
+            "УМ"
+          ],
+          [
+            "СО",
+            "КОЛ"
+          ],
+          [
+            "ТЕМ",
+            "БР"
+          ]
+        ]
+      },
+      "Ru_67": {
+        "LevelDefId": "Ru_67",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТИ",
+            "РАН"
+          ],
+          [
+            "ФА",
+            "ТУМ"
+          ],
+          [
+            "ФА",
+            "САД"
+          ],
+          [
+            "ФАУ",
+            "НА"
+          ]
+        ]
+      },
+      "Ru_68": {
+        "LevelDefId": "Ru_68",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПОЧ",
+            "КИ"
+          ],
+          [
+            "БАН",
+            "АН"
+          ],
+          [
+            "РЫЖ",
+            "ИК"
+          ],
+          [
+            "ИЗН",
+            "ОС"
+          ]
+        ]
+      },
+      "Ru_69": {
+        "LevelDefId": "Ru_69",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ВИ",
+            "РУС"
+          ],
+          [
+            "БА",
+            "ЗИС"
+          ],
+          [
+            "ТОН",
+            "УС"
+          ],
+          [
+            "ЯК",
+            "ОРЬ"
+          ]
+        ]
+      },
+      "Ru_70": {
+        "LevelDefId": "Ru_70",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ШТ",
+            "ОРМ"
+          ],
+          [
+            "ТУБ",
+            "УС"
+          ],
+          [
+            "ФИК",
+            "УС"
+          ],
+          [
+            "ФАС",
+            "ОН"
+          ]
+        ]
+      },
+      "Ru_71": {
+        "LevelDefId": "Ru_71",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ФИЛ",
+            "ИН"
+          ],
+          [
+            "ГРИ",
+            "БЫ"
+          ],
+          [
+            "ФИН",
+            "ИК"
+          ],
+          [
+            "ТУ",
+            "ЛУП"
+          ]
+        ]
+      },
+      "Ru_72": {
+        "LevelDefId": "Ru_72",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТЮБ",
+            "ИК"
+          ],
+          [
+            "УХ",
+            "ВАТ"
+          ],
+          [
+            "ОРЕ",
+            "ХИ"
+          ],
+          [
+            "ТЕ",
+            "ЗИС"
+          ]
+        ]
+      },
+      "Ru_73": {
+        "LevelDefId": "Ru_73",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ХИ",
+            "МИЯ"
+          ],
+          [
+            "СЫ",
+            "РЬЕ"
+          ],
+          [
+            "ФЛА",
+            "НГ"
+          ],
+          [
+            "ЮРИ",
+            "СТ"
+          ]
+        ]
+      },
+      "Ru_74": {
+        "LevelDefId": "Ru_74",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "АРБ",
+            "УЗ"
+          ],
+          [
+            "ЛИ",
+            "МОН"
+          ],
+          [
+            "ФИШ",
+            "КА"
+          ],
+          [
+            "ПИЦ",
+            "ЦА"
+          ]
+        ]
+      },
+      "Ru_75": {
+        "LevelDefId": "Ru_75",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "УБЫ",
+            "ЛЬ"
+          ],
+          [
+            "ТО",
+            "РЕЦ"
+          ],
+          [
+            "ФИН",
+            "ИШ"
+          ],
+          [
+            "УПР",
+            "ЕК"
+          ]
+        ]
+      },
+      "Ru_76": {
+        "LevelDefId": "Ru_76",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "УСТ",
+            "УП"
+          ],
+          [
+            "УСТ",
+            "ЬЕ"
+          ],
+          [
+            "ТИ",
+            "ПАЖ"
+          ],
+          [
+            "ТЕС",
+            "ТО"
+          ]
+        ]
+      },
+      "Ru_77": {
+        "LevelDefId": "Ru_77",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТОП",
+            "АЗ"
+          ],
+          [
+            "ЗЕБ",
+            "РА"
+          ],
+          [
+            "СЛ",
+            "ИВА"
+          ],
+          [
+            "ТЫ",
+            "КВА"
+          ]
+        ]
+      },
+      "Ru_78": {
+        "LevelDefId": "Ru_78",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТА",
+            "РИФ"
+          ],
+          [
+            "ТРА",
+            "ТА"
+          ],
+          [
+            "ЖИЛ",
+            "ЕТ"
+          ],
+          [
+            "ФЕ",
+            "ТИШ"
+          ]
+        ]
+      },
+      "Ru_79": {
+        "LevelDefId": "Ru_79",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ИН",
+            "ЖИР"
+          ],
+          [
+            "ГО",
+            "ЛО",
+            "ВА"
+          ],
+          [
+            "РА",
+            "БО",
+            "ТА"
+          ],
+          [
+            "МА",
+            "ШИ",
+            "НА"
+          ]
+        ]
+      },
+      "Ru_80": {
+        "LevelDefId": "Ru_80",
+        "IsCompleted": true,
+        "SavesCount": 0,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СЛ",
+            "УЧ",
+            "АЙ"
+          ],
+          [
+            "НА",
+            "ЧА",
+            "ЛО"
+          ],
+          [
+            "ВО",
+            "ПР",
+            "ОС"
+          ],
+          [
+            "ДЕ",
+            "НЬ",
+            "ГИ"
+          ]
+        ]
+      },
+      "Ru_81": {
+        "LevelDefId": "Ru_81",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МИ",
+            "НУ",
+            "ТА"
+          ],
+          [
+            "ПР",
+            "АВ",
+            "ДА"
+          ],
+          [
+            "СТ",
+            "РА",
+            "НА"
+          ],
+          [
+            "ДО",
+            "РО",
+            "ГА"
+          ]
+        ]
+      },
+      "Ru_82": {
+        "LevelDefId": "Ru_82",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ВЗ",
+            "ГЛ",
+            "ЯД"
+          ],
+          [
+            "СТ",
+            "АР",
+            "ИК"
+          ],
+          [
+            "ТЫ",
+            "СЯ",
+            "ЧА"
+          ],
+          [
+            "СЕ",
+            "РД",
+            "ЦЕ"
+          ]
+        ]
+      },
+      "Ru_83": {
+        "LevelDefId": "Ru_83",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СМ",
+            "ЕР",
+            "ТЬ"
+          ],
+          [
+            "ПИ",
+            "СЬ",
+            "МО"
+          ],
+          [
+            "ВЛ",
+            "АС",
+            "ТЬ"
+          ],
+          [
+            "ВО",
+            "ЗД",
+            "УХ"
+          ]
+        ]
+      },
+      "Ru_84": {
+        "LevelDefId": "Ru_84",
+        "IsCompleted": true,
+        "SavesCount": 13,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЛЮ",
+            "БО",
+            "ВЬ"
+          ],
+          [
+            "СО",
+            "ЛД",
+            "АТ"
+          ],
+          [
+            "ХО",
+            "ЗЯ",
+            "ИН"
+          ],
+          [
+            "ПА",
+            "РЕ",
+            "НЬ"
+          ]
+        ]
+      },
+      "Ru_85": {
+        "LevelDefId": "Ru_85",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СО",
+            "ЛН",
+            "ЦЕ"
+          ],
+          [
+            "НЕ",
+            "ДЕ",
+            "ЛЯ"
+          ],
+          [
+            "РЕ",
+            "БЯ",
+            "ТА"
+          ],
+          [
+            "МО",
+            "МЕ",
+            "НТ"
+          ]
+        ]
+      },
+      "Ru_86": {
+        "LevelDefId": "Ru_86",
+        "IsCompleted": true,
+        "SavesCount": 12,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ГР",
+            "УП",
+            "ПА"
+          ],
+          [
+            "ПО",
+            "МО",
+            "ЩЬ"
+          ],
+          [
+            "СО",
+            "БА",
+            "КА"
+          ],
+          [
+            "ГА",
+            "ЗЕ",
+            "ТА"
+          ]
+        ]
+      },
+      "Ru_87": {
+        "LevelDefId": "Ru_87",
+        "IsCompleted": true,
+        "SavesCount": 15,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ДЕ",
+            "РЕ",
+            "ВО"
+          ],
+          [
+            "КА",
+            "МЕ",
+            "НЬ"
+          ],
+          [
+            "СУ",
+            "ДЬ",
+            "БА"
+          ],
+          [
+            "КА",
+            "РМ",
+            "АН"
+          ]
+        ]
+      },
+      "Ru_88": {
+        "LevelDefId": "Ru_88",
+        "IsCompleted": true,
+        "SavesCount": 29,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "КО",
+            "ЛЕ",
+            "НО"
+          ],
+          [
+            "БУ",
+            "МА",
+            "ГА"
+          ],
+          [
+            "ПА",
+            "РТ",
+            "ИЯ"
+          ],
+          [
+            "ПА",
+            "МЯ",
+            "ТЬ"
+          ]
+        ]
+      },
+      "Ru_89": {
+        "LevelDefId": "Ru_89",
+        "IsCompleted": true,
+        "SavesCount": 27,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТР",
+            "УБ",
+            "КА"
+          ],
+          [
+            "ДО",
+            "КТ",
+            "ОР"
+          ],
+          [
+            "ЛА",
+            "ДО",
+            "НЬ"
+          ],
+          [
+            "СЛ",
+            "УЖ",
+            "БА"
+          ]
+        ]
+      },
+      "En_6": {
+        "LevelDefId": "En_6",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "TR",
+            "ADE"
+          ],
+          [
+            "CLA",
+            "SS"
+          ],
+          [
+            "PAR",
+            "TY"
+          ],
+          [
+            "MO",
+            "NEY"
+          ]
+        ]
+      },
+      "En_7": {
+        "LevelDefId": "En_7",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PR",
+            "ESS"
+          ],
+          [
+            "MAJ",
+            "OR"
+          ],
+          [
+            "CHI",
+            "LD"
+          ],
+          [
+            "PAP",
+            "ER"
+          ]
+        ]
+      },
+      "En_8": {
+        "LevelDefId": "En_8",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PR",
+            "ICE"
+          ],
+          [
+            "FOR",
+            "CE"
+          ],
+          [
+            "MO",
+            "DEL"
+          ],
+          [
+            "UNI",
+            "ON"
+          ]
+        ]
+      },
+      "En_9": {
+        "LevelDefId": "En_9",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "DEA",
+            "TH"
+          ],
+          [
+            "BA",
+            "SIS"
+          ],
+          [
+            "RI",
+            "VER"
+          ],
+          [
+            "RA",
+            "NGE"
+          ]
+        ]
+      },
+      "En_10": {
+        "LevelDefId": "En_10",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PL",
+            "ANT"
+          ],
+          [
+            "ISS",
+            "UE"
+          ],
+          [
+            "SPA",
+            "CE"
+          ],
+          [
+            "SEN",
+            "SE"
+          ]
+        ]
+      },
+      "En_11": {
+        "LevelDefId": "En_11",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "NI",
+            "GHT"
+          ],
+          [
+            "THI",
+            "NG"
+          ],
+          [
+            "TIT",
+            "LE"
+          ],
+          [
+            "STO",
+            "CK"
+          ]
+        ]
+      },
+      "En_12": {
+        "LevelDefId": "En_12",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "WOM",
+            "AN"
+          ],
+          [
+            "HEA",
+            "RT"
+          ],
+          [
+            "ST",
+            "AFF"
+          ],
+          [
+            "BLO",
+            "OD"
+          ]
+        ]
+      },
+      "En_13": {
+        "LevelDefId": "En_13",
+        "IsCompleted": true,
+        "SavesCount": 6,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ST",
+            "ORY"
+          ],
+          [
+            "FR",
+            "ONT"
+          ],
+          [
+            "MON",
+            "TH"
+          ],
+          [
+            "STA",
+            "GE"
+          ]
+        ]
+      },
+      "Ru_90": {
+        "LevelDefId": "Ru_90",
+        "IsCompleted": true,
+        "SavesCount": 10,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ОР",
+            "УЖ",
+            "ИЕ"
+          ],
+          [
+            "ЗВ",
+            "ЕЗ",
+            "ДА"
+          ],
+          [
+            "ОФ",
+            "ИЦ",
+            "ЕР"
+          ],
+          [
+            "КР",
+            "ЕС",
+            "ЛО"
+          ]
+        ]
+      },
+      "En_14": {
+        "LevelDefId": "En_14",
+        "IsCompleted": true,
+        "SavesCount": 8,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "TRU",
+            "ST"
+          ],
+          [
+            "MUS",
+            "IC"
+          ],
+          [
+            "ST",
+            "EEL"
+          ],
+          [
+            "SCA",
+            "LE"
+          ]
+        ]
+      },
+      "En_15": {
+        "LevelDefId": "En_15",
+        "IsCompleted": true,
+        "SavesCount": 14,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PHA",
+            "SE"
+          ],
+          [
+            "EA",
+            "RTH"
+          ],
+          [
+            "SO",
+            "UND"
+          ],
+          [
+            "VOI",
+            "CE"
+          ]
+        ]
+      },
+      "En_16": {
+        "LevelDefId": "En_16",
+        "IsCompleted": true,
+        "SavesCount": 7,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "JUD",
+            "GE"
+          ],
+          [
+            "PEA",
+            "CE"
+          ],
+          [
+            "ST",
+            "ART"
+          ],
+          [
+            "IND",
+            "EX"
+          ]
+        ]
+      },
+      "En_17": {
+        "LevelDefId": "En_17",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "CO",
+            "VER"
+          ],
+          [
+            "MO",
+            "TOR"
+          ],
+          [
+            "ME",
+            "TAL"
+          ],
+          [
+            "OF",
+            "FER"
+          ]
+        ]
+      },
+      "En_18": {
+        "LevelDefId": "En_18",
+        "IsCompleted": true,
+        "SavesCount": 10,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "TR",
+            "UTH"
+          ],
+          [
+            "FL",
+            "OOR"
+          ],
+          [
+            "SP",
+            "EED"
+          ],
+          [
+            "GR",
+            "ANT"
+          ]
+        ]
+      },
+      "En_19": {
+        "LevelDefId": "En_19",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "AG",
+            "ENT"
+          ],
+          [
+            "EV",
+            "ENT"
+          ],
+          [
+            "IM",
+            "AGE"
+          ],
+          [
+            "DO",
+            "UBT"
+          ]
+        ]
+      },
+      "En_20": {
+        "LevelDefId": "En_20",
+        "IsCompleted": true,
+        "SavesCount": 6,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "GLA",
+            "SS"
+          ],
+          [
+            "FA",
+            "ITH"
+          ],
+          [
+            "COA",
+            "ST"
+          ],
+          [
+            "ST",
+            "ONE"
+          ]
+        ]
+      },
+      "En_21": {
+        "LevelDefId": "En_21",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "OW",
+            "NER"
+          ],
+          [
+            "PLA",
+            "TE"
+          ],
+          [
+            "STY",
+            "LE"
+          ],
+          [
+            "RA",
+            "DIO"
+          ]
+        ]
+      },
+      "En_22": {
+        "LevelDefId": "En_22",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "GU",
+            "IDE"
+          ],
+          [
+            "MO",
+            "UTH"
+          ],
+          [
+            "VIS",
+            "IT"
+          ],
+          [
+            "PI",
+            "ECE"
+          ]
+        ]
+      },
+      "En_23": {
+        "LevelDefId": "En_23",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SH",
+            "APE"
+          ],
+          [
+            "ENT",
+            "RY"
+          ],
+          [
+            "PHO",
+            "NE"
+          ],
+          [
+            "BRA",
+            "IN"
+          ]
+        ]
+      },
+      "En_24": {
+        "LevelDefId": "En_24",
+        "IsCompleted": true,
+        "SavesCount": 14,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "CR",
+            "IME"
+          ],
+          [
+            "AD",
+            "ULT"
+          ],
+          [
+            "BIR",
+            "TH"
+          ],
+          [
+            "FRU",
+            "IT"
+          ]
+        ]
+      },
+      "En_25": {
+        "LevelDefId": "En_25",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "HOR",
+            "SE"
+          ],
+          [
+            "TRA",
+            "IN"
+          ],
+          [
+            "AW",
+            "ARD"
+          ],
+          [
+            "PL",
+            "ANE"
+          ]
+        ]
+      },
+      "Ru_91": {
+        "LevelDefId": "Ru_91",
+        "IsCompleted": true,
+        "SavesCount": 6,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СТ",
+            "ЕК",
+            "ЛО"
+          ],
+          [
+            "ЦВ",
+            "ЕТ",
+            "ОК"
+          ],
+          [
+            "УЛ",
+            "ЫБ",
+            "КА"
+          ],
+          [
+            "БО",
+            "РЬ",
+            "БА"
+          ]
+        ]
+      },
+      "En_26": {
+        "LevelDefId": "En_26",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "HO",
+            "TEL"
+          ],
+          [
+            "SH",
+            "EET"
+          ],
+          [
+            "CH",
+            "AIR"
+          ],
+          [
+            "SC",
+            "ENE"
+          ]
+        ]
+      },
+      "En_27": {
+        "LevelDefId": "En_27",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "AN",
+            "GLE"
+          ],
+          [
+            "ROU",
+            "TE"
+          ],
+          [
+            "TR",
+            "ACK"
+          ],
+          [
+            "NOI",
+            "SE"
+          ]
+        ]
+      },
+      "En_28": {
+        "LevelDefId": "En_28",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "QUE",
+            "EN"
+          ],
+          [
+            "SI",
+            "GHT"
+          ],
+          [
+            "CH",
+            "AIN"
+          ],
+          [
+            "TO",
+            "UCH"
+          ]
+        ]
+      },
+      "En_29": {
+        "LevelDefId": "En_29",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SMI",
+            "LE"
+          ],
+          [
+            "CRO",
+            "WN"
+          ],
+          [
+            "BAS",
+            "IN"
+          ],
+          [
+            "DRI",
+            "NK"
+          ]
+        ]
+      },
+      "En_30": {
+        "LevelDefId": "En_30",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "GRA",
+            "SS"
+          ],
+          [
+            "SHO",
+            "CK"
+          ],
+          [
+            "VI",
+            "DEO"
+          ],
+          [
+            "POU",
+            "ND"
+          ]
+        ]
+      },
+      "En_31": {
+        "LevelDefId": "En_31",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "NER",
+            "VE"
+          ],
+          [
+            "TO",
+            "PIC"
+          ],
+          [
+            "MAT",
+            "CH"
+          ],
+          [
+            "BR",
+            "ICK"
+          ]
+        ]
+      },
+      "En_32": {
+        "LevelDefId": "En_32",
+        "IsCompleted": true,
+        "SavesCount": 8,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "LU",
+            "NCH"
+          ],
+          [
+            "STU",
+            "FF"
+          ],
+          [
+            "APP",
+            "LE"
+          ],
+          [
+            "SPO",
+            "RT"
+          ]
+        ]
+      },
+      "En_33": {
+        "LevelDefId": "En_33",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "KN",
+            "IFE"
+          ],
+          [
+            "BR",
+            "USH"
+          ],
+          [
+            "BL",
+            "ADE"
+          ],
+          [
+            "BRA",
+            "KE"
+          ]
+        ]
+      },
+      "En_34": {
+        "LevelDefId": "En_34",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BER",
+            "RY"
+          ],
+          [
+            "CHE",
+            "SS"
+          ],
+          [
+            "JE",
+            "WEL"
+          ],
+          [
+            "PE",
+            "OP",
+            "LE"
+          ]
+        ]
+      },
+      "En_35": {
+        "LevelDefId": "En_35",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "NU",
+            "MB",
+            "ER"
+          ],
+          [
+            "SY",
+            "ST",
+            "EM"
+          ],
+          [
+            "PU",
+            "BL",
+            "IC"
+          ],
+          [
+            "SC",
+            "HO",
+            "OL"
+          ]
+        ]
+      },
+      "En_36": {
+        "LevelDefId": "En_36",
+        "IsCompleted": true,
+        "SavesCount": 16,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "RE",
+            "PO",
+            "RT"
+          ],
+          [
+            "PE",
+            "RI",
+            "OD"
+          ],
+          [
+            "OF",
+            "FI",
+            "CE"
+          ],
+          [
+            "HE",
+            "AL",
+            "TH"
+          ]
+        ]
+      },
+      "En_37": {
+        "LevelDefId": "En_37",
+        "IsCompleted": true,
+        "SavesCount": 6,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "AC",
+            "TI",
+            "ON"
+          ],
+          [
+            "EF",
+            "FE",
+            "CT"
+          ],
+          [
+            "CO",
+            "UR",
+            "SE"
+          ],
+          [
+            "CO",
+            "UN",
+            "TY"
+          ]
+        ]
+      },
+      "En_38": {
+        "LevelDefId": "En_38",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "CH",
+            "AN",
+            "GE"
+          ],
+          [
+            "PE",
+            "RS",
+            "ON"
+          ],
+          [
+            "AM",
+            "OU",
+            "NT"
+          ],
+          [
+            "FI",
+            "GU",
+            "RE"
+          ]
+        ]
+      },
+      "En_39": {
+        "LevelDefId": "En_39",
+        "IsCompleted": true,
+        "SavesCount": 15,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "FA",
+            "MI",
+            "LY"
+          ],
+          [
+            "OT",
+            "HE",
+            "RS"
+          ],
+          [
+            "PO",
+            "LI",
+            "CY"
+          ],
+          [
+            "RE",
+            "SU",
+            "LT"
+          ]
+        ]
+      },
+      "En_40": {
+        "LevelDefId": "En_40",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "EN",
+            "ER",
+            "GY"
+          ],
+          [
+            "NA",
+            "TU",
+            "RE"
+          ],
+          [
+            "ME",
+            "TH",
+            "OD"
+          ],
+          [
+            "MA",
+            "RK",
+            "ET"
+          ]
+        ]
+      },
+      "En_41": {
+        "LevelDefId": "En_41",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "IN",
+            "CO",
+            "ME"
+          ],
+          [
+            "ME",
+            "MB",
+            "ER"
+          ],
+          [
+            "ST",
+            "RE",
+            "ET"
+          ],
+          [
+            "FU",
+            "TU",
+            "RE"
+          ]
+        ]
+      },
+      "En_42": {
+        "LevelDefId": "En_42",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "GR",
+            "OW",
+            "TH"
+          ],
+          [
+            "RE",
+            "VI",
+            "EW"
+          ],
+          [
+            "RE",
+            "AS",
+            "ON"
+          ],
+          [
+            "CH",
+            "UR",
+            "CH"
+          ]
+        ]
+      },
+      "En_43": {
+        "LevelDefId": "En_43",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "DE",
+            "SI",
+            "GN"
+          ],
+          [
+            "FA",
+            "TH",
+            "ER"
+          ],
+          [
+            "RE",
+            "CO",
+            "RD"
+          ],
+          [
+            "TH",
+            "EO",
+            "RY"
+          ]
+        ]
+      },
+      "En_44": {
+        "LevelDefId": "En_44",
+        "IsCompleted": true,
+        "SavesCount": 10,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "GR",
+            "OU",
+            "ND"
+          ],
+          [
+            "MO",
+            "TH",
+            "ER"
+          ],
+          [
+            "SO",
+            "UR",
+            "CE"
+          ],
+          [
+            "RE",
+            "TU",
+            "RN"
+          ]
+        ]
+      },
+      "En_45": {
+        "LevelDefId": "En_45",
+        "IsCompleted": true,
+        "SavesCount": 17,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SU",
+            "PP",
+            "LY"
+          ],
+          [
+            "LE",
+            "TT",
+            "ER"
+          ],
+          [
+            "VO",
+            "LU",
+            "ME"
+          ],
+          [
+            "RE",
+            "GI",
+            "ON"
+          ]
+        ]
+      },
+      "En_46": {
+        "LevelDefId": "En_46",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "NO",
+            "TI",
+            "CE"
+          ],
+          [
+            "AG",
+            "EN",
+            "CY"
+          ],
+          [
+            "LE",
+            "NG",
+            "TH"
+          ],
+          [
+            "AN",
+            "SW",
+            "ER"
+          ]
+        ]
+      },
+      "En_47": {
+        "LevelDefId": "En_47",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "DE",
+            "GR",
+            "EE"
+          ],
+          [
+            "CH",
+            "AR",
+            "GE"
+          ],
+          [
+            "MI",
+            "DD",
+            "LE"
+          ],
+          [
+            "EX",
+            "TE",
+            "NT"
+          ]
+        ]
+      },
+      "En_48": {
+        "LevelDefId": "En_48",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "MO",
+            "ME",
+            "NT"
+          ],
+          [
+            "MO",
+            "TI",
+            "ON"
+          ],
+          [
+            "WE",
+            "IG",
+            "HT"
+          ],
+          [
+            "CR",
+            "ED",
+            "IT"
+          ]
+        ]
+      },
+      "En_49": {
+        "LevelDefId": "En_49",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "AU",
+            "TH",
+            "OR"
+          ],
+          [
+            "ST",
+            "AT",
+            "US"
+          ],
+          [
+            "FA",
+            "CT",
+            "OR"
+          ],
+          [
+            "AC",
+            "CE",
+            "SS"
+          ]
+        ]
+      },
+      "En_50": {
+        "LevelDefId": "En_50",
+        "IsCompleted": true,
+        "SavesCount": 6,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PO",
+            "LI",
+            "CE"
+          ],
+          [
+            "NA",
+            "TI",
+            "ON"
+          ],
+          [
+            "IS",
+            "LA",
+            "ND"
+          ],
+          [
+            "OB",
+            "JE",
+            "CT"
+          ]
+        ]
+      },
+      "En_51": {
+        "LevelDefId": "En_51",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SA",
+            "MP",
+            "LE"
+          ],
+          [
+            "IM",
+            "PA",
+            "CT"
+          ],
+          [
+            "ES",
+            "TA",
+            "TE"
+          ],
+          [
+            "FR",
+            "IE",
+            "ND"
+          ]
+        ]
+      },
+      "En_52": {
+        "LevelDefId": "En_52",
+        "IsCompleted": true,
+        "SavesCount": 8,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "EF",
+            "FO",
+            "RT"
+          ],
+          [
+            "FO",
+            "RE",
+            "ST"
+          ],
+          [
+            "SU",
+            "MM",
+            "ER"
+          ],
+          [
+            "SP",
+            "IR",
+            "IT"
+          ]
+        ]
+      },
+      "En_53": {
+        "LevelDefId": "En_53",
+        "IsCompleted": true,
+        "SavesCount": 10,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "OU",
+            "TP",
+            "UT"
+          ],
+          [
+            "CH",
+            "OI",
+            "CE"
+          ],
+          [
+            "MA",
+            "ST",
+            "ER"
+          ],
+          [
+            "SP",
+            "RI",
+            "NG"
+          ]
+        ]
+      },
+      "En_54": {
+        "LevelDefId": "En_54",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SQ",
+            "UA",
+            "RE"
+          ],
+          [
+            "RE",
+            "LI",
+            "EF"
+          ],
+          [
+            "AN",
+            "IM",
+            "AL"
+          ],
+          [
+            "BR",
+            "AN",
+            "CH"
+          ]
+        ]
+      },
+      "En_55": {
+        "LevelDefId": "En_55",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SP",
+            "EE",
+            "CH"
+          ],
+          [
+            "DE",
+            "SI",
+            "RE"
+          ],
+          [
+            "WI",
+            "NT",
+            "ER"
+          ],
+          [
+            "DA",
+            "MA",
+            "GE"
+          ]
+        ]
+      },
+      "En_56": {
+        "LevelDefId": "En_56",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "VA",
+            "LL",
+            "EY"
+          ],
+          [
+            "ME",
+            "MO",
+            "RY"
+          ],
+          [
+            "SE",
+            "AR",
+            "CH"
+          ],
+          [
+            "SE",
+            "CT",
+            "OR"
+          ]
+        ]
+      },
+      "En_57": {
+        "LevelDefId": "En_57",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BO",
+            "TT",
+            "OM"
+          ],
+          [
+            "CE",
+            "NT",
+            "RE"
+          ],
+          [
+            "SE",
+            "AS",
+            "ON"
+          ],
+          [
+            "AT",
+            "TA",
+            "CK"
+          ]
+        ]
+      },
+      "En_58": {
+        "LevelDefId": "En_58",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "CH",
+            "RI",
+            "ST"
+          ],
+          [
+            "SC",
+            "HE",
+            "ME"
+          ],
+          [
+            "CH",
+            "AN",
+            "CE"
+          ],
+          [
+            "PR",
+            "OF",
+            "IT"
+          ]
+        ]
+      },
+      "En_59": {
+        "LevelDefId": "En_59",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BR",
+            "ID",
+            "GE"
+          ],
+          [
+            "DE",
+            "TA",
+            "IL"
+          ],
+          [
+            "WI",
+            "ND",
+            "OW"
+          ],
+          [
+            "CA",
+            "NC",
+            "ER"
+          ]
+        ]
+      },
+      "En_60": {
+        "LevelDefId": "En_60",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "MU",
+            "SE",
+            "UM"
+          ],
+          [
+            "EN",
+            "GI",
+            "NE"
+          ],
+          [
+            "SI",
+            "LV",
+            "ER"
+          ],
+          [
+            "RE",
+            "FO",
+            "RM"
+          ]
+        ]
+      },
+      "En_61": {
+        "LevelDefId": "En_61",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "DO",
+            "CT",
+            "OR"
+          ],
+          [
+            "LE",
+            "AD",
+            "ER"
+          ],
+          [
+            "CA",
+            "RE",
+            "ER"
+          ],
+          [
+            "BA",
+            "TT",
+            "LE"
+          ]
+        ]
+      },
+      "En_62": {
+        "LevelDefId": "En_62",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "MI",
+            "NU",
+            "TE"
+          ],
+          [
+            "GA",
+            "RD",
+            "EN"
+          ],
+          [
+            "TA",
+            "RG",
+            "ET"
+          ],
+          [
+            "RE",
+            "AD",
+            "ER"
+          ]
+        ]
+      },
+      "En_63": {
+        "LevelDefId": "En_63",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SI",
+            "ST",
+            "ER"
+          ],
+          [
+            "VI",
+            "SI",
+            "ON"
+          ],
+          [
+            "DA",
+            "NG",
+            "ER"
+          ],
+          [
+            "AD",
+            "VI",
+            "CE"
+          ]
+        ]
+      },
+      "En_64": {
+        "LevelDefId": "En_64",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "FL",
+            "IG",
+            "HT"
+          ],
+          [
+            "BE",
+            "LI",
+            "EF"
+          ],
+          [
+            "CO",
+            "RN",
+            "ER"
+          ],
+          [
+            "CR",
+            "IS",
+            "IS"
+          ]
+        ]
+      },
+      "En_65": {
+        "LevelDefId": "En_65",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PA",
+            "RE",
+            "NT"
+          ],
+          [
+            "CL",
+            "IE",
+            "NT"
+          ],
+          [
+            "DE",
+            "BA",
+            "TE"
+          ],
+          [
+            "AS",
+            "PE",
+            "CT"
+          ]
+        ]
+      },
+      "En_66": {
+        "LevelDefId": "En_66",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "OP",
+            "TI",
+            "ON"
+          ],
+          [
+            "BE",
+            "AU",
+            "TY"
+          ],
+          [
+            "PR",
+            "IN",
+            "CE"
+          ],
+          [
+            "LE",
+            "AG",
+            "UE"
+          ]
+        ]
+      },
+      "En_67": {
+        "LevelDefId": "En_67",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SC",
+            "RE",
+            "EN"
+          ],
+          [
+            "MU",
+            "SC",
+            "LE"
+          ],
+          [
+            "DI",
+            "NN",
+            "ER"
+          ],
+          [
+            "CO",
+            "FF",
+            "EE"
+          ]
+        ]
+      },
+      "En_68": {
+        "LevelDefId": "En_68",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PR",
+            "IS",
+            "ON"
+          ],
+          [
+            "TH",
+            "RE",
+            "AT"
+          ],
+          [
+            "BR",
+            "EA",
+            "TH"
+          ],
+          [
+            "CO",
+            "LO",
+            "UR"
+          ]
+        ]
+      },
+      "En_69": {
+        "LevelDefId": "En_69",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BI",
+            "SH",
+            "OP"
+          ],
+          [
+            "DR",
+            "IV",
+            "ER"
+          ],
+          [
+            "FA",
+            "RM",
+            "ER"
+          ],
+          [
+            "AR",
+            "TI",
+            "ST"
+          ]
+        ]
+      },
+      "En_70": {
+        "LevelDefId": "En_70",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "MU",
+            "RD",
+            "ER"
+          ],
+          [
+            "OR",
+            "AN",
+            "GE"
+          ],
+          [
+            "CA",
+            "ME",
+            "RA"
+          ],
+          [
+            "PO",
+            "CK",
+            "ET"
+          ]
+        ]
+      },
+      "En_71": {
+        "LevelDefId": "En_71",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "CA",
+            "ST",
+            "LE"
+          ],
+          [
+            "FL",
+            "OW",
+            "ER"
+          ],
+          [
+            "BO",
+            "TT",
+            "LE"
+          ],
+          [
+            "PA",
+            "LA",
+            "CE"
+          ]
+        ]
+      },
+      "En_72": {
+        "LevelDefId": "En_72",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BU",
+            "TT",
+            "ON"
+          ],
+          [
+            "PL",
+            "AY",
+            "ER"
+          ],
+          [
+            "CH",
+            "EE",
+            "SE"
+          ],
+          [
+            "NE",
+            "ED",
+            "LE"
+          ]
+        ]
+      },
+      "En_73": {
+        "LevelDefId": "En_73",
+        "IsCompleted": true,
+        "SavesCount": 10,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PO",
+            "TA",
+            "TO"
+          ],
+          [
+            "BA",
+            "SK",
+            "ET"
+          ],
+          [
+            "PA",
+            "RC",
+            "EL"
+          ],
+          [
+            "PE",
+            "NC",
+            "IL"
+          ]
+        ]
+      },
+      "En_74": {
+        "LevelDefId": "En_74",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BU",
+            "CK",
+            "ET"
+          ],
+          [
+            "MO",
+            "NK",
+            "EY"
+          ],
+          [
+            "KE",
+            "TT",
+            "LE"
+          ],
+          [
+            "PL",
+            "OU",
+            "GH"
+          ]
+        ]
+      },
+      "En_75": {
+        "LevelDefId": "En_75",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "GE",
+            "NER",
+            "AL"
+          ],
+          [
+            "SEC",
+            "TI",
+            "ON"
+          ],
+          [
+            "SER",
+            "VI",
+            "CE"
+          ],
+          [
+            "CO",
+            "MP",
+            "ANY"
+          ]
+        ]
+      },
+      "En_76": {
+        "LevelDefId": "En_76",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PR",
+            "ES",
+            "ENT"
+          ],
+          [
+            "CO",
+            "NTR",
+            "OL"
+          ],
+          [
+            "PR",
+            "OGR",
+            "AM"
+          ],
+          [
+            "COU",
+            "NT",
+            "RY"
+          ]
+        ]
+      },
+      "En_77": {
+        "LevelDefId": "En_77",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "PR",
+            "OCE",
+            "SS"
+          ],
+          [
+            "EXA",
+            "MP",
+            "LE"
+          ],
+          [
+            "HIS",
+            "TO",
+            "RY"
+          ],
+          [
+            "SU",
+            "BJ",
+            "ECT"
+          ]
+        ]
+      },
+      "En_78": {
+        "LevelDefId": "En_78",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SU",
+            "PP",
+            "ORT"
+          ],
+          [
+            "CH",
+            "AP",
+            "TER"
+          ],
+          [
+            "SOC",
+            "IE",
+            "TY"
+          ],
+          [
+            "PRO",
+            "BL",
+            "EM"
+          ]
+        ]
+      },
+      "En_79": {
+        "LevelDefId": "En_79",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ACC",
+            "OU",
+            "NT"
+          ],
+          [
+            "AV",
+            "ERA",
+            "GE"
+          ],
+          [
+            "SU",
+            "RFA",
+            "CE"
+          ],
+          [
+            "PU",
+            "RP",
+            "OSE"
+          ]
+        ]
+      },
+      "En_80": {
+        "LevelDefId": "En_80",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "COU",
+            "NC",
+            "IL"
+          ],
+          [
+            "COL",
+            "LE",
+            "GE"
+          ],
+          [
+            "PRO",
+            "JE",
+            "CT"
+          ],
+          [
+            "MI",
+            "LL",
+            "ION"
+          ]
+        ]
+      },
+      "En_81": {
+        "LevelDefId": "En_81",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "SCI",
+            "EN",
+            "CE"
+          ],
+          [
+            "CA",
+            "PI",
+            "TAL"
+          ],
+          [
+            "CEN",
+            "TU",
+            "RY"
+          ],
+          [
+            "QUA",
+            "LI",
+            "TY"
+          ]
+        ]
+      },
+      "En_82": {
+        "LevelDefId": "En_82",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "RES",
+            "PE",
+            "CT"
+          ],
+          [
+            "AR",
+            "TIC",
+            "LE"
+          ],
+          [
+            "LI",
+            "BR",
+            "ARY"
+          ],
+          [
+            "PR",
+            "ODU",
+            "CT"
+          ]
+        ]
+      },
+      "En_83": {
+        "LevelDefId": "En_83",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "OP",
+            "INI",
+            "ON"
+          ],
+          [
+            "OF",
+            "FIC",
+            "ER"
+          ],
+          [
+            "AD",
+            "DR",
+            "ESS"
+          ],
+          [
+            "PAT",
+            "IE",
+            "NT"
+          ]
+        ]
+      },
+      "En_84": {
+        "LevelDefId": "En_84",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "CUL",
+            "TU",
+            "RE"
+          ],
+          [
+            "STA",
+            "TI",
+            "ON"
+          ],
+          [
+            "PAY",
+            "ME",
+            "NT"
+          ],
+          [
+            "CO",
+            "NT",
+            "ENT"
+          ]
+        ]
+      },
+      "En_85": {
+        "LevelDefId": "En_85",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "JU",
+            "ST",
+            "ICE"
+          ],
+          [
+            "CO",
+            "NT",
+            "ACT"
+          ],
+          [
+            "STU",
+            "DE",
+            "NT"
+          ],
+          [
+            "FAI",
+            "LU",
+            "RE"
+          ]
+        ]
+      },
+      "En_86": {
+        "LevelDefId": "En_86",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "MO",
+            "RNI",
+            "NG"
+          ],
+          [
+            "BA",
+            "LA",
+            "NCE"
+          ],
+          [
+            "BE",
+            "NEF",
+            "IT"
+          ],
+          [
+            "MAC",
+            "HI",
+            "NE"
+          ]
+        ]
+      },
+      "En_87": {
+        "LevelDefId": "En_87",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ABI",
+            "LI",
+            "TY"
+          ],
+          [
+            "ECO",
+            "NO",
+            "MY"
+          ],
+          [
+            "SUC",
+            "CE",
+            "SS"
+          ],
+          [
+            "TE",
+            "AC",
+            "HER"
+          ]
+        ]
+      },
+      "En_88": {
+        "LevelDefId": "En_88",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "AT",
+            "TEM",
+            "PT"
+          ],
+          [
+            "PIC",
+            "TU",
+            "RE"
+          ],
+          [
+            "MAN",
+            "AG",
+            "ER"
+          ],
+          [
+            "RE",
+            "VE",
+            "NUE"
+          ]
+        ]
+      },
+      "En_89": {
+        "LevelDefId": "En_89",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "NE",
+            "TW",
+            "ORK"
+          ],
+          [
+            "FR",
+            "EED",
+            "OM"
+          ],
+          [
+            "PA",
+            "TTE",
+            "RN"
+          ],
+          [
+            "CON",
+            "CE",
+            "PT"
+          ]
+        ]
+      },
+      "En_90": {
+        "LevelDefId": "En_90",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "HU",
+            "SBA",
+            "ND"
+          ],
+          [
+            "CO",
+            "NT",
+            "EXT"
+          ],
+          [
+            "EL",
+            "EME",
+            "NT"
+          ],
+          [
+            "TR",
+            "AF",
+            "FIC"
+          ]
+        ]
+      },
+      "En_91": {
+        "LevelDefId": "En_91",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BRO",
+            "TH",
+            "ER"
+          ],
+          [
+            "CON",
+            "CE",
+            "RN"
+          ],
+          [
+            "VIL",
+            "LA",
+            "GE"
+          ],
+          [
+            "ABS",
+            "EN",
+            "CE"
+          ]
+        ]
+      },
+      "En_92": {
+        "LevelDefId": "En_92",
+        "IsCompleted": true,
+        "SavesCount": 8,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "RAI",
+            "LW",
+            "AY"
+          ],
+          [
+            "SES",
+            "SI",
+            "ON"
+          ],
+          [
+            "FIN",
+            "AN",
+            "CE"
+          ],
+          [
+            "VEH",
+            "IC",
+            "LE"
+          ]
+        ]
+      },
+      "En_93": {
+        "LevelDefId": "En_93",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "KIN",
+            "GD",
+            "OM"
+          ],
+          [
+            "REL",
+            "EA",
+            "SE"
+          ],
+          [
+            "CHA",
+            "NN",
+            "EL"
+          ],
+          [
+            "MES",
+            "SA",
+            "GE"
+          ]
+        ]
+      },
+      "En_94": {
+        "LevelDefId": "En_94",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "QUA",
+            "RT",
+            "ER"
+          ],
+          [
+            "FEA",
+            "TU",
+            "RE"
+          ],
+          [
+            "WE",
+            "ATH",
+            "ER"
+          ],
+          [
+            "TRO",
+            "UB",
+            "LE"
+          ]
+        ]
+      },
+      "En_95": {
+        "LevelDefId": "En_95",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "CA",
+            "PTA",
+            "IN"
+          ],
+          [
+            "VER",
+            "SI",
+            "ON"
+          ],
+          [
+            "SPE",
+            "AK",
+            "ER"
+          ],
+          [
+            "DI",
+            "SP",
+            "LAY"
+          ]
+        ]
+      },
+      "En_96": {
+        "LevelDefId": "En_96",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "DEC",
+            "LI",
+            "NE"
+          ],
+          [
+            "FA",
+            "CTO",
+            "RY"
+          ],
+          [
+            "DE",
+            "FE",
+            "NCE"
+          ],
+          [
+            "PA",
+            "RT",
+            "NER"
+          ]
+        ]
+      },
+      "En_97": {
+        "LevelDefId": "En_97",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "KI",
+            "TC",
+            "HEN"
+          ],
+          [
+            "FA",
+            "SH",
+            "ION"
+          ],
+          [
+            "SI",
+            "LE",
+            "NCE"
+          ],
+          [
+            "JOU",
+            "RN",
+            "EY"
+          ]
+        ]
+      },
+      "En_98": {
+        "LevelDefId": "En_98",
+        "IsCompleted": true,
+        "SavesCount": 13,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "RE",
+            "CEI",
+            "PT"
+          ],
+          [
+            "VI",
+            "CTO",
+            "RY"
+          ],
+          [
+            "PA",
+            "CK",
+            "AGE"
+          ],
+          [
+            "CAB",
+            "IN",
+            "ET"
+          ]
+        ]
+      },
+      "En_99": {
+        "LevelDefId": "En_99",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "GAL",
+            "LE",
+            "RY"
+          ],
+          [
+            "HO",
+            "LI",
+            "DAY"
+          ],
+          [
+            "CH",
+            "IC",
+            "KEN"
+          ],
+          [
+            "DE",
+            "SI",
+            "GN"
+          ]
+        ]
+      },
+      "En_100": {
+        "LevelDefId": "En_100",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "BED",
+            "RO",
+            "OM"
+          ],
+          [
+            "WE",
+            "EKE",
+            "ND"
+          ],
+          [
+            "CUR",
+            "TA",
+            "IN"
+          ],
+          [
+            "CU",
+            "SH",
+            "ION"
+          ]
+        ]
+      },
+      "Ru_92": {
+        "LevelDefId": "Ru_92",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СЕ",
+            "СТ",
+            "РА"
+          ],
+          [
+            "МУ",
+            "ЗЫ",
+            "КА"
+          ],
+          [
+            "ЛО",
+            "ША",
+            "ДЬ"
+          ],
+          [
+            "КО",
+            "РО",
+            "ЛЬ"
+          ]
+        ]
+      },
+      "Ru_93": {
+        "LevelDefId": "Ru_93",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПР",
+            "ИМ",
+            "ЕР"
+          ],
+          [
+            "ЛА",
+            "ГЕ",
+            "РЬ"
+          ],
+          [
+            "МН",
+            "ЕН",
+            "ИЕ"
+          ],
+          [
+            "ОС",
+            "ТР",
+            "ОВ"
+          ]
+        ]
+      },
+      "Ru_94": {
+        "LevelDefId": "Ru_94",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СТ",
+            "АТ",
+            "ЬЯ"
+          ],
+          [
+            "ТИ",
+            "ШИ",
+            "НА"
+          ],
+          [
+            "ПР",
+            "ИК",
+            "АЗ"
+          ],
+          [
+            "СТ",
+            "АК",
+            "АН"
+          ]
+        ]
+      },
+      "Ru_95": {
+        "LevelDefId": "Ru_95",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ОД",
+            "ЕЖ",
+            "ДА"
+          ],
+          [
+            "ЗД",
+            "АН",
+            "ИЕ"
+          ],
+          [
+            "ЗА",
+            "ДА",
+            "ЧА"
+          ],
+          [
+            "ВО",
+            "ЙС",
+            "КО"
+          ]
+        ]
+      },
+      "Ru_96": {
+        "LevelDefId": "Ru_96",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЗН",
+            "АН",
+            "ИЕ"
+          ],
+          [
+            "ДО",
+            "ЛЛ",
+            "АР"
+          ],
+          [
+            "КО",
+            "СТ",
+            "ЮМ"
+          ],
+          [
+            "ЖУ",
+            "РН",
+            "АЛ"
+          ]
+        ]
+      },
+      "Ru_97": {
+        "LevelDefId": "Ru_97",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ФИ",
+            "ГУ",
+            "РА"
+          ],
+          [
+            "ПЕ",
+            "РИ",
+            "ОД"
+          ],
+          [
+            "СО",
+            "СТ",
+            "АВ"
+          ],
+          [
+            "СП",
+            "ОС",
+            "ОБ"
+          ]
+        ]
+      },
+      "Ru_98": {
+        "LevelDefId": "Ru_98",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЗР",
+            "ЕН",
+            "ИЕ"
+          ],
+          [
+            "МА",
+            "СТ",
+            "ЕР"
+          ],
+          [
+            "ОШ",
+            "ИБ",
+            "КА"
+          ],
+          [
+            "ВЫ",
+            "СО",
+            "ТА"
+          ]
+        ]
+      },
+      "Ru_99": {
+        "LevelDefId": "Ru_99",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "КА",
+            "МЕ",
+            "РА"
+          ],
+          [
+            "ПО",
+            "БЕ",
+            "ДА"
+          ],
+          [
+            "РО",
+            "ДИ",
+            "НА"
+          ],
+          [
+            "РА",
+            "ЗМ",
+            "ЕР"
+          ]
+        ]
+      },
+      "Ru_100": {
+        "LevelDefId": "Ru_100",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЖИ",
+            "ТЕ",
+            "ЛЬ"
+          ],
+          [
+            "КН",
+            "ИЖ",
+            "КА"
+          ],
+          [
+            "ТЮ",
+            "РЬ",
+            "МА"
+          ],
+          [
+            "ЛЕ",
+            "ГК",
+            "ОЕ"
+          ]
+        ]
+      },
+      "Ru_101": {
+        "LevelDefId": "Ru_101",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ВО",
+            "СТ",
+            "ОК"
+          ],
+          [
+            "ЕВ",
+            "РО",
+            "ПА"
+          ],
+          [
+            "АР",
+            "ТИ",
+            "СТ"
+          ],
+          [
+            "ЖЕ",
+            "РТ",
+            "ВА"
+          ]
+        ]
+      },
+      "Ru_102": {
+        "LevelDefId": "Ru_102",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЗВ",
+            "ОН",
+            "ОК"
+          ],
+          [
+            "КО",
+            "СТ",
+            "ЕР"
+          ],
+          [
+            "ПЛ",
+            "АТ",
+            "ЬЕ"
+          ],
+          [
+            "ДВ",
+            "ОР",
+            "ЕЦ"
+          ]
+        ]
+      },
+      "Ru_103": {
+        "LevelDefId": "Ru_103",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СТ",
+            "ОЛ",
+            "ИК"
+          ],
+          [
+            "ПР",
+            "ЕД",
+            "ЕЛ"
+          ],
+          [
+            "УЧ",
+            "ЕН",
+            "ИК"
+          ],
+          [
+            "КО",
+            "ЛЕ",
+            "СО"
+          ]
+        ]
+      },
+      "Ru_104": {
+        "LevelDefId": "Ru_104",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МО",
+            "ЛО",
+            "КО"
+          ],
+          [
+            "СП",
+            "ИС",
+            "ОК"
+          ],
+          [
+            "УС",
+            "ИЛ",
+            "ИЕ"
+          ],
+          [
+            "КЛ",
+            "ЕТ",
+            "КА"
+          ]
+        ]
+      },
+      "Ru_105": {
+        "LevelDefId": "Ru_105",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ЗА",
+            "ЩИ",
+            "ТА"
+          ],
+          [
+            "ОС",
+            "НО",
+            "ВА"
+          ],
+          [
+            "ОХ",
+            "РА",
+            "НА"
+          ],
+          [
+            "КУ",
+            "РТ",
+            "КА"
+          ]
+        ]
+      },
+      "Ru_106": {
+        "LevelDefId": "Ru_106",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "СТ",
+            "ЕН",
+            "КА"
+          ],
+          [
+            "БЕ",
+            "СЕ",
+            "ДА"
+          ],
+          [
+            "ИС",
+            "ТИ",
+            "НА"
+          ],
+          [
+            "ОБ",
+            "ЛА",
+            "КО"
+          ]
+        ]
+      },
+      "Ru_107": {
+        "LevelDefId": "Ru_107",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ПЛ",
+            "АТ",
+            "ОК"
+          ],
+          [
+            "ЛО",
+            "КО",
+            "ТЬ"
+          ],
+          [
+            "КР",
+            "АС",
+            "КА"
+          ],
+          [
+            "КР",
+            "УЖ",
+            "ОК"
+          ]
+        ]
+      },
+      "Ru_108": {
+        "LevelDefId": "Ru_108",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ФО",
+            "НА",
+            "РЬ"
+          ],
+          [
+            "ПО",
+            "ЛО",
+            "СА"
+          ],
+          [
+            "ТЕ",
+            "ОР",
+            "ИЯ"
+          ],
+          [
+            "ВО",
+            "КЗ",
+            "АЛ"
+          ]
+        ]
+      },
+      "Ru_109": {
+        "LevelDefId": "Ru_109",
+        "IsCompleted": true,
+        "SavesCount": 6,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "КО",
+            "РЕ",
+            "НЬ"
+          ],
+          [
+            "ШИ",
+            "НЕ",
+            "ЛЬ"
+          ],
+          [
+            "ПИ",
+            "ДЖ",
+            "АК"
+          ],
+          [
+            "ПА",
+            "СТ",
+            "УХ"
+          ]
+        ]
+      },
+      "Ru_110": {
+        "LevelDefId": "Ru_110",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ДЕ",
+            "ВИ",
+            "ЦА"
+          ],
+          [
+            "КО",
+            "ЛЬ",
+            "ЦО"
+          ],
+          [
+            "ПР",
+            "ОЕ",
+            "КТ"
+          ],
+          [
+            "ЖЕ",
+            "ЛЕ",
+            "ЗО"
+          ]
+        ]
+      },
+      "Ru_111": {
+        "LevelDefId": "Ru_111",
         "IsCompleted": false,
+        "SavesCount": 0,
         "UndistributedClusters": [
-          "TY",
-          "QUA",
-          "SP",
-          "MU",
-          "RRY",
-          "LI",
-          "ORT",
-          "SIC",
-          "BE"
+          "ЪЕ",
+          "АЗ",
+          "РО",
+          "КТ",
+          "ДА",
+          "СК",
+          "ОБ",
+          "БО",
+          "КА",
+          "УД",
+          "ОР",
+          "ИЕ"
         ],
         "DistributedClusters": [
           [],

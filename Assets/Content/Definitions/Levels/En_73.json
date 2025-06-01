@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"WINDOW": [2, 2, 2],
-		"SPEECH": [2, 2, 2],
-		"FACTORY": [2, 3, 2],
-		"STUDENT": [2, 2, 3]
+		"POTATO": [2, 2, 2],
+		"BASKET": [2, 2, 2],
+		"PARCEL": [2, 2, 2],
+		"PENCIL": [2, 2, 2]
 	}
 }

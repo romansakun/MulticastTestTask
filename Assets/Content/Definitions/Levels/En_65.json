@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"OUTPUT": [2, 2, 2],
-		"MESSAGE": [2, 3, 2],
-		"CHAIN": [2, 3],
-		"ENERGY": [2, 2, 2]
+		"PARENT": [2, 2, 2],
+		"CLIENT": [2, 2, 2],
+		"DEBATE": [2, 2, 2],
+		"ASPECT": [2, 2, 2]
 	}
 }

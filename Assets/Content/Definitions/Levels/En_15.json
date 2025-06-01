@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"DOCTOR": [2, 2, 2],
-		"PICTURE": [2, 3, 2],
-		"VISIT": [3, 2],
-		"NETWORK": [3, 2, 2]
+		"SOUND": [2, 3],
+		"EARTH": [2, 3],
+		"PHASE": [3, 2],
+		"VOICE": [3, 2]
 	}
 }

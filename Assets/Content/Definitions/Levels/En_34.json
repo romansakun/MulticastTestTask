@@ -1,9 +1,9 @@
 {
 	"Words":
 	{
-		"LETTER": [2, 2, 2],
-		"REVENUE": [3, 2, 2],
-		"PAPER": [2, 3],
-		"CABINET": [2, 3, 2]
+		"BERRY": [3, 2],
+		"CHESS": [3, 2],
+		"JEWEL": [2, 3],
+		"PEOPLE": [2, 2, 2]
 	}
 }
