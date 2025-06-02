@@ -1,4 +1,5 @@
 Authorization v1.01
+Fullscreen v1.0
 Leaderboards v1.0
 Localization v1.001
 RewardedAdv v1.001

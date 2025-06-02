@@ -15,11 +15,11 @@ MonoBehaviour:
   Authorization:
     scopes: 1
     playerPhotoSize: 1
-    authorized: 1
+    authorized: 0
     playerName: Player current
-    uniqueID: 000
+    uniqueID: 001
     playerPhoto: demo image
-    payingStatus: 0
+    payingStatus: 2
   Leaderboards:
     enable: 1
     saveScoreAnonymousPlayers: 1
@@ -221,8 +221,8 @@ MonoBehaviour:
       height: 1
       color1: {r: 0.078431375, g: 0.078431375, b: 0.15686275, a: 1}
       color2: {r: 0.078431375, g: 0.078431375, b: 0.15686275, a: 1}
-    fixedAspectRatio: 1
-    aspectRatio: 9/16
+    fixedAspectRatio: 0
+    aspectRatio: 16/9
     fillBackground: 1
     gradientBackgroundByAspectRatio:
       radial: 0

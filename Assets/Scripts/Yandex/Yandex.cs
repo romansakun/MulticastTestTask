@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using GameLogic.Bootstrapper;
 using GameLogic.Model.Contexts;
@@ -14,6 +15,7 @@ namespace YG
     {
         [Inject] private SignalBus _signalBus;
         [Inject] private DiContainer _diContainer;
+        [Inject] private GameAppReloader _reloader;
 
         private UserContextOperator _userContextOperator;
 
@@ -139,6 +141,15 @@ namespace YG
                 data.currentPlayer.name = YG2.player.name;
             }
             return data;
+        }
+
+        [ContextMenu( "ClearProgress")]
+        private void ClearProgress()
+        {
+            YG2.saves.userContext = null;
+            YG2.SaveProgress();
+
+            _reloader.ReloadGame();
         }
     }
 }
