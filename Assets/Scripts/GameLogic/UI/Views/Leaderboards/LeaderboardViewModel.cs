@@ -3,6 +3,7 @@ using GameLogic.Model.DataProviders;
 using GameLogic.UI.MainMenu;
 using Infrastructure;
 using Infrastructure.Services;
+using Infrastructure.Services.Yandex.Leaderboards;
 using UnityEngine;
 using Zenject;
 
@@ -30,9 +31,36 @@ namespace GameLogic.UI.Leaderboards
             var lang = _gameDefs.Localizations[_userContext.LocalizationDefId.Value].Description;
             var leaderboardData = await _yandexLeaderboards.GetLeaderboard(lang);
             if (leaderboardData == null || playersContainer == null || myPlayerContainer == null)
-                return;
-
+            {
+                TryAddFakePlayerLines(playersContainer);
+            }
+            else
+            {
+                CreateRealPlayerLines(playersContainer, myPlayerContainer, leaderboardData);
+                TryAddFakePlayerLines(playersContainer);
+                CreateUserLine(myPlayerContainer, leaderboardData);
+            }
             _isLeaderboardLoaded.Value = true;
+        }
+
+        private void TryAddFakePlayerLines(RectTransform playersContainer)
+        {
+            for (int i = _playerLines.Count; i < 50; i++)
+            {
+                var playerLine = _playerLineFactory.Create();
+                playerLine.transform.SetParent(playersContainer, false);
+                playerLine.UpdateEntries(new LBPlayerData()
+                {
+                    rank = i+1,
+                    name = $"Player {i+1}",
+                    score = 10,
+                });
+                _playerLines.Add(playerLine);
+            }
+        }
+
+        private void CreateRealPlayerLines(RectTransform playersContainer, RectTransform myPlayerContainer, LBData leaderboardData)
+        {
             if (leaderboardData.currentPlayer != null)
             {
                 var userRank = leaderboardData.currentPlayer.rank;
@@ -49,6 +77,10 @@ namespace GameLogic.UI.Leaderboards
                 }
             }
 
+        }
+
+        private void CreateUserLine(RectTransform myPlayerContainer, LBData leaderboardData)
+        {
             var userLine = _playerLineFactory.Create();
             userLine.UpdateEntries(leaderboardData.currentPlayer);
             userLine.transform.SetParent(myPlayerContainer, false);

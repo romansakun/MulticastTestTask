@@ -10,8 +10,6 @@ namespace GameLogic.UI.MainMenu
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _settingsButton;
         [SerializeField] private Button _leaderboardsButton;
-        //[SerializeField] private GameObject _gameOverLabel;
-        //[SerializeField] private TextMeshProUGUI _levelsCompletedNumberText;
         [Header("League")]
         [SerializeField] private TextMeshProUGUI _leagueLevelsLabel;
         [SerializeField] private Image _leagueWreathIcon;
@@ -64,15 +62,14 @@ namespace GameLogic.UI.MainMenu
             _leagueLevelsLabel.text = value;
         }
 
-        // private void OnLevelsCompletedCountChanged(int count)
-        // {
-        //     _levelsCompletedNumberText.text = count.ToString();
-        // }
-
         private void OnLocalizationGameOverChanged(bool state)
         {
             _playButton.gameObject.SetActive(state == false);
-            //_gameOverLabel.SetActive(state);
+        }
+
+        public void SetActiveLeaderboardsButton(bool state)
+        {
+            _leaderboardsButton.gameObject.SetActive(state);
         }
 
     }

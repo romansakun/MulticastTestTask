@@ -1,8 +1,13 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using GameLogic.Bootstrapper;
 using GameLogic.Model.Contexts;
+using GameLogic.Model.DataProviders;
 using GameLogic.Model.Operators;
+using GameLogic.UI;
+using GameLogic.UI.MainMenu;
+using Infrastructure.Extensions;
 using Infrastructure.Services;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -17,12 +22,15 @@ namespace YG
         [Inject] private SignalBus _signalBus;
         [Inject] private DiContainer _diContainer;
         [Inject] private GameAppReloader _reloader;
+        [Inject] private ViewManager _viewManager;
         [Inject] private Canvas _canvas;
 
         private UserContextOperator _userContextOperator;
+        private UserContextDataProvider _userContext;
 
         private void Awake()
         {
+            _viewManager.Views.Subscribe(OnViewsChanged);
             _signalBus.Subscribe<UserContextInitializedSignal>(OnUserContextInitialized);
             YG2.onCorrectLang += OnCorrectLanguage;
             YG2.onSwitchLang += OnLanguageChanged;
@@ -34,15 +42,30 @@ namespace YG
 
         private void OnDestroy()
         {
+            _viewManager.Views.Unsubscribe(OnViewsChanged);
             _signalBus.Unsubscribe<UserContextInitializedSignal>(OnUserContextInitialized);
             YG2.onCorrectLang -= OnCorrectLanguage;
             YG2.onSwitchLang -= OnLanguageChanged;
             YG2.onGetLeaderboard -= OnGetLeaderboard;
         }
 
+        private void OnViewsChanged(IReadOnlyList<View> views)
+        {
+            TrySetActiveLeaderboardsButton();
+        }
+
+        private void TrySetActiveLeaderboardsButton()
+        {
+            if (_userContext == null) return;
+            if (_viewManager.TryGetView<MainMenuView>(out var mainMenuView) == false) return;
+            var state = _userContext.TryGetLastCompletedLevelProgress(out _);
+            mainMenuView.SetActiveLeaderboardsButton(state);
+        }
+
         private void OnUserContextInitialized(UserContextInitializedSignal signal)
         {
             _userContextOperator = _diContainer.Resolve<UserContextOperator>();
+            _userContext = _diContainer.Resolve<UserContextDataProvider>();
             OnLanguageChanged(YG2.lang);
         }
 
@@ -130,11 +153,11 @@ namespace YG
 
         private static string GetLeaderboardId(string lang)
         {
-#if UNITY_EDITOR
-            return "test";
-#else
+// #if UNITY_EDITOR
+//             return "test";
+// #else
             return lang  == "ru" ? "RuBestPlayers" : "EnBestPlayers";
-#endif
+//#endif
         }
 
         private Infrastructure.Services.Yandex.Leaderboards.LBData ConvertLeaderboardData(LBData leaderboardData)

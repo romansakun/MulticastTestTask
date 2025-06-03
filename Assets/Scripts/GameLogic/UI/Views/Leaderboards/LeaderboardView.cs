@@ -10,6 +10,7 @@ namespace GameLogic.UI.Leaderboards
         [SerializeField] private ViewContentAnimations _animations;
         [SerializeField] private RectTransform _playersContainer;
         [SerializeField] private RectTransform _myPlayerContainer;
+        //[SerializeField] private ScrollRect  _scrollRect;
         [SerializeField] private GameObject _thomb;
         [SerializeField] private Button _closeButton;
 
@@ -39,6 +40,7 @@ namespace GameLogic.UI.Leaderboards
         private void OnLeaderboardLoaded(bool state)
         {
             _thomb.SetActive(state == false);
+            
         }
 
         public override UniTask AnimateShowing()

@@ -1,5 +1,5 @@
 {
-  "idSave": 2651,
+  "idSave": 2683,
   "userContext": {
     "Version": 1,
     "IsSoundsMuted": false,
@@ -7,14 +7,14 @@
     "LocalizationDefId": "Russian",
     "Consumables": {
       "WordsCheckingCount": 3,
-      "AdsTipCount": 2,
-      "LastFreeUpdateTime": "2025-06-03T11:43:58.7252911+03:00"
+      "AdsTipCount": 1,
+      "LastFreeUpdateTime": "2025-06-03T12:26:32.761058+03:00"
     },
     "LevelsProgress": {
       "Ru_1": {
         "LevelDefId": "Ru_1",
         "IsCompleted": true,
-        "SavesCount": 5,
+        "SavesCount": 4,
         "UndistributedClusters": [],
         "DistributedClusters": [
           [
@@ -35,27 +35,27 @@
           ]
         ]
       },
-      "Ru_2": {
-        "LevelDefId": "Ru_2",
+      "En_1": {
+        "LevelDefId": "En_1",
         "IsCompleted": true,
-        "SavesCount": 6,
+        "SavesCount": 4,
         "UndistributedClusters": [],
         "DistributedClusters": [
           [
-            "ДВ",
-            "ЕРЬ"
+            "TAB",
+            "LE"
           ],
           [
-            "ЗЕМ",
-            "ЛЯ"
+            "ST",
+            "ATE"
           ],
           [
-            "КО",
-            "НЕЦ"
+            "WA",
+            "TER"
           ],
           [
-            "ГО",
-            "ЛОС"
+            "ORD",
+            "ER"
           ]
         ]
       }
