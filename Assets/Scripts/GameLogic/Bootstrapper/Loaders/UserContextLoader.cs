@@ -28,6 +28,11 @@ namespace GameLogic.Bootstrapper
             {
                 CreateNewPlayerContext();
             }
+            if (_userContext.Version != UserContextMigrationHelper.ACTUAL_VERSION)
+            {
+                var migrationHelper = _diContainer.Instantiate<UserContextMigrationHelper>();
+                await migrationHelper.Migrate(_userContext);
+            }
 
             var repository = _diContainer.Instantiate<UserContextRepository>(new object[] { _userContext });
             repository.TryUpdateFreeConsumablesCount();
@@ -63,6 +68,7 @@ namespace GameLogic.Bootstrapper
         {
             _userContext = new UserContext
             {
+                Version = UserContextMigrationHelper.ACTUAL_VERSION,
                 LocalizationDefId = GetLocalizationDefId()
             };
 

@@ -6,6 +6,7 @@ using GameLogic.Model.Operators;
 using Infrastructure.Services;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.UI;
 using YG.Utils.LB;
 using Zenject;
 
@@ -16,6 +17,7 @@ namespace YG
         [Inject] private SignalBus _signalBus;
         [Inject] private DiContainer _diContainer;
         [Inject] private GameAppReloader _reloader;
+        [Inject] private Canvas _canvas;
 
         private UserContextOperator _userContextOperator;
 
@@ -25,6 +27,9 @@ namespace YG
             YG2.onCorrectLang += OnCorrectLanguage;
             YG2.onSwitchLang += OnLanguageChanged;
             YG2.onGetLeaderboard += OnGetLeaderboard;
+
+            var canvasScaler = _canvas.GetComponent<CanvasScaler>();
+            canvasScaler.matchWidthOrHeight = .9f;
         }
 
         private void OnDestroy()

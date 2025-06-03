@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using Infrastructure;
 using Infrastructure.Services;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -24,8 +23,6 @@ namespace GameLogic.UI
         public void Initialize()
         {
             _canvasRectTransform = _canvas.GetComponent<RectTransform>();
-            var canvasScaler = _canvas.GetComponent<CanvasScaler>();
-            canvasScaler.matchWidthOrHeight = Screen.width > Screen.height ? 0.88f : 0.6f;
         }
 
         public async UniTask AddView<V, VM>(V view, VM viewModel) where V : View where VM : ViewModel

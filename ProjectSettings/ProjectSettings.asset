@@ -76,8 +76,8 @@ PlayerSettings:
   androidResizeableActivity: 0
   androidDefaultWindowWidth: 1920
   androidDefaultWindowHeight: 1080
-  androidMinimumWindowWidth: 400
-  androidMinimumWindowHeight: 300
+  androidMinimumWindowWidth: 700
+  androidMinimumWindowHeight: 1100
   androidFullscreenMode: 1
   androidAutoRotationBehavior: 1
   androidPredictiveBackSupport: 0
@@ -840,7 +840,7 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN;UNITASK_DOTWEEN_SUPPORT
+    Android: DOTWEEN;UNITASK_DOTWEEN_SUPPORT;PLUGIN_YG_2;YandexGamesPlatform_yg;Authorization_yg;Fullscreen_yg;Leaderboards_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN

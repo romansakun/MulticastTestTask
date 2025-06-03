@@ -12,6 +12,5 @@ namespace GameLogic.Bootstrapper
         {
             await _auth.WaitWhileAuth();
         }
-
     }
 }

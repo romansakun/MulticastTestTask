@@ -1,67 +1,20 @@
 {
-  "idSave": 2630,
+  "idSave": 2651,
   "userContext": {
+    "Version": 1,
     "IsSoundsMuted": false,
     "IsHowToPlayHintShown": false,
     "LocalizationDefId": "Russian",
     "Consumables": {
       "WordsCheckingCount": 3,
-      "AdsTipCount": 0,
-      "LastFreeUpdateTime": "2025-06-02T14:57:56.8847108+03:00"
+      "AdsTipCount": 2,
+      "LastFreeUpdateTime": "2025-06-03T11:43:58.7252911+03:00"
     },
     "LevelsProgress": {
-      "En_1": {
-        "LevelDefId": "En_1",
-        "IsCompleted": true,
-        "SavesCount": 5,
-        "UndistributedClusters": [],
-        "DistributedClusters": [
-          [
-            "TAB",
-            "LE"
-          ],
-          [
-            "ST",
-            "ATE"
-          ],
-          [
-            "WA",
-            "TER"
-          ],
-          [
-            "ORD",
-            "ER"
-          ]
-        ]
-      },
-      "En_2": {
-        "LevelDefId": "En_2",
-        "IsCompleted": true,
-        "SavesCount": 10,
-        "UndistributedClusters": [],
-        "DistributedClusters": [
-          [
-            "RI",
-            "GHT"
-          ],
-          [
-            "WOR",
-            "LD"
-          ],
-          [
-            "POW",
-            "ER"
-          ],
-          [
-            "CO",
-            "URT"
-          ]
-        ]
-      },
       "Ru_1": {
         "LevelDefId": "Ru_1",
         "IsCompleted": true,
-        "SavesCount": 9,
+        "SavesCount": 5,
         "UndistributedClusters": [],
         "DistributedClusters": [
           [
@@ -69,25 +22,29 @@
             "ЕМЯ"
           ],
           [
-            "МЕ",
-            "СТО"
+            "ЖИЗ",
+            "НЬ"
           ],
           [
             "СЛО",
             "ВО"
           ],
           [
-            "ЖИЗ",
-            "НЬ"
+            "МЕ",
+            "СТО"
           ]
         ]
       },
       "Ru_2": {
         "LevelDefId": "Ru_2",
         "IsCompleted": true,
-        "SavesCount": 9,
+        "SavesCount": 6,
         "UndistributedClusters": [],
         "DistributedClusters": [
+          [
+            "ДВ",
+            "ЕРЬ"
+          ],
           [
             "ЗЕМ",
             "ЛЯ"
@@ -99,56 +56,7 @@
           [
             "ГО",
             "ЛОС"
-          ],
-          [
-            "ДВ",
-            "ЕРЬ"
           ]
-        ]
-      },
-      "Ru_3": {
-        "LevelDefId": "Ru_3",
-        "IsCompleted": true,
-        "SavesCount": 8,
-        "UndistributedClusters": [],
-        "DistributedClusters": [
-          [
-            "ВО",
-            "ЙНА"
-          ],
-          [
-            "КНИ",
-            "ГА"
-          ],
-          [
-            "ГО",
-            "РОД"
-          ],
-          [
-            "ЧАС",
-            "ТЬ"
-          ]
-        ]
-      },
-      "Ru_4": {
-        "LevelDefId": "Ru_4",
-        "IsCompleted": false,
-        "SavesCount": 0,
-        "UndistributedClusters": [
-          "ВЕ",
-          "УЛИ",
-          "ЧО",
-          "ОД",
-          "ПЛЕ",
-          "НАР",
-          "ЧЕР",
-          "ЦА"
-        ],
-        "DistributedClusters": [
-          [],
-          [],
-          [],
-          []
         ]
       }
     }
