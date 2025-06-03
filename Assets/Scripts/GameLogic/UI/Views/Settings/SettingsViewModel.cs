@@ -19,7 +19,7 @@ namespace GameLogic.UI.Settings
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
-        [Inject] private IYandexLocalization _yandexLocalization;
+        [Inject] private IStoreLocalization _storeLocalization;
 
         public IReactiveProperty<bool> IsSoundsMuted => _isSoundMuted;
         private ReactiveProperty<bool> _isSoundMuted;
@@ -34,10 +34,10 @@ namespace GameLogic.UI.Settings
             switch (language)
             {
                 case SystemLanguage.Russian:
-                    _yandexLocalization.SetLocalization("ru");
+                    _storeLocalization.SetLocalization("ru");
                     break;
                 default:
-                    _yandexLocalization.SetLocalization("en");
+                    _storeLocalization.SetLocalization("en");
                     break;
             }
         }

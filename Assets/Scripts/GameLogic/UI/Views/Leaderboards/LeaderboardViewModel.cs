@@ -3,7 +3,7 @@ using GameLogic.Model.DataProviders;
 using GameLogic.UI.MainMenu;
 using Infrastructure;
 using Infrastructure.Services;
-using Infrastructure.Services.Yandex.Leaderboards;
+using Infrastructure.Services.Leaderboards;
 using UnityEngine;
 using Zenject;
 
@@ -14,7 +14,7 @@ namespace GameLogic.UI.Leaderboards
         [Inject] private ViewManager _viewManager;
         [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private UserContextDataProvider _userContext;
-        [Inject] private IYandexLeaderboards _yandexLeaderboards;
+        [Inject] private IStoreLeaderboards _yandexLeaderboards;
         [Inject] private PlayerLine.Factory _playerLineFactory;
 
         public IReactiveProperty<bool> IsLeaderboardLoaded => _isLeaderboardLoaded;

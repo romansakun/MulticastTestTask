@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using GameLogic.Ads;
 using UnityEngine;
@@ -64,7 +63,7 @@ namespace Ads
                 _rewardedAd.Destroy();
                 _rewardedAd = null;
             }
-            _rewardedAdLoader.LoadAd(CreateAdRequest(RewardedAds.REWARDED_AD_ID));
+            _rewardedAdLoader.LoadAd(CreateAdRequest(RewardedAds.RUSTORE_REWARDED_AD_ID));
             DisplayMessage("Rewarded Ad is requested");
         }
 

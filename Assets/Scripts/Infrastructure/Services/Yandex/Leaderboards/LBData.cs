@@ -1,6 +1,6 @@
 using System;
 
-namespace Infrastructure.Services.Yandex.Leaderboards
+namespace Infrastructure.Services.Leaderboards
 {
     [Serializable]
     public class LBData

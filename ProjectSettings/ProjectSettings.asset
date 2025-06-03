@@ -840,7 +840,7 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN;UNITASK_DOTWEEN_SUPPORT;PLUGIN_YG_2;YandexGamesPlatform_yg;Authorization_yg;Fullscreen_yg;Leaderboards_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2
+    Android: DOTWEEN;UNITASK_DOTWEEN_SUPPORT
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
@@ -850,7 +850,7 @@ PlayerSettings:
     PS5: DOTWEEN
     QNX: DOTWEEN
     Stadia: DOTWEEN
-    Standalone: DOTWEEN
+    Standalone: DOTWEEN;UNITASK_DOTWEEN_SUPPORT
     VisionOS: DOTWEEN
     WebGL: DOTWEEN;UNITASK_DOTWEEN_SUPPORT;PLUGIN_YG_2;TMP_YG2;RU_YG2;RewardedAdv_yg;Authorization_yg;Storage_yg;NJSON_STORAGE_YG2;NJSON_YG2;YandexGamesPlatform_yg;Localization_yg;Leaderboards_yg;Fullscreen_yg
     Windows Store Apps: DOTWEEN
@@ -868,7 +868,7 @@ PlayerSettings:
     WebGL: 1
   il2cppStacktraceInformation: {}
   managedStrippingLevel:
-    Android: 3
+    Android: 4
     EmbeddedLinux: 1
     GameCoreScarlett: 1
     GameCoreXboxOne: 1

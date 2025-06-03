@@ -5,12 +5,13 @@ using Zenject;
 
 namespace GameLogic.Bootstrapper
 {
-    public class YandexAuthLoader : IAsyncOperation
+    public class StoreGraLoading : IAsyncOperation
     {
-        [Inject] private IStoreAuthLoader _auth;
+        [Inject] private IStoreGRA _gra;
         public async UniTask ProcessAsync()
         {
-            await _auth.WaitWhileAuth();
+            await _gra.GameReady();
         }
+
     }
 }

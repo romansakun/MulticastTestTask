@@ -1,7 +1,7 @@
 using System;
 using GameLogic.Bootstrapper;
 using Infrastructure.Pools;
-using Infrastructure.Services.Yandex.Leaderboards;
+using Infrastructure.Services.Leaderboards;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

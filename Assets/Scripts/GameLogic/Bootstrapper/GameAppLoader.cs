@@ -38,7 +38,7 @@ namespace GameLogic.Bootstrapper
             viewModel.AddToLoadingQueue<RatingLoading>();
             viewModel.AddToLoadingQueue<InitDeferredMonoPoolsLoader>();
             viewModel.AddToLoadingQueue<ShowMainMenuLoader>();
-            viewModel.AddToLoadingQueue<YandexGraLoading>();
+            viewModel.AddToLoadingQueue<StoreGraLoading>();
 
             viewModel.ProcessLoadingQueue();
         }

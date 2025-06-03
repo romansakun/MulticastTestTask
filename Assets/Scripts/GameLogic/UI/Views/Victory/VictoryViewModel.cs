@@ -24,7 +24,7 @@ namespace GameLogic.UI.Victory
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private IGptChat _gptChat;
-        [Inject] private IYandexLeaderboards _yandexLeaderboards;
+        [Inject] private IStoreLeaderboards _storeLeaderboards;
 
         private readonly List<WordRow> _wordRows = new();
         private readonly List<Cluster> _clusters = new();
@@ -102,7 +102,7 @@ namespace GameLogic.UI.Victory
             _scoreText.Value = $"+{score}";
 
             var lang = _gameDefs.Localizations[localizationDefId].Description;
-            _yandexLeaderboards.SetLeaderboard(lang, _ratingHelper.GetRating(localizationDefId));
+            _storeLeaderboards.SetLeaderboard(lang, _ratingHelper.GetRating(localizationDefId));
         }
 
         public async void OnNextLevelButtonClicked()
