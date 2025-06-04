@@ -18,7 +18,7 @@ MonoBehaviour:
     TapSound: {fileID: 8300000, guid: fd19fb15c94d1174aa551ae4c96987f5, type: 3}
     WrongAnswerSound: {fileID: 8300000, guid: 4acbeae14b759dc409e143e826e54b2d, type: 3}
     SuccessSound: {fileID: 8300000, guid: 353d4109a7f6d4346ab0b883ccd7f794, type: 3}
-    BackgroundMusic: {fileID: 8300000, guid: 930c4f7308e657d42974753ef8e2f67b, type: 3}
+    BackgroundMusic: {fileID: 0}
   _colorsSettings:
     GhostClusterAlpha: 0.5
     ElementColors:
