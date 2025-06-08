@@ -19,7 +19,7 @@ namespace Components
 
         private void Update()
         {
-            if (useCursor)
+            if (useCursor && Input.GetKey(KeyCode.Space))
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -31,8 +31,12 @@ namespace Components
                     Cursor.SetCursor(cursorTexture, new Vector2(25, 0), CursorMode.ForceSoftware);
                 }
             }
+            else if (Cursor.visible)
+            {
+                Cursor.SetCursor(null, new Vector2(25, 0), CursorMode.ForceSoftware);
+            }
 
-            if (Input.GetKey(KeyCode.P))
+            if (Input.GetKeyUp(KeyCode.P))
             {
                 ScreenShot();
             }

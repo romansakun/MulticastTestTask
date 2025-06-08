@@ -123,6 +123,37 @@ public class CreateJsonLevelsFromWordList : EditorUtility
         }
     }
 
+    [MenuItem("Definitions/Create levels from 101 english words")]
+    public static void CreateLevelsFrom101En()
+    {
+        var words = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Content/Words/nounlist_adding.txt").text.Split('\n');
+        
+        var sb = new StringBuilder();
+        for (var i = 0 ; i < words.Length; i++)
+        {
+            var word = words[i].Trim();
+            sb.Append($"\"{word.ToUpper()}\": [{GetClusters(word)}]\n");
+        }
+
+        var allWordClusters = sb.ToString().Split('\n');
+        for (int i = 0; i < allWordClusters.Length; i += 4)
+        {
+            sb.Clear();
+            sb.Append("{\n");
+            sb.Append($"\t\"Words\":\n");
+            sb.Append("\t{\n");
+            for (var j = 0; j < 4 && i + j < allWordClusters.Length; j++)
+            {
+                var end = j == 3 ? "" : ",";
+                sb.Append($"\t\t{allWordClusters[i + j]}{end}\n");
+            }
+            sb.Append("\t}\n");
+            sb.Append("}\n");
+
+            File.WriteAllText($@"Assets/Content/Definitions/Levels/En_{100 + i / 4 + 1}.json", sb.ToString());
+        }
+    }
+
     private static string GetClusters(string word)
     {
         var result = string.Empty;

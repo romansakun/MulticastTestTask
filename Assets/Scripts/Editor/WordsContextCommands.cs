@@ -62,6 +62,31 @@ public static class WordsContextCommands
 
         File.WriteAllText(filePath, string.Join("\n", words));
     }
+
+    [MenuItem("CONTEXT/TextAsset/RemoveUselessWords")]
+    static void RemoveUselessWords(MenuCommand command)
+    {
+        TextAsset selectedFile = command.context as TextAsset;
+        if (selectedFile == null) 
+            return;
+
+        var oldWords =  File.ReadAllText("Assets/Content/Words/WordsForLevels/En.txt").Split('\n').ToList();
+        oldWords = oldWords.Select(word => word.Split(',')[0].Trim()).ToList();
+        
+        string filePath = AssetDatabase.GetAssetPath(selectedFile);
+        var words = File.ReadAllText(filePath).Split('\n').ToList();
+        
+        words = words
+            .Select(word => word.Split(',')[0].Trim())
+            .Where(word => word.Length >= 5 && word.Length <= 7)
+            .Where(word => word.All(char.IsLetter))
+            .Where(word => word.All(char.IsLower))
+            .Where(word => !oldWords.Contains(word))
+            .Distinct().ToList();
+
+        File.WriteAllText(filePath, string.Join("\n", words));
+    }
+
     
     [MenuItem("CONTEXT/TextAsset/CreateLevelsBlock")]
     static void CreateLevelsBlock(MenuCommand command)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
@@ -9,6 +10,7 @@ namespace GameLogic.Tutorial
 {
     public class TutorialService: IInitializable, IDisposable
     {
+        [Inject] private DiContainer _diContainer;
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private GameDefsDataProvider _gameDefs;
         [Inject] private LogicBuilderFactory _logicBuilderFactory;
@@ -16,7 +18,7 @@ namespace GameLogic.Tutorial
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private ViewManager _viewManager;
 
-
+        private readonly List<TutorialComponent> _tutorialComponents = new();
         
         public void Initialize()
         {
@@ -26,6 +28,11 @@ namespace GameLogic.Tutorial
         public void Dispose()
         {
             
+        }
+
+        public void RegisterComponent(TutorialComponent tutorialComponent)
+        {
+            _tutorialComponents.Add(tutorialComponent);
         }
     }
 }

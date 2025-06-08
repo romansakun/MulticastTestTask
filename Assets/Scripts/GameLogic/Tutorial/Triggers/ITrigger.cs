@@ -2,7 +2,7 @@ namespace GameLogic.Tutorial
 {
     public interface ITrigger
     {
-        void TryTake (ITutorialComponent component);
+        void TryTake (TutorialCommand command);
         bool Check();
     }
 }

@@ -2,9 +2,11 @@ namespace GameLogic.Tutorial
 {
     public enum TutorialComponentType
     {
+        CursorFinger,
         UndistributedClusters,
         CheckWordsButton,
         TipButton,
-        WordRow
+        WordRow,
+        Cluster
     }
 }

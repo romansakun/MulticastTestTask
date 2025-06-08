@@ -1,7 +1,9 @@
+using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
+using GameLogic.Model.Definitions;
 using GameLogic.UI.Gameplay;
-using GameLogic.UI.HowToPlayHint;
 using GameLogic.UI.Leaderboards;
 using GameLogic.UI.Settings;
 using Infrastructure;
@@ -19,8 +21,6 @@ namespace GameLogic.UI.MainMenu
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private IAssetsLoader _assetsLoader;
 
-        // public IReactiveProperty<int> CompletedLevelsCount => _completedLevelsCount;
-        // private readonly ReactiveProperty<int> _completedLevelsCount = new(0);
         public IReactiveProperty<bool> IsLocalizationGameOver => _isLocalizationGameOver;
         private readonly ReactiveProperty<bool> _isLocalizationGameOver = new();
 
@@ -28,11 +28,17 @@ namespace GameLogic.UI.MainMenu
         private readonly ReactiveProperty<Sprite> _leagueWreathIcon = new(); 
         public IReactiveProperty<Sprite> LeagueRomanNumberIcon => _leagueRomanNumberIcon;
         private readonly ReactiveProperty<Sprite> _leagueRomanNumberIcon = new();
+        public IReactiveProperty<bool> LeftLeagueButtonVisible => _leftLeagueButtonVisible;
+        private readonly ReactiveProperty<bool> _leftLeagueButtonVisible = new(true);
+        public IReactiveProperty<bool> RightLeagueButtonVisible => _rightLeagueButtonVisible;
+        private readonly ReactiveProperty<bool> _rightLeagueButtonVisible = new(true);
+
         public IReactiveProperty<string> LeagueLevelsLabel => _leagueLevelsLabel;
         private readonly ReactiveProperty<string> _leagueLevelsLabel = new();
 
-        //private Tween _animation;
-        //private int _wordsCounter;
+        private string _currentLevelDefId;
+        private LeagueDef _currentLeagueDef;
+        private LeagueDef _currentShowedLeagueDef;
 
         public override void Initialize()
         {
@@ -45,31 +51,42 @@ namespace GameLogic.UI.MainMenu
         private async void InitLeague()
         {
             var leagues = _gameDefs.GetLocalizationLeagues(_userContext.LocalizationDefId.Value);
-            var currentLeagueDef = leagues[^1];
-            var currentLevelDefId = string.Empty;
+            _currentLeagueDef = leagues[^1];
+            _currentLevelDefId = string.Empty;
             if (_userContext.TryGetLastCompletedLevelProgress(out var lastCompletedLevelProgress))
             {
-                currentLevelDefId = lastCompletedLevelProgress.LevelDefId;
+                _currentLevelDefId = lastCompletedLevelProgress.LevelDefId;
             }
             if (_userContext.TryGetLastUncompletedLevelProgress(out var levelProgress))
             {
-                currentLeagueDef = leagues.Find(x => x.Levels.Contains(levelProgress.LevelDefId));
-                currentLevelDefId = levelProgress.LevelDefId;
+                _currentLeagueDef = leagues.Find(x => x.Levels.Contains(levelProgress.LevelDefId));
+                _currentLevelDefId = levelProgress.LevelDefId;
             }
             else if (_userContext.TryGetNewNextLevelDefId(out var nextLevelDefId))
             {
-                currentLeagueDef = leagues.Find(x => x.Levels.Contains(nextLevelDefId));
-                currentLevelDefId = nextLevelDefId;
+                _currentLeagueDef = leagues.Find(x => x.Levels.Contains(nextLevelDefId));
+                _currentLevelDefId = nextLevelDefId;
             }
 
-            var allLeagueLevelsCount = currentLeagueDef.Levels.Count;
-            var currentLevelNumber = currentLeagueDef.Levels.IndexOf(currentLevelDefId) + 1;
-            var wreathIcon = await _assetsLoader.LoadSpriteAsync($"{currentLeagueDef.WreathIcon}");
-            var romanNumberIcon = await _assetsLoader.LoadSpriteAsync($"{currentLeagueDef.RomanNumberIcon}");
+            await ShowLeagueDef(_currentLeagueDef);
+        }
+
+        private async UniTask ShowLeagueDef(LeagueDef leagueDef)
+        {
+            var allLeagueLevelsCount = leagueDef.Levels.Count;
+            var currentLevelNumber = leagueDef.Levels.IndexOf(_currentLevelDefId) + 1;
+            if (currentLevelNumber <= 0)
+                currentLevelNumber = leagueDef.Levels.Count;
+            var wreathIcon = await _assetsLoader.LoadSpriteAsync($"{leagueDef.WreathIcon}");
+            var romanNumberIcon = await _assetsLoader.LoadSpriteAsync($"{leagueDef.RomanNumberIcon}");
+            var leagues = _gameDefs.GetLocalizationLeagues(_userContext.LocalizationDefId.Value);
 
             _leagueWreathIcon.Value = wreathIcon;
             _leagueRomanNumberIcon.Value = romanNumberIcon;
             _leagueLevelsLabel.Value = $"{currentLevelNumber}/{allLeagueLevelsCount}";
+            _leftLeagueButtonVisible.Value = leagues.IndexOf(leagueDef) > 0;
+            _rightLeagueButtonVisible.Value = leagues.IndexOf(leagueDef) < leagues.IndexOf(_currentLeagueDef);
+            _currentShowedLeagueDef = leagueDef;
         }
 
         // private void AnimateCompletedLevelsCount()
@@ -113,6 +130,26 @@ namespace GameLogic.UI.MainMenu
             await _viewManager.ShowAsync<LeaderboardView, LeaderboardViewModel>(viewModel);
         }
 
+        public async void OnLeftLeagueButtonClicked()
+        {
+            var leagues = _gameDefs.GetLocalizationLeagues(_userContext.LocalizationDefId.Value);
+            var index = leagues.IndexOf(_currentShowedLeagueDef);
+            if (index > 0)
+            {
+                await ShowLeagueDef(leagues[index-1]);
+            }
+        }
+
+        public async void OnRightLeagueButtonClicked()
+        {
+            var leagues = _gameDefs.GetLocalizationLeagues(_userContext.LocalizationDefId.Value);
+            var index = leagues.IndexOf(_currentShowedLeagueDef);
+            if (index < leagues.Count-1)
+            {
+                await ShowLeagueDef(leagues[index+1]);
+            }
+        }
+
         public override void Dispose()
         {
             //_animation?.Kill();
@@ -121,8 +158,11 @@ namespace GameLogic.UI.MainMenu
             _leagueWreathIcon.Dispose();
             _leagueRomanNumberIcon.Dispose();
             _leagueLevelsLabel.Dispose();
+            _leftLeagueButtonVisible.Dispose();
+            _rightLeagueButtonVisible.Dispose();
 
             _userContext.LocalizationDefId.Unsubscribe(OnLocalizationDefIdChanged);
         }
+
     }
 }

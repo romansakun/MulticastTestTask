@@ -51,7 +51,7 @@ namespace GameLogic.UI.Leaderboards
                 playerLine.transform.SetParent(playersContainer, false);
                 playerLine.UpdateEntries(new LBPlayerData()
                 {
-                    rank = i+1,
+                    rank = i + 1,
                     name = $"Player {i+1}",
                     score = 10,
                 });
