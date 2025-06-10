@@ -9,10 +9,16 @@ namespace GameLogic.Bootstrapper
             SignalBusInstaller.Install(Container);
 
             Container.DeclareSignal<UserContextInitializedSignal>();
+            Container.DeclareSignal<GameAppLoadedSignal>();
         }
     }
 
     public struct UserContextInitializedSignal
+    {
+
+    }
+
+    public struct GameAppLoadedSignal
     {
 
     }

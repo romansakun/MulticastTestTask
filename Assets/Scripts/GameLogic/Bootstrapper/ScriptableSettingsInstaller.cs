@@ -2,6 +2,7 @@ using System;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
 using GameLogic.UI;
+using MessagePack;
 using UnityEngine;
 using Zenject;
 
@@ -10,14 +11,15 @@ namespace GameLogic.Bootstrapper
     [CreateAssetMenu(fileName = "ScriptableSettingsInstaller", menuName = "Installers/ScriptableSettingsInstaller")]
     public class ScriptableSettingsInstaller : ScriptableObjectInstaller 
     {
-        [SerializeField] private TextAsset _localGameDefsTextAsset;
+        [SerializeField] private TextAsset _localGameDefsRawTextAsset;
         [SerializeField] private SoundsSettings _soundsSettings;
         [SerializeField] private ColorsSettings _colorsSettings;
         [SerializeField] private GameplaySettings _gameplaySettings;
 
         public override void InstallBindings()
         {
-            var localGameDefs = Newtonsoft.Json.JsonConvert.DeserializeObject<GameDefs>(_localGameDefsTextAsset.text);
+            //var localGameDefs = Newtonsoft.Json.JsonConvert.DeserializeObject<GameDefs>(_localGameDefsTextAsset.text);
+            var localGameDefs = MessagePackSerializer.Deserialize<GameDefs>(_localGameDefsRawTextAsset.bytes);
             var gameDefsProxy = new GameDefsDataProvider().SetGameDefs(localGameDefs);
             Container.Bind<GameDefsDataProvider>().FromInstance(gameDefsProxy).AsSingle();
 

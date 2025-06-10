@@ -8,6 +8,7 @@ namespace GameLogic.UI.Settings
     {
         [SerializeField] private Button _backButton;
         [SerializeField] private Toggle _soundsToggle;
+        [SerializeField] private Toggle _musicToggle;
         [SerializeField] private Button _russianLocalizationButton;
         [SerializeField] private Button _englishLocalizationButton;
 
@@ -23,21 +24,35 @@ namespace GameLogic.UI.Settings
         protected override void Subscribes()
         {
             _soundsToggle.onValueChanged.AddListener(OnSoundsToggleValueChanged);
+            _musicToggle.onValueChanged.AddListener(OnMusicToggleValueChanged);
             _russianLocalizationButton.onClick.AddListener(() => _viewModel.SetLocalization(SystemLanguage.Russian));
             _englishLocalizationButton.onClick.AddListener(() => _viewModel.SetLocalization(SystemLanguage.English));
             _backButton.onClick.AddListener(_viewModel.OnBackButtonClicked);
 
             _viewModel.IsSoundsMuted.Subscribe(OnSoundsMutedChanged);
+            _viewModel.IsMusicMuted.Subscribe(OnMusicMutedChanged);
         }
 
         protected override void Unsubscribes()
         {
             _soundsToggle.onValueChanged.RemoveAllListeners();
+            _musicToggle.onValueChanged.RemoveAllListeners();
             _russianLocalizationButton.onClick.RemoveAllListeners();
             _englishLocalizationButton.onClick.RemoveAllListeners();
             _backButton.onClick.RemoveAllListeners();
             
             _viewModel.IsSoundsMuted.Unsubscribe(OnSoundsMutedChanged);
+            _viewModel.IsMusicMuted.Unsubscribe(OnMusicMutedChanged);
+        }
+
+        private void OnSoundsMutedChanged(bool isMuted)
+        {
+            _soundsToggle.isOn = isMuted == false;
+        }
+
+        private void OnMusicMutedChanged(bool isMuted)
+        {
+            _musicToggle.isOn = isMuted == false;
         }
 
         private void OnSoundsToggleValueChanged(bool state)
@@ -45,9 +60,9 @@ namespace GameLogic.UI.Settings
             _viewModel.OnSoundsToggleValueChanged(state);
         }
 
-        private void OnSoundsMutedChanged(bool isMuted)
+        private void OnMusicToggleValueChanged(bool state)
         {
-            _soundsToggle.isOn = isMuted == false;
+            _viewModel.OnMusicToggleValueChanged(state);
         }
     }
 }

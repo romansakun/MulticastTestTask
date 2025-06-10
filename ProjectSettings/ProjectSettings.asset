@@ -852,7 +852,7 @@ PlayerSettings:
     Stadia: DOTWEEN
     Standalone: DOTWEEN
     VisionOS: DOTWEEN
-    WebGL: DOTWEEN;UNITASK_DOTWEEN_SUPPORT;PLUGIN_YG_2;TMP_YG2;RU_YG2;RewardedAdv_yg;Authorization_yg;Storage_yg;NJSON_STORAGE_YG2;NJSON_YG2;YandexGamesPlatform_yg;Localization_yg;Leaderboards_yg;Fullscreen_yg
+    WebGL: DOTWEEN;UNITASK_DOTWEEN_SUPPORT;PLUGIN_YG_2;TMP_YG2;RU_YG2;RewardedAdv_yg;Authorization_yg;Storage_yg;NJSON_STORAGE_YG2;NJSON_YG2;YandexGamesPlatform_yg;Localization_yg;Leaderboards_yg;Fullscreen_yg;InterstitialAdv_yg;Review_yg
     Windows Store Apps: DOTWEEN
     XboxOne: DOTWEEN
     iPhone: DOTWEEN

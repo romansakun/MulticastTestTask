@@ -24,12 +24,24 @@ namespace GameLogic.Audio
         {
             _userContext = _diContainer.Resolve<UserContextDataProvider>();
             _userContext.IsSoundsMuted.Subscribe(OnSoundMutedChanged);
+            _userContext.IsMusicMuted.Subscribe(OnMusicMutedChanged);
+        }
+
+        private void OnDestroy()
+        {
+            _userContext?.IsSoundsMuted.Unsubscribe(OnSoundMutedChanged);
+            _userContext?.IsMusicMuted.Unsubscribe(OnMusicMutedChanged);
+            _signalBus.Unsubscribe<UserContextInitializedSignal>(OnUserContextInitialized);
+        }
+
+        private void OnMusicMutedChanged(bool isMuted)
+        {
+            _musicAudioSource.mute = isMuted;
         }
 
         private void OnSoundMutedChanged(bool isMuted)
         {
             _soundAudioSource.mute = isMuted;
-            _musicAudioSource.mute = isMuted;
         }
 
         public void PlaySound(AudioClip audioClip)
@@ -47,7 +59,7 @@ namespace GameLogic.Audio
 
         public void PlayMusic(AudioClip music)
         {
-            //if (_userContext.IsSoundsMuted.Value) return;
+            //if (_userContext.IsMusicMuted.Value) return;
             if (music == null)
             {
                 Debug.LogWarning($"There is no music");
@@ -58,10 +70,5 @@ namespace GameLogic.Audio
             _musicAudioSource.Play();
         }
 
-        private void OnDestroy()
-        {
-            _userContext?.IsSoundsMuted.Unsubscribe(OnSoundMutedChanged);
-            _signalBus.Unsubscribe<UserContextInitializedSignal>(OnUserContextInitialized);
-        }
     }
 }

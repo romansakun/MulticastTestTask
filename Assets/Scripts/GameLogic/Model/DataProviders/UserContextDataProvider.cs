@@ -15,6 +15,7 @@ namespace GameLogic.Model.DataProviders
         public IReactiveProperty<string> LocalizationDefId => _userContextRepository.LocalizationDefId;
         public IReactiveProperty<string> UpdatedLevelDefId => _userContextRepository.UpdatedLevelDefId;
         public IReactiveProperty<bool> IsSoundsMuted => _userContextRepository.IsSoundsMuted;
+        public IReactiveProperty<bool> IsMusicMuted => _userContextRepository.IsMusicMuted;
         public IReactiveProperty<int> CheckingWordsCount => _userContextRepository.CheckingWordsCount;
         public IReactiveProperty<int> AdsTipsCount => _userContextRepository.AdsTipsCount;
 

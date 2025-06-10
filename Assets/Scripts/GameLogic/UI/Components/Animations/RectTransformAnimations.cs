@@ -24,9 +24,9 @@ namespace GameLogic.UI.Components
 
         private Sequence _animation;
 
-        private void Start()
+        private async void Start()
         {
-            if (_onStart) Animate();
+            if (_onStart) await Animate();
         }
 
         public override async UniTask Animate()
@@ -34,7 +34,7 @@ namespace GameLogic.UI.Components
             _animation?.Kill();
             _animation = DOTween.Sequence();
             if (_beforeInterval > 0)
-                _animation.AppendInterval(_beforeInterval);
+                _animation.PrependInterval(_beforeInterval);
 
             if (_animationType == AnimationType.Move)
             {

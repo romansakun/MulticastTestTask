@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using Cysharp.Threading.Tasks;
@@ -18,7 +19,14 @@ public class GeminiAPI : MonoBehaviour, IGptChat
             request.downloadHandler = new DownloadHandlerBuffer();
             request.SetRequestHeader("Content-Type", "application/json");
 
-            await request.SendWebRequest();
+            try
+            {
+                await request.SendWebRequest();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e.Message);
+            }
 
             if (request.result != UnityWebRequest.Result.Success)
             {

@@ -79,7 +79,7 @@ namespace GameLogic.UI.Victory
             sb.Append("[");
             _clusters.ForEach(c => sb.Append($" {c.GetText()} "));
             sb.Append("]");
-            
+
             var levelDefId = levelProgress.LevelDefId;
             var levelNumber = _gameDefs.GetLevelNumber(levelDefId, _userContext.LocalizationDefId.Value);
 
@@ -88,10 +88,9 @@ namespace GameLogic.UI.Victory
             if (_congratulationsText.IsDisposed)
                 return;
 
-            if (string.IsNullOrEmpty(congratulationsText) == false)
-            {
-                _congratulationsText.Value = congratulationsText;
-            }
+            _congratulationsText.Value = string.IsNullOrEmpty(congratulationsText)
+                ? _userContext.GetLocalizedText("VICTORY_DEFAULT", levelNumber) 
+                : congratulationsText;
         }
 
         private void SetRating(LevelProgressContextDataProvider levelProgress)

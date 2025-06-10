@@ -57,7 +57,7 @@ namespace Infrastructure.Pools
             if (item == null) return;
 
             item.OnDespawned();
-            if (_despawnObjectsParent != null &&item.transform.parent != _despawnObjectsParent)
+            if (_despawnObjectsParent && item.transform.parent != _despawnObjectsParent)
                 item.transform.SetParent(_despawnObjectsParent, false);
 
             _pool.Push(item);

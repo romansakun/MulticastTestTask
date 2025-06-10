@@ -19,12 +19,14 @@ namespace GameLogic.Model.Repositories
         public IReactiveProperty<string> LocalizationDefId => _localizationDefId;
         public IReactiveProperty<string> UpdatedLevelDefId => _localizationDefId;
         public IReactiveProperty<bool> IsSoundsMuted => _isSoundsMuted;
+        public IReactiveProperty<bool> IsMusicMuted => _isMusicMuted;
         public IReactiveProperty<int> CheckingWordsCount => _checkingWordsCount;
         public IReactiveProperty<int> AdsTipsCount => _adsTipsCount;
 
         private readonly ReactiveProperty<string> _localizationDefId = new();
         private readonly ReactiveProperty<string> _updatedLevelDefId = new();
         private readonly ReactiveProperty<bool> _isSoundsMuted = new();
+        private readonly ReactiveProperty<bool> _isMusicMuted = new();
         private readonly ReactiveProperty<int> _checkingWordsCount = new();
         private readonly ReactiveProperty<int> _adsTipsCount = new();
 
@@ -37,6 +39,7 @@ namespace GameLogic.Model.Repositories
             _userContext = userContext;
             _localizationDefId.Value = userContext.LocalizationDefId;
             _isSoundsMuted.Value = userContext.IsSoundsMuted;
+            _isMusicMuted.Value = userContext.IsMusicMuted;
             _checkingWordsCount.Value = userContext.Consumables.WordsCheckingCount;
             _adsTipsCount.Value = userContext.Consumables.AdsTipCount;
         }
@@ -45,6 +48,12 @@ namespace GameLogic.Model.Repositories
         {
             _userContext.IsSoundsMuted = isMuted;
             _isSoundsMuted.SetValueAndForceNotify(isMuted);
+        }
+
+        public void SetMusicMuted(bool isMuted)
+        {
+            _userContext.IsMusicMuted = isMuted;
+            _isMusicMuted.SetValueAndForceNotify(isMuted);
         }
 
         public void SetLocalization(string localizationDefId)
@@ -184,8 +193,12 @@ namespace GameLogic.Model.Repositories
 
         public void UseCheckingWords()
         {
-            _userContext.Consumables.WordsCheckingCount -= 1;
+            // _userContext.Consumables.WordsCheckingCount -= 1;
+            // _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
+
+            _userContext.Consumables.WordsCheckingCount = _gameDefs.DefaultSettings.ConsumablesFreeCount;
             _checkingWordsCount.Value = _userContext.Consumables.WordsCheckingCount;
+            _checkingWordsCount.ForceNotify();
         }
 
         public void UseAdsTip()

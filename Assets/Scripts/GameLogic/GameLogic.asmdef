@@ -17,7 +17,9 @@
     "precompiledReferences": [
         "Newtonsoft.Json.dll",
         "Zenject-usage.dll",
-        "DOTween.dll"
+        "DOTween.dll",
+        "MessagePack.dll",
+        "MessagePack.Annotations.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

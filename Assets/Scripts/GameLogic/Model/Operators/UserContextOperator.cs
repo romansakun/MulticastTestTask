@@ -23,6 +23,12 @@ namespace GameLogic.Model.Operators
             _userContextRepository.SetSoundsMuted(isMuted);
             _userContextRepository.Save();
         }
+        
+        public void SetMusicMuted(bool isMuted)
+        {
+            _userContextRepository.SetMusicMuted(isMuted);
+            _userContextRepository.Save();
+        }
 
         public void UpdateLocalization(string localizationDefId)
         {

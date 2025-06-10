@@ -8,6 +8,7 @@ namespace GameLogic.Model.Contexts
     {
         public int Version { get; set; }
         public bool IsSoundsMuted { get; set; }
+        public bool IsMusicMuted { get; set; }
         public bool IsHowToPlayHintShown { get; set; }
         public string LocalizationDefId { get; set; }
 

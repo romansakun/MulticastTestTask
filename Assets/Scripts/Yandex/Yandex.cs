@@ -6,6 +6,8 @@ using GameLogic.Model.Contexts;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Operators;
 using GameLogic.UI;
+using GameLogic.UI.Gameplay;
+using GameLogic.UI.Leaderboards;
 using GameLogic.UI.MainMenu;
 using Infrastructure.Extensions;
 using Infrastructure.Services;
@@ -27,31 +29,68 @@ namespace YG
 
         private UserContextOperator _userContextOperator;
         private UserContextDataProvider _userContext;
+        private int _leaderboardViewCountBeforeAds;
+        private int _levelCountIntervalForAds;
+        private int _levelCounts;
+        private int _appRatingLevelCounts;
 
         private void Awake()
         {
             _viewManager.Views.Subscribe(OnViewsChanged);
             _signalBus.Subscribe<UserContextInitializedSignal>(OnUserContextInitialized);
+            _signalBus.Subscribe<GameAppLoadedSignal>(OnGameAppLoaded);
             YG2.onCorrectLang += OnCorrectLanguage;
             YG2.onSwitchLang += OnLanguageChanged;
             YG2.onGetLeaderboard += OnGetLeaderboard;
 
             var canvasScaler = _canvas.GetComponent<CanvasScaler>();
             canvasScaler.matchWidthOrHeight = .9f;
+
+            _leaderboardViewCountBeforeAds = 2;
+            _levelCountIntervalForAds = 5;
+            _appRatingLevelCounts = 3;
+            _levelCounts = 0;
         }
 
         private void OnDestroy()
         {
             _viewManager.Views.Unsubscribe(OnViewsChanged);
             _signalBus.Unsubscribe<UserContextInitializedSignal>(OnUserContextInitialized);
+            _signalBus.Unsubscribe<GameAppLoadedSignal>(OnGameAppLoaded);
             YG2.onCorrectLang -= OnCorrectLanguage;
             YG2.onSwitchLang -= OnLanguageChanged;
             YG2.onGetLeaderboard -= OnGetLeaderboard;
         }
 
+        private void OnGameAppLoaded()
+        {
+            YG2.GameReadyAPI();
+        }
+
         private void OnViewsChanged(IReadOnlyList<View> views)
         {
             TrySetActiveLeaderboardsButton();
+
+            if (_viewManager.TryGetView<LeaderboardView>(out _) && --_leaderboardViewCountBeforeAds < 0)
+            {
+                YG2.InterstitialAdvShow();
+                Debug.Log("Show interstitial before leaderboard");
+            }
+            if (_viewManager.TryGetView<GameplayView>(out _) == false)
+                return;
+
+            if (_levelCounts == _appRatingLevelCounts)
+            {
+                Debug.Log("Show review (app rating)");
+                if (YG2.reviewCanShow)
+                    YG2.ReviewShow();
+            }
+            if (_levelCounts != 0 && _levelCounts % _levelCountIntervalForAds == 0)
+            {
+                YG2.InterstitialAdvShow();
+                Debug.Log("Show interstitial before level");
+            }
+            _levelCounts++;
         }
 
         private void TrySetActiveLeaderboardsButton()

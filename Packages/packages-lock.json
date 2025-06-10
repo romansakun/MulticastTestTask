@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a22299e7e94eaa13ac17b326e0de8f2d3afa9e46"
+    },
+    "com.github.messagepack-csharp": {
+      "version": "https://github.com/MessagePack-CSharp/MessagePack-CSharp.git?path=src/MessagePack.UnityClient/Assets/Scripts/MessagePack",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1bf454c6b6ae1c39df8949ea311eea61aec63506"
+    },
     "com.qiaozhilei.easy-text-effects": {
       "version": "https://github.com/LeiQiaoZhi/Easy-Text-Effect.git",
       "depth": 0,

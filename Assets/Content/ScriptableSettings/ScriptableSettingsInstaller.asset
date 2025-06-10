@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6b49df7d9c4ec780189c90e9ba1f89, type: 3}
   m_Name: ScriptableSettingsInstaller
   m_EditorClassIdentifier: 
-  _localGameDefsTextAsset: {fileID: 4900000, guid: 51e17174235aac24592df49227a823f8, type: 3}
+  _localGameDefsRawTextAsset: {fileID: 4900000, guid: 8537fba721873db4b8e8dfd540c1f617, type: 3}
+  _localGameDefsTextAsset: {fileID: 0}
   _soundsSettings:
     DropClusterSound: {fileID: 8300000, guid: b15832ae224a7634d984113264267026, type: 3}
     TapSound: {fileID: 8300000, guid: fd19fb15c94d1174aa551ae4c96987f5, type: 3}

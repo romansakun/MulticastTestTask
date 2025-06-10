@@ -29,21 +29,21 @@ namespace GameLogic.UI.Gameplay
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
-            if (_userContext.CheckingWordsCount.Value <= 0)
-            {
-                var hasReward = await _adsShower.Show();
-                if (context.IsDisposed) return;
-                if (hasReward)
-                {
-                    _userContextOperator.AddCheckingWords();
-                    UpdateCheckingWordsButtonState(context);
-                }
-                else
-                {
-                    await ShowCenterMessageWithTimer();
-                }
-                return;
-            }
+            // if (_userContext.CheckingWordsCount.Value <= 0)
+            // {
+            //     var hasReward = await _adsShower.Show();
+            //     if (context.IsDisposed) return;
+            //     if (hasReward)
+            //     {
+            //         _userContextOperator.AddCheckingWords();
+            //         UpdateCheckingWordsButtonState(context);
+            //     }
+            //     else
+            //     {
+            //         await ShowCenterMessageWithTimer();
+            //     }
+            //     return;
+            // }
 
             var levelDefId = context.LevelProgress.LevelDefId;
             var completeLevelGameAction = _gameActionFactory.Create<CompleteLevelGameAction>(levelDefId);
@@ -73,7 +73,8 @@ namespace GameLogic.UI.Gameplay
 
         private void UpdateCheckingWordsButtonState(GameplayViewModelContext context)
         {
-            var checkingWordsCount = _userContext.CheckingWordsCount.Value;
+            //var checkingWordsCount = _userContext.CheckingWordsCount.Value;
+            var checkingWordsCount = _gameDefs.DefaultSettings.ConsumablesFreeCount;
             var checkingWordsState = ConsumableButtonState.State(checkingWordsCount, _gameDefs.DefaultSettings.ConsumablesFreeCount);
             context.CheckingWordsButtonState.SetValueAndForceNotify(checkingWordsState);
         }

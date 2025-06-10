@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using GameLogic.Bootstrapper;
 using Infrastructure;
 using Zenject;
 
@@ -9,6 +10,7 @@ namespace GameLogic.UI.GameAppLoader
     {
         [Inject] private DiContainer _diContainer;
         [Inject] private ViewManager _viewManager;
+        [Inject] private SignalBus _signalBus;
 
         private readonly AsyncOperationQueue _loadingQueue = new();
         public IReactiveProperty<float> Progress => _progress;
@@ -37,6 +39,8 @@ namespace GameLogic.UI.GameAppLoader
                 await UniTask.Yield();
             }
             await _viewManager.Close<GameAppLoaderView>();
+
+            _signalBus.Fire<GameAppLoadedSignal>();
         }
 
         private void OnProgressChanged(float progressValue)

@@ -14,7 +14,8 @@ namespace GameLogic.UI.Gameplay
         {
             _userContextOperator.TryUpdateFreeConsumablesCount();
 
-            var checkingWordsCount = _userContext.CheckingWordsCount.Value;
+            //var checkingWordsCount = _userContext.CheckingWordsCount.Value;
+            var checkingWordsCount = _gameDefs.DefaultSettings.ConsumablesFreeCount;
             var checkingWordsState = ConsumableButtonState.State(checkingWordsCount, _gameDefs.DefaultSettings.ConsumablesFreeCount);
             context.CheckingWordsButtonState.SetValueAndForceNotify(checkingWordsState);
 

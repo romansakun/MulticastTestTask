@@ -10,19 +10,21 @@ using UnityEditor;
 using UnityEngine;
 using System.Reflection;
 using GameLogic.Model.Definitions;
+using MessagePack;
 
 namespace EditorDefinitions
 {
     public class GameDefsBuilder : EditorUtility 
     {
         private static string DefinitionsFilePath => $"{Application.dataPath}/Content/ScriptableSettings/LocalGameDefs.json";
+        private static string DefinitionBytesFilePath => $"{Application.dataPath}/Content/ScriptableSettings/LocalGameDefsRaw.txt";
 
         [MenuItem("Definitions/Build")]
         public static void BuildDefinitions()
         {
             var gameDefs = new GameDefs();
             var gameDefsType = typeof(GameDefs);
-            var fields = gameDefsType.GetFields();
+            //var fields = gameDefsType.GetFields();
             var properties = gameDefsType.GetProperties();
 
             var definitionPaths = AssetDatabase.GetAllAssetPaths().ToList();
@@ -31,23 +33,34 @@ namespace EditorDefinitions
             var settings = new JsonSerializerSettings
             {
                 TypeNameHandling = TypeNameHandling.None,
-                Formatting = Formatting.None
+                Formatting = Formatting.None,
+                MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                CheckAdditionalContent = false
             };
 
             var loadedDefs = new List<BaseDef>();
-            var dictFieldTypes = new Dictionary<string, (FieldInfo, Type)>();
+            var dictPropertyTypes = new Dictionary<string, (PropertyInfo, Type)>();
             var propertyTypes = new Dictionary<string, (PropertyInfo, Type)>();
-            foreach (var fieldInfo in fields)
-            {
-                if (fieldInfo.FieldType.IsGenericType == false) 
-                    continue;
-
-                var args = fieldInfo.FieldType.GetGenericArguments();
-                dictFieldTypes.Add(fieldInfo.Name, (fieldInfo, args[1]));
-            }
+            // foreach (var fieldInfo in fields)
+            // {
+            //     if (fieldInfo.FieldType.IsGenericType == false) 
+            //         continue;
+            //
+            //     var args = fieldInfo.FieldType.GetGenericArguments();
+            //     dictFieldTypes.Add(fieldInfo.Name, (fieldInfo, args[1]));
+            // }
             foreach (var propertyInfo in properties)
             {
-                propertyTypes.Add(propertyInfo.Name, (propertyInfo, propertyInfo.PropertyType));
+                if (propertyInfo.PropertyType.IsGenericType)
+                {
+                    var args = propertyInfo.PropertyType.GetGenericArguments();
+                    dictPropertyTypes.Add(propertyInfo.Name, (propertyInfo, args[1]));
+                }
+                else
+                {
+                    propertyTypes.Add(propertyInfo.Name, (propertyInfo, propertyInfo.PropertyType));
+                }
             }
 
             foreach (var definitionPath in definitionPaths)
@@ -56,7 +69,7 @@ namespace EditorDefinitions
                 var fileName = pathParts[^1].Split('.')[0];
                 var dirName = pathParts[^2];
 
-                if (dictFieldTypes.TryGetValue(dirName, out var dictField))
+                if (dictPropertyTypes.TryGetValue(dirName, out var dictField))
                 {
                     var textAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(definitionPath);
                     BaseDef def = null;
@@ -92,13 +105,15 @@ namespace EditorDefinitions
                 }
             }
 
-            var json = JsonConvert.SerializeObject(gameDefs, Formatting.None, settings);
+            var json = JsonConvert.SerializeObject(gameDefs, settings);
+            byte[] bytes = MessagePackSerializer.Serialize(gameDefs);
             Debug.Log($"{json}");
 
             var validator = new GameDefsValidator(gameDefs);
             validator.Validate();
 
             File.WriteAllText(DefinitionsFilePath, json);
+            File.WriteAllBytes(DefinitionBytesFilePath, bytes);
             AssetDatabase.Refresh();
         }
 

@@ -1,11 +1,12 @@
-using System;
 using System.Collections.Generic;
+using MessagePack;
 
 namespace GameLogic.Model.Definitions
 {
-    [Serializable]
+    [MessagePackObject]
     public class LevelDef: BaseDef
     {
-        public Dictionary<string, List<int>> Words = new();
+        [Key(1)]
+        public Dictionary<string, List<int>> Words { get; set; } = new();
     }
 }

@@ -23,10 +23,13 @@ namespace GameLogic.UI.Settings
 
         public IReactiveProperty<bool> IsSoundsMuted => _isSoundMuted;
         private ReactiveProperty<bool> _isSoundMuted;
+        public IReactiveProperty<bool> IsMusicMuted => _isMusicMuted;
+        private ReactiveProperty<bool> _isMusicMuted;
 
         public override void Initialize()
         {
             _isSoundMuted = new ReactiveProperty<bool>(_userContext.IsSoundsMuted.Value);
+            _isMusicMuted = new ReactiveProperty<bool>(_userContext.IsMusicMuted.Value);
         }
 
         public void SetLocalization(SystemLanguage language)
@@ -51,11 +54,26 @@ namespace GameLogic.UI.Settings
             _isSoundMuted.Value = isMuted;
         }
 
+        public void OnMusicToggleValueChanged(bool state)
+        {
+            var isMuted = state == false;
+            _userContextOperator.SetMusicMuted(isMuted);
+
+            _audioPlayer.PlaySound(_soundsSettings.TapSound);
+            _isMusicMuted.Value = isMuted;
+        }
+
         public async void OnBackButtonClicked()
         {
             _viewManager.TryGetView<MainMenuView>(out var view);
             view.gameObject.SetActive(true);
             await _viewManager.Close<SettingsView>();
+        }
+
+        public override void Dispose()
+        {
+            _isMusicMuted.Dispose();
+            _isSoundMuted.Dispose();
         }
     }
 }

@@ -3,7 +3,6 @@ using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.UI.CenterMessage;
-using GameLogic.UI.MainMenu;
 using Infrastructure;
 using Infrastructure.LogicUtility;
 using UnityEngine;

@@ -24,7 +24,8 @@ namespace GameLogic.UI.Components
                 .Join(_viewContentCanvasGroup.DOFade(1, _duration));
 
             await _animation.AsyncWaitForCompletion();
-            _viewContentCanvasGroup.blocksRaycasts = true;
+            if (_viewContentCanvasGroup != null)
+                _viewContentCanvasGroup.blocksRaycasts = true;
         }
 
         public async UniTask HideToRight()
@@ -49,7 +50,8 @@ namespace GameLogic.UI.Components
                 .Join(_viewContentCanvasGroup.DOFade(1, _duration));
 
             await _animation.AsyncWaitForCompletion();
-            _viewContentCanvasGroup.blocksRaycasts = true;
+            if (_viewContentCanvasGroup != null)
+                _viewContentCanvasGroup.blocksRaycasts = true;
         }
 
         public async UniTask HideByScaleAndAlpha()
@@ -60,7 +62,8 @@ namespace GameLogic.UI.Components
                 .Join(_viewContentCanvasGroup.DOFade(0, _duration));
 
             await _animation.AsyncWaitForCompletion();
-            _viewContentCanvasGroup.blocksRaycasts = true;
+            if (_viewContentCanvasGroup != null)
+                _viewContentCanvasGroup.blocksRaycasts = true;
         }
 
         private void OnDestroy()
