@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
@@ -20,6 +21,7 @@ namespace GameLogic.UI.MainMenu
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private IAssetsLoader _assetsLoader;
+        [Inject] private SignalBus _signalBus;
 
         public IReactiveProperty<bool> IsLocalizationGameOver => _isLocalizationGameOver;
         private readonly ReactiveProperty<bool> _isLocalizationGameOver = new();
@@ -109,6 +111,8 @@ namespace GameLogic.UI.MainMenu
 
         public async void OnPlayButtonClicked()
         {
+            _signalBus.Fire<StartShowingGameplayViewSignal>();
+
             var viewModel = _viewModelFactory.Create<GameplayViewModel>();
             await _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
             await _viewManager.Close<MainMenuView>();
@@ -124,6 +128,8 @@ namespace GameLogic.UI.MainMenu
 
         public async void OnLeaderboardsButtonClicked()
         {
+            _signalBus.Fire<StartShowingLeaderboardViewSignal>();
+
             _viewManager.TryGetView<MainMenuView>(out var view);
             view.gameObject.SetActive(false);
             var viewModel = _viewModelFactory.Create<LeaderboardViewModel>();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Cysharp.Threading.Tasks;
+using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.GptChats;
 using GameLogic.Helpers;
@@ -25,6 +26,7 @@ namespace GameLogic.UI.Victory
         [Inject] private ViewModelFactory _viewModelFactory;
         [Inject] private IGptChat _gptChat;
         [Inject] private IYandexLeaderboards _yandexLeaderboards;
+        [Inject] private SignalBus _signalBus;
 
         private readonly List<WordRow> _wordRows = new();
         private readonly List<Cluster> _clusters = new();
@@ -106,6 +108,8 @@ namespace GameLogic.UI.Victory
 
         public async void OnNextLevelButtonClicked()
         {
+            _signalBus.Fire<StartShowingGameplayViewSignal>();
+
             var closing = _viewManager.Close<VictoryView>(false, false);
             var viewModel = _viewModelFactory.Create<GameplayViewModel>();
             var showing = _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);

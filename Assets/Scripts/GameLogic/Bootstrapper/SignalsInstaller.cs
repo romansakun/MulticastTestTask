@@ -10,16 +10,13 @@ namespace GameLogic.Bootstrapper
 
             Container.DeclareSignal<UserContextInitializedSignal>();
             Container.DeclareSignal<GameAppLoadedSignal>();
+            Container.DeclareSignal<StartShowingGameplayViewSignal>();
+            Container.DeclareSignal<StartShowingLeaderboardViewSignal>();
         }
     }
 
-    public struct UserContextInitializedSignal
-    {
-
-    }
-
-    public struct GameAppLoadedSignal
-    {
-
-    }
+    public struct UserContextInitializedSignal { }
+    public struct GameAppLoadedSignal { }
+    public struct StartShowingGameplayViewSignal { }
+    public struct StartShowingLeaderboardViewSignal { }
 }
