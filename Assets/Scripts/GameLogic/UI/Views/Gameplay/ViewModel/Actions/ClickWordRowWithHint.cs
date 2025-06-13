@@ -7,12 +7,11 @@ namespace GameLogic.UI.Gameplay
     public class ClickWordRowWithHint : BaseGameplayViewModelAction
     {
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
         [Inject] private ColorsSettings _colorsSettings;
 
         public override void Execute(GameplayViewModelContext context)
         {
-            _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
+            _audioPlayer.PlaySound("DropClusterSound");
 
             var cluster = context.Click.OriginUndistributedClickedCluster;
             var wordRow = context.Click.ClickedHintWordRow;

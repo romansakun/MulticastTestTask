@@ -1,5 +1,4 @@
 using GameLogic.Audio;
-using GameLogic.Bootstrapper;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,7 +9,6 @@ namespace GameLogic.UI.Components
     public class PlaySoundButton : MonoBehaviour
     {
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
 
         [SerializeField] private Button _button;
 
@@ -27,7 +25,7 @@ namespace GameLogic.UI.Components
 
         private void OnButtonClicked()
         {
-            _audioPlayer.PlaySound(_soundsSettings.TapSound);
+            _audioPlayer.PlaySound("TapSound");
         }
 
         private void OnDestroy()

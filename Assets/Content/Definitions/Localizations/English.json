@@ -369,6 +369,9 @@
         "FREE_UPDATE_AFTER": "+3 after: ",
         "LEADERBOARD_TITLE": "Ranking",
         "VICTORY_PROMPT": "Give the player a congratulations for completing the level in the game (form words from pieces, here are the words: {0}, completed level: {1}), make it a single sentence (5-12 words)",
-        "VICTORY_DEFAULT": "{0} level completed! Congratulations!"
+        "VICTORY_DEFAULT": "{0} level completed! Congratulations!",
+        "LEADERBOARD_PROMPT": "You need to comment on the player's position in the leaderboard. The player's position is {0}. If the place is a prize (1, 2 or 3), then you can mention it. The player expects praise for their efforts, but not trivial and not in your face. I believe in your abilities, be yourself, but try to be brief (5-12 words). You can rely on Mikhail Elizarov (but do not mention him)",
+        "LEADERBOARD_DEFAULT" : "You are doing well! Keep it up!",
+        "LEADERBOARD_LOADING_FAILED": "Unfortunately, the leaderboard is unavailable."
     }
 }

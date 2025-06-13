@@ -7,7 +7,6 @@ namespace GameLogic.UI.Gameplay
     public class TryReturnClickedUndistributedCluster : BaseGameplayViewModelAction
     {
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
         [Inject] private ColorsSettings _colorsSettings;
 
         public override void Execute(GameplayViewModelContext context)
@@ -16,7 +15,7 @@ namespace GameLogic.UI.Gameplay
                 return;
 
             context.Click.OriginUndistributedClickedCluster.SetColorAlpha(1);
-            _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
+            _audioPlayer.PlaySound("DropClusterSound");
         }
     }
 }

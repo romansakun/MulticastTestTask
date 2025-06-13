@@ -18,7 +18,7 @@ namespace GameLogic.UI.Gameplay
             DisposeDraggedCluster(context);
             ResetAfterDrag(context);
 
-            _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
+            _audioPlayer.PlaySound("DropClusterSound");
         }
 
     }

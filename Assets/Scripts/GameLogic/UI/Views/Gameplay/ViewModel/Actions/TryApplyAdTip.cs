@@ -24,7 +24,6 @@ namespace GameLogic.UI.Gameplay
         [Inject] private GameplaySettings _gameplaySettings;
         [Inject] private Cluster.Factory _clusterFactory;
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
         [Inject] private IAdsShower _adsShower;
         [Inject] private ITimerService _timerService;
 
@@ -58,7 +57,7 @@ namespace GameLogic.UI.Gameplay
                 context.UndistributedClusters.Add(cluster);
                 cluster.SetParent(context.UndistributedClustersHolder);
                 cluster.SetSiblingIndex(0);
-                _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
+                _audioPlayer.PlaySound("DropClusterSound");
 
                 await UniTask.Delay(250);
                 if (context.IsDisposed) return;
@@ -91,7 +90,7 @@ namespace GameLogic.UI.Gameplay
                     context.UndistributedClusters.Add(cluster);
                     cluster.SetParent(context.UndistributedClustersHolder);
                     cluster.SetSiblingIndex(0);
-                    _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
+                    _audioPlayer.PlaySound("DropClusterSound");
                     context.UndistributedClustersScrollRectNormalizedPosition.Value = 0;
 
                     await UniTask.Delay(125);
@@ -118,7 +117,7 @@ namespace GameLogic.UI.Gameplay
                 await UniTask.Delay(125);
                 if (context.IsDisposed) return;
 
-                _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
+                _audioPlayer.PlaySound("DropClusterSound");
 
                 context.AllClusters.Remove(hintCluster);
                 hintCluster.Dispose();

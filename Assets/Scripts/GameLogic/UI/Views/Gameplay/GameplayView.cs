@@ -16,7 +16,6 @@ namespace GameLogic.UI.Gameplay
     public class GameplayView : View, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
 
         [SerializeField] private ViewContentAnimations _animations;
 
@@ -156,7 +155,7 @@ namespace GameLogic.UI.Gameplay
         {
             if (!state) return;
 
-            _audioPlayer.PlaySound(_soundsSettings.WrongAnswerSound);
+            _audioPlayer.PlaySound("WrongAnswerSound");
 
             _failButtonAnimation?.Kill();
             _checkWordsButton.interactable = false;

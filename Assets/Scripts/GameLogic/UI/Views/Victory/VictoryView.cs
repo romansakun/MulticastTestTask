@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using GameLogic.Audio;
-using GameLogic.Bootstrapper;
 using GameLogic.GptChats;
 using GameLogic.UI.Components;
 using GameLogic.UI.MainMenu;
@@ -14,7 +13,6 @@ namespace GameLogic.UI.Victory
     public class VictoryView : View
     {
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
         [Inject] private IGptChat _gptChat;
         
         [SerializeField] private Button _nextLevelButton;
@@ -33,10 +31,7 @@ namespace GameLogic.UI.Victory
 
             _viewModel.LoadResolvedWords(_wordsHolder);
 
-            _audioPlayer.PlaySound(_soundsSettings.SuccessSound);
-            
-            
-
+            _audioPlayer.PlaySound("SuccessSound");
             return UniTask.CompletedTask;
         }
 

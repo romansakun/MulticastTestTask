@@ -8,7 +8,6 @@ namespace GameLogic.UI.Gameplay
     public class PrepareDragUndistributedCluster : BaseGameplayViewModelAction
     {
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
         [Inject] private Cluster.Factory _clusterFactory;
         [Inject] private ColorsSettings _colorsSettings;
         [Inject] private GameplaySettings _gameplaySettings;
@@ -19,7 +18,7 @@ namespace GameLogic.UI.Gameplay
         {
             context.IsUndistributedClustersScrollRectActive.SetValueAndForceNotify(false);
 
-            _audioPlayer.PlaySound(_soundsSettings.TapSound);
+            _audioPlayer.PlaySound("TapSound");
 
             var originalCluster = context.Swipe.OriginDraggedCluster;
             originalCluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);

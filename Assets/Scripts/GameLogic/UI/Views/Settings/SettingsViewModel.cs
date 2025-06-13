@@ -1,5 +1,4 @@
 using GameLogic.Audio;
-using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Operators;
@@ -14,7 +13,6 @@ namespace GameLogic.UI.Settings
     public class SettingsViewModel : ViewModel
     {
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
         [Inject] private UserContextOperator _userContextOperator;
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private ViewManager _viewManager;
@@ -50,7 +48,7 @@ namespace GameLogic.UI.Settings
             var isMuted = state == false;
             _userContextOperator.SetSoundsMuted(isMuted);
 
-            _audioPlayer.PlaySound(_soundsSettings.TapSound);
+            _audioPlayer.PlaySound("TapSound");
             _isSoundMuted.Value = isMuted;
         }
 
@@ -59,7 +57,7 @@ namespace GameLogic.UI.Settings
             var isMuted = state == false;
             _userContextOperator.SetMusicMuted(isMuted);
 
-            _audioPlayer.PlaySound(_soundsSettings.TapSound);
+            _audioPlayer.PlaySound("TapSound");
             _isMusicMuted.Value = isMuted;
         }
 

@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using GameLogic.Audio;
 using GameLogic.Factories;
 using GameLogic.UI;
 using GameLogic.UI.MainMenu;
@@ -10,8 +9,6 @@ namespace GameLogic.Bootstrapper
 {
     public class ShowMainMenuLoader : IAsyncOperation
     {
-        [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
         [Inject] private ViewManager _viewManager;
         [Inject] private ViewModelFactory _viewModelFactory;
 

@@ -1,5 +1,6 @@
 using GameLogic.Bootstrapper;
 using GameLogic.Model.DataProviders;
+using Infrastructure.Services;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +10,7 @@ namespace GameLogic.Audio
     {
         [Inject] private SignalBus _signalBus;
         [Inject] private DiContainer _diContainer;
+        [Inject] private IAssetsLoader _assetsLoader;
 
         [SerializeField] private AudioSource _soundAudioSource;
         [SerializeField] private AudioSource _musicAudioSource;
@@ -44,6 +46,12 @@ namespace GameLogic.Audio
             _soundAudioSource.mute = isMuted;
         }
 
+        public async void PlaySound(string soundName)
+        {
+            var sound = await _assetsLoader.LoadAsync<AudioClip>(soundName);
+            PlaySound(sound);
+        }
+        
         public void PlaySound(AudioClip audioClip)
         {
             if (_userContext.IsSoundsMuted.Value) return;
@@ -55,6 +63,12 @@ namespace GameLogic.Audio
 
             _soundAudioSource.clip = audioClip;
             _soundAudioSource.Play();
+        }
+
+        public async void PlayMusic(string musicName)
+        {
+            var music = await _assetsLoader.LoadAsync<AudioClip>(musicName);
+            PlayMusic(music);
         }
 
         public void PlayMusic(AudioClip music)

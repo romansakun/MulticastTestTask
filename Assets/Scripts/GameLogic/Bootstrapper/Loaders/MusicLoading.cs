@@ -8,11 +8,10 @@ namespace GameLogic.Bootstrapper
     public class MusicLoading : IAsyncOperation
     {
         [Inject] private AudioPlayer _audioPlayer;
-        [Inject] private SoundsSettings _soundsSettings;
 
         public UniTask ProcessAsync()
         {
-            _audioPlayer.PlayMusic(_soundsSettings.BackgroundMusic);
+            _audioPlayer.PlayMusic("BackgroundMusic");
             return UniTask.CompletedTask;
         }
     }

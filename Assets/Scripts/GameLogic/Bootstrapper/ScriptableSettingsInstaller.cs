@@ -12,7 +12,6 @@ namespace GameLogic.Bootstrapper
     public class ScriptableSettingsInstaller : ScriptableObjectInstaller 
     {
         [SerializeField] private TextAsset _localGameDefsRawTextAsset;
-        [SerializeField] private SoundsSettings _soundsSettings;
         [SerializeField] private ColorsSettings _colorsSettings;
         [SerializeField] private GameplaySettings _gameplaySettings;
 
@@ -23,22 +22,11 @@ namespace GameLogic.Bootstrapper
             var gameDefsProxy = new GameDefsDataProvider().SetGameDefs(localGameDefs);
             Container.Bind<GameDefsDataProvider>().FromInstance(gameDefsProxy).AsSingle();
 
-            Container.Bind<SoundsSettings>().FromInstance(_soundsSettings).AsSingle();
             Container.Bind<ColorsSettings>().FromInstance(_colorsSettings).AsSingle();
             Container.Bind<GameplaySettings>().FromInstance(_gameplaySettings).AsSingle();
 
             SignalsInstaller.Install(Container);
         }
-    }
-
-    [Serializable]
-    public class SoundsSettings
-    {
-        public AudioClip DropClusterSound;
-        public AudioClip TapSound;
-        public AudioClip WrongAnswerSound;
-        public AudioClip SuccessSound;
-        public AudioClip BackgroundMusic;
     }
 
     [Serializable]

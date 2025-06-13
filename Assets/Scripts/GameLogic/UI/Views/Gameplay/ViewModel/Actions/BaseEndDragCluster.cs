@@ -7,7 +7,6 @@ namespace GameLogic.UI.Gameplay
     public abstract class BaseEndDragCluster : BaseGameplayViewModelAction
     {
         [Inject] protected AudioPlayer _audioPlayer;
-        [Inject] protected SoundsSettings _soundsSettings;
         [Inject] private ColorsSettings _colorsSettings;
 
         protected void SetHintClusterAsDistributed(GameplayViewModelContext context)

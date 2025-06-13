@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using GameLogic.GptChats;
 using GameLogic.Model.DataProviders;
 using GameLogic.UI.MainMenu;
 using Infrastructure;
@@ -16,36 +18,45 @@ namespace GameLogic.UI.Leaderboards
         [Inject] private UserContextDataProvider _userContext;
         [Inject] private IYandexLeaderboards _yandexLeaderboards;
         [Inject] private PlayerLine.Factory _playerLineFactory;
+        [Inject] private IGptChat _gptChat;
 
         public IReactiveProperty<bool> IsLeaderboardLoaded => _isLeaderboardLoaded;
         private readonly ReactiveProperty<bool> _isLeaderboardLoaded = new(false);
 
+        public IReactiveProperty<string> DescriptionText => _descriptionText;
+        private readonly ReactiveProperty<string> _descriptionText = new();
+
         private readonly List<PlayerLine> _playerLines = new();
+        private LBData _leaderboardData;
+
+        private static readonly Dictionary<string, Dictionary<int, string>> _gptAnswers = new();
 
         public override void Initialize()
         {
         }
 
-        public async void CreatePlayerLines(RectTransform playersContainer, RectTransform myPlayerContainer)
+        public async UniTask CreatePlayerLines(RectTransform playersContainer, RectTransform myPlayerContainer)
         {
             var lang = _gameDefs.Localizations[_userContext.LocalizationDefId.Value].Description;
-            var leaderboardData = await _yandexLeaderboards.GetLeaderboard(lang);
-            if (leaderboardData == null || playersContainer == null || myPlayerContainer == null)
+            _leaderboardData = await _yandexLeaderboards.GetLeaderboard(lang);
+            if (_leaderboardData == null || playersContainer == null || myPlayerContainer == null)
             {
                 TryAddFakePlayerLines(playersContainer);
             }
             else
             {
-                CreateRealPlayerLines(playersContainer, myPlayerContainer, leaderboardData);
+                CreateRealPlayerLines(playersContainer);
                 TryAddFakePlayerLines(playersContainer);
-                CreateUserLine(myPlayerContainer, leaderboardData);
+                CreateUserLine(myPlayerContainer);
             }
+
+            await UniTask.Yield();
             _isLeaderboardLoaded.Value = true;
         }
 
         private void TryAddFakePlayerLines(RectTransform playersContainer)
         {
-            for (int i = _playerLines.Count; i < 50; i++)
+            for (int i = _playerLines.Count; i < 10; i++)
             {
                 var playerLine = _playerLineFactory.Create();
                 playerLine.transform.SetParent(playersContainer, false);
@@ -59,16 +70,16 @@ namespace GameLogic.UI.Leaderboards
             }
         }
 
-        private void CreateRealPlayerLines(RectTransform playersContainer, RectTransform myPlayerContainer, LBData leaderboardData)
+        private void CreateRealPlayerLines(RectTransform playersContainer)
         {
-            if (leaderboardData.currentPlayer != null)
+            if (_leaderboardData.currentPlayer != null)
             {
-                var userRank = leaderboardData.currentPlayer.rank;
-                foreach (var playerData in leaderboardData.players)
+                var userRank = _leaderboardData.currentPlayer.rank;
+                foreach (var playerData in _leaderboardData.players)
                 {
                     var playerLine = _playerLineFactory.Create();
                     if (playerData.rank == userRank)
-                        playerLine.UpdateEntries(leaderboardData.currentPlayer);
+                        playerLine.UpdateEntries(_leaderboardData.currentPlayer);
                     else
                         playerLine.UpdateEntries(playerData);
 
@@ -76,13 +87,12 @@ namespace GameLogic.UI.Leaderboards
                     _playerLines.Add(playerLine);
                 }
             }
-
         }
 
-        private void CreateUserLine(RectTransform myPlayerContainer, LBData leaderboardData)
+        private void CreateUserLine(RectTransform myPlayerContainer)
         {
             var userLine = _playerLineFactory.Create();
-            userLine.UpdateEntries(leaderboardData.currentPlayer);
+            userLine.UpdateEntries(_leaderboardData.currentPlayer);
             userLine.transform.SetParent(myPlayerContainer, false);
             _playerLines.Add(userLine);
         }
@@ -96,9 +106,45 @@ namespace GameLogic.UI.Leaderboards
             await _viewManager.Close<LeaderboardView>(false, false);
         }
 
+        public async UniTask TrySetGeminiComment()
+        {
+            if (_leaderboardData == null || _leaderboardData.currentPlayer == null)
+            {
+                _descriptionText.Value = _userContext.GetLocalizedText("LEADERBOARD_LOADING_FAILED");
+                return;
+            }
+            
+            var resultText = string.Empty;
+            var rank = _leaderboardData.currentPlayer.rank;
+            var local = _userContext.LocalizationDefId.Value;
+            if (_gptAnswers.ContainsKey(local) == false)
+            {
+                _gptAnswers[local] = new Dictionary<int, string>();
+            }
+            if (_gptAnswers[local].ContainsKey(rank))
+            {
+                resultText = _gptAnswers[local][rank];
+            }
+            else
+            {
+                var prompt = _userContext.GetLocalizedText("LEADERBOARD_PROMPT", rank);
+                resultText = await _gptChat.Ask(prompt);
+                if (_descriptionText.IsDisposed)
+                    return;
+
+                _gptAnswers[local][rank] = resultText;
+            }
+
+            _descriptionText.Value = string.IsNullOrEmpty(resultText)
+                ? _userContext.GetLocalizedText("LEADERBOARD_DEFAULT") 
+                : resultText;
+        }
+
         public override void Dispose()
         {
             _playerLines.ForEach(p => p.Dispose());
+            _descriptionText.Dispose();
+            _isLeaderboardLoaded.Dispose();
         }
     }
 }

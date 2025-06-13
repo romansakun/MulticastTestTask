@@ -19,7 +19,7 @@ namespace GameLogic.UI.Gameplay
             ResetAfterDrag(context);
 
             context.IsUndistributedClustersScrollRectActive.SetValueAndForceNotify(true);
-            _audioPlayer.PlaySound(_soundsSettings.DropClusterSound);
+            _audioPlayer.PlaySound("DropClusterSound");
         }
 
     }

@@ -989,8 +989,8 @@ GameObject:
   - component: {fileID: 5860097588215777495}
   - component: {fileID: 1846553019645998092}
   - component: {fileID: 5947722883692190661}
+  - component: {fileID: 382229444882514798}
   - component: {fileID: 6009214973666301850}
-  - component: {fileID: 2244802728739396263}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1039,6 +1039,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _localizationKey: VICTORY_VIEW_TITLE
   _textMeshPro: {fileID: 6009214973666301850}
+--- !u!114 &382229444882514798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999782764427742902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a04c01512a040f8b5ea414b6e96908d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _elementColor: 7
+  _graphic: {fileID: 6009214973666301850}
 --- !u!114 &6009214973666301850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,30 +1144,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2244802728739396263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5999782764427742902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9840f87219df84505803024c796e739d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 6009214973666301850}
-  usePreset: 0
-  preset: {fileID: 0}
-  tagEffects: []
-  globalEffects:
-  - triggerWhen: 0
-    effect: {fileID: 11400000, guid: 9fd190e9c9135a548b9970e9a400b923, type: 2}
-    onEffectCompleted:
-      m_PersistentCalls:
-        m_Calls: []
-    overrideTagEffects: 0
-  updatesPerSecond: 30
 --- !u!1 &6470063630754341289
 GameObject:
   m_ObjectHideFlags: 0
