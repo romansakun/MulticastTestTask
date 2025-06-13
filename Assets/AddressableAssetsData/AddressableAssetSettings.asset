@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: b0b216e33d3a6ea459449cf47083eedd
   m_currentHash:
     serializedVersion: 2
-    Hash: 05d71b9b42aeadc581cf280698ae0a45
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
-  m_BuildAddressablesWithPlayerBuild: 0
+  m_BuildAddressablesWithPlayerBuild: 1
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 757d360237d35134e8c0c992c66f1aa8, type: 2}
@@ -82,7 +82,7 @@ MonoBehaviour:
       - m_Id: bf8a308b51afd834eabe7514742b141b
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: f839a8bd54f40734fb7c3da7731efb35
-        m_Value: https://romansakun.github.io/FormWords/ServerData/WebGL
+        m_Value: https://storage.yandexcloud.net/formwords
     m_ProfileEntryNames:
     - m_Id: 20fd337488978354aa8828c35ee6c3c0
       m_Name: BuildTarget

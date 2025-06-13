@@ -75,9 +75,12 @@ namespace YG
             {
                 Debug.Log("Show review (app rating)");
                 if (YG2.reviewCanShow)
+                {
                     YG2.ReviewShow();
+                    return;
+                }
             }
-            if (_levelCounts != 0 && _levelCounts % _levelCountIntervalForAds == 0)
+            else if (_levelCounts != 0 && _levelCounts % _levelCountIntervalForAds == 0)
             {
                 YG2.InterstitialAdvShow();
                 Debug.Log("Show interstitial before level");
@@ -87,8 +90,8 @@ namespace YG
 
         private void OnStartShowingLeaderboardView()
         {
-            YG2.InterstitialAdvShow();
-            Debug.Log("Show interstitial before leaderboard");
+            //YG2.InterstitialAdvShow();
+            //Debug.Log("Show interstitial before leaderboard");
         }
 
         private void OnViewsChanged(IReadOnlyList<View> views)
