@@ -15,11 +15,11 @@ MonoBehaviour:
   m_DefaultGroup: b0b216e33d3a6ea459449cf47083eedd
   m_currentHash:
     serializedVersion: 2
-    Hash: 6e76100ece253a25eedfb65eecd414a8
+    Hash: 05d71b9b42aeadc581cf280698ae0a45
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
-  m_DisableCatalogUpdateOnStart: 0
+  m_DisableCatalogUpdateOnStart: 1
   m_InternalIdNamingMode: 0
   m_InternalBundleIdMode: 1
   m_AssetLoadMode: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_SharedBundleSettings: 0
   m_SharedBundleSettingsCustomGroupIndex: 0
   m_ContiguousBundles: 1
-  m_StripUnityVersionFromBundleBuild: 0
+  m_StripUnityVersionFromBundleBuild: 1
   m_DisableVisibleSubAssetRepresentations: 0
   m_BuiltInBundleNaming: 0
   mBuiltInBundleCustomNaming: 
@@ -50,9 +50,9 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: a5cd532d23ca0484eb72ad50db453164
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: f839a8bd54f40734fb7c3da7731efb35
   m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 757d360237d35134e8c0c992c66f1aa8, type: 2}
+  - {fileID: 11400000, guid: f4815398a84249b4082fc43fbd7ddc59, type: 2}
   - {fileID: 11400000, guid: 9d6c7df4471d07946b3b4e62a6979b8f, type: 2}
   - {fileID: 11400000, guid: 873ea4a63e48e6644ba03e964777af18, type: 2}
   - {fileID: 11400000, guid: 1798f849edc2afb4c92dcaa8a9f9a58a, type: 2}
@@ -81,7 +82,7 @@ MonoBehaviour:
       - m_Id: bf8a308b51afd834eabe7514742b141b
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: f839a8bd54f40734fb7c3da7731efb35
-        m_Value: 'http://[PrivateIpAddress]:[HostingServicePort]'
+        m_Value: https://romansakun.github.io/FormWords/ServerData/WebGL
     m_ProfileEntryNames:
     - m_Id: 20fd337488978354aa8828c35ee6c3c0
       m_Name: BuildTarget

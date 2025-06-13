@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sounds
+  m_EditorClassIdentifier: 
+  m_GroupName: Sounds
+  m_GUID: 9a782ffd15c6d3a4b9087e15479c77a6
+  m_SerializeEntries:
+  - m_GUID: 353d4109a7f6d4346ab0b883ccd7f794
+    m_Address: SuccessSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4acbeae14b759dc409e143e826e54b2d
+    m_Address: WrongAnswerSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 930c4f7308e657d42974753ef8e2f67b
+    m_Address: BackgroundMusic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b15832ae224a7634d984113264267026
+    m_Address: DropClusterSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd19fb15c94d1174aa551ae4c96987f5
+    m_Address: TapSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e31acbd790e5f0047b619e21668e0e15, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7eb2424f92abf734abe1fd11c353a145, type: 2}
+    - {fileID: 11400000, guid: 0a9475961510e85419b654a1976c5628, type: 2}
