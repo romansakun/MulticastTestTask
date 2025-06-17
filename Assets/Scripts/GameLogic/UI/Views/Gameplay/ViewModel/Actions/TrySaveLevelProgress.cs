@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using GameLogic.Factories;
+using GameLogic.Helpers;
 using GameLogic.Model.Actions;
 using GameLogic.Model.DataProviders;
 using Infrastructure.GameActions;
@@ -13,6 +14,7 @@ namespace GameLogic.UI.Gameplay
         [Inject] private GameActionExecutor _gameActionExecutor;
         [Inject] private GameActionFactory _gameActionFactory;
         [Inject] private UserContextDataProvider _userContext;
+        [Inject] private UserContextRatingHelper _ratingHelper;
 
         public override async UniTask ExecuteAsync(GameplayViewModelContext context)
         {
@@ -56,6 +58,8 @@ namespace GameLogic.UI.Gameplay
 
             _userContext.TryGetLevelProgress(context.LevelProgress.LevelDefId, out var levelProgress);
             context.LevelProgress = levelProgress;
+
+            context.CupsCountText.Value = $"+{_ratingHelper.GetLevelScore(context.LevelProgress)}";
         }
 
         private bool IsDistributedClustersDifferent(GameplayViewModelContext context, List<List<string>> distributedClustersInView)

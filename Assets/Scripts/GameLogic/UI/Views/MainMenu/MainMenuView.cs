@@ -10,6 +10,7 @@ namespace GameLogic.UI.MainMenu
     {
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _settingsButton;
+        [SerializeField] private Button _infoButton;
         [SerializeField] private Button _leaderboardsButton;
         [Header("League")]
         [SerializeField] private TextMeshProUGUI _leagueLevelsLabel;
@@ -32,6 +33,7 @@ namespace GameLogic.UI.MainMenu
         {
             _playButton.onClick.AddListener(_viewModel.OnPlayButtonClicked);
             _settingsButton.onClick.AddListener(_viewModel.OnSettingsButtonClicked);
+            _infoButton.onClick.AddListener(_viewModel.OnInfoButtonClicked);
             _leaderboardsButton.onClick.AddListener(_viewModel.OnLeaderboardsButtonClicked);
             _leftLeagueButton.onClick.AddListener(_viewModel.OnLeftLeagueButtonClicked);
             _rightLeagueButton.onClick.AddListener(_viewModel.OnRightLeagueButtonClicked);
@@ -48,6 +50,7 @@ namespace GameLogic.UI.MainMenu
             _leagueAnimation?.Kill();
             _playButton.onClick.RemoveListener(_viewModel.OnPlayButtonClicked);
             _settingsButton.onClick.RemoveListener(_viewModel.OnSettingsButtonClicked);
+            _infoButton.onClick.RemoveListener(_viewModel.OnInfoButtonClicked);
             _leaderboardsButton.onClick.RemoveAllListeners();
             _leftLeagueButton.onClick.RemoveAllListeners();
             _rightLeagueButton.onClick.RemoveAllListeners();

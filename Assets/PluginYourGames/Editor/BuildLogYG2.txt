@@ -1,3 +1,3 @@
-Build path: D:/UnityProjects/TestTasks/Builds/webglBuild
-Build number: 58
+Build path: D:/UnityProjects/TestTasks/Builds/webglBuild_102
+Build number: 60
 PluginYG version: 2.0032

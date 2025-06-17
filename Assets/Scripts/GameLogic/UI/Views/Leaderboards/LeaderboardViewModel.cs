@@ -132,7 +132,8 @@ namespace GameLogic.UI.Leaderboards
                 if (_descriptionText.IsDisposed)
                     return;
 
-                _gptAnswers[local][rank] = resultText;
+                if (string.IsNullOrEmpty(resultText) == false)
+                    _gptAnswers[local][rank] = resultText;
             }
 
             _descriptionText.Value = string.IsNullOrEmpty(resultText)

@@ -46,13 +46,13 @@ namespace GameLogic.Audio
             _soundAudioSource.mute = isMuted;
         }
 
-        public async void PlaySound(string soundName)
+        public async void PlaySound(string soundName, bool force = false)
         {
             var sound = await _assetsLoader.LoadAsync<AudioClip>(soundName);
-            PlaySound(sound);
+            PlaySound(sound, force);
         }
-        
-        public void PlaySound(AudioClip audioClip)
+
+        public void PlaySound(AudioClip audioClip, bool force)
         {
             if (_userContext.IsSoundsMuted.Value) return;
             if (audioClip == null)
@@ -60,6 +60,8 @@ namespace GameLogic.Audio
                 Debug.LogWarning($"There is no sound");
                 return;
             }
+            if (force == false && _soundAudioSource.isPlaying && _soundAudioSource.clip == audioClip) 
+                return;
 
             _soundAudioSource.clip = audioClip;
             _soundAudioSource.Play();

@@ -31,6 +31,7 @@ namespace GameLogic.UI.Gameplay
         {
             if (_userContext.AdsTipsCount.Value <= 0)
             {
+                _audioPlayer.PlaySound("TapSound");
                 var hasReward = await _adsShower.Show();
                 if (context.IsDisposed) return;
                 if (hasReward)
@@ -57,9 +58,9 @@ namespace GameLogic.UI.Gameplay
                 context.UndistributedClusters.Add(cluster);
                 cluster.SetParent(context.UndistributedClustersHolder);
                 cluster.SetSiblingIndex(0);
-                _audioPlayer.PlaySound("DropClusterSound");
+                //_audioPlayer.PlaySound("DropClusterSound", true);
 
-                await UniTask.Delay(250);
+                await UniTask.Delay(100);
                 if (context.IsDisposed) return;
             }
             //
@@ -90,10 +91,10 @@ namespace GameLogic.UI.Gameplay
                     context.UndistributedClusters.Add(cluster);
                     cluster.SetParent(context.UndistributedClustersHolder);
                     cluster.SetSiblingIndex(0);
-                    _audioPlayer.PlaySound("DropClusterSound");
+                    //_audioPlayer.PlaySound("DropClusterSound", true);
                     context.UndistributedClustersScrollRectNormalizedPosition.Value = 0;
 
-                    await UniTask.Delay(125);
+                    await UniTask.Delay(100);
                     if (context.IsDisposed) return;
                 }
                 cluster.SetColorAlpha(_colorsSettings.GhostClusterAlpha);
@@ -114,10 +115,12 @@ namespace GameLogic.UI.Gameplay
                 clickedCluster.SetPosition(position + offset);
                 var hintCluster = AddHintClusterToWordRow(context, context.AdTip.SuitableWordRow, cluster);
 
-                await UniTask.Delay(125);
+                _audioPlayer.PlaySound("TapSound", true);
+                
+                await UniTask.Delay(150);
                 if (context.IsDisposed) return;
 
-                _audioPlayer.PlaySound("DropClusterSound");
+                _audioPlayer.PlaySound("DropClusterSound", true);
 
                 context.AllClusters.Remove(hintCluster);
                 hintCluster.Dispose();
@@ -131,7 +134,7 @@ namespace GameLogic.UI.Gameplay
 
                 clickedCluster.Dispose();
 
-                await UniTask.Delay(125);
+                await UniTask.Delay(150);
                 if (context.IsDisposed) return;
             }
 

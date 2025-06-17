@@ -24,10 +24,14 @@ namespace GameLogic.UI
 
         protected void UpdateViewModel<T>(ref T oldViewModel, ViewModel newViewModel) where T : ViewModel
         {
-            oldViewModel?.Dispose();
+            if (newViewModel == null) return;
+            if (oldViewModel != null)
+            {
+                Unsubscribes();
+                oldViewModel.Dispose();
+            }
             oldViewModel = (T) newViewModel;
             _viewModelInternal = newViewModel;
-
             Subscribes();
         }
 

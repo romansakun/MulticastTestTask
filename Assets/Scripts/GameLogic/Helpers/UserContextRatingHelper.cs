@@ -36,6 +36,15 @@ namespace GameLogic.Helpers
         // 10 - is min score by level
         public int AddLevelScore(string localizationDefId, LevelProgressContextDataProvider levelProgress)
         {
+            var score = GetLevelScore(levelProgress);
+
+            _ratings[localizationDefId] += score;
+
+            return score;
+        }
+
+        public int GetLevelScore(LevelProgressContextDataProvider levelProgress)
+        {
             var needMovesCount = 0;
             foreach (var clusters in levelProgress.DistributedClusters)
             {
@@ -44,9 +53,6 @@ namespace GameLogic.Helpers
             var movesCount = Mathf.Clamp(levelProgress.SavesCount - needMovesCount, 0, int.MaxValue);
             var extraScore = Mathf.Clamp(20 - movesCount, 0, 20);
             var score = 10 + extraScore;
-
-            _ratings[localizationDefId] += score;
-
             return score;
         }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 312124640218849801}
   - component: {fileID: 8994597348431020875}
   - component: {fileID: 2993988720613938098}
+  - component: {fileID: 899748243641873404}
   m_Layer: 5
   m_Name: league_icons
   m_TagString: Untagged
@@ -87,6 +88,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: {x: -0.05, y: -0.05}
   _image: {fileID: 8994597348431020875}
+--- !u!114 &899748243641873404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2301386678942866483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b531dbcd3a4c1aae8eb24b0e1df8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 5087772599487661510}
+  _rotationSpeed: 10000
 --- !u!1 &2480142552687128898
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +113,8 @@ GameObject:
   - component: {fileID: 4436918710343282259}
   - component: {fileID: 5818378676610701024}
   - component: {fileID: 2851571489952091736}
+  - component: {fileID: 6227588534255830011}
+  - component: {fileID: 373758664580670742}
   m_Layer: 5
   m_Name: BackgroundView
   m_TagString: Untagged
@@ -143,20 +160,50 @@ Canvas:
   m_GameObject: {fileID: 2480142552687128898}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
-  m_OverrideSorting: 1
+  m_OverrideSorting: 0
   m_OverridePixelPerfect: 1
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: -2
   m_TargetDisplay: 0
+--- !u!114 &6227588534255830011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480142552687128898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &373758664580670742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480142552687128898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05767b93d9c84e47a64258045d07e2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _overrideSortingOrder: -2
 --- !u!1 &2583098248225277704
 GameObject:
   m_ObjectHideFlags: 0

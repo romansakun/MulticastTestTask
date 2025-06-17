@@ -28,10 +28,14 @@ namespace GameLogic.UI.Victory
         public override UniTask Initialize(ViewModel viewModel)
         {
             UpdateViewModel(ref _viewModel, viewModel);
+            if (_viewModel == null)
+            {
+                return UniTask.CompletedTask;
+            }
 
             _viewModel.LoadResolvedWords(_wordsHolder);
-
             _audioPlayer.PlaySound("SuccessSound");
+
             return UniTask.CompletedTask;
         }
 
@@ -46,11 +50,11 @@ namespace GameLogic.UI.Victory
 
         protected override void Unsubscribes()
         {
-            _nextLevelButton.onClick.AddListener(_viewModel.OnNextLevelButtonClicked);
-            _mainMenuButton.onClick.AddListener(_viewModel.OnMainMenuButtonClicked);
-            _viewModel.VisibleNextLevelButton.Unsubscribe(OnVisibleNextLevelButtonChanged);
-            _viewModel.CongratulationsText.Unsubscribe(OnCongratulationsTextChanged);
-            _viewModel.ScoreText.Unsubscribe(OnScoreTextChanged);
+            _nextLevelButton.onClick.RemoveAllListeners();
+            _mainMenuButton.onClick.RemoveAllListeners();
+            _viewModel?.VisibleNextLevelButton.Unsubscribe(OnVisibleNextLevelButtonChanged);
+            _viewModel?.CongratulationsText.Unsubscribe(OnCongratulationsTextChanged);
+            _viewModel?.ScoreText.Unsubscribe(OnScoreTextChanged);
         }
 
         private void OnScoreTextChanged(string score)

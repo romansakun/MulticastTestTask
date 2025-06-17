@@ -3,6 +3,21 @@
     "dependencyTypeInfos": [
         {
             "userAdded": false,
+            "type": "UnityEngine.AnimationClip",
+            "defaultInstantiationMode": 0
+        },
+        {
+            "userAdded": false,
+            "type": "UnityEditor.Animations.AnimatorController",
+            "defaultInstantiationMode": 0
+        },
+        {
+            "userAdded": false,
+            "type": "UnityEngine.AnimatorOverrideController",
+            "defaultInstantiationMode": 0
+        },
+        {
+            "userAdded": false,
             "type": "UnityEditor.Audio.AudioMixerController",
             "defaultInstantiationMode": 0
         },
@@ -13,12 +28,22 @@
         },
         {
             "userAdded": false,
+            "type": "UnityEngine.Cubemap",
+            "defaultInstantiationMode": 0
+        },
+        {
+            "userAdded": false,
             "type": "UnityEngine.GameObject",
             "defaultInstantiationMode": 0
         },
         {
             "userAdded": false,
             "type": "UnityEditor.LightingDataAsset",
+            "defaultInstantiationMode": 0
+        },
+        {
+            "userAdded": false,
+            "type": "UnityEngine.LightingSettings",
             "defaultInstantiationMode": 0
         },
         {

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using GameLogic.Audio;
-using GameLogic.Bootstrapper;
 using GameLogic.UI.Components;
 using GameLogic.UI.Victory;
 using TMPro;
@@ -26,7 +25,7 @@ namespace GameLogic.UI.Gameplay
         [SerializeField] private Button _swipeToLeftButton;
         [SerializeField] private Button _swipeToRightButton;
         [SerializeField] private TextMeshProUGUI _levelName;
-        [SerializeField] private TextMeshProUGUI _description;
+        [SerializeField] private TextMeshProUGUI _cupsCountText;
 
         [Header("Ad Tip button")]
         [SerializeField] private Button _adTipButton;
@@ -43,13 +42,17 @@ namespace GameLogic.UI.Gameplay
 
         private bool _isScrollRectDragging;
         private Tween _failButtonAnimation;
+        private Tween _cupsCountChangedAnimation;
         private GameplayViewModel _viewModel;
 
         public override async UniTask Initialize(ViewModel viewModel)
         {
             UpdateViewModel(ref _viewModel, viewModel);
 
-            await _viewModel.StartLevelLoading(_wordsHolder, _undistributedClustersHolder);
+            if (_viewModel != null)
+            {
+                await _viewModel.StartLevelLoading(_wordsHolder, _undistributedClustersHolder);
+            }
         }
 
         protected override void Subscribes()
@@ -62,7 +65,7 @@ namespace GameLogic.UI.Gameplay
             _viewModel.IsUndistributedClustersScrollRectActive.Subscribe(OnUndistributedClustersScrollRectActiveChanged);
             _viewModel.IsHintClusterInUndistributedClusters.Subscribe(OnHintClusterInUndistributedClustersChanged);
             _viewModel.IsFailedCompleteLevel.Subscribe(OnFailedCompleteLevelChanged);
-            _viewModel.DescriptionLevelText.Subscribe(OnDescriptionLevelTextChanged);
+            _viewModel.CupsCountText.Subscribe(OnCupsCountTextChanged);
             _viewModel.LevelNameText.Subscribe(OnLevelNameTextChanged);
             _viewModel.CheckingWordsButtonState.Subscribe(OnCheckingWordsButtonStateChanged);
             _viewModel.TipButtonState.Subscribe(OnTipButtonStateChanged);
@@ -75,17 +78,18 @@ namespace GameLogic.UI.Gameplay
             _swipeToLeftButton.onClick.RemoveAllListeners();
             _swipeToRightButton.onClick.RemoveAllListeners();
             _adTipButton.onClick.RemoveAllListeners();
-            _viewModel.UndistributedClustersScrollRectNormalizedPosition.Unsubscribe(OnUndistributedClustersScrollRectNormalizedPositionChanged);
-            _viewModel.IsUndistributedClustersScrollRectActive.Unsubscribe(OnUndistributedClustersScrollRectActiveChanged);
-            _viewModel.IsHintClusterInUndistributedClusters.Unsubscribe(OnHintClusterInUndistributedClustersChanged);
-            _viewModel.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
-            _viewModel.DescriptionLevelText.Unsubscribe(OnDescriptionLevelTextChanged);
-            _viewModel.LevelNameText.Unsubscribe(OnLevelNameTextChanged);
-            _viewModel.CheckingWordsButtonState.Unsubscribe(OnCheckingWordsButtonStateChanged);
-            _viewModel.TipButtonState.Unsubscribe(OnTipButtonStateChanged);
-            _viewModel.IsTipVisible.Unsubscribe(OnTipVisibleChanged);
+            _viewModel?.UndistributedClustersScrollRectNormalizedPosition.Unsubscribe(OnUndistributedClustersScrollRectNormalizedPositionChanged);
+            _viewModel?.IsUndistributedClustersScrollRectActive.Unsubscribe(OnUndistributedClustersScrollRectActiveChanged);
+            _viewModel?.IsHintClusterInUndistributedClusters.Unsubscribe(OnHintClusterInUndistributedClustersChanged);
+            _viewModel?.IsFailedCompleteLevel.Unsubscribe(OnFailedCompleteLevelChanged);
+            _viewModel?.CupsCountText.Unsubscribe(OnCupsCountTextChanged);
+            _viewModel?.LevelNameText.Unsubscribe(OnLevelNameTextChanged);
+            _viewModel?.CheckingWordsButtonState.Unsubscribe(OnCheckingWordsButtonStateChanged);
+            _viewModel?.TipButtonState.Unsubscribe(OnTipButtonStateChanged);
+            _viewModel?.IsTipVisible.Unsubscribe(OnTipVisibleChanged);
 
             _failButtonAnimation?.Kill();
+            _cupsCountChangedAnimation?.Kill();
         }
 
         private void OnCheckingWordsButtonStateChanged(ConsumableButtonState state)
@@ -115,9 +119,14 @@ namespace GameLogic.UI.Gameplay
             _levelName.text = levelName;
         }
 
-        private void OnDescriptionLevelTextChanged(string rules)
+        private void OnCupsCountTextChanged(string count)
         {
-            _description.text = rules;
+            if (_cupsCountText.text != count)
+            {
+                _cupsCountChangedAnimation?.Kill();
+                _cupsCountChangedAnimation = _cupsCountText.transform.DOShakePosition(.75f, new Vector2(15, 0));
+            }
+            _cupsCountText.text = count;
         }
 
         private void OnUndistributedClustersScrollRectActiveChanged(bool state)
@@ -134,7 +143,6 @@ namespace GameLogic.UI.Gameplay
         {
             if (state) _undistributedClustersScrollRect.horizontalNormalizedPosition = 0f;
         }
-
 
         private void OnSwipeToRightButtonClicked()
         {

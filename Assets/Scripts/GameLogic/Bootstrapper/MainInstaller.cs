@@ -29,7 +29,6 @@ namespace GameLogic.Bootstrapper
             Container.BindFactory<WordRow, WordRow.Factory>().AsSingle();
             Container.BindFactory<PlayerLine, PlayerLine.Factory>().AsSingle();
 
-            //Container.BindInterfacesAndSelfTo<TutorialService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ViewManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameActionExecutor>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameAppLoader>().AsSingle();

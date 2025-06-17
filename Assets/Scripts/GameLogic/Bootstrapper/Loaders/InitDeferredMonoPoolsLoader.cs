@@ -22,11 +22,12 @@ namespace GameLogic.Bootstrapper
             var clusterPrefab = await _assetsLoader.LoadPrefabAsync<Cluster>();
             var guessWordPrefab = await _assetsLoader.LoadPrefabAsync<WordRow>();
             var playerLinePool = await _assetsLoader.LoadPrefabAsync<PlayerLine>();
-            var canvasTransform = _canvas.transform;
+            var poolsContainer = new GameObject("PoolsContainer").transform;
+            poolsContainer.SetParent(_canvas.transform, false);
 
-            _wordRowPool.InitPool(guessWordPrefab, canvasTransform, 4);
-            _clusterPool.InitPool(clusterPrefab, canvasTransform, 8);
-            _playerLinePool.InitPool(playerLinePool, canvasTransform, 50);
+            _wordRowPool.InitPool(guessWordPrefab, poolsContainer, 4);
+            _clusterPool.InitPool(clusterPrefab, poolsContainer, 8);
+            _playerLinePool.InitPool(playerLinePool, poolsContainer, 50);
         }
 
     }

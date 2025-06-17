@@ -1,9 +1,9 @@
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using GameLogic.Bootstrapper;
 using GameLogic.Factories;
 using GameLogic.Model.DataProviders;
 using GameLogic.Model.Definitions;
+using GameLogic.UI.GameInfo;
 using GameLogic.UI.Gameplay;
 using GameLogic.UI.Leaderboards;
 using GameLogic.UI.Settings;
@@ -91,18 +91,6 @@ namespace GameLogic.UI.MainMenu
             _currentShowedLeagueDef = leagueDef;
         }
 
-        // private void AnimateCompletedLevelsCount()
-        // {
-        //     var count = _userContext.GetAllCompletedLevels();
-        //     _completedLevelsCount.SetValueAndForceNotify(count);
-        //     _animation?.Kill();
-        //     _animation = DOTween.To(() => _wordsCounter, showingValue =>
-        //     {
-        //         _wordsCounter = showingValue;
-        //         _completedLevelsCount.SetValueAndForceNotify(showingValue);
-        //     }, count, 1f).SetEase(Ease.OutQuart);
-        // }
-
         private void OnLocalizationDefIdChanged(string defId)
         {
             InitLeague();
@@ -114,8 +102,8 @@ namespace GameLogic.UI.MainMenu
             _signalBus.Fire<StartShowingGameplayViewSignal>();
 
             var viewModel = _viewModelFactory.Create<GameplayViewModel>();
-            await _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
             await _viewManager.Close<MainMenuView>();
+            await _viewManager.ShowAsync<GameplayView, GameplayViewModel>(viewModel);
         }
 
         public async void OnSettingsButtonClicked()
@@ -156,6 +144,14 @@ namespace GameLogic.UI.MainMenu
             }
         }
 
+        public async void OnInfoButtonClicked()
+        {
+            _viewManager.TryGetView<MainMenuView>(out var view);
+            view.gameObject.SetActive(false);
+            var viewModel = _viewModelFactory.Create<GameInfoViewModel>();
+            await _viewManager.ShowAsync<GameInfoView, GameInfoViewModel>(viewModel);
+        }
+
         public override void Dispose()
         {
             //_animation?.Kill();
@@ -169,6 +165,5 @@ namespace GameLogic.UI.MainMenu
 
             _userContext.LocalizationDefId.Unsubscribe(OnLocalizationDefIdChanged);
         }
-
     }
 }

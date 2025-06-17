@@ -1,4 +1,4 @@
-Authorization v1.01
+Authorization v1.021
 Fullscreen v1.0
 InterstitialAdv v1.002
 Leaderboards v1.0

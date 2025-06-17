@@ -16,6 +16,7 @@ namespace GameLogic.UI.Gameplay
         public readonly ReactiveProperty<bool> IsHintClusterInUndistributedClusters = new(false);
         public readonly ReactiveProperty<bool> IsFailedCompleteLevel = new(false);
         public readonly ReactiveProperty<bool> IsTipVisible = new(true);
+        public readonly ReactiveProperty<string> CupsCountText = new();
 
         public ClickContext Click { get; } = new();
         public SwipeContext Swipe { get; } = new();

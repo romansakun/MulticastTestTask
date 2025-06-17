@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using GameLogic.Bootstrapper;
 using GameLogic.Factories;
+using GameLogic.Helpers;
 using GameLogic.Model.DataProviders;
 using GameLogic.UI.CenterMessage;
 using Infrastructure;
@@ -26,13 +27,12 @@ namespace GameLogic.UI.Gameplay
         public IReactiveProperty<bool> IsFailedCompleteLevel => _logicAgent.Context.IsFailedCompleteLevel;
         public IReactiveProperty<ConsumableButtonState> CheckingWordsButtonState => _logicAgent.Context.CheckingWordsButtonState;
         public IReactiveProperty<ConsumableButtonState> TipButtonState => _logicAgent.Context.TipButtonState;
+        public IReactiveProperty<string> CupsCountText => _logicAgent.Context.CupsCountText;
         public IReactiveProperty<bool> IsTipVisible => _logicAgent.Context.IsTipVisible;
+
         public IReactiveProperty<string> LevelNameText => _levelNameText;
-        public IReactiveProperty<string> DescriptionLevelText => _descriptionLevelText;
-
-
         private readonly ReactiveProperty<string> _levelNameText = new();
-        private readonly ReactiveProperty<string> _descriptionLevelText = new();
+
 
         private LogicAgent<GameplayViewModelContext> _logicAgent;
 
@@ -115,12 +115,6 @@ namespace GameLogic.UI.Gameplay
             _logicAgent.Context.UndistributedClustersHolder = undistributedClustersHolder;
             await _logicAgent.ExecuteAsync();
 
-            var wordLength = _gameDefs.LevelSettings.WordLengthsRange.Max;
-            var wordCount = _gameDefs.LevelSettings.WordsRange.Max;
-            var rulesDescKey = _gameDefs.LevelSettings.RulesDescriptionLocalizationKey;
-            var localizedText= _userContext.GetLocalizedText(rulesDescKey);
-            _descriptionLevelText.Value = string.Format(localizedText, wordLength, wordCount);
-
             var levelDefId = _logicAgent.Context.LevelProgress.LevelDefId;
             var levelNumber = _gameDefs.GetLevelNumber(levelDefId, _userContext.LocalizationDefId.Value);
             var levelNumberKey = _gameDefs.LevelSettings.LevelNumberLocalizationKey;
@@ -174,7 +168,7 @@ namespace GameLogic.UI.Gameplay
         public override void Dispose()
         {
             LevelNameText.Dispose();
-            DescriptionLevelText.Dispose();
+            CupsCountText.Dispose();
             IsFailedCompleteLevel.Dispose();
 
             _logicAgent.OnCatchError -= OnLogicFailed;
