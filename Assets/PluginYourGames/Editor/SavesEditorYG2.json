@@ -1,5 +1,5 @@
 {
-  "idSave": 4069,
+  "idSave": 4116,
   "userContext": {
     "Version": 1,
     "IsSoundsMuted": false,
@@ -8,8 +8,8 @@
     "LocalizationDefId": "Russian",
     "Consumables": {
       "WordsCheckingCount": 3,
-      "AdsTipCount": 3,
-      "LastFreeUpdateTime": "2025-06-18T00:33:17.1452235+03:00"
+      "AdsTipCount": 0,
+      "LastFreeUpdateTime": "2025-06-18T23:38:37.3007602+03:00"
     },
     "LevelsProgress": {
       "En_1": {
@@ -1358,22 +1358,97 @@
       },
       "Ru_56": {
         "LevelDefId": "Ru_56",
+        "IsCompleted": true,
+        "SavesCount": 14,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "ТЕ",
+            "САК"
+          ],
+          [
+            "ФОБ",
+            "ИЯ"
+          ],
+          [
+            "СА",
+            "ЛАТ"
+          ],
+          [
+            "ТРО",
+            "МП"
+          ]
+        ]
+      },
+      "Ru_57": {
+        "LevelDefId": "Ru_57",
+        "IsCompleted": true,
+        "SavesCount": 5,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "УЗН",
+            "ИК"
+          ],
+          [
+            "ФАК",
+            "ЕЛ"
+          ],
+          [
+            "ФА",
+            "ЗАН"
+          ],
+          [
+            "ФИН",
+            "АЛ"
+          ]
+        ]
+      },
+      "Ru_58": {
+        "LevelDefId": "Ru_58",
+        "IsCompleted": true,
+        "SavesCount": 4,
+        "UndistributedClusters": [],
+        "DistributedClusters": [
+          [
+            "МИ",
+            "СКА"
+          ],
+          [
+            "ФО",
+            "ТОН"
+          ],
+          [
+            "ВИ",
+            "ШНЯ"
+          ],
+          [
+            "ТУ",
+            "МБА"
+          ]
+        ]
+      },
+      "Ru_59": {
+        "LevelDefId": "Ru_59",
         "IsCompleted": false,
-        "SavesCount": 0,
+        "SavesCount": 3,
         "UndistributedClusters": [
-          "ИЯ",
-          "СА",
-          "САК",
-          "ТЕ",
-          "ЛАТ",
-          "МП",
-          "ТРО",
-          "ФОБ"
+          "ТО",
+          "РБА"
         ],
         "DistributedClusters": [
-          [],
-          [],
-          [],
+          [
+            "ТОТ",
+            "ЕМ"
+          ],
+          [
+            "ФЛ",
+            "ЯГА"
+          ],
+          [
+            "КОК",
+            "ОС"
+          ],
           []
         ]
       }
