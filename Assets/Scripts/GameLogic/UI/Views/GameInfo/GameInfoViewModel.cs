@@ -22,25 +22,29 @@ namespace GameLogic.UI.GameInfo
 
         public override void Initialize()
         {
-            if (_userContext.AdsTipsCount.Value != _gameDefs.DefaultSettings.ConsumablesFreeCount)
-            {
-                SetTimerToHintUpdates();
-            }
-            else
+            if (TrySetTimerToHintUpdates() == false)
             {
                 _adHintInfoText.Value = _userContext.GetLocalizedText("INFO_AD_HINT");
             }
         }
 
-        private void SetTimerToHintUpdates()
+        private bool TrySetTimerToHintUpdates()
         {
+            if (_userContext.AdsTipsCount.Value == _gameDefs.DefaultSettings.ConsumablesFreeCount) 
+                return false;
+
             var duration = _userContext.GetConsumablesUpdateDurationSeconds();
+            if (duration <= 0) 
+                return false;
+
             _timer = _timerService.SetTimer(duration, ts =>
             {
                 var infoText = _userContext.GetLocalizedText("INFO_AD_HINT");
                 var leftText = _userContext.GetLocalizedText("LEFT");
                 _adHintInfoText.Value = ts.HmsD2($"{infoText}\n({leftText}: ", ")");
-            }, null, 1000);
+            }, () => _adHintInfoText.Value = _userContext.GetLocalizedText("INFO_AD_HINT"), 1000);
+
+            return true;
         }
 
         public async void OnBackButtonClicked()
